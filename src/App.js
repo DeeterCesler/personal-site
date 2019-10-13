@@ -10,6 +10,7 @@ import LoginRegisterContainer from './LoginRegisterContainer';
 import LogoutPage from './LogoutPage';
 import EditContact from './EditContact';
 import HelpPage from './HelpPage';
+import Footer from './Footer';
 
 const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS || "https://followup-v1.herokuapp.com/";
 
@@ -221,6 +222,7 @@ class App extends Component {
             <Route exact path="/contacts/all" render={this.allContacts}/>
             <Route exact path="/help" render={this.helpPage}/>
           </Switch>
+          {/* <Footer loggedIn={this.state.loggedIn}/> */}
         </div>
     );
   }

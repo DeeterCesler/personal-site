@@ -22,34 +22,23 @@ export default class NavBar extends Component{
                     <NavbarBrand href="/">Deeter Cesler - Chad version 1.0</NavbarBrand>
                     <NavbarToggler onClick={this.toggle}/>
                     <Collapse isOpen={this.state.isOpen} navbar>
-                        { this.props.loggedIn ? 
-                            <Nav className="ml-auto" navbar>
-                                    <NavItem>
-                                        <NavLink href="/contacts/all">See all contacts</NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink href="/contacts/new">New contact</NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink href="/logout">Logout</NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink href="/help">Help</NavLink>
-                                    </NavItem>
-                            </Nav>
-                                :
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
-                                    <NavLink href="/register">Register</NavLink>
+                                    <NavLink href="/portfolio">Portfolio</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="/login">Login</NavLink>
+                                    <NavLink href="/about">About</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="/help">Help</NavLink>
+                                    <NavLink href="/contact">Contact</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink href="/blog">Blog</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink href="/now">Now</NavLink>
                                 </NavItem>
                             </Nav>
-                        }
                     </Collapse>
                 </Navbar>
             </div>

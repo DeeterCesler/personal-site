@@ -125,3 +125,11 @@ body {
   width: 48%;
   margin: 1%;
 }
+
+.big-name{
+  font-size: 80px;
+}
+
+.footer{
+  background-color: #3f3f3f;
+}

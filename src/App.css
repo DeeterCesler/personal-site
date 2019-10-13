@@ -158,3 +158,29 @@ body {
   padding: 2em;
   border-radius: 12px;
 }
+
+.wrapper {
+  background-color:rgba(0,0,0,0.3);
+}
+
+.second-wrapper {
+  background-color:rgba(0,0,0,0.5);
+}
+
+.contact{
+  /* margin: 10%; */
+  padding-top: 5em;
+  padding-bottom: 5em;
+  border-radius: 12px;
+  /* height: 10em; */
+}
+
+.portfolio{
+  padding-bottom: 5em;
+  border-radius: 12px;
+}
+
+.fader{
+  background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
+  height: 10em;
+}

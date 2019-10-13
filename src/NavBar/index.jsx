@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import {Navbar, NavbarBrand, NavbarToggler, Nav, NavItem, Collapse, NavLink} from "reactstrap";
-import {HashLink} from "react-router-hash-link";
 
 export default class NavBar extends Component{
     constructor(props) {
@@ -19,28 +18,28 @@ export default class NavBar extends Component{
     render(){
         return(
             <div id="navbar">
-                <Navbar color="light" light expand="md">
+                <Navbar color="dark" dark expand="md">
                     <NavbarBrand href="/">Deeter Cesler - Chad version 1.0</NavbarBrand>
                     <NavbarToggler onClick={this.toggle}/>
                     <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
-                                    <NavLink href="/#home">Home</NavLink>
+                                    <NavLink href="/#home">home</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="/#portfolio">Portfolio</NavLink>
+                                    <NavLink href="/#portfolio">portfolio</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="/#about">About</NavLink>
+                                    <NavLink href="/#about">about</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="/#contact">Contact</NavLink>
+                                    <NavLink href="/#contact">contact</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="/blog">Blog</NavLink>
+                                    <NavLink href="/blog">blog</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="/now">Now</NavLink>
+                                    <NavLink href="/now">now</NavLink>
                                 </NavItem>
                             </Nav>
                     </Collapse>

@@ -94,6 +94,7 @@ body {
   color: #000;
   position: fixed;
   width: 100%;
+  z-index: 1;
 }
 
 .contact-list {
@@ -167,20 +168,47 @@ body {
   background-color:rgba(0,0,0,0.5);
 }
 
+.last-wrapper {
+  background-color:rgba(0,0,0,0.7);
+}
+
 .contact{
-  /* margin: 10%; */
-  padding-top: 5em;
-  padding-bottom: 5em;
-  border-radius: 12px;
-  /* height: 10em; */
-}
-
-.portfolio{
   padding-bottom: 5em;
   border-radius: 12px;
 }
 
-.fader{
+/* .portfolio{
+  padding-bottom: 5em;
+  border-radius: 12px;
+} */
+
+.fader, .mini-fader{
   background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
   height: 10em;
+}
+
+.last-fader{
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7));
+  height: 4em;
+}
+
+.email{
+  color: white;
+}
+
+.email{
+  margin: 25px;
+}
+
+.insta, .insta-logo{
+  margin-bottom: 10px;
+}
+
+.nav-spacer{
+  height: 75px;
+  width: 0;
+}
+
+.tiny{
+  font-size: 10px;
 }

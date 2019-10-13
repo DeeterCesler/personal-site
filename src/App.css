@@ -55,7 +55,16 @@ body {
 }
 
 .background{
-  background: url("./img/home-background-2.jpg");
+  background: url("./img/cow.jpg");
+  /* background-color: #3f3f3f; */
+  background-size: cover;
+  background-repeat: none;
+  z-index: -1;
+  min-height: 105vh;
+}
+
+.home{
+  background: url("./img/cow.jpg");
   /* background-color: #3f3f3f; */
   background-size: cover;
   background-repeat: none;
@@ -83,6 +92,8 @@ body {
 
 #navbar {
   color: #000;
+  position: fixed;
+  width: 100%;
 }
 
 .contact-list {
@@ -132,4 +143,18 @@ body {
 
 .footer{
   background-color: #3f3f3f;
+}
+
+.now{
+  /* background-color: #2b2b2b; */
+  background-image: url('./img/cloud-mountain.jpg');
+  background-size: cover;
+  background-repeat: none;
+  height: 100%
+}
+
+.readability{
+  background-color: rgba(0,0,0,0.3);
+  padding: 2em;
+  border-radius: 12px;
 }

@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {Navbar, NavbarBrand, NavbarToggler, Nav, NavItem, Collapse, NavLink} from "reactstrap";
+import {HashLink} from "react-router-hash-link";
 
 export default class NavBar extends Component{
     constructor(props) {
@@ -24,13 +25,16 @@ export default class NavBar extends Component{
                     <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
-                                    <NavLink href="/portfolio">Portfolio</NavLink>
+                                    <NavLink href="/#home">Home</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="/about">About</NavLink>
+                                    <NavLink href="/#portfolio">Portfolio</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="/contact">Contact</NavLink>
+                                    <NavLink href="/#about">About</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink href="/#contact">Contact</NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink href="/blog">Blog</NavLink>

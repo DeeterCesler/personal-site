@@ -11,6 +11,7 @@ import LogoutPage from './LogoutPage';
 import EditContact from './EditContact';
 import HelpPage from './HelpPage';
 import Footer from './Footer';
+import Now from './Now';
 
 const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS || "https://followup-v1.herokuapp.com/";
 
@@ -207,12 +208,17 @@ class App extends Component {
   helpPage = () => {
     return <HelpPage/>
   }
+  
+  now = () => {
+    return <Now/>
+  }
 
   render(){
     return (
         <div className="App">
           <NavBar loggedIn={this.state.loggedIn}/>
           <Switch>
+            {/* <Route exact path="/home" redi ={this.homepage}/> */}
             <Route exact path="/" render={this.homepage}/>
             <Route exact path="/about" render={this.aboutPage}/>
             <Route exact path="/login" render={this.loginRegisterPage}/>
@@ -221,6 +227,7 @@ class App extends Component {
             <Route exact path="/contacts/new" render={this.newContact}/>
             <Route exact path="/contacts/all" render={this.allContacts}/>
             <Route exact path="/help" render={this.helpPage}/>
+            <Route exact path="/now" render={this.now}/>
           </Switch>
           {/* <Footer loggedIn={this.state.loggedIn}/> */}
         </div>

@@ -26,6 +26,7 @@ const HomePage = () => {
                         <ScrollableAnchor id={"about"}>
                             <div>
                                 <div className="nav-spacer"/>
+                                <div className="nav-spacer"/>
                                 <About/>
                             </div>
                         </ScrollableAnchor>

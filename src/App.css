@@ -169,13 +169,15 @@ h3{
   background-image: url('./img/cloud-mountain.jpg');
   background-size: cover;
   background-repeat: none;
-  height: 100%
+  height: 100vh;
 }
 
 .readability{
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.7);
   padding: 2em;
   border-radius: 12px;
+  max-width: 600px;
+  display: inline-block;
 }
 
 .wrapper {
@@ -251,4 +253,9 @@ h3{
 #navbar-header{
   font-size: 1.8em;
   font-weight: 900;
+}
+
+.now-header{
+  font-weight: 800;
+  margin: 2em;
 }

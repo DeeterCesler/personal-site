@@ -12,7 +12,7 @@ const Contact = () => {
                     <p>I always respond to email.</p>
                 </div>
                 <div className="insta col">
-                    <a href="https://www.instagram.com/deetercesler/" target="_blank">
+                    <a href="https://www.instagram.com/deetercesler/" target="_blank" rel="noopener noreferrer">
                         <img className="insta-logo" src={require("./img/insta.png")} height="50px" alt="Instagram"/>
                     </a>
                     <p className="tiny">But I love the validation of social media.</p>

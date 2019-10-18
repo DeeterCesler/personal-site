@@ -3,16 +3,18 @@ import React from "react";
 const About = () => {
     return(
         <div className="about container">
-            <h2>About</h2>
-            <br/>
+            {/* <h2>About</h2> */}
+            {/* <br/> */}
             <div className="row">
                 <div className="col"/>
                 <div className="col-8">
-                    <p>Before web development, I worked as a copywriter making experiences simple and intuitive for readers and users. This background gives me an advantage in understanding how to build a great user-first experience.</p>
-                    <p>I love creating new systems and organizations, simplifying complex systems, <br/> and out-of-the-box creativity.</p>
+                    <p className="headline">I help organizations discover new markets, create content, and find their own voice.</p>
+                    {/* <p className="subheading">I've worked professionally as a writer, marketer, software developer, and small business strategist.</p> */}
+                    {/* <p className="subheading">I help businesses and nonprofits discover new markets, create content, and find their own voice.</p> */}
                 </div>
                 <div className="col"/>
             </div>
+            <div className="spacer"/>
         </div>
     )
 }

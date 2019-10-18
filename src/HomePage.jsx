@@ -12,15 +12,15 @@ const HomePage = () => {
                     <div className="spacer"></div>
                 </ScrollableAnchor>
                 <h1 className="big-name">Deeter Cesler</h1>
-                <h3>full stack web developer</h3>
+                <h3>strategist <br/> writer <br/> software engineer</h3>
                 <div className="fader"/>
                 <div className="second-wrapper">
-                    <ScrollableAnchor id={"portfolio"}>
+                    {/* <ScrollableAnchor id={"portfolio"}>
                         <div>
                             <div className="nav-spacer"/>
                             <Portfolio/>
                         </div>
-                    </ScrollableAnchor>
+                    </ScrollableAnchor> */}
                     <div className="mini-fader"/>
                     <div className="second-wrapper">
                         <ScrollableAnchor id={"about"}>

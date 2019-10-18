@@ -26,9 +26,9 @@ export default class NavBar extends Component{
                                 <NavItem>
                                     <NavLink href="/#home">home</NavLink>
                                 </NavItem>
-                                <NavItem>
+                                {/* <NavItem>
                                     <NavLink href="/#portfolio">portfolio</NavLink>
-                                </NavItem>
+                                </NavItem> */}
                                 <NavItem>
                                     <NavLink href="/#about">about</NavLink>
                                 </NavItem>

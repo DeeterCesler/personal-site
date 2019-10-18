@@ -25,7 +25,7 @@ body {
 
 @media only screen and (min-width: 700px) {
   .spacer {
-    height: 10em;
+    height: 11em;
   }
   .explainer {
     width: 45%;
@@ -202,7 +202,7 @@ h3{
 
 .last-fader{
   background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7));
-  height: 4em;
+  height: 6em;
 }
 
 .email{
@@ -234,7 +234,7 @@ h3{
 }
 
 .headline{
-  font-size: 3em;
+  font-size: 2.7em;
   font-weight: 800;
   margin-bottom: 3em;
 }
@@ -242,4 +242,13 @@ h3{
 .subheading{
   font-size: 1.5em;
   font-weight: 600;
+}
+
+.contact-header{
+  font-weight: 800;
+}
+
+#navbar-header{
+  font-size: 1.8em;
+  font-weight: 900;
 }

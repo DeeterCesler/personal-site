@@ -3,15 +3,15 @@ import React from "react";
 const Contact = () => {
     return(
         <div className="contact container">
-            <h2>Contact Me</h2>
+            <h2 className="contact-header">contact me</h2>
             <br/>
             <div className="row">
                 <div className="col"/>
-                <div className="email col">
+                <div className="email col-md">
                     <strong><a className="email" href="mailto:deeter.cesler@gmail.com">deeter.cesler@gmail.com</a></strong>
                     <p>I always respond to email.</p>
                 </div>
-                <div className="insta col">
+                <div className="insta col-md">
                     <a href="https://www.instagram.com/deetercesler/" target="_blank" rel="noopener noreferrer">
                         <img className="insta-logo" src={require("./img/insta.png")} height="50px" alt="Instagram"/>
                     </a>

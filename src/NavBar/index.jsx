@@ -19,7 +19,7 @@ export default class NavBar extends Component{
         return(
             <div id="navbar">
                 <Navbar color="dark" dark expand="md">
-                    <NavbarBrand href="/">Deeter Cesler - Chad version 1.0</NavbarBrand>
+                    <NavbarBrand href="/" id="navbar-header">Deeter Cesler</NavbarBrand>
                     <NavbarToggler onClick={this.toggle}/>
                     <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>

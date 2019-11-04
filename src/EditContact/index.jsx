@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, Button, Label, FormGroup, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Form, Input, Button, Label, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { Redirect } from "react-router-dom";
 
 const date = new Date();

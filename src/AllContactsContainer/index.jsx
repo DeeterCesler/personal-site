@@ -35,7 +35,7 @@ class AllContactsContainer extends Component {
     }
 
     componentDidMount = async () => {
-        if(this.props.email != undefined){
+        if(this.props.email !== undefined){
             this.getAllContacts();
         }
     }

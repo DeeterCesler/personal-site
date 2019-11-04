@@ -1,7 +1,7 @@
 import React from "react";
 import ScrollableAnchor from 'react-scrollable-anchor'
 import Contact from "./Contact";
-import Portfolio from "./Portfolio";
+// import Portfolio from "./Portfolio";
 import About from "./About";
 
 const HomePage = () => {

@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import { Form, Button, Modal } from "reactstrap";
+import React from "react";
+import { Form, Button } from "reactstrap";
 import EditContact from "../../EditContact";
 
 const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS || "https://followup-v1.herokuapp.com/";

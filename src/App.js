@@ -8,9 +8,9 @@ import AllContactsContainer from './AllContactsContainer';
 import NavBar from './NavBar';
 import LoginRegisterContainer from './LoginRegisterContainer';
 import LogoutPage from './LogoutPage';
-import EditContact from './EditContact';
+// import EditContact from './EditContact';
 import HelpPage from './HelpPage';
-import Footer from './Footer';
+// import Footer from './Footer';
 import Now from './Now';
 
 const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS || "https://followup-v1.herokuapp.com/";
@@ -190,11 +190,9 @@ class App extends Component {
   }
   
   allContacts = () => {
-    {
-      return this.state.email != null
-      ? <AllContactsContainer email={this.state.email}/>
-      : <div/>
-    }
+    return this.state.email != null
+    ? <AllContactsContainer email={this.state.email}/>
+    : <div/>
   }
 
   loginRegisterPage = () => {

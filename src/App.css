@@ -169,7 +169,7 @@ h3{
   background-image: url('./img/cloud-mountain.jpg');
   background-size: cover;
   background-repeat: none;
-  height: 100vh;
+  height: 100%;
 }
 
 .readability{

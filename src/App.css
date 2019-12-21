@@ -109,7 +109,7 @@ body {
   z-index: 1;
 }
 
-.contact-list {
+.blog-list {
   list-style: none;
   padding: 0;
   padding: 0 30% 0 30%;
@@ -117,7 +117,7 @@ body {
   /* display: inline; */
 }
 
-.contact-list li Form {
+.blog-list li Form {
   text-align: center;
 }
 
@@ -130,11 +130,11 @@ body {
   margin: 1em;
 }
 
-.contacts-row, .contacts-row td{
+.blogs-row, .blogs-row td{
   margin: 5px;
 }
 
-.contacts-container{
+.blogs-container{
   width: 80%;
   background-color: rgba(0,0,0,0.5);
   padding-top: 20px;
@@ -192,7 +192,7 @@ h3{
   background-color:rgba(0,0,0,0.7);
 }
 
-.contact{
+.blog{
   padding-bottom: 5em;
   border-radius: 12px;
 }
@@ -250,7 +250,7 @@ h3{
   font-weight: 600;
 }
 
-.contact-header{
+.blog-header{
   font-weight: 800;
 }
 
@@ -262,4 +262,16 @@ h3{
 .now-header{
   font-weight: 800;
   margin: 2em;
+}
+
+.bold{
+  font-weight: 650;
+  font-size: 1.8em;
+}
+
+.blog-wrapper{
+  background-image: url(./img/grass.jpg);
+  background-size: cover;
+  background-repeat: none;
+  height: 100vh;
 }

@@ -2,8 +2,6 @@ import React from "react";
 import { Form, Input, Button, Label, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { Redirect } from "react-router-dom";
 
-const date = new Date();
-console.log(date);
 const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS || "https://followup-v1.herokuapp.com/";
 
 export default class EditContact extends React.Component{
@@ -87,15 +85,14 @@ export default class EditContact extends React.Component{
         if(redirect){
             return <Redirect to="/contacts/all"/> 
         }
-        console.log(this.state)
         return(
             <div>
-                <Button color="danger" onClick={this.toggleModal}>Edit {this.props.contact.contactName}</Button>
+                <Button color="primary" onClick={this.toggleModal}>Edit "{this.props.contact.contactName}"</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
                 <Form onSubmit={this.editContact}>
-                <ModalHeader toggle={this.toggleModal}>Modal title</ModalHeader>
-                <ModalBody>
-                    <h3>edit contact</h3>
+                    <ModalHeader toggle={this.toggleModal}>Modal title</ModalHeader>
+                    <ModalBody>
+                        <h3>edit contact</h3>
                         <br/>
                         <Label>Contact name:</Label>
                         <Input onChange={this.handleChange} type="text" name="contactName" defaultValue={this.props.contact.contactName}/>
@@ -110,10 +107,16 @@ export default class EditContact extends React.Component{
                         <Input onChange={this.handleChange} type="number" name="repeatingReminderRhythm" defaultValue={this.state.repeatingReminderRhythm}/>
                         <div className="mini-spacer"/>
                     </ModalBody>
+                    <ModalFooter>
+                        <Button color="primary" type="submit">Submit changes</Button>
+                    </ModalFooter>
+                </Form>
                 <ModalFooter>
-                <Button type="submit">Submit</Button>
-            </ModalFooter>
-            </Form>
+                    <Form onSubmit={this.props.deleteContact}>
+                        <Button className="delete-left" color="danger" type="subtmi">Delete "{this.props.contact.contactName}"</Button>
+                    </Form>
+                    <Button onClick={this.toggleModal}>Cancel & Close</Button>
+                </ModalFooter>
             </Modal>
         </div>
         )

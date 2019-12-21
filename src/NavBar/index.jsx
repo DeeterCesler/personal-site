@@ -35,9 +35,9 @@ export default class NavBar extends Component{
                                 <NavItem>
                                     <NavLink href="/#contact">contact</NavLink>
                                 </NavItem>
-                                {/* <NavItem>
+                                <NavItem>
                                     <NavLink href="/blog">blog</NavLink>
-                                </NavItem> */}
+                                </NavItem>
                                 <NavItem>
                                     <NavLink href="/now">now</NavLink>
                                 </NavItem>

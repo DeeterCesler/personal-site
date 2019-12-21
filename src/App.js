@@ -3,15 +3,16 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
-import NewContact from './NewContact/index';
-import AllContactsContainer from './AllContactsContainer';
+import Newblog from './Newblog/index';
+import AllblogsContainer from './AllblogsContainer';
 import NavBar from './NavBar';
 import LoginRegisterContainer from './LoginRegisterContainer';
 import LogoutPage from './LogoutPage';
-// import EditContact from './EditContact';
-import HelpPage from './HelpPage';
+// import Editblog from './Editblog';
+// import HelpPage from './HelpPage';
 // import Footer from './Footer';
 import Now from './Now';
+import Blog from './Blog';
 
 const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS || "https://followup-v1.herokuapp.com/";
 
@@ -21,7 +22,7 @@ class App extends Component {
     this.state = {
       loggedIn: "",
       email: null,
-      contact: null
+      blog: null
     }
   }
 
@@ -185,13 +186,13 @@ class App extends Component {
     return <AboutPage/>
   }
 
-  newContact = () => {
-    return <NewContact/>
+  newblog = () => {
+    return <Newblog/>
   }
   
-  allContacts = () => {
+  allblogs = () => {
     return this.state.email != null
-    ? <AllContactsContainer email={this.state.email}/>
+    ? <AllblogsContainer email={this.state.email}/>
     : <div/>
   }
 
@@ -203,12 +204,12 @@ class App extends Component {
     return <LogoutPage logout={this.logout}/>
   }
   
-  helpPage = () => {
-    return <HelpPage/>
-  }
-  
   now = () => {
     return <Now/>
+  }
+  
+  blog = () => {
+    return <Blog/>
   }
 
   render(){
@@ -222,9 +223,10 @@ class App extends Component {
             <Route exact path="/login" render={this.loginRegisterPage}/>
             <Route exact path="/logout" render={this.logoutPage}/>
             <Route exact path="/register" render={this.loginRegisterPage}/>
-            <Route exact path="/contacts/new" render={this.newContact}/>
-            <Route exact path="/contacts/all" render={this.allContacts}/>
-            <Route exact path="/help" render={this.helpPage}/>
+            <Route exact path="/blogs/new" render={this.newblog}/>
+            <Route exact path="/blogs/all" render={this.allblogs}/>
+            <Route exact path="/blog" render={this.blog}/>
+            {/* <Route exact path="/help" render={this.helpPage}/> */}
             <Route exact path="/now" render={this.now}/>
           </Switch>
           {/* <Footer loggedIn={this.state.loggedIn}/> */}

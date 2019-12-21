@@ -2,8 +2,6 @@ import React from "react";
 import { Form, Input, Button, Label, FormGroup } from "reactstrap";
 import { Redirect } from "react-router-dom";
 
-const date = new Date();
-console.log(date);
 const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS || "https://followup-v1.herokuapp.com/";
 
 export default class NewContact extends React.Component{

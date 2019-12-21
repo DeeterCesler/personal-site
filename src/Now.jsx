@@ -9,13 +9,13 @@ const Now = () => {
                 <div className="readability">
                     <h3 className="">Building <a href="http://postman.com">Postman</a>, except the opposite</h3>
                     <br/>
-                    <p className="">Right now, I'm creating a web app that lets you instantly create static endpoints for development purposes.
+                    <p className="">I'm creating a web app that lets you instantly create static endpoints for software development purposes.
                     <br/>
                     <br/>
-                    I.e., if you're building a frontend app but the backend isn't ready yet, you can simulate that with a data sent to you via this endpoint.
+                    I.e., if you're building a frontend app but the backend isn't ready yet, you can simulate that with data sent to you via a static endpoint.
                     </p>
-                    <p><a href="https://endpoint-frontend.herokuapp.com">Check it out.</a></p>
-                    <p className="">If you're interested in using it, <a href="mailto:deeter.cesler@gmail.com">send me a message.</a></p>
+                    <p className="bold"><a href="https://endpoint-frontend.herokuapp.com">Check it out.</a></p>
+                    {/* <p className="">If you're interested in using it, <a href="mailto:deeter.cesler@gmail.com">send me a message.</a></p> */}
                 </div>
             </div>
             <div className="spacer"/>

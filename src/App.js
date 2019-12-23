@@ -21,7 +21,7 @@ class App extends Component {
     super();
     this.state = {
       loggedIn: "",
-      email: null,
+      email: "deeter.cesler@gmail.com",
       blog: null
     }
   }
@@ -49,7 +49,7 @@ class App extends Component {
         if(parsedResponse.status === 200){
           this.setState({
             loggedIn: true,
-            email: parsedResponse.email
+            // email: parsedResponse.email
           })
           if(localStorage.getItem("loggedIn") !== "true"){
             localStorage.setItem("loggedIn", true);
@@ -63,7 +63,7 @@ class App extends Component {
         } else {
           this.setState({
             loggedIn: false,
-            email: ""
+            // email: ""
           })
         }
       } catch(err){
@@ -191,9 +191,7 @@ class App extends Component {
   }
   
   allblogs = () => {
-    return this.state.email != null
-    ? <AllblogsContainer email={this.state.email}/>
-    : <div/>
+    return <AllblogsContainer loggedIn={this.state.loggedIn}/>
   }
 
   loginRegisterPage = () => {
@@ -223,9 +221,9 @@ class App extends Component {
             <Route exact path="/login" render={this.loginRegisterPage}/>
             <Route exact path="/logout" render={this.logoutPage}/>
             <Route exact path="/register" render={this.loginRegisterPage}/>
-            <Route exact path="/blogs/new" render={this.newblog}/>
-            <Route exact path="/blogs/all" render={this.allblogs}/>
-            <Route exact path="/blog" render={this.blog}/>
+            <Route exact path="/blog/new" render={this.newblog}/>
+            {/* <Route exact path="/blog/all" render={this.allblogs}/> */}
+            <Route exact path="/blog" render={this.allblogs}/>
             {/* <Route exact path="/help" render={this.helpPage}/> */}
             <Route exact path="/now" render={this.now}/>
           </Switch>

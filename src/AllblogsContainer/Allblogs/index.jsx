@@ -3,7 +3,7 @@ import { Form, Button } from "reactstrap";
 import Editblog from "../../Editblog";
 import Singleblog from "../../Singleblog";
 
-const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS || "https://followup-v1.herokuapp.com/";
+const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS;
 
 const Allblogs = (props) => {
 
@@ -30,20 +30,11 @@ const Allblogs = (props) => {
             <div className="large-view">
                 <div className="row blogs-row large-view">
                     <div className="col-lg">{props.data.blogName}</div>
-                    <div className="col-lg">{props.data.blogEmail}</div>
                     <div className="col-sm">{props.data.blogSummary}</div>
                     <div className="col-md">
-                        <Editblog blog={props.data}/>
-                    </div>
-                    <div className="col-sm">
-                        <Form onSubmit={deleteblog}>
-                            <Button type="submit">Delete "{props.data.blogName}"</Button>
-                        </Form>
+                        <Singleblog deleteblog={deleteblog} blog={props.data} loggedIn={props.loggedIn}/>
                     </div>
                 </div>
-            </div>
-            <div className="small-view">
-                <Singleblog deleteblog={deleteblog} blog={props.data}/>
             </div>
         </div>
     )

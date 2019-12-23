@@ -9,13 +9,14 @@ class AllblogsContainer extends Component {
         super();
         this.state = {
             loaded: false,
+            email: "deeter.cesler@gmail.com"
         }
     }
     
     getAllblogs = async () => {
         console.log("tryna pull blogs")
         try{
-            const pull = await fetch(backendURL + "blog/" + this.props.email,{
+            const pull = await fetch(backendURL + "blog/" + this.state.email,{
                 headers: {
                     "authorization": localStorage.getItem("token")
                 }
@@ -35,7 +36,7 @@ class AllblogsContainer extends Component {
     }
 
     componentDidMount = async () => {
-        if(this.props.email !== undefined){
+        if(this.state.email !== undefined){
             this.getAllblogs();
         }
     }
@@ -43,9 +44,8 @@ class AllblogsContainer extends Component {
     render(){
         return (
             <div className="background">
-                {this.state.data ? <Redirect to="/blogs/new"/>: <div/> }
-                {this.state.loaded? console.log("bitch", this.state.info): <p>not loaded</p>}
-                <div className="blogs-spacer"/>
+                {this.state.loaded? console.log("blogs: ", this.state.info): <p>not loaded</p>}
+                <div className="spacer"/>
                 <div className="container blogs-container large-view">
                     <div>
                         <div>
@@ -55,14 +55,12 @@ class AllblogsContainer extends Component {
                         </div>
                         <div className="row">
                             <div className="col-lg"><strong>Name:</strong></div>
-                            <div className="col-sm"><strong>Email:</strong></div>
                             <div className="col-sm"><strong>Topic discussed:</strong></div>
-                            <div className="col-lg"><strong>Edit</strong></div>
-                            <div className="col-lg"><strong>Delete?</strong></div>
+                            <div className="col-lg"><strong>Read</strong></div>
                         </div>
                         {this.state.loaded? 
                         this.state.completeData.map((data)=>{
-                            return <Allblogs data={data} key={data._id}/> 
+                            return <Allblogs data={data} key={data._id} loggedIn={this.props.loggedIn}/> 
                         })
                         : 
                         <div>
@@ -76,7 +74,7 @@ class AllblogsContainer extends Component {
                 <div className="small-view">
                 {this.state.loaded? 
                     this.state.completeData.map((data)=>{
-                        return <Allblogs data={data} key={data._id}/> 
+                        return <Allblogs data={data} key={data._id} loggedIn={this.props.loggedIn}/> 
                     })
                     : 
                     <div>

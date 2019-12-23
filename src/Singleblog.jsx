@@ -82,25 +82,21 @@ export default class Singleblog extends React.Component{
                     <Button color="info" className="view-button" onClick={this.toggleModal}>{this.props.blog.blogName}</Button>
                 </div>
                 <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
-                <ModalHeader toggle={this.toggleModal}>Modal title</ModalHeader>
+                <ModalHeader toggle={this.toggleModal}><h3>View blog</h3></ModalHeader>
                 <ModalBody>
-                    <h3>View blog</h3>
                         <br/>
-                        <Label><strong>blog name:</strong></Label>
-                        <p>{this.props.blog.blogName}</p>
+                        <Label><strong>{this.props.blog.blogName}</strong></Label>
+                        <p>{this.props.blog.body}</p>
                         <br/>
-                        <Label><strong>blog email:</strong></Label>
-                        <p>{this.props.blog.blogEmail}</p>
-                        <br/>
-                        <Label><strong>Info to know about them:</strong></Label>
-                        <p>{this.props.blog.blogSummary}</p>
-                        <br/>
-                        <Label><strong>Time between reminders (in days):</strong></Label>
-                        <p>{this.props.blog.repeatingReminderRhythm}</p>
                         <div className="mini-spacer"/>
                     </ModalBody>
                 <ModalFooter>
-                <Editblog deleteblog={this.props.deleteblog} blog={this.props.blog}/>
+                    { this.props.loggedIn 
+                    ? 
+                    <Editblog deleteblog={this.props.deleteblog} blog={this.props.blog}/>
+                    :
+                    <div/>
+                    }
                 <Button onClick={this.toggleModal}>Close</Button>
             </ModalFooter>
             </Modal>

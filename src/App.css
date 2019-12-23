@@ -275,3 +275,61 @@ h3{
   background-repeat: none;
   height: 100vh;
 }
+
+@media only screen and (min-width: 700px) {
+  .blogs-container{
+    width: 80%;
+    background-color: rgba(0,0,0,0.5);
+    padding-top: 20px;
+    border-radius: 15px;
+    padding: 1.5em;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .blogs-container{
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    padding-top: 20px;
+    border-radius: 15px;
+  }
+}
+
+.tiny-spacer{
+  padding: 5px;
+}
+
+.input-item{
+  width: 48%;
+  margin: 1%;
+}
+
+@media only screen and (min-width: 1000px) {
+  .large-view{
+    visibility: visible;
+    margin: 1em;
+  }
+
+  .small-view{
+    display: none;
+  }
+
+  .blogs-spacer{
+    height: 150px;
+  }
+}
+
+
+@media only screen and (max-width: 1000px) {
+  .large-view{
+    display: none;
+  }
+  .small-view{
+    visibility: visible;
+    margin: 1em;
+  }
+
+  .blogs-spacer{
+    height: 50px;
+  }
+}

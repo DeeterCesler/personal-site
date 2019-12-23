@@ -4,22 +4,16 @@ import { Redirect } from "react-router-dom";
 
 const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS || "https://followup-v1.herokuapp.com/";
 
-export default class EditContact extends React.Component{
+export default class Editblog extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            contactName: this.props.contact.contactName,
-            contactEmail: this.props.contact.contactEmail,
-            contactSummary: this.props.contact.contactSummary,
+            blogName: this.props.blog.blogName,
+            blogSummary: this.props.blog.blogSummary,
+            body: this.props.blog.body,
             dropdownOpen: false,
-            // firstReminder: this.props.contact.firstReminder,
-            // secondReminder: this.props.contact.secondReminder,
-            repeatingReminder: this.props.contact.repeatingReminder,
-            firstReminderRhythm: this.props.contact.firstReminderRhythm,
-            secondReminderRhythm: this.props.contact.secondReminderRhythm,
-            repeatingReminderRhythm: this.props.contact.repeatingReminderRhythm,
             modal: false,
-            _id: this.props.contact._id
+            _id: this.props.blog._id
         }
 
         this.toggle = this.toggle.bind(this);
@@ -32,13 +26,13 @@ export default class EditContact extends React.Component{
         });
     }
 
-    editContact = async (e) => {
+    editblog = async (e) => {
         console.log("EDITING", this.state)
         try{
             // e.preventDefault();
             setTimeout(()=> console.log("waiting"), 5000)
             console.log("EDITING", this.state)
-            const pull = await fetch(backendURL+"contact/" + this.state._id + "/edit", {
+            const pull = await fetch(backendURL+"blog/" + this.state._id + "/edit", {
               method: "PUT",
               body: JSON.stringify(this.state),
               headers: {
@@ -57,10 +51,10 @@ export default class EditContact extends React.Component{
         }
     };
 
-    deleteContact = async () => { // NOT FINSIHED
+    deleteblog = async () => { // NOT FINSIHED
         try{
             console.log("attempting DELETE");
-            await fetch(backendURL+"contact/delete", {
+            await fetch(backendURL+"blog/delete", {
                 method: "POST",
             })
         }catch(err){
@@ -83,28 +77,25 @@ export default class EditContact extends React.Component{
     render(){
         const {redirect} = this.state;
         if(redirect){
-            return <Redirect to="/contacts/all"/> 
+            return <Redirect to="/blogs/all"/> 
         }
         return(
             <div>
-                <Button color="primary" onClick={this.toggleModal}>Edit "{this.props.contact.contactName}"</Button>
+                <Button color="primary" onClick={this.toggleModal}>Edit "{this.props.blog.blogName}"</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
-                <Form onSubmit={this.editContact}>
-                    <ModalHeader toggle={this.toggleModal}>Modal title</ModalHeader>
+                <Form onSubmit={this.editblog}>
+                    <ModalHeader toggle={this.toggleModal}><h3>edit blog</h3></ModalHeader>
                     <ModalBody>
-                        <h3>edit contact</h3>
                         <br/>
-                        <Label>Contact name:</Label>
-                        <Input onChange={this.handleChange} type="text" name="contactName" defaultValue={this.props.contact.contactName}/>
+                        <Label>blog name:</Label>
+                        <Input onChange={this.handleChange} type="text" name="blogName" defaultValue={this.props.blog.blogName}/>
                         <br/>
-                        <Label>Contact email:</Label>
-                        <Input onChange={this.handleChange} type="text" name="contactEmail" defaultValue={this.props.contact.contactEmail}/>
+                        <Label>Summary:</Label>
+                        <Input onChange={this.handleChange} type="text" name="blogSummary" defaultValue={this.props.blog.blogSummary}/>
                         <br/>
-                        <Label>Info to know about them:</Label>
-                        <Input onChange={this.handleChange} type="textarea" name="contactSummary" defaultValue={this.props.contact.contactSummary}/>
+                        <Label>Body:</Label>
+                        <Input onChange={this.handleChange} type="textarea" name="body" defaultValue={this.props.blog.body}/>
                         <br/>
-                        <Label>Time between reminders (in days): </Label>
-                        <Input onChange={this.handleChange} type="number" name="repeatingReminderRhythm" defaultValue={this.state.repeatingReminderRhythm}/>
                         <div className="mini-spacer"/>
                     </ModalBody>
                     <ModalFooter>
@@ -112,8 +103,8 @@ export default class EditContact extends React.Component{
                     </ModalFooter>
                 </Form>
                 <ModalFooter>
-                    <Form onSubmit={this.props.deleteContact}>
-                        <Button className="delete-left" color="danger" type="subtmi">Delete "{this.props.contact.contactName}"</Button>
+                    <Form onSubmit={this.props.deleteblog}>
+                        <Button className="delete-left" color="danger" type="submit">Delete "{this.props.blog.blogName}"</Button>
                     </Form>
                     <Button onClick={this.toggleModal}>Cancel & Close</Button>
                 </ModalFooter>

@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import Allblogs from "./Allblogs";
-import { Redirect } from "react-router-dom";
 
 const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS || "https://followup-v1.herokuapp.com/";
 
@@ -47,41 +46,35 @@ class AllblogsContainer extends Component {
                 {this.state.loaded? console.log("blogs: ", this.state.info): <p>not loaded</p>}
                 <div className="spacer"/>
                 <div className="container blogs-container large-view">
-                    <div>
-                        <div>
-                            <div>
-                                <div className="tiny-spacer"></div>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-lg"><strong>Name:</strong></div>
-                            <div className="col-sm"><strong>Topic discussed:</strong></div>
-                            <div className="col-lg"><strong>Read</strong></div>
-                        </div>
-                        {this.state.loaded? 
+                    <div className="tiny-spacer"></div>
+                    <div className="row">
+                        <div className="col-lg"><strong>Name:</strong></div>
+                        <div className="col-sm"><strong>Topic discussed:</strong></div>
+                        <div className="col-lg"><strong>Read</strong></div>
+                    </div>
+                    {
+                        this.state.loaded
+                        ? 
                         this.state.completeData.map((data)=>{
                             return <Allblogs data={data} key={data._id} loggedIn={this.props.loggedIn}/> 
                         })
                         : 
                         <div>
-                            <div>
-                                <p>not loaded</p>
-                            </div>
+                            <p>not loaded</p>
                         </div>
-                        }
-                    </div>
+                    }
                 </div>
-                <div className="small-view">
-                {this.state.loaded? 
-                    this.state.completeData.map((data)=>{
-                        return <Allblogs data={data} key={data._id} loggedIn={this.props.loggedIn}/> 
-                    })
-                    : 
-                    <div>
+                <div className="container small-view">
+                    {
+                        this.state.loaded
+                        ?
+                        this.state.completeData.map((data)=>{
+                            return <Allblogs data={data} key={data._id} loggedIn={this.props.loggedIn}/> 
+                        })
+                        : 
                         <div>
                             <p>not loaded</p>
                         </div>
-                    </div>
                     }
                 </div>
             </div>

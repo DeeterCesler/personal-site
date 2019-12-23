@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, Button, Label, FormGroup } from "reactstrap";
+import { Form, Input, Button } from "reactstrap";
 import { Redirect } from "react-router-dom";
 
 const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS || "https://followup-v1.herokuapp.com/";
@@ -62,13 +62,15 @@ export default class Newblog extends React.Component{
         });
       }
 
+    // componentDidMount(){
+
+    // }
+
     render(){
-        const {redirect} = this.state;
-        if(redirect){
-            return <Redirect to="/blog"/> 
-        }
-        return(
+        return (this.props.loggedIn)
+            ?
             <div className="background">
+                {console.log("Logged in status: " + this.props.loggedIn)}
                 <div className="spacer"></div>
                 <h3>add a new blog</h3>
                 <Form className="explainer" onSubmit={this.postNewblog}>
@@ -82,6 +84,10 @@ export default class Newblog extends React.Component{
                 </Form>
                 <div className="spacer"/>
             </div>
-        )
+            :
+            <div>
+                {console.log("Logged in status: " + this.props.loggedIn)}
+                <Redirect to="/blog"/> 
+            </div>
     }
 }

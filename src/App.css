@@ -324,6 +324,7 @@ h3{
   .large-view{
     display: none;
   }
+  
   .small-view{
     visibility: visible;
     margin: 1em;

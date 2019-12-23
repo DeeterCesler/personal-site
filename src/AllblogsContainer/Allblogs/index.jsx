@@ -1,6 +1,4 @@
 import React from "react";
-import { Form, Button } from "reactstrap";
-import Editblog from "../../Editblog";
 import Singleblog from "../../Singleblog";
 
 const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS;
@@ -35,6 +33,9 @@ const Allblogs = (props) => {
                         <Singleblog deleteblog={deleteblog} blog={props.data} loggedIn={props.loggedIn}/>
                     </div>
                 </div>
+            </div>
+            <div className="small-view">
+                <Singleblog deleteblog={deleteblog} blog={props.data} loggedIn={props.loggedIn}/>
             </div>
         </div>
     )

@@ -8,11 +8,9 @@ import AllblogsContainer from './AllblogsContainer';
 import NavBar from './NavBar';
 import LoginRegisterContainer from './LoginRegisterContainer';
 import LogoutPage from './LogoutPage';
-// import Editblog from './Editblog';
-// import HelpPage from './HelpPage';
-// import Footer from './Footer';
 import Now from './Now';
 import Blog from './Blog';
+import Singleblog from './Singleblog';
 
 const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS || "https://followup-v1.herokuapp.com/";
 
@@ -187,11 +185,15 @@ class App extends Component {
   }
 
   newblog = () => {
-    return <Newblog/>
+    return <Newblog loggedIn={this.state.loggedIn}/>
   }
   
   allblogs = () => {
     return <AllblogsContainer loggedIn={this.state.loggedIn}/>
+  }
+  
+  singleblog = () => {
+    return <Singleblog loggedIn={this.state.loggedIn}/>
   }
 
   loginRegisterPage = () => {
@@ -222,12 +224,10 @@ class App extends Component {
             <Route exact path="/logout" render={this.logoutPage}/>
             <Route exact path="/register" render={this.loginRegisterPage}/>
             <Route exact path="/blog/new" render={this.newblog}/>
-            {/* <Route exact path="/blog/all" render={this.allblogs}/> */}
             <Route exact path="/blog" render={this.allblogs}/>
-            {/* <Route exact path="/help" render={this.helpPage}/> */}
             <Route exact path="/now" render={this.now}/>
+            <Route exact path="/:blog" render={this.singleblog}/>
           </Switch>
-          {/* <Footer loggedIn={this.state.loggedIn}/> */}
         </div>
     );
   }

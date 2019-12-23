@@ -82,7 +82,7 @@ export default class Singleblog extends React.Component{
                     <Button color="info" className="view-button" onClick={this.toggleModal}>{this.props.blog.blogName}</Button>
                 </div>
                 <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
-                <ModalHeader toggle={this.toggleModal}><h3>View blog</h3></ModalHeader>
+                <ModalHeader toggle={this.toggleModal}>{this.props.blog.blogName}</ModalHeader>
                 <ModalBody>
                         <br/>
                         <Label><strong>{this.props.blog.blogName}</strong></Label>

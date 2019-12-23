@@ -328,6 +328,7 @@ h3{
   .small-view{
     visibility: visible;
     margin: 1em;
+    /* font-size: 45px; */
   }
 
   .blogs-spacer{

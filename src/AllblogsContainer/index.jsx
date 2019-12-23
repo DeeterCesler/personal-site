@@ -8,24 +8,19 @@ class AllblogsContainer extends Component {
         super();
         this.state = {
             loaded: false,
-            email: "deeter.cesler@gmail.com"
+            info: ""
         }
     }
     
     getAllblogs = async () => {
         console.log("tryna pull blogs")
         try{
-            const pull = await fetch(backendURL + "blog/" + this.state.email,{
-                headers: {
-                    "authorization": localStorage.getItem("token")
-                }
-            });
+            const pull = await fetch("http://localhost:3000/" + "blog/email");
             const parsedPull = await pull.json();
-            let names = parsedPull.data.filter(item => item.blogName);
-            this.setState({ // need to refactor this out since this component is now functional
+            console.log(parsedPull)
+            this.setState({
                 info: parsedPull.data,
                 loaded: true,
-                completeData: names
             });
             return parsedPull
         } catch(err){
@@ -35,9 +30,7 @@ class AllblogsContainer extends Component {
     }
 
     componentDidMount = async () => {
-        if(this.state.email !== undefined){
-            this.getAllblogs();
-        }
+        this.getAllblogs();
     }
     
     render(){
@@ -45,17 +38,19 @@ class AllblogsContainer extends Component {
             <div className="background">
                 {this.state.loaded? console.log("blogs: ", this.state.info): <p>not loaded</p>}
                 <div className="spacer"/>
-                <div className="container blogs-container large-view">
+                <div className="container blogs-container">
                     <div className="tiny-spacer"></div>
-                    <div className="row">
+                    <div className="large-view">
+                    <div className="row ">
                         <div className="col-lg"><strong>Name:</strong></div>
                         <div className="col-sm"><strong>Topic discussed:</strong></div>
                         <div className="col-lg"><strong>Read</strong></div>
                     </div>
+                    </div>
                     {
                         this.state.loaded
                         ? 
-                        this.state.completeData.map((data)=>{
+                        this.state.info.map((data)=>{
                             return <Allblogs data={data} key={data._id} loggedIn={this.props.loggedIn}/> 
                         })
                         : 
@@ -63,12 +58,14 @@ class AllblogsContainer extends Component {
                             <p>not loaded</p>
                         </div>
                     }
+                    <div className="tiny-spacer"></div>
                 </div>
-                <div className="container small-view">
+                
+                {/* <div className="container small-view">
                     {
                         this.state.loaded
                         ?
-                        this.state.completeData.map((data)=>{
+                        this.state.info.map((data)=>{
                             return <Allblogs data={data} key={data._id} loggedIn={this.props.loggedIn}/> 
                         })
                         : 
@@ -76,7 +73,7 @@ class AllblogsContainer extends Component {
                             <p>not loaded</p>
                         </div>
                     }
-                </div>
+                </div> */}
             </div>
         )
     }

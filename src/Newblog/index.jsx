@@ -11,6 +11,7 @@ export default class Newblog extends React.Component{
         this.state = {
             blogName: "",
             blogSummary: "",
+            blogPath: "",
             body: "",
             dropdownOpen: false,
         }
@@ -39,7 +40,6 @@ export default class Newblog extends React.Component{
             this.setState({
                 redirect: true
             })
-            return parsedPull
         } catch(err){
             console.log("error:", err);
         }
@@ -67,27 +67,26 @@ export default class Newblog extends React.Component{
     // }
 
     render(){
-        return (this.props.loggedIn)
+        return(
+            this.state.redirect
             ?
-            <div className="background">
+                <Redirect to="/blog"/>
+            :
+        <div className="background">
                 {console.log("Logged in status: " + this.props.loggedIn)}
                 <div className="spacer"></div>
                 <h3>add a new blog</h3>
                 <Form className="explainer" onSubmit={this.postNewblog}>
                     <Input onChange={this.handleChange} type="text" name="blogName" placeholder="blog name..."/>
+                    <Input onChange={this.handleChange} type="text" name="blogPath" placeholder="blog URL path (e.g. /test)"/>
                     <Input onChange={this.handleChange} type="text" name="blogSummary" placeholder="6-word summary here"/>
                     <Input onChange={this.handleChange} type="textarea" height="800" name="body" placeholder="actual blog here"/>
                     <div className="mini-spacer"/>
-                    <h4>when do you want to be reminded to reach out?</h4>
                     <br/>
                     <Button type="submit">Submit</Button>
                 </Form>
                 <div className="spacer"/>
             </div>
-            :
-            <div>
-                {console.log("Logged in status: " + this.props.loggedIn)}
-                <Redirect to="/blog"/> 
-            </div>
+        )
     }
 }

@@ -2,19 +2,36 @@ import React from "react";
 import { Button, Label, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { Redirect } from "react-router-dom";
 import Editblog from "./Editblog";
+import {withRouter} from "react-router-dom";
 
 const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS || "https://followup-v1.herokuapp.com/";
 
-export default class Singleblog extends React.Component{
+class Singleblog extends React.Component{
     constructor(props){
         super(props);
+        this.routeParam = props.match.params.blog;
         this.state = {
-            modal: false,
-            _id: this.props.blog._id
+            blog: {}
         }
+    }
 
-        this.toggle = this.toggle.bind(this);
-        this.toggleModal = this.toggleModal.bind(this);
+    getBlog = async () => {
+        try{
+            console.log("TRYING TO GET THIS BLOG")
+            console.log("ROUTE PARAM: " + this.routeParam)
+            const foundBlog = await fetch(backendURL + "blog/" + this.routeParam)
+            const parsedBlog = await foundBlog.json();
+            console.log("FOUND BLOG: " + parsedBlog)
+            this.setState({ 
+                // info: blog.data,
+                loaded: true,
+                blog: parsedBlog.data
+            });
+            return parsedBlog
+        } catch(err){
+            console.log("whoops lol")
+            console.log("error:", err);
+        }
     }
 
     handleChange = (e) => {
@@ -26,7 +43,6 @@ export default class Singleblog extends React.Component{
     editblog = async (e) => {
         console.log("EDITING", this.state)
         try{
-            // e.preventDefault();
             setTimeout(()=> console.log("waiting"), 5000)
             console.log("EDITING", this.state)
             const pull = await fetch(backendURL+"blog/" + this.state._id + "/edit", {
@@ -48,59 +64,54 @@ export default class Singleblog extends React.Component{
         }
     };
 
-    deleteblog = async () => { // NOT FINSIHED
+    deleteblog = async () => {
         try{
-            console.log("attempting DELETE");
-            await fetch(backendURL+"blog/delete", {
-                method: "POST",
-            })
-        }catch(err){
-            console.log("error: ", err);
+            console.log("DELETE");
+            const pull = await fetch(backendURL+"blog/" + this.state.blog._id, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                "authorization": localStorage.getItem("token")
+            } 
+            });
+            const parsedPull = await pull.json();
+            return parsedPull
+        } catch(err){
+            console.log("error:", err);
         }
     }
 
-    toggle() {
-        this.setState({
-          dropdownOpen: !this.state.dropdownOpen
-        });
-    }
-
-    toggleModal() {
-        this.setState(prevState => ({
-          modal: !prevState.modal
-        }));
+    componentDidMount = () => {
+        console.log("BLOG SHIT " + this.routeParam)
+        this.getBlog();
+        console.log("SHIT " + this.state.blog.data)
     }
     
     render(){
-        const {redirect} = this.state;
-        if(redirect){
-            return <Redirect to="/blogs/all"/> 
-        }
         return(
-            <div>
+            <div className="background">
+                <div className="spacer"/>
+                <h1>{this.state.blog.blogName}</h1>
+                <h4>{this.state.blog.blogSummary}</h4>
                 <div>
-                    <Button color="info" className="view-button" onClick={this.toggleModal}>{this.props.blog.blogName}</Button>
-                </div>
-                <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
-                <ModalHeader toggle={this.toggleModal}>{this.props.blog.blogName}</ModalHeader>
-                <ModalBody>
-                        <br/>
-                        <Label><strong>{this.props.blog.blogName}</strong></Label>
-                        <p>{this.props.blog.body}</p>
-                        <br/>
-                        <div className="mini-spacer"/>
-                    </ModalBody>
-                <ModalFooter>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <p>{this.state.blog.body}</p>
+                    <br/>
+                    <div className="mini-spacer"/>
+                    </div>
+                <div>
                     { this.props.loggedIn 
                     ? 
-                    <Editblog deleteblog={this.props.deleteblog} blog={this.props.blog}/>
+                    <Editblog deleteblog={this.state.deleteblog} blog={this.state.blog}/>
                     :
-                    <div/>
+                    <div></div>
                     }
-                <Button onClick={this.toggleModal}>Close</Button>
-            </ModalFooter>
-            </Modal>
+            </div>
         </div>
         )
     }
 }
+
+export default withRouter(Singleblog);

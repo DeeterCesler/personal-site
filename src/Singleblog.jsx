@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import Editblog from "./Editblog";
 import {withRouter} from "react-router-dom";
 
-const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS || "https://followup-v1.herokuapp.com/";
+const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS
 
 class Singleblog extends React.Component{
     constructor(props){

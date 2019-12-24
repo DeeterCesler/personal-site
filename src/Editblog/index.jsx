@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Input, Button, Label, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { Redirect } from "react-router-dom";
 
-const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS || "https://followup-v1.herokuapp.com/";
+const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS
 
 export default class Editblog extends React.Component{
     constructor(props){

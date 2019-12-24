@@ -12,7 +12,7 @@ import Now from './Now';
 import Blog from './Blog';
 import Singleblog from './Singleblog';
 
-const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS || "https://followup-v1.herokuapp.com/";
+const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS
 
 class App extends Component {
   constructor(){

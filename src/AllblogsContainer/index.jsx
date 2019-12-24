@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import Allblogs from "./Allblogs";
 
-const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS || "https://followup-v1.herokuapp.com/";
+const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS
 
 class AllblogsContainer extends Component {
     constructor(props){
@@ -15,7 +15,7 @@ class AllblogsContainer extends Component {
     getAllblogs = async () => {
         console.log("tryna pull blogs")
         try{
-            const pull = await fetch("http://localhost:3000/" + "blog/email");
+            const pull = await fetch(backendURL + "blog/email");
             const parsedPull = await pull.json();
             console.log(parsedPull)
             this.setState({

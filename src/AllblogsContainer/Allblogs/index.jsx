@@ -1,5 +1,4 @@
 import React from "react";
-import Singleblog from "../../Singleblog";
 
 const Allblogs = (props) => {
     console.log("Allblogs props.data: " + props.data.blogName)

@@ -1,5 +1,4 @@
 import React from "react";
-import { Button, Label, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { Redirect } from "react-router-dom";
 import Editblog from "./Editblog";
 import {withRouter} from "react-router-dom";
@@ -81,7 +80,7 @@ class Singleblog extends React.Component{
                 "authorization": localStorage.getItem("token")
             } 
             });
-            const parsedPull = await pull.json();
+            console.log("DELETE STATUS: " + await pull.json())
             this.setState({
                 redirect: true
             })

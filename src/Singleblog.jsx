@@ -11,7 +11,12 @@ class Singleblog extends React.Component{
         super(props);
         this.routeParam = props.match.params.blog;
         this.state = {
-            blog: {}
+            blog: {
+                blogName: "",
+                blogSummary: "",
+                body: ""
+            },
+            redirect: false
         }
     }
 
@@ -64,10 +69,12 @@ class Singleblog extends React.Component{
         }
     };
 
-    deleteblog = async () => {
+    deleteblog = async (e) => {
+        e.preventDefault();
         try{
-            console.log("DELETE");
-            const pull = await fetch(backendURL+"blog/" + this.state.blog._id, {
+            console.log("DELETING " + this.state.blog.blogName);
+            alert("DELETING " + this.state.blog.blogName);
+            const pull = await fetch(backendURL+"blog/" + this.state.blog.blogName, {
             method: "DELETE",
             headers: {
                 'Content-Type': 'application/json',
@@ -75,7 +82,9 @@ class Singleblog extends React.Component{
             } 
             });
             const parsedPull = await pull.json();
-            return parsedPull
+            this.setState({
+                redirect: true
+            })
         } catch(err){
             console.log("error:", err);
         }
@@ -89,7 +98,11 @@ class Singleblog extends React.Component{
     
     render(){
         return(
-            <div className="background">
+            this.state.redirect
+            ?
+            <Redirect to="/blog"/>
+            :
+            <div className="single-blog-background">
                 <div className="spacer"/>
                 <h1>{this.state.blog.blogName}</h1>
                 <h4>{this.state.blog.blogSummary}</h4>
@@ -97,14 +110,19 @@ class Singleblog extends React.Component{
                     <br/>
                     <br/>
                     <br/>
-                    <p>{this.state.blog.body}</p>
+                    <p className="blog-body">{this.state.blog.body}</p>
                     <br/>
                     <div className="mini-spacer"/>
                     </div>
                 <div>
                     { this.props.loggedIn 
                     ? 
-                    <Editblog deleteblog={this.state.deleteblog} blog={this.state.blog}/>
+                    <div>
+                        <Editblog deleteblog={this.deleteblog} blog={this.state.blog}/>
+                        <br/>
+                        <br/>
+                        <br/>
+                    </div>
                     :
                     <div></div>
                     }

@@ -8,6 +8,7 @@ export default class Editblog extends React.Component{
     constructor(props){
         super(props);
         this.state = {
+            blogPath: this.props.blog.blogPath,
             blogName: this.props.blog.blogName,
             blogSummary: this.props.blog.blogSummary,
             body: this.props.blog.body,
@@ -51,17 +52,6 @@ export default class Editblog extends React.Component{
         }
     };
 
-    deleteblog = async () => { // NOT FINSIHED
-        try{
-            console.log("attempting DELETE");
-            await fetch(backendURL+"blog/delete", {
-                method: "POST",
-            })
-        }catch(err){
-            console.log("error: ", err);
-        }
-    }
-
     toggle() {
         this.setState({
           dropdownOpen: !this.state.dropdownOpen
@@ -84,8 +74,11 @@ export default class Editblog extends React.Component{
                 <Button color="primary" onClick={this.toggleModal}>Edit "{this.props.blog.blogName}"</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
                 <Form onSubmit={this.editblog}>
-                    <ModalHeader toggle={this.toggleModal}><h3>edit blog</h3></ModalHeader>
+                    <ModalHeader toggle={this.toggleModal}>edit {this.props.blog.blogName}</ModalHeader>
                     <ModalBody>
+                        <br/>
+                        <Label>blog path:</Label>
+                        <Input onChange={this.handleChange} type="text" name="blogPath" defaultValue={this.props.blog.blogPath}/>
                         <br/>
                         <Label>blog name:</Label>
                         <Input onChange={this.handleChange} type="text" name="blogName" defaultValue={this.props.blog.blogName}/>

@@ -75,6 +75,26 @@ body {
   min-height: 105vh;
 }
 
+.blogs-background{
+  background: url("../src/img/black.jpg");
+  background-size: cover;
+  background-repeat: none;
+  z-index: -1;
+  min-height: 105vh;
+}
+
+.single-blog-background{
+  color: black;
+}
+
+.blog-body{
+  white-space: pre-line;
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+  text-align: left;
+}
+
 .home{
   background: url("./img/cow.jpg");
   /* background-color: #3f3f3f; */

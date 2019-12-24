@@ -35,7 +35,7 @@ class AllblogsContainer extends Component {
     
     render(){
         return (
-            <div className="background">
+            <div className="blogs-background">
                 {this.state.loaded? console.log("blogs: ", this.state.info): <p>not loaded</p>}
                 <div className="spacer"/>
                 <div className="container blogs-container">

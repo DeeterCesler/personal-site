@@ -14,6 +14,7 @@ export default class Newblog extends React.Component{
             blogPath: "",
             body: "",
             dropdownOpen: false,
+            redirect: false,
         }
     }
 
@@ -62,17 +63,13 @@ export default class Newblog extends React.Component{
         });
       }
 
-    // componentDidMount(){
-
-    // }
-
     render(){
         return(
             this.state.redirect
             ?
-                <Redirect to="/blog"/>
+            <Redirect to="/blog"/>
             :
-        <div className="background">
+            <div className="background">
                 {console.log("Logged in status: " + this.props.loggedIn)}
                 <div className="spacer"></div>
                 <h3>add a new blog</h3>

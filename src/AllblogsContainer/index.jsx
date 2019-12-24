@@ -40,18 +40,12 @@ class AllblogsContainer extends Component {
                 <div className="spacer"/>
                 <div className="container blogs-container">
                     <div className="tiny-spacer"></div>
-                    <div className="large-view">
-                    <div className="row ">
-                        <div className="col-lg"><strong>Name:</strong></div>
-                        <div className="col-sm"><strong>Topic discussed:</strong></div>
-                        <div className="col-lg"><strong>Read</strong></div>
-                    </div>
-                    </div>
+                    <h2>Blogs</h2>
                     {
                         this.state.loaded
                         ? 
                         this.state.info.map((data)=>{
-                            return <Allblogs data={data} key={data._id} loggedIn={this.props.loggedIn}/> 
+                            return <Allblogs className="col-3" data={data} key={data._id} loggedIn={this.props.loggedIn}/> 
                         })
                         : 
                         <div>

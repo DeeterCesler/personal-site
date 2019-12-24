@@ -95,6 +95,11 @@ body {
   text-align: left;
 }
 
+.block{
+  /* background: #e59d9a; */
+  margin: 1em 0 1em 0;
+}
+
 .home{
   background: url("./img/cow.jpg");
   /* background-color: #3f3f3f; */

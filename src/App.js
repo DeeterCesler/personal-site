@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import HomePage from './HomePage';
-import AboutPage from './AboutPage';
 import Newblog from './Newblog/index';
 import AllblogsContainer from './AllblogsContainer';
 import NavBar from './NavBar';
@@ -178,10 +177,6 @@ class App extends Component {
 
   homepage = () => {
     return <HomePage />
-  }
-  
-  aboutPage = () => {
-    return <AboutPage/>
   }
 
   newblog = () => {

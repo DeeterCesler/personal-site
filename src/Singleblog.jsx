@@ -92,12 +92,12 @@ class Singleblog extends React.Component{
     componentDidMount = () => {
         console.log("BLOG SHIT " + this.routeParam)
         this.getBlog();
-        console.log("SHIT " + this.state.blog.data)
+        console.log("SHIT " + this.state.blog)
     }
     
     render(){
         return(
-            this.state.redirect
+            this.state.redirect || this.state.blog.blogName === "NA"
             ?
             <Redirect to="/blog"/>
             :

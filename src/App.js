@@ -54,9 +54,17 @@ class App extends Component {
           // localStorage.setItem("email", parsedResponse.);
         } else if (parsedResponse.status === 500){
           console.log("INTERNAL SERVER ERROR")
+          this.setState({
+            loggedIn: false,
+            // email: ""
+          })
         } else if (parsedResponse.status === 404){
           console.log("NO USER FOUND")
           localStorage.setItem("loggedIn", false);
+          this.setState({
+            loggedIn: false,
+            // email: ""
+          })
         } else {
           this.setState({
             loggedIn: false,
@@ -74,6 +82,9 @@ class App extends Component {
       }
     } else{
       console.log("else statement hit");
+      this.setState({
+        loggedIn: false
+      })
     }
     return
   }

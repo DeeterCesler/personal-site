@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS
 
 export default class Newblog extends React.Component{
-    constructor(){
+    constructor(props){
         super();
         this.toggle = this.toggle.bind(this);
         this.state = {
@@ -65,9 +65,12 @@ export default class Newblog extends React.Component{
 
     render(){
         return(
-            this.state.redirect
+            this.state.redirect || this.props.loggedIn === false
             ?
-            <Redirect to="/blog"/>
+            <div>
+                {alert("Logged in status: " + this.props.loggedIn)}
+                <Redirect to="/blog"/>
+            </div>
             :
             <div className="background">
                 {console.log("Logged in status: " + this.props.loggedIn)}

@@ -360,3 +360,31 @@ h3{
     height: 50px;
   }
 }
+
+.mailchimp-style{
+  position: absolute; 
+  left: -5000px;
+}
+
+#mce-error-response, #mce-success-response{
+  display:none
+}
+
+.email{
+  width: 25%;
+  font-size: .8em;
+}
+
+#mc-embedded-subscribe{
+  padding: 8px 15px 8px 15px;
+  border-radius: 5px;
+  border: 0;
+  color: white;
+  font-weight: 900;
+  background-color: #f68528;
+}
+
+.small-boi{
+  font-weight: 100;
+  font-size: .85em;
+}

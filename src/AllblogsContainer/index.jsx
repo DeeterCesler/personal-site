@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Allblogs from "./Allblogs";
+import MailChimpSignup from "../MailChimpSignup";
 
 const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS
 
@@ -54,7 +55,11 @@ class AllblogsContainer extends Component {
                     }
                     <div className="tiny-spacer"></div>
                 </div>
-                
+                <div className="spacer"></div>
+                <div className="container blogs-container">
+                    <MailChimpSignup/>
+                </div>
+                <div className="spacer"></div>
                 {/* <div className="container small-view">
                     {
                         this.state.loaded
@@ -68,7 +73,7 @@ class AllblogsContainer extends Component {
                         </div>
                     }
                 </div> */}
-            </div>
+    </div>
         )
     }
 }

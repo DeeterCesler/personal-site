@@ -44,12 +44,11 @@ class Singleblog extends React.Component{
         });
     }
 
-    editblog = async (e) => {
+    editblog = async () => {
         console.log("EDITING", this.state)
         try{
-            setTimeout(()=> console.log("waiting"), 5000)
             console.log("EDITING", this.state)
-            const pull = await fetch(backendURL+"blog/" + this.state._id + "/edit", {
+            const pull = await fetch(backendURL + "blog/" + this.state._id + "/edit", {
               method: "PUT",
               body: JSON.stringify(this.state),
               headers: {

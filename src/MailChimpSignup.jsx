@@ -11,7 +11,7 @@ const MailChimpSignup = () => {
         {/* <div class="indicates-required"><span class="asterisk">*</span> indicates required</div> */}
         <div class="mc-field-group">
             <label for="mce-EMAIL"></label>
-            <input type="email" placeholder="Wha'ts your email address?" name="EMAIL" class="required email" id="mce-EMAIL"/>
+            <input type="email" placeholder="What's your email address?" name="EMAIL" class="required email" id="mce-EMAIL"/>
         </div>
             <div id="mce-responses" class="clear">
                 <div class="response" id="mce-error-response"></div>

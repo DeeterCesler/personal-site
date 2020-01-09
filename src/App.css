@@ -342,6 +342,11 @@ h3{
   .blogs-spacer{
     height: 150px;
   }
+
+  .email{
+    width: 25%;
+    font-size: .8em;
+  }
 }
 
 
@@ -359,6 +364,11 @@ h3{
   .blogs-spacer{
     height: 50px;
   }
+
+  .email{
+    width: 65%;
+    font-size: .8em;
+  }
 }
 
 .mailchimp-style{
@@ -368,11 +378,6 @@ h3{
 
 #mce-error-response, #mce-success-response{
   display:none
-}
-
-.email{
-  width: 25%;
-  font-size: .8em;
 }
 
 #mc-embedded-subscribe{
@@ -387,4 +392,8 @@ h3{
 .small-boi{
   font-weight: 100;
   font-size: .85em;
+}
+
+#mce-EMAIL{
+  color: black
 }

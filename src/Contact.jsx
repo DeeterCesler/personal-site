@@ -4,7 +4,6 @@ const Contact = () => {
     return(
         <div className="contact container">
             <h2 className="contact-header">contact me</h2>
-            <br/>
             <div className="row">
                 <div className="col"/>
                 <div className="email col-md">

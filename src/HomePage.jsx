@@ -25,8 +25,7 @@ const HomePage = () => {
                     <div className="second-wrapper">
                         <ScrollableAnchor id={"about"}>
                             <div>
-                                <div className="nav-spacer"/>
-                                <div className="nav-spacer"/>
+                                {/* <div className="nav-spacer"/> */}
                                 <About/>
                             </div>
                         </ScrollableAnchor>
@@ -35,7 +34,7 @@ const HomePage = () => {
                     <div className="last-wrapper">
                         <ScrollableAnchor id={"contact"}>
                             <div>
-                                <div className="nav-spacer"/>
+                                {/* <div className="nav-spacer"/> */}
                                 <Contact/>
                             </div>
                         </ScrollableAnchor>

@@ -264,12 +264,6 @@ h3{
   border-radius: 20px;
 }
 
-.headline{
-  font-size: 2.7em;
-  font-weight: 800;
-  margin-bottom: 3em;
-}
-
 .subheading{
   font-size: 1.5em;
   font-weight: 600;
@@ -309,6 +303,12 @@ h3{
     border-radius: 15px;
     padding: 1.5em;
   }
+
+  .headline{
+    font-size: 2.7em;
+    font-weight: 800;
+    margin-bottom: 3em;
+  }
 }
 
 @media only screen and (max-width: 700px) {
@@ -317,6 +317,12 @@ h3{
     background-color: rgba(0,0,0,0.5);
     padding-top: 20px;
     border-radius: 15px;
+  }
+
+  .headline{
+    font-size: 1.8em;
+    font-weight: 800;
+    margin-bottom: 3em;
   }
 }
 

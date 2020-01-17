@@ -6,7 +6,8 @@ const Contact = () => {
             <h2 className="contact-header">contact me</h2>
             <div className="row">
                 <div className="col"/>
-                <div className="email col-md">
+                <br/>
+                <div className="insta col-md">
                     <strong><a className="email" href="mailto:deeter.cesler@gmail.com">deeter.cesler@gmail.com</a></strong>
                     <p className="small">I always respond to email.</p>
                 </div>

@@ -7,14 +7,15 @@ const Now = () => {
             <h1 className="now-header">what I'm doing right now</h1>
             <div className="container text-center">
                 <div className="readability">
-                    <h3 className="">Building <a href="http://postman.com">Postman</a>, except the opposite</h3>
+                    <h3 className=""><a href="https://fetchspot.io">Fetchspot.io</a></h3>
                     <br/>
                     <p className="">I'm creating a web app that lets you instantly create static endpoints for software development purposes.
                     <br/>
                     <br/>
-                    I.e., if you're building a frontend app but the backend isn't ready yet, you can simulate that with data sent to you via a static endpoint.
-                    </p>
-                    <p className="bold"><a href="https://endpoint-frontend.herokuapp.com">Check it out.</a></p>
+                    I.e., if you're building a frontend app (like with React or Angular) but the backend isn't ready yet, you can simulate your server with data sent to you via a static endpoint.
+                    <br/>
+                    <br/>
+                    Essentially Postman, but the opposite. <a href="https://fetchspot.io">Check it out.</a></p>
                     {/* <p className="">If you're interested in using it, <a href="mailto:deeter.cesler@gmail.com">send me a message.</a></p> */}
                 </div>
             </div>

@@ -7,11 +7,12 @@ const MailChimpSignup = () => {
         <div id="mc_embed_signup">
         <form action="https://bageldogmedia.us16.list-manage.com/subscribe/post?u=c1fa698dbe7a1b924b1ae68b9&amp;id=15bfa656ae" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
             <div id="mc_embed_signup_scroll">
-            <h2>get a weekly idea to push your thinking</h2>
+            <h2>push your thinking. or laugh at mine.</h2>
+            <h6>(I have a newsletter.)</h6>
         {/* <div className="indicates-required"><span className="asterisk">*</span> indicates required</div> */}
         <div className="mc-field-group">
             <label htmlFor="mce-EMAIL"></label>
-            <input type="email" placeholder="What's your email address?" name="EMAIL" className="required email" id="mce-EMAIL"/>
+            <input type="email" placeholder="your email address" name="EMAIL" className="required email" id="mce-EMAIL"/>
         </div>
             <div id="mce-responses" className="clear">
                 <div className="response" id="mce-error-response"></div>

@@ -76,7 +76,7 @@ body {
 }
 
 .blogs-background{
-  background: url("../src/img/black.jpg");
+  background: rgb(47, 136, 163);
   background-size: cover;
   background-repeat: none;
   z-index: -1;

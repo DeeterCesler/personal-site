@@ -214,6 +214,10 @@ h3{
   display: inline-block;
 }
 
+.readability h3 a {
+  font-weight: 300;
+}
+
 .wrapper {
   background-color:rgba(0,0,0,0.3);
 }

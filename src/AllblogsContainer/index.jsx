@@ -41,7 +41,7 @@ class AllblogsContainer extends Component {
                 <div className="spacer"/>
                 <div className="container blogs-container">
                     <div className="tiny-spacer"></div>
-                    <h2>Blogs</h2>
+                    <h2 className="blogs-title">blogs</h2>
                     {
                         this.state.loaded
                         ? 

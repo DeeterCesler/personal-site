@@ -7,6 +7,7 @@ import AllblogsContainer from './AllblogsContainer';
 import NavBar from './NavBar';
 import LoginRegisterContainer from './LoginRegisterContainer';
 import LogoutPage from './LogoutPage';
+import Work from './Work';
 import Now from './Now';
 import Blog from './Blog';
 import Singleblog from './Singleblog';
@@ -213,6 +214,10 @@ class App extends Component {
     return <LogoutPage logout={this.logout}/>
   }
   
+  work = () => {
+    return <Work/>
+  }
+
   now = () => {
     return <Now/>
   }
@@ -234,6 +239,7 @@ class App extends Component {
             <Route exact path="/register" render={this.loginRegisterPage}/>
             <Route exact path="/blog/new" render={this.newblog}/>
             <Route exact path="/blog" render={this.allblogs}/>
+            <Route exact path="/work" render={this.work}/>
             <Route exact path="/now" render={this.now}/>
             <Route exact path="/:blog" render={this.singleblog}/>
           </Switch>

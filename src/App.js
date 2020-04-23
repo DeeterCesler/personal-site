@@ -11,9 +11,9 @@ import Work from './Work';
 import Now from './Now';
 import Blog from './Blog';
 import Singleblog from './Singleblog';
-// import ReactGA from 'react-ga';
-// ReactGA.initialize('UA-110417068-2');
-// ReactGA.pageview(window.location.pathname + window.location.search);
+import ReactGA from 'react-ga';
+ReactGA.initialize('UA-110417068-2');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS
 

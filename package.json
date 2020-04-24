@@ -12,7 +12,7 @@
     "react-ga": "^2.7.0",
     "react-router-dom": "^4.3.1",
     "react-router-hash-link": "^1.2.2",
-    "react-scripts": "^3.0.0",
+    "react-scripts": "^3.4.1",
     "react-scrollable-anchor": "^0.6.1",
     "reactstrap": "^7.1.0"
   },

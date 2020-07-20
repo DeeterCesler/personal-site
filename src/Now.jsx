@@ -7,15 +7,12 @@ const Now = () => {
             <h1 className="now-header">what I'm doing right now</h1>
             <div className="container text-center">
                 <div className="readability">
-                    <h3 className=""><a href="https://fetchspot.io">Fetchspot.io</a></h3>
+                    <h3 className="">Black Business Directory</h3>
                     <br/>
-                    <p className="">I'm creating a web app that lets you instantly create static endpoints for software development purposes.
-                    <br/>
-                    <br/>
-                    I.e., if you're building a frontend app (like with React or Angular) but the backend isn't ready yet, you can simulate your server with data sent to you via a static endpoint.
+                    <p className="">I'm creating a directory to help people search and find black-owned businesses in the Denver area.
                     <br/>
                     <br/>
-                    Essentially Postman, but the opposite. <a href="https://fetchspot.io">Check it out.</a></p>
+                    It's a super simple demo at the moment. <a href="https://jolly-mcclintock-6977ca.netlify.app/">Check it out.</a></p>
                     {/* <p className="">If you're interested in using it, <a href="mailto:deeter.cesler@gmail.com">send me a message.</a></p> */}
                 </div>
             </div>

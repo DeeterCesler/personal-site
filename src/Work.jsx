@@ -17,19 +17,30 @@ const Work = () => {
             </div> */}
             <div className="container">
                 <div className="readability">
+                    <h4><a href="https://fetchspot.io/" target="_blank" rel="noopener noreferrer">Fetchspot.io</a></h4>
+                    <h6>Instantly create live, static JSON endpoints</h6>
+                    <br/>
+                    <p>Ideal for frontend developers who don't have a backend. 
+                    <br/>
+                    <a target="_blank" rel="noopener noreferrer" href="https://fetchspot.io/">Plans start at just $0.99.</a></p>
+                </div>
+            </div>
+            <div className="mini-spacer"/>
+            <div className="container">
+                <div className="readability">
                     <h4>The Ten Commandments of Clean Code</h4>
                     <h6>Selected by Medium.com's editors for the <i>Programming</i> category.</h6>
                     <br/>
-                    <p>If you're new to coding, or just suck at clean coding, <a target="_blank" href="https://medium.com/@deetercesler/the-ten-commandments-of-clean-code-89b22a6f01d1">follow these 10 rules</a> and you're 80% there.</p>
+                    <p>If you're new to coding, or just suck at clean coding, <a target="_blank" rel="noopener noreferrer" href="https://medium.com/@deetercesler/the-ten-commandments-of-clean-code-89b22a6f01d1">follow these 10 rules</a> and you're 80% there.</p>
                 </div>
             </div>
             <div className="mini-spacer"/>
             <div className="container">
                 <div className="readability">
                     <h4>Increase your email engagement by 600%</h4>
-                    <h6>PDF guide, available on <a href="https://gumroad.com/l/TSXqK" target="_blank">Gumroad</a></h6>
+                    <h6>PDF guide, available on <a href="https://gumroad.com/l/TSXqK" target="_blank" rel="noopener noreferrer">Gumroad</a></h6>
                     <br/>
-                    <p>I figured out how to turn around a marketing campaign that was going nowhere. <a href="https://600percent.com" target="_blank">You can too.</a></p>
+                    <p>I figured out how to turn around a marketing campaign that was going nowhere. <a href="https://600percent.com" target="_blank" rel="noopener noreferrer">You can too.</a></p>
                 </div>
             </div>
             <div className="mini-spacer"/>
@@ -38,7 +49,7 @@ const Work = () => {
                     <h4>Pepsi's failure in the Jenner ad controversy</h4>
                     <h6>An old article, but it still makes me laugh.</h6>
                     <br/>
-                    <p>Chosen by SmartBrief's editors for their <i>Marketing</i> newsletter. <a href="https://www.smartbrief.com/original/2017/04/pepsis-failure-jenner-ad-controversy" target="_blank">My thoughts on how Pepsi <i>should've</i> responded</a> when their ill-fated ad didn't go their way.</p>
+                    <p>Chosen by SmartBrief's editors for their <i>Marketing</i> newsletter. <a href="https://www.smartbrief.com/original/2017/04/pepsis-failure-jenner-ad-controversy" rel="noopener noreferrer" target="_blank">My thoughts on how Pepsi <i>should've</i> responded</a> when their ill-fated ad didn't go their way.</p>
                 </div>
             </div>
             <div className="spacer"/>

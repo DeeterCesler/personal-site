@@ -5,16 +5,11 @@ const Work = () => {
         <div className="work">
             <div className="mini-spacer"/>
             <h1 className="work-header">what I've done</h1>
-            <p>I write, code, market, and talk about it.</p>
+            <p>writing, coding, and marketing</p>
             <br/>
-            {/* <h2>featured in</h2>
-            <div className="container">
-                <ul className="col-3 text-left">
-                    <li>smartbrief</li>
-                    <li>medium (featured article)</li>
-                    <li>podcasts (lol)</li>
-                </ul>
-            </div> */}
+            <br/>
+            <h3>Software</h3>
+            <br/>
             <div className="container">
                 <div className="readability">
                     <h4><a href="https://fetchspot.io/" target="_blank" rel="noopener noreferrer">Fetchspot.io</a></h4>
@@ -26,6 +21,8 @@ const Work = () => {
                 </div>
             </div>
             <div className="mini-spacer"/>
+            <h3>Writing</h3>
+            <br/>
             <div className="container">
                 <div className="readability">
                     <h4>The Ten Commandments of Clean Code</h4>

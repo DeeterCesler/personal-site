@@ -7,15 +7,14 @@ const Now = () => {
             <h1 className="now-header">what I'm doing right now</h1>
             <div className="container text-center">
                 <div className="readability">
-                    <h3 className="">Black Business Directory</h3>
+                    <h3 className="">"a million miles in a thousand years"</h3>
                     <br/>
-                    <p className="">I'm creating a directory to help people search and find black-owned businesses in the Denver area.
-                    <br/>
-                    <br/>
-                    It's a super simple demo at the moment. <a href="https://jolly-mcclintock-6977ca.netlify.app/">Check it out.</a></p>
+                    <p className="">I'm reading a book of the above name by Donald Miller. It's a contemplative memoir about viewing your life as a narrative arc.</p>
+                    <p className="">Not bad so far.</p>
                     {/* <p className="">If you're interested in using it, <a href="mailto:deeter.cesler@gmail.com">send me a message.</a></p> */}
                 </div>
             </div>
+            <div className="spacer"/>
             <div className="spacer"/>
             {/* <div className="mini-spacer"/>
             <div className="container text-center readability">

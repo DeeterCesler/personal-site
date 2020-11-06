@@ -12,6 +12,7 @@ import Now from './Now';
 import Blog from './Blog';
 import Singleblog from './Singleblog';
 import ReactGA from 'react-ga';
+import NotFoundPage from './NotFoundPage';
 ReactGA.initialize('UA-110417068-2');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
@@ -225,6 +226,10 @@ class App extends Component {
   blog = () => {
     return <Blog/>
   }
+  
+  notFoundPage = () => {
+    return <NotFoundPage />
+  }
 
   render(){
     return (
@@ -241,6 +246,7 @@ class App extends Component {
             <Route exact path="/blog" render={this.allblogs}/>
             <Route exact path="/work" render={this.work}/>
             <Route exact path="/now" render={this.now}/>
+            <Route exact path="/notfound" render={this.notFoundPage}/>
             <Route exact path="/:blog" render={this.singleblog}/>
           </Switch>
         </div>

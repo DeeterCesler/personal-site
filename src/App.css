@@ -445,3 +445,17 @@ h3{
 #mce-EMAIL{
   color: black
 }
+
+.lost h2 {
+  color: black;
+}
+
+.lost a {
+  color: white;
+  text-decoration: underline;
+}
+
+.lost a:hover {
+  color: white;
+  text-decoration: none;
+}

@@ -2,6 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import Editblog from "./Editblog";
 import {withRouter} from "react-router-dom";
+import NotFoundPage from "./NotFoundPage";
 
 const backendURL = process.env.REACT_APP_BACKEND_SERVER_ADDRESS
 
@@ -25,6 +26,7 @@ class Singleblog extends React.Component{
             console.log("ROUTE PARAM: " + this.routeParam)
             const foundBlog = await fetch(backendURL + "blog/" + this.routeParam)
             const parsedBlog = await foundBlog.json();
+            if (parsedBlog === undefined) return <NotFoundPage />
             console.log("FOUND BLOG: " + parsedBlog)
             this.setState({ 
                 // info: blog.data,
@@ -96,11 +98,15 @@ class Singleblog extends React.Component{
     
     render(){
         return(
-            this.state.redirect || this.state.blog.blogName === "NA"
+            this.state.blog === null
             ?
-            <Redirect to="/blog"/>
+            <Redirect to="/notfound"/>
             :
-            <div className="single-blog-background">
+                this.state.redirect || this.state.blog.blogName === "NA"
+                ?
+                <Redirect to="/blog"/>
+                :
+                <div className="single-blog-background">
                 <div className="spacer"/>
                 <h1>{this.state.blog.blogName}</h1>
                 <h4>{this.state.blog.blogSummary}</h4>

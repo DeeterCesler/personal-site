@@ -7,10 +7,10 @@ const Now = () => {
             <h1 className="now-header">what I'm doing right now</h1>
             <div className="container text-center">
                 <div className="readability">
-                    <h3 className="">"a million miles in a thousand years"</h3>
+                    <h3 className="">reading the Bhagavad Gita</h3>
                     <br/>
-                    <p className="">I'm reading a book of the above name by Donald Miller. It's a contemplative memoir about viewing your life as a narrative arc.</p>
-                    <p className="">Not bad so far.</p>
+                    <p className="">The leading text for one of the oldest religions in the world.</p>
+                    <p className="small">Well, not actually reading it. Listening to it on audio book.</p>
                     {/* <p className="">If you're interested in using it, <a href="mailto:deeter.cesler@gmail.com">send me a message.</a></p> */}
                 </div>
             </div>

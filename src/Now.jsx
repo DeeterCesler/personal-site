@@ -7,11 +7,10 @@ const Now = () => {
             <h1 className="now-header">what I'm doing right now</h1>
             <div className="container text-center">
                 <div className="readability">
-                    <h3 className="">reading the Bhagavad Gita</h3>
+                    <h3 className="">"Made in Cincinnati" podcast</h3>
                     <br/>
-                    <p className="">The leading text for one of the oldest religions in the world.</p>
-                    <p className="small">Well, not actually reading it. Listening to it on audio book.</p>
-                    {/* <p className="">If you're interested in using it, <a href="mailto:deeter.cesler@gmail.com">send me a message.</a></p> */}
+                    <p className="">I recorded and am currently cutting interviews of several Cincinnati-based entrepreneurs and creators.</p>
+                    <p> I'm hoping to inspire other makers and shine a spotlight on the people making moves in the Queen City.</p>
                 </div>
             </div>
             <div className="spacer"/>

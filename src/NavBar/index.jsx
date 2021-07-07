@@ -29,18 +29,18 @@ export default class NavBar extends Component{
                                 {/* <NavItem>
                                     <NavLink href="/#portfolio">portfolio</NavLink>
                                 </NavItem> */}
-                                <NavItem>
+                                {/* <NavItem>
                                     <NavLink href="/#about">about</NavLink>
-                                </NavItem>
+                                </NavItem> */}
                                 <NavItem>
                                     <NavLink href="/#contact">contact</NavLink>
                                 </NavItem>
-                                <NavItem>
+                                {/* <NavItem>
                                     <NavLink href="/blog">blog</NavLink>
-                                </NavItem>
-                                <NavItem>
+                                </NavItem> */}
+                                {/* <NavItem>
                                     <NavLink href="/work">what I've done</NavLink>
-                                </NavItem>
+                                </NavItem> */}
                                 <NavItem>
                                     <NavLink href="/now">now</NavLink>
                                 </NavItem>

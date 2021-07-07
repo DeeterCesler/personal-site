@@ -6,11 +6,16 @@ const Now = () => {
             <div className="mini-spacer"/>
             <h1 className="now-header">what I'm doing right now</h1>
             <div className="container text-center">
-                <div className="readability">
+                {/* <div className="readability">
                     <h3 className="">"Made in Cincinnati" podcast</h3>
                     <br/>
                     <p className="">I recorded and am currently cutting interviews of several Cincinnati-based entrepreneurs and creators.</p>
                     <p> I'm hoping to inspire other makers and shine a spotlight on the people making moves in the Queen City.</p>
+                </div> */}
+                <div className="readability">
+                    <h3 className="">Learning UX fundamentals</h3>
+                    <br/>
+                    <p className="">As a developer, I've spent a lot of time just trying to <i>get the dang thing to work</i>. Now, I want to make it look decent (and become a better frontend dev in the process).</p>
                 </div>
             </div>
             <div className="spacer"/>

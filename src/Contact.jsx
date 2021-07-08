@@ -1,4 +1,5 @@
 import React from "react";
+import instaLogo from "./img/insta.png";
 
 const Contact = () => {
     return(
@@ -13,7 +14,7 @@ const Contact = () => {
                 </div>
                 <div className="insta col-md">
                     <a href="https://www.instagram.com/deetercesler/" target="_blank" rel="noopener noreferrer">
-                        <img className="insta-logo" src={require("./img/insta.png").default} height="50px" alt="Instagram"/>
+                        <img className="insta-logo" src={instaLogo} height="50px" alt="Instagram"/>
                     </a>
                     <p className="tiny">But I love the validation of social media.</p>
                 </div>

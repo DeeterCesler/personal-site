@@ -1,46 +1,56 @@
 import React from "react";
-import ScrollableAnchor from 'react-scrollable-anchor'
-import Contact from "./Contact";
-// import Portfolio from "./Portfolio";
-import About from "./About";
+import party from "party-js";
 
 const HomePage = () => {
+
+    function confetti(){
+        if (document.querySelector(".surprise")) {
+            document.querySelector(".surprise").addEventListener("click", function (e) {
+                party.confetti(this, {
+                    count: party.variation.range(20, 40),
+                });
+            });
+        }
+    }                     
+
     return (
         <div className="home">
-            <div className="wrapper">
-                <ScrollableAnchor id={"home"}>
-                    <div className="spacer"></div>
-                </ScrollableAnchor>
-                <h1 className="big-name">Deeter Cesler</h1>
-                <h3>strategist <br/> writer <br/> software engineer</h3>
-                <div className="fader"/>
-                <div className="second-wrapper">
-                    {/* <ScrollableAnchor id={"portfolio"}>
-                        <div>
-                            <div className="nav-spacer"/>
-                            <Portfolio/>
-                        </div>
-                    </ScrollableAnchor> */}
-                    <div className="mini-fader"/>
-                    <div className="second-wrapper">
-                        <ScrollableAnchor id={"about"}>
-                            <div>
-                                {/* <div className="nav-spacer"/> */}
-                                <About/>
-                            </div>
-                        </ScrollableAnchor>
-                    </div>
-                    <div className="last-fader"/>
-                    <div className="last-wrapper">
-                        <ScrollableAnchor id={"contact"}>
-                            <div>
-                                {/* <div className="nav-spacer"/> */}
-                                <Contact/>
-                            </div>
-                        </ScrollableAnchor>
-                        <div className="mini-spacer"/>
+            <div className="container">
+                <div className="spacer"></div>
+                <h1 className="big-name">Deeter<br/>Cesler</h1>
+                <br/>
+                <br/>
+                <br/>
+                <div className="titles">
+                    <h3>software</h3>
+                    <h3>guerrilla marketing</h3>
+                    <h3 className="shit"><a className="tiny surprise" onClick={ 
+                        confetti()
+                    } style= {{ textDecoration: "none" }} ><i>click for surprise</i> 🤫</a></h3>
+                </div>
+                <div className="disappearing-spacer"/>
+                <div className="disappearing-spacer"/>
+                {/* <div className="hero-wrapper"> */}
+                    <div className="header-image"></div>
+                {/* </div> */}
+                <div className="disappearing-spacer"/>
+                <div className="body">
+                    <div className="shit">
+                        <a className="" style= {{ textDecoration: "none" }} href="mailto:deeter.cesler@gmail.com">EMAIL</a>
+                        <br/>
+                        <a className="" style= {{ textDecoration: "none" }} href="http://twitter.com/deetercesler">TWITTER</a>
+                        <br/>
+                        <a className="" style= {{ textDecoration: "none" }} href="http://instagram.com/deetercesler">INSTA</a>
+                        <br/>
+                        {/* WEBSITES
+                        <br/>
+                        NEWSLETTERS
+                        <br/> */}
+                        <a style= {{ textDecoration: "none" }} href="/now">NOW</a>
+                        <br/>
                     </div>
                 </div>
+                <div className="spacer"/>
             </div>
         </div>
     )

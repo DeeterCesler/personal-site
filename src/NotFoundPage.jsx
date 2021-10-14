@@ -2,21 +2,21 @@ import React from "react";
 
 const NotFoundPage = () => {
     return(
-        <div className="lost container">
-            <div className="spacer" />
-            <h2>Whoops!</h2>
-            <div className="mini-spacer"/>
-            <div className="row">
-                <div className="col-sm readability">
+<div className="now">
+            <div className="spacer"/>
+            <h1 className="now-header">WHOOPS</h1>
+            <div className="spacer"/>
+            <div className="">
+                <div className="readability">
+                    <h3 className="">YOU GOT LOST</h3>
                     <br/>
-                    <h4>Looks like you're lost.</h4>
-                    <br/>
-                    <p>This isn't a real page. <br/>Maybe it used to be a blog, but now it's gone.</p>
-                    <br/>
-                    <a href="/">Home.</a>
-                    <br/>
+                    <p className="">or the link you found was old</p>
+                    <p className="small">it happens to everyone</p>
+                    <p className="lost tiny"><a href="/" className="">go back home</a></p>
                 </div>
             </div>
+            <div className="spacer"/>
+            <div className="spacer"/>
         </div>
     )
 }

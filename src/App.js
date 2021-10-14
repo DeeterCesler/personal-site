@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import HomePage from './HomePage';
 import Newblog from './Newblog/index';
 import AllblogsContainer from './AllblogsContainer';
@@ -239,16 +239,9 @@ class App extends Component {
           <Switch>
             {/* <Route exact path="/home" redi ={this.homepage}/> */}
             <Route exact path="/" render={this.homepage}/>
-            <Route exact path="/about" render={this.aboutPage}/>
-            <Route exact path="/login" render={this.loginRegisterPage}/>
-            <Route exact path="/logout" render={this.logoutPage}/>
-            <Route exact path="/register" render={this.loginRegisterPage}/>
-            <Route exact path="/blog/new" render={this.newblog}/>
-            <Route exact path="/blog" render={this.allblogs}/>
-            <Route exact path="/work" render={this.work}/>
             <Route exact path="/now" render={this.now}/>
             <Route exact path="/notfound" render={this.notFoundPage}/>
-            <Route exact path="/:blog" render={this.singleblog}/>
+            <Redirect from="/*" to="/notfound"/>
           </Switch>
         </div>
     );

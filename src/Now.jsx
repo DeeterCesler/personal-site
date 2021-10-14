@@ -3,9 +3,11 @@ import React from "react";
 const Now = () => {
     return(
         <div className="now">
-            <div className="mini-spacer"/>
+            <div className="spacer"/>
+            {/* <div className="disappearing-spacer"/> */}
             <h1 className="now-header">what I'm doing right now</h1>
-            <div className="container text-center">
+            <div className="spacer"/>
+            <div className="">
                 {/* <div className="readability">
                     <h3 className="">"Made in Cincinnati" podcast</h3>
                     <br/>
@@ -13,9 +15,10 @@ const Now = () => {
                     <p> I'm hoping to inspire other makers and shine a spotlight on the people making moves in the Queen City.</p>
                 </div> */}
                 <div className="readability">
-                    <h3 className="">Learning UX fundamentals</h3>
+                    <h3 className="">CODE</h3>
                     <br/>
-                    <p className="">As a developer, I've spent a lot of time just trying to <i>get the dang thing to work</i>. Now, I want to make it look decent (and become a better frontend dev in the process).</p>
+                    <p className="">freelance contracts</p>
+                    <p className="">introducing newbies to programming</p>
                 </div>
             </div>
             <div className="spacer"/>

@@ -2,15 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import HomePage from './HomePage';
-import Newblog from './Newblog/index';
-import AllblogsContainer from './AllblogsContainer';
-import LoginRegisterContainer from './LoginRegisterContainer';
-import LogoutPage from './LogoutPage';
 import Logo from './Logo'
 import Work from './Work';
 import Now from './Now';
-import Blog from './Blog';
-import Singleblog from './Singleblog';
 import ReactGA from 'react-ga';
 import NotFoundPage from './NotFoundPage';
 ReactGA.initialize('UA-110417068-2');
@@ -22,7 +16,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      loggedIn: "",
+      loggedIn: false,
       email: "deeter.cesler@gmail.com",
       blog: null
     }
@@ -99,120 +93,12 @@ class App extends Component {
     this.checkForCookie();
   }
 
-  handleInputs = (e) => {
-    this.setState({
-      ...this.state,
-      [e.currentTarget.name]: e.currentTarget.value
-    })
-  }
-
-  submitRegistration = async (e) => {
-    e.preventDefault();
-    try{
-      const targetUrl = backendURL + 'auth/register'
-      const createUser = await fetch(targetUrl, {
-        method: 'POST',
-        body: JSON.stringify(this.state),
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Headers': "POST"
-        } 
-      });
-      const parsedResponse = await createUser.json();
-      if(parsedResponse.status === 200){
-        this.setState({
-          loggedIn: true,
-          email: parsedResponse.data.email,
-          id: parsedResponse.data._id
-        })
-      } else if (parsedResponse.status === 500){
-        console.log("INTERNAL SERVER ERROR")
-      }
-    }catch(err){
-      console.log(err, " error")
-    }
-  }
-
-  submitLogin = async (e) => {
-    e.preventDefault();
-    console.log(this.state)
-    let parsedLogged;
-    try{
-      console.log("submitting login");
-      const targetUrl = backendURL;
-      const loggedUser = await fetch(targetUrl + 'auth/login', {
-        method: 'POST',
-        body: JSON.stringify(this.state),
-        headers: {
-          'Access-Control-Allow-Origin': targetUrl,
-          'Content-Type': 'application/json',
-          'credentials': 'same-origin',
-        } 
-      });
-      parsedLogged = await loggedUser.json();
-      // res => setToken(res.token);
-      if(parsedLogged.status === 200){
-        this.setState({
-          loggedIn: true,
-          email: parsedLogged.data.email,
-          id: parsedLogged.data._id
-        });
-        localStorage.setItem("token", parsedLogged.token);
-        localStorage.setItem("email", parsedLogged.data.email);
-        localStorage.setItem("id", parsedLogged.data._id);
-      } 
-      else if (parsedLogged.status === 500){
-        console.log("INTERNAL SERVER ERROR")
-      } else {
-        console.log("parsed log and shiiiiit:", parsedLogged);
-      }
-    }catch(err){
-      // console.log("parsed: ", parsedLogged);
-      console.log(parsedLogged);
-      console.log("Error, boi: ", err)
-    }
-  }
-
-  logout = () => {
-    console.log("LOGGING OUT")
-    localStorage.setItem("loggedIn", false)
-    localStorage.setItem("email", null)
-    localStorage.setItem("id", null)
-    localStorage.setItem("token", null)
-    this.setState({
-      loggedIn: false,
-      email: "",
-      password: ""
-    })
-  }
-
   setToken = (token) => {
     localStorage.setItem("token", token);
   }
 
   homepage = () => {
     return <HomePage />
-  }
-
-  newblog = () => {
-    return <Newblog loggedIn={this.state.loggedIn}/>
-  }
-  
-  allblogs = () => {
-    return <AllblogsContainer loggedIn={this.state.loggedIn}/>
-  }
-  
-  singleblog = () => {
-    return <Singleblog loggedIn={this.state.loggedIn}/>
-  }
-
-  loginRegisterPage = () => {
-    return <LoginRegisterContainer loggedIn={this.state.loggedIn} submitLogin={this.submitLogin} handleInputs={this.handleInputs} submitRegistration={this.submitRegistration}/>
-  }
-  
-  logoutPage = () => {
-    return <LogoutPage logout={this.logout}/>
   }
   
   work = () => {
@@ -223,10 +109,6 @@ class App extends Component {
     return <Now/>
   }
   
-  blog = () => {
-    return <Blog/>
-  }
-  
   notFoundPage = () => {
     return <NotFoundPage />
   }
@@ -235,9 +117,7 @@ class App extends Component {
     return (
         <div className="App">
           <Logo/>
-          {/* <NavBar loggedIn={this.state.loggedIn}/> */}
           <Switch>
-            {/* <Route exact path="/home" redi ={this.homepage}/> */}
             <Route exact path="/" render={this.homepage}/>
             <Route exact path="/now" render={this.now}/>
             <Route exact path="/notfound" render={this.notFoundPage}/>

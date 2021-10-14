@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
-import party from "party-js";
 import HomePage from './HomePage';
 import Newblog from './Newblog/index';
 import AllblogsContainer from './AllblogsContainer';
-import NavBar from './NavBar';
 import LoginRegisterContainer from './LoginRegisterContainer';
 import LogoutPage from './LogoutPage';
 import Logo from './Logo'

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
+import party from "party-js";
 import HomePage from './HomePage';
 import Newblog from './Newblog/index';
 import AllblogsContainer from './AllblogsContainer';
 import NavBar from './NavBar';
 import LoginRegisterContainer from './LoginRegisterContainer';
 import LogoutPage from './LogoutPage';
+import Logo from './Logo'
 import Work from './Work';
 import Now from './Now';
 import Blog from './Blog';
@@ -234,7 +236,8 @@ class App extends Component {
   render(){
     return (
         <div className="App">
-          <NavBar loggedIn={this.state.loggedIn}/>
+          <Logo/>
+          {/* <NavBar loggedIn={this.state.loggedIn}/> */}
           <Switch>
             {/* <Route exact path="/home" redi ={this.homepage}/> */}
             <Route exact path="/" render={this.homepage}/>

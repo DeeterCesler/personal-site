@@ -6,7 +6,7 @@ export default class Logo extends Component{
         return(
             <div height="50px" id="logo">
                 <a href="/">
-                    <img src={home} />
+                    <img src={home} alt="home" />
                 </a>
             </div>
         )

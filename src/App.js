@@ -119,6 +119,8 @@ class App extends Component {
           <Logo/>
           <Switch>
             <Route exact path="/" render={this.homepage}/>
+            <Route exact from="/index" to="/"/>
+            <Route exact path="/index.html" render={this.homepage}/>
             <Route exact path="/now" render={this.now}/>
             <Route exact path="/notfound" render={this.notFoundPage}/>
             <Redirect from="/*" to="/notfound"/>

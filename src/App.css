@@ -5,9 +5,16 @@ html, body {
   padding: 0;
 }
 
+.top-nav {
+  width: 100%;
+  background-color: #000;
+  z-index: 2;
+  height: 70px;
+  padding: 20px;
+}
+
 #logo {
   position: fixed;
-  margin: 20px;
 }
 
 #logo img {

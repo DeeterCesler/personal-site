@@ -4,6 +4,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import HomePage from './HomePage';
 import Logo from './Logo'
 import Work from './Work';
+import Fun from './Fun';
 import Now from './Now';
 import ReactGA from 'react-ga';
 import NotFoundPage from './NotFoundPage';
@@ -105,6 +106,10 @@ class App extends Component {
     return <Work/>
   }
 
+  fun = () => {
+    return <Fun/>
+  }
+  
   now = () => {
     return <Now/>
   }
@@ -121,6 +126,7 @@ class App extends Component {
             <Route exact path="/" render={this.homepage}/>
             <Route exact from="/index" to="/"/>
             <Route exact path="/index.html" render={this.homepage}/>
+            <Route exact path="/fun" render={this.fun}/>
             <Route exact path="/now" render={this.now}/>
             <Route exact path="/notfound" render={this.notFoundPage}/>
             <Redirect from="/*" to="/notfound"/>

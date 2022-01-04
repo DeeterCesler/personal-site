@@ -73,13 +73,16 @@ html, body {
   padding-bottom: 10%;
 }
 
-.shit a {
+.links a {
+  text-shadow: 0 0 #000;
   text-decoration: none;
   color: white;
+  transition: text-shadow 0.3s ease;
 }
 
-.shit a:hover {
+.links a:hover {
   color: rgb(211, 211, 211);
+  text-shadow: 4px 4px rgb(110, 110, 110);
 }
 
 .App {

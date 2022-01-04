@@ -36,14 +36,14 @@ const HomePage = () => {
                 {/* </div> */}
                 <div className="disappearing-spacer"/>
                 <div className="body">
-                    <div className="shit">
-                        <a className="" style= {{ textDecoration: "none" }} href="mailto:deeter.cesler@gmail.com">EMAIL</a>
+                    <div className="links">
+                        <a className="link" style= {{ textDecoration: "none" }} href="mailto:deeter.cesler@gmail.com">EMAIL</a>
                         <br/>
-                        <a className="" style= {{ textDecoration: "none" }} href="http://twitter.com/deetercesler">TWITTER</a>
+                        <a className="link" style= {{ textDecoration: "none" }} href="http://twitter.com/deetercesler">TWITTER</a>
                         <br/>
-                        <a className="" style= {{ textDecoration: "none" }} href="http://instagram.com/deetercesler">INSTA</a>
+                        <a className="link" style= {{ textDecoration: "none" }} href="http://instagram.com/deetercesler">INSTA</a>
                         <br/>
-                        <a style= {{ textDecoration: "none" }} href="/now">NOW</a>
+                        <a className="link" style= {{ textDecoration: "none" }} href="/now">NOW</a>
                         <br/>
                     </div>
                 </div>

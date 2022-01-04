@@ -1,8 +1,8 @@
 import React from "react";
 
-const Now = () => {
+const Fun = () => {
     return(
-        <div className="fun">
+        <div className="now">
             <div className="spacer"/>
             {/* <div className="disappearing-spacer"/> */}
             <h1 className="now-header">what I'm doing right now</h1>
@@ -21,4 +21,4 @@ const Now = () => {
     )
 }
 
-export default Now;
+export default Fun;

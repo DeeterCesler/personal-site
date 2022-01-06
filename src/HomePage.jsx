@@ -37,13 +37,13 @@ const HomePage = () => {
                 <div className="disappearing-spacer"/>
                 <div className="body">
                     <div className="links">
-                        <a className="link" style= {{ textDecoration: "none" }} href="mailto:me+site@deetercesler.com">EMAIL</a>
+                        <a className="link" target="_blank" rel="noopener noreferrer" style= {{ textDecoration: "none" }} href="mailto:me+site@deetercesler.com">EMAIL</a>
                         <br/>
-                        <a className="link" style= {{ textDecoration: "none" }} href="http://twitter.com/deetercesler">TWITTER</a>
+                        <a className="link" target="_blank" rel="noopener noreferrer" style= {{ textDecoration: "none" }} href="http://twitter.com/deetercesler">TWITTER</a>
                         <br/>
-                        <a className="link" style= {{ textDecoration: "none" }} href="http://instagram.com/deetercesler">INSTA</a>
-                        {/* <br/>
-                        <a className="link" style= {{ textDecoration: "none" }} href="/fun">FUN</a> */}
+                        <a className="link" target="_blank" rel="noopener noreferrer" style= {{ textDecoration: "none" }} href="http://instagram.com/deetercesler">INSTA</a>
+                        <br/>
+                        <a className="link" style= {{ textDecoration: "none" }} href="/fun">FUN</a>
                         <br/>
                         <a className="link" style= {{ textDecoration: "none" }} href="/now">NOW</a>
                         <br/>

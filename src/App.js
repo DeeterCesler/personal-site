@@ -5,6 +5,7 @@ import HomePage from './HomePage';
 import Logo from './Logo'
 import Work from './Work';
 import Fun from './Fun';
+import Dungeon from './FUN/dungeon';
 import Now from './Now';
 import ReactGA from 'react-ga';
 import NotFoundPage from './NotFoundPage';
@@ -110,6 +111,10 @@ class App extends Component {
     return <Fun/>
   }
   
+  dungeon = () => {
+    return <Dungeon/>
+  }
+  
   now = () => {
     return <Now/>
   }
@@ -127,6 +132,7 @@ class App extends Component {
             <Route exact from="/index" to="/"/>
             <Route exact path="/index.html" render={this.homepage}/>
             <Route exact path="/fun" render={this.fun}/>
+            <Route exact path="/fun/dungeon" render={this.dungeon}/>
             <Route exact path="/now" render={this.now}/>
             <Route exact path="/notfound" render={this.notFoundPage}/>
             <Redirect from="/*" to="/notfound"/>

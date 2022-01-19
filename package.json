@@ -1,19 +1,15 @@
 {
-  "name": "networker",
+  "name": "personal-site",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
     "party-js": "^2.1.2",
     "react": "^16.12.0",
-    "react-cookie": "^4.0.1",
-    "react-dev-utils": "^11.0.4",
     "react-dom": "^16.11.0",
     "react-ga": "^2.7.0",
     "react-router-dom": "^4.3.1",
-    "react-router-hash-link": "^1.2.2",
-    "react-scripts": "^4.0.3",
-    "react-scrollable-anchor": "^0.6.1",
+    "react-scripts": "^4.0.1",
     "reactstrap": "^7.1.0"
   },
   "scripts": {

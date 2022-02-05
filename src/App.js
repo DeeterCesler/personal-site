@@ -20,7 +20,6 @@ class App extends Component {
     this.state = {
       loggedIn: false,
       email: "deeter.cesler@gmail.com",
-      blog: null
     }
   }
 

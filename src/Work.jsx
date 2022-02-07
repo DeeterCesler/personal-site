@@ -4,7 +4,7 @@ const Work = () => {
     return(
         <div className="work">
             <div className="mini-spacer"/>
-            <h1 className="work-header">what I've done</h1>
+            <h1 className="header">what I've done</h1>
             <p>writing, coding, and marketing</p>
             <br/>
             <br/>

@@ -52,6 +52,10 @@ html, body {
   }
 }
 
+.container {
+  padding: 10%;
+}
+
 
 .hero-wrapper {
   position: fixed;
@@ -265,13 +269,12 @@ h3{
   font-size: 0.75em;
 }
 
-.readability{
+.main{
   color: #fff;
   background-color: rgba(0,0,0,0.7);
   display: inline-block;
   width: 80vw;
   text-align: left;
-  margin: 5vh 10vw;
 }
 
 .readability h3 {
@@ -308,7 +311,7 @@ h3{
 }
 
 .nav-spacer{
-  height: 75px;
+  height: 2em;
   width: 0;
 }
 
@@ -337,19 +340,14 @@ h3{
   font-weight: 900;
 }
 
-.now-header, .fun-header {
+.header {
   font-size: 4em;
   font-weight: 800;
-  margin-left: 10%;
   max-width: 80%;
-}
-
-.work-header {
-  font-weight: 800;
   margin-top: 2em;
 }
 
-.under-header {
+.subheader {
   margin-left: 10%;
 }
 
@@ -477,8 +475,4 @@ h3{
 
 .white:hover {
   color: rgb(192, 192, 192)
-}
-
-.now-text {
-  width: 100%;
 }

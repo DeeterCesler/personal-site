@@ -4,8 +4,6 @@ const Now = () => {
     return(
         <div className="home">
             <div className="container">
-                <div className="spacer"/>
-                {/* <div className="disappearing-spacer"/> */}
                 <h1 className="header">what I'm doing right now</h1>
                 <div className="spacer"/>
                 <div className="main-text">
@@ -15,8 +13,7 @@ const Now = () => {
                     <p className="now-text">contributing to a <a className="white" href="https://notyourdadsfinance.com" style={{textDecoration: "underline"}}>finance blog</a></p>
                     <br/>
                 </div>
-                <div className="spacer"/>
-                <div className="spacer"/>
+                <div className="mini-spacer"/>
             </div>
         </div>
     )

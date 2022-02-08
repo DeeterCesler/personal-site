@@ -17,7 +17,7 @@ const HomePage = () => {
     return (
         <div className="home">
             <div className="container">
-                <div className="spacer"></div>
+                <div className="mini-spacer"></div>
                 <h1 className="big-name">Deeter<br/>Cesler</h1>
                 <br/>
                 <br/>
@@ -49,7 +49,7 @@ const HomePage = () => {
                         <br/>
                     </div>
                 </div>
-                <div className="spacer"/>
+                <div className="mini-spacer"/>
             </div>
         </div>
     )

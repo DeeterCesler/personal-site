@@ -105,12 +105,6 @@ html, body {
   .disappearing-spacer {
     height: 0;
   }
-
-  .fader, .mini-fader{
-    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
-    height: 5em;
-  }
-  
 }
 
 @media only screen and (min-width: 700px) {
@@ -124,36 +118,12 @@ html, body {
   .mini-spacer{
     height: 2em;
   }
-
-  .fader, .mini-fader{
-    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
-    height: 8em;
-  }
-  
 }
 
 .explainer{
   font-size: 1.3em;
   margin: auto;
   /* background: url("../public/home-background.jpg"); */
-}
-
-.explainer-text{
-  font-size: 0.9em;
-  display: inline-block;
-}
-
-.second-explainer Input, .second-explainer p {
-  width: 110px;
-  /* display: inline-block; */
-}
-
-.explainer Input {
-  margin-bottom: 10px;
-}
-
-.explainer Button {
-  margin-top: 10px;
 }
 
 .background{
@@ -192,13 +162,9 @@ html, body {
   margin: 10px;
 }
 
-.cta a, .cta-2 a{
+.cta a, .cta-2 a {
   text-decoration: none;
   color: white;
-}
-
-.fade {
-  background-image: linear-gradient(90deg, rgba(0,0,0,0) 0%, #fff 50%, rgba(13,88,255) 75%);
 }
 
 #navbar {
@@ -217,22 +183,17 @@ html, body {
   margin: 1em;
 }
 
-.tiny-spacer{
+.tiny-spacer {
   padding: 5px;
 }
 
-.input-item{
-  width: 48%;
-  margin: 1%;
-}
-
-.big-name{
+.big-name {
   font-size: 5em;
   font-weight: 900;
   margin: 12px;
 }
 
-h3{
+h3 {
   font-weight: 200;
 }
 
@@ -240,7 +201,7 @@ h3{
   background-color: #3f3f3f;
 }
 
-.now{
+.now {
   background-color: #000000;
   /* background-image: url('./img/cloud-mountain.jpg'); */
   background-size: cover;
@@ -285,19 +246,6 @@ h3{
   background-color:rgba(0,0,0,0.3);
 }
 
-.second-wrapper {
-  background-color:rgba(0,0,0,0.5);
-}
-
-.last-wrapper {
-  background-color:rgba(0,0,0,0.7);
-}
-
-.last-fader{
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7));
-  height: 6em;
-}
-
 .email{
   color: white;
 }
@@ -308,11 +256,6 @@ h3{
 
 .insta, .insta-logo{
   margin-bottom: 10px;
-}
-
-.nav-spacer{
-  height: 2em;
-  width: 0;
 }
 
 .tiny{
@@ -335,18 +278,6 @@ h3{
   font-weight: 600;
 }
 
-#navbar-header{
-  font-size: 1.8em;
-  font-weight: 900;
-}
-
-.header {
-  font-size: 4em;
-  font-weight: 800;
-  max-width: 80%;
-  margin-top: 2em;
-}
-
 .subheader {
   margin-left: 10%;
 }
@@ -356,11 +287,22 @@ h3{
   font-size: 1.8em;
 }
 
+.header {
+  font-size: 4em;
+  font-weight: 800;
+  max-width: 80%;
+  margin-top: 1em;
+}
+
 @media only screen and (min-width: 700px) {
   .headline{
     font-size: 2.7em;
     font-weight: 800;
     margin-bottom: 3em;
+  }
+
+  .header {
+    margin-top: 1em;
   }
 }
 
@@ -370,15 +312,14 @@ h3{
     font-weight: 800;
     margin-bottom: 3em;
   }
+
+  .header {
+    margin-top: 2em;
+  }
 }
 
 .tiny-spacer{
   padding: 5px;
-}
-
-.input-item{
-  width: 48%;
-  margin: 1%;
 }
 
 @media only screen and (min-width: 1000px) {
@@ -475,4 +416,8 @@ h3{
 
 .white:hover {
   color: rgb(192, 192, 192)
+}
+
+.item {
+  margin: 5em 0;
 }

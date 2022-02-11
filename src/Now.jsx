@@ -4,7 +4,7 @@ const Now = () => {
     return(
         <div className="home">
             <div className="container">
-                <h1 className="header">what I'm doing right now</h1>
+                <h1 className="header">NOW</h1>
                 <div className="spacer"/>
                 <div className="main-text">
                     <p className="now-text">freelance development contracts</p>

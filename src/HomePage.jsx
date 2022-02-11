@@ -29,11 +29,7 @@ const HomePage = () => {
                 </div>
                 <div className="disappearing-spacer"/>
                 <div className="disappearing-spacer"/>
-                {/* <div className="hero-wrapper"> */}
-                    <div className="header-image">
-                            {/* <img src={climb}/> */}
-                    </div>
-                {/* </div> */}
+                <div className="header-image"/>
                 <div className="disappearing-spacer"/>
                 <div className="body">
                     <div className="links">

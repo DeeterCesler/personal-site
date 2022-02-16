@@ -25,7 +25,7 @@ const HomePage = () => {
                 <div className="titles">
                     <h3>sites & software</h3>
                     <h3>email marketing</h3>
-                    <h3 className="shit tiny surprise" onClick={ confetti() } ><i>click for surprise</i> 🤫</h3>
+                    <h3 className="shit tiny surprise" onClick={ confetti() } ><i>click for surprise</i> <span aria-label="hush emoji" role="img">🤫</span></h3>
                 </div>
                 <div className="disappearing-spacer"/>
                 <div className="disappearing-spacer"/>

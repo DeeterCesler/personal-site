@@ -77,6 +77,10 @@ html, body {
   padding-bottom: 10%;
 }
 
+.link {
+  display: block;
+}
+
 .link, .links a {
   text-shadow: 0 0 #000;
   text-decoration: none;

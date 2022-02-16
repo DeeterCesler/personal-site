@@ -411,7 +411,8 @@ h3 {
 }
 
 .white {
-  color: white
+  color: white;
+  font-weight: 650;
 }
 
 .white:hover {

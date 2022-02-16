@@ -8,7 +8,7 @@ const Fun = () => {
                 <div className="readability">
                     <div className="item">
                         <h3>STOCK CHECKER</h3>
-                        <p>text a stock ticker (like "AAPL") to +1 (224) 347-1019 to get the last price of that security</p>
+                        <p>text a stock ticker like <b>TSLA</b> to <i>+1 (224) 347-1019</i> to get the most recent price of that security</p>
                     </div>
                     <div className="item">
                         <h3><a className="link" href="http://dungeon-crawler.freeoda.com/" style= {{ textDecoration: "none" }}>DUNGEON CRAWLER</a></h3>

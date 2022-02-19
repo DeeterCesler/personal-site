@@ -83,7 +83,7 @@ html, body {
 
 .link, .links a {
   text-shadow: 0 0 #000;
-  text-decoration: none;
+  text-decoration: underline;
   color: white;
   transition: text-shadow 0.3s ease;
 }
@@ -91,6 +91,7 @@ html, body {
 .link:hover, .links a:hover {
   color: white;
   text-shadow: 4px 4px rgb(110, 110, 110);
+  text-decoration: none;
 }
 
 .App {
@@ -417,6 +418,7 @@ h3 {
 .white {
   color: white;
   font-weight: 650;
+  text-decoration: underline;
 }
 
 .white:hover {
@@ -425,4 +427,20 @@ h3 {
 
 .item {
   margin: 5em 0;
+}
+
+.icons {
+  margin-top: 5rem;
+}
+
+.icons img {
+  display: inline-block;
+  height: 1.8rem;
+  margin: 0 1rem;
+  transition: filter 0.3s ease;
+}
+.icons img:hover {
+  transition: .3s;
+  -webkit-filter: drop-shadow(0 0 0.75rem #fff);;
+  filter: drop-shadow(0 0 0.75rem #fff);
 }

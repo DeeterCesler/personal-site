@@ -11,11 +11,11 @@ const Fun = () => {
                         <p>text a stock ticker like <b>TSLA</b> to <i>+1 (224) 347-1019</i> to get the most recent price of that security</p>
                     </div>
                     <div className="item">
-                        <h3><a className="link" href="http://dungeon-crawler.freeoda.com/" style= {{ textDecoration: "none" }}>DUNGEON CRAWLER</a></h3>
+                        <h3><a className="link" href="http://dungeon-crawler.freeoda.com/">DUNGEON CRAWLER</a></h3>
                         <p>browser-based game I made while learning jQuery. keyboard required</p>
                     </div>
                     <div className="item">
-                        <h3><a className="link" href="https://happy-minsky-a19081.netlify.app/" style= {{ textDecoration: "none" }}>LASER EYES MAKER</a></h3>
+                        <h3><a className="link" href="https://happy-minsky-a19081.netlify.app/">LASER EYES MAKER</a></h3>
                         <p>add laser eyes to your profile pic</p>
                     </div>
                 </div>

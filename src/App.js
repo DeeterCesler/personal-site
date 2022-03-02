@@ -130,6 +130,7 @@ class App extends Component {
             <Route exact path="/" render={this.homepage}/>
             <Route exact from="/index" to="/"/>
             <Route exact path="/index.html" render={this.homepage}/>
+            {/* <Route exact path="/code" render={this.fun}/> */}
             <Route exact path="/fun" render={this.fun}/>
             <Route exact path="/fun/dungeon" render={this.dungeon}/>
             <Route exact path="/now" render={this.now}/>

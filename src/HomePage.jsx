@@ -29,6 +29,7 @@ const HomePage = () => {
                 <div className="titles">
                     <h3>sites & software</h3>
                     <h3>email marketing</h3>
+                    <h3>startups</h3>
                     <h3 className="shit tiny surprise" onClick={ confetti() } ><i>click for surprise</i> <span aria-label="hush emoji" role="img">🤫</span></h3>
                 </div>
                 <div className="disappearing-spacer"/>
@@ -37,9 +38,10 @@ const HomePage = () => {
                 <div className="disappearing-spacer"/>
                 <div className="body">
                     <div className="links">
-                        <a className="link" style= {{ textDecoration: "none" }} href="mailto:me+site@deetercesler.com">EMAIL</a>
+                        {/* <a className="link" style= {{ textDecoration: "none" }} href="/code">CODE</a> */}
                         <a className="link" style= {{ textDecoration: "none" }} href="/fun">FUN</a>
                         <a className="link" style= {{ textDecoration: "none" }} href="/now">NOW</a>
+                        <a className="link" style= {{ textDecoration: "none" }} href="mailto:me+site@deetercesler.com">EMAIL</a>
                     </div>
                     <div className="icons">
                         <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/DeeterCesler">

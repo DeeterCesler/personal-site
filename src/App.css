@@ -436,7 +436,7 @@ html, body {
 .icons img {
   display: inline-block;
   height: 1.8rem;
-  margin: 0 1rem;
+  margin: 0 0.75rem;
   transition: filter 0.3s ease;
 }
 .icons img:hover {

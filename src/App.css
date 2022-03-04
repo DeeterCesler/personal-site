@@ -36,15 +36,12 @@ html, body {
 @media screen and (min-width: 500px) {
   .titles {
     position: absolute;
-    right: 15%;
   }
 }
 
 @media screen and (max-width: 500px) {
   .titles, .big-name {
     position: relative;
-    /* right: 20%; */
-    margin-left: 5%;
   }
 
   .header-image {
@@ -53,7 +50,7 @@ html, body {
 }
 
 .container {
-  padding: 10%;
+  padding: 4rem 2rem;
 }
 
 
@@ -193,9 +190,9 @@ html, body {
 }
 
 .big-name {
-  font-size: 5em;
+  font-size: 5rem;
   font-weight: 900;
-  margin: 12px;
+  margin-top: 2rem;
 }
 
 .titles h3 {
@@ -279,7 +276,7 @@ html, body {
 }
 
 .subheading{
-  font-size: 1.5em;
+  font-size: 1.2rem;
   font-weight: 600;
 }
 

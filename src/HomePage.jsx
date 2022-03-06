@@ -5,7 +5,7 @@ import twitter from "./img/icons/twitter.svg"
 import insta from "./img/icons/instagram.svg"
 import linkedin from "./img/icons/linkedin.svg"
 import medium from "./img/icons/medium.svg"
-// import Scroller from "./Scroller";
+import Scroller from "./Scroller";
 
 const HomePage = () => {
 
@@ -21,7 +21,7 @@ const HomePage = () => {
 
     return (
         <div className="home">
-            {/* <Scroller /> */}
+            <Scroller />
             <div className="container">
                 <div className="mini-spacer"></div>
                 <h1 className="big-name">Deeter<br/>Cesler</h1>
@@ -40,9 +40,9 @@ const HomePage = () => {
                 <div className="body">
                     <div className="links">
                         {/* <a className="link" style= {{ textDecoration: "none" }} href="/code">CODE</a> */}
-                        <a className="link" style= {{ textDecoration: "none" }} href="/fun">FUN</a>
-                        <a className="link" style= {{ textDecoration: "none" }} href="/now">NOW</a>
-                        <a className="link" style= {{ textDecoration: "none" }} href="mailto:me+site@deetercesler.com">EMAIL</a>
+                        <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/fun">FUN</a></p>
+                        <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/now">NOW</a></p>
+                        <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="mailto:me+site@deetercesler.com">EMAIL</a></p>
                     </div>
                     <div className="icons">
                         <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/DeeterCesler">

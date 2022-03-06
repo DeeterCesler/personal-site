@@ -5,6 +5,7 @@ import twitter from "./img/icons/twitter.svg"
 import insta from "./img/icons/instagram.svg"
 import linkedin from "./img/icons/linkedin.svg"
 import medium from "./img/icons/medium.svg"
+// import Scroller from "./Scroller";
 
 const HomePage = () => {
 
@@ -20,12 +21,11 @@ const HomePage = () => {
 
     return (
         <div className="home">
+            {/* <Scroller /> */}
             <div className="container">
                 <div className="mini-spacer"></div>
                 <h1 className="big-name">Deeter<br/>Cesler</h1>
-                <br/>
-                <br/>
-                <br/>
+                <div className="mini-spacer"></div>
                 <div className="titles">
                     <h3>I'm a software developer with a marketing background.</h3>
                     <h3 className="subheading">I'll take your idea from zero to MVP.</h3>
@@ -34,7 +34,6 @@ const HomePage = () => {
                     <h3>startups</h3> */}
                     <h3 className="shit tiny surprise" onClick={ confetti() } ><i>click for surprise</i> <span aria-label="hush emoji" role="img">🤫</span></h3>
                 </div>
-                <div className="disappearing-spacer"/>
                 <div className="disappearing-spacer"/>
                 <div className="header-image"/>
                 <div className="disappearing-spacer"/>
@@ -60,10 +59,6 @@ const HomePage = () => {
                         </a>
                     </div>
                 </div>
-                {/* <img alt="" src="https://dd7tel2830j4w.cloudfront.net/f1621814341272x967009966776231000/linkedin.svg" style="display: block; margin: 0px; width: 100%; height: 100%; border-radius: 0px;"/>
-                <img alt="" src="https://dd7tel2830j4w.cloudfront.net/f1621814365201x168155780258922000/facebook.svg" style="display: block; margin: 0px; width: 100%; height: 100%; border-radius: 0px;"/>
-                <img alt="" src="https://dd7tel2830j4w.cloudfront.net/f1621814376859x736595022725044900/instagram.svg" style="display: block; margin: 0px; width: 100%; height: 100%; border-radius: 0px;"/>
-                <img alt="" src="https://dd7tel2830j4w.cloudfront.net/f1622179888872x493476946416596860/medium%201.svg" style="display: block; margin: 0px; width: 100%; height: 100%; border-radius: 0px;"/> */}
                 <div className="mini-spacer"/>
             </div>
         </div>

@@ -25,7 +25,7 @@ class App extends Component {
 
 
   checkForCookie = async () => {
-    console.log("getting token: ", localStorage.getItem("token"))
+    // console.log("getting token: ", localStorage.getItem("token"))
     if(localStorage.getItem("token") !== "null"){
       try{
         const targetUrl = backendURL + "auth/verify";
@@ -81,7 +81,7 @@ class App extends Component {
         })
       }
     } else{
-      console.log("else statement hit");
+      // console.log("else statement hit");
       this.setState({
         loggedIn: false
       })

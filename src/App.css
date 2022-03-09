@@ -484,11 +484,15 @@ svg {
   visibility: visible;
 }
 
-.pop-in {
+.pop-in, .pop-in-initial {
   animation: pop-in;
   animation-duration: 1s;
   /* z-index: 5; */
   position: relative;
+}
+
+.pop-in-initial {
+  animation-duration: 0.5s;
 }
 
 @keyframes pop-in {

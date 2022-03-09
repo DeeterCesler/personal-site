@@ -1,6 +1,5 @@
 import React from "react";
 import party from "party-js";
-// import climb from "./img/climb.JPG"
 import twitter from "./img/icons/twitter.svg"
 import insta from "./img/icons/instagram.svg"
 import linkedin from "./img/icons/linkedin.svg"

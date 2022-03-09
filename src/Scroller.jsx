@@ -20,7 +20,7 @@ export default function Scroller(){
         const circleFill = 159;
         $("#circle-lol").attr("stroke-dashoffset", `${magicNumber-(scrollPercentage*magicMultiplier)}px`);
         
-        if(scrollPercentage > 10) $(".white-wrapper").removeClass('hidden').addClass('pop-in');
+        if(scrollPercentage > 1) $(".white-wrapper").removeClass('hidden').addClass('pop-in-initial');
 
         const circleProgression = parseInt($("#circle-lol").attr("stroke-dashoffset"));
         if(circleProgression <= circleFill) {

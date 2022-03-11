@@ -28,7 +28,7 @@ const HomePage = () => {
                 <div className="titles">
                     <h3>I'm a software developer with a marketing background.</h3>
                     <h3 className="subheading">I'll take your idea from zero to MVP.</h3>
-                    {/* <h3>sites & software</h3>
+                    {/* <h3>sites &#38; software</h3>
                     <h3>email marketing</h3>
                     <h3>startups</h3> */}
                     <h3 className="shit tiny surprise" onClick={ confetti() } ><i>click for surprise</i> <span aria-label="hush emoji" role="img">🤫</span></h3>

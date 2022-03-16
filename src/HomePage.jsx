@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import party from "party-js";
 import twitter from "./img/icons/twitter.svg"
 import insta from "./img/icons/instagram.svg"
@@ -8,15 +8,13 @@ import Scroller from "./Scroller";
 
 const HomePage = () => {
 
-    function confetti(){
-        if (document.querySelector(".surprise")) {
-            document.querySelector(".surprise").addEventListener("click", function (e) {
-                party.confetti(this, {
-                    count: party.variation.range(20, 40),
-                });
+    useEffect(()=>{
+        document.querySelector(".surprise").addEventListener("click", function (e) {
+            party.confetti(this, {
+                count: party.variation.range(20, 40),
             });
-        }
-    }                     
+        });
+    });  
 
     return (
         <div className="home">
@@ -31,7 +29,7 @@ const HomePage = () => {
                     {/* <h3>sites &#38; software</h3>
                     <h3>email marketing</h3>
                     <h3>startups</h3> */}
-                    <h3 className="shit tiny surprise" onClick={ confetti() } ><i>click for surprise</i> <span aria-label="hush emoji" role="img">🤫</span></h3>
+                    <h3 className="shit tiny surprise"><i>click for surprise</i> <span aria-label="hush emoji" role="img">🤫</span></h3>
                 </div>
                 <div className="disappearing-spacer"/>
                 <div className="header-image"/>

@@ -39,7 +39,7 @@ const HomePage = () => {
 
 
         }
-        if(confettiNumber == 3) setConfettiNumber(1);
+        if(confettiNumber === 3) setConfettiNumber(1);
         else setConfettiNumber(confettiNumber+1);
     };  
 

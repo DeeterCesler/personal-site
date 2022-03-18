@@ -4,6 +4,7 @@ import twitter from "./img/icons/twitter.svg"
 import insta from "./img/icons/instagram.svg"
 import linkedin from "./img/icons/linkedin.svg"
 import medium from "./img/icons/medium.svg"
+import email from "./img/icons/email.svg"
 import Scroller from "./Scroller";
 
 const HomePage = () => {
@@ -63,10 +64,11 @@ const HomePage = () => {
                 <div className="disappearing-spacer"/>
                 <div className="body">
                     <div className="links">
-                        {/* <a className="link" style= {{ textDecoration: "none" }} href="/code">CODE</a> */}
-                        <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/fun">FUN</a></p>
+                        {/* <a className="link-p" style= {{ textDecoration: "none" }} href="/code">CODE</a> */}
+                        {/* <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/work">WORK</a></p> */}
+                        <p className="link-p"><a target="_blank" className="link" style= {{ textDecoration: "none" }} href="https://deeter.gumroad.com/l/TSXqK">WRITE BETTER EMAILS</a></p>
+                        <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/fun">SOMETHING FUN</a></p>
                         <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/now">NOW</a></p>
-                        <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="mailto:me+site@deetercesler.com">EMAIL</a></p>
                     </div>
                     <div className="icons">
                         <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/DeeterCesler">
@@ -80,6 +82,9 @@ const HomePage = () => {
                         </a>
                         <a target="_blank" rel="noopener noreferrer" href="https://deetercesler.medium.com/">
                             <img alt="medium" src={medium} />
+                        </a>
+                        <a target="_blank" rel="noopener noreferrer" href="mailto:me+site@deetercesler.com">
+                            <img alt="email" src={email} />
                         </a>
                     </div>
                 </div>

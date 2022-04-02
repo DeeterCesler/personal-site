@@ -5,10 +5,9 @@ import insta from "./img/icons/instagram.svg"
 import linkedin from "./img/icons/linkedin.svg"
 import medium from "./img/icons/medium.svg"
 import email from "./img/icons/email.svg"
-import Scroller from "./Scroller";
 
 const HomePage = () => {
-    const [confettiNumber, setConfettiNumber ] = useState(1);
+    const [confettiNumber, setConfettiNumber] = useState(1);
     const jsConfetti = new JSConfetti()
 
     const confetti = () =>{
@@ -46,7 +45,6 @@ const HomePage = () => {
 
     return (
         <div className="home">
-            <Scroller />
             <div className="container">
                 <div className="mini-spacer"></div>
                 <h1 className="big-name">Deeter<br/>Cesler</h1>
@@ -66,9 +64,10 @@ const HomePage = () => {
                     <div className="links">
                         {/* <a className="link-p" style= {{ textDecoration: "none" }} href="/code">CODE</a> */}
                         {/* <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/work">WORK</a></p> */}
+                        <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/now">NOW</a></p>
+                        <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/startups-vs-big-tech">BLOG</a></p>
                         <p className="link-p"><a target="_blank" rel="noreferrer" className="link" style= {{ textDecoration: "none" }} href="https://deeter.gumroad.com/l/TSXqK">WRITE BETTER EMAILS</a></p>
                         <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/fun">SOMETHING FUN</a></p>
-                        <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/now">NOW</a></p>
                     </div>
                     <div className="icons">
                         <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/DeeterCesler">

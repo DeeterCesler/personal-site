@@ -3,10 +3,13 @@ import home from '../img/home.jpg'
 
 const Logo = () => {
     return(
-        <div height="250px" id="logo" className="top-nav">
-            <a href="/">
-                <img src={home} alt="home" />
-            </a>
+        <div className="top-nav">
+            <div className="logo">
+                <a href="/">
+                    <img src={home} alt="home" />
+                </a>
+            </div>
+            <div className="glow" />
         </div>
     )
 }

@@ -1,15 +1,18 @@
 import React from "react";
 import $ from "jquery";
 
-export default function Scroller(){
+export default function Scroller(){    
 
-    const maxHeight = Math.max(
-        document.body.scrollHeight, document.documentElement.scrollHeight,
-        document.body.offsetHeight, document.documentElement.offsetHeight,
-        document.body.clientHeight, document.documentElement.clientHeight
-    );
+    // TODO: add caching so it's not constantly recalculating body window
+    // I can't just declare it up here because on initial
+    // load it sees the DOM has a height of zero.
 
-    $(window).scroll(function() {
+    $(window).on('scroll', function() {
+        const maxHeight = Math.max(
+            document.body.scrollHeight, document.documentElement.scrollHeight,
+            document.body.offsetHeight, document.documentElement.offsetHeight,
+            document.body.clientHeight, document.documentElement.clientHeight
+        );
         
         const baseHeight = $(window).height();
         const currentHeight = $(window).scrollTop() + baseHeight

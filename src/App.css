@@ -10,14 +10,18 @@ html, body {
   background-color: #000;
   z-index: 2;
   height: 70px;
-  padding: 20px;
-}
-
-#logo {
   position: fixed;
+  /* background-image: linear-gradient(rgba(255,255,255,1),rgba(255,255,255,0)); */
 }
 
-#logo img {
+.glow {
+  height: 10px;
+  width: 100%;
+  background-color: black; /* For browsers that do not support gradients */
+}
+
+.logo img {
+  margin: 20px;
   max-height: 30px;
 }
 
@@ -486,13 +490,12 @@ svg {
 
 .pop-in, .pop-in-initial {
   animation: pop-in;
-  animation-duration: 1s;
-  /* z-index: 5; */
+  animation-duration: 0.5s;
   position: relative;
 }
 
 .pop-in-initial {
-  animation-duration: 0.5s;
+  animation-duration: 0.2s;
 }
 
 @keyframes pop-in {
@@ -535,4 +538,12 @@ svg {
   100% {
       stroke: #000;
   }
+}
+
+.blog-text p, .blog-text li {
+  font-size: 1.1rem;
+}
+
+.blog-text p, .blog-text > ul {
+  margin: 40px 0;
 }

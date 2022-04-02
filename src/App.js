@@ -9,6 +9,7 @@ import Dungeon from './FUN/dungeon';
 import Now from './Now';
 import ReactGA from 'react-ga';
 import NotFoundPage from './NotFoundPage';
+import StartupsVersus from './StartupsVersus';
 ReactGA.initialize('UA-110417068-2');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
@@ -30,9 +31,11 @@ const consoleArt = `
                                                  `;
 
 const consoleMessage = `
-Welcome! If you're checking the console, you're probably another developer seeing who I am and what I'm about.
-    
-Happy you're here. I will share any code you see that you're interested, if you ask!
+Welcome! Happy you're here. 
+
+If you're checking the console, you're probably another developer seeing who I am and what I'm about.
+
+I will share any code you see that you're interested, if you ask!
 
 `;
 
@@ -47,26 +50,6 @@ function App(){
   const homepage = () => {
     return <HomePage />
   }
-  
-  // const work = () => {
-  //   return <Work/>
-  // }
-
-  const fun = () => {
-    return <Fun/>
-  }
-  
-  const dungeon = () => {
-    return <Dungeon/>
-  }
-  
-  const now = () => {
-    return <Now/>
-  }
-  
-  const notFoundPage = () => {
-    return <NotFoundPage />
-  }
 
   return (
       <div className="App">
@@ -75,11 +58,12 @@ function App(){
           <Route exact path="/" render={homepage}/>
           <Route exact from="/index" to="/"/>
           <Route exact path="/index.html" render={homepage}/>
-          {/* <Route exact path="/code" render={this.fun}/> */}
-          <Route exact path="/fun" render={fun}/>
-          <Route exact path="/fun/dungeon" render={dungeon}/>
-          <Route exact path="/now" render={now}/>
-          <Route exact path="/notfound" render={notFoundPage}/>
+          {/* <Route exact path="/work" render={Work}/> */}
+          <Route exact path="/fun" render={Fun}/>
+          <Route exact path="/fun/dungeon" render={Dungeon}/>
+          <Route exact path="/now" render={Now}/>
+          <Route exact path="/notfound" render={NotFoundPage}/>
+          <Route exact path="/startups-vs-big-tech" render={StartupsVersus}/>
           <Redirect from="/*" to="/notfound"/>
         </Switch>
       </div>

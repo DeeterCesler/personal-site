@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://www.deetercesler.com/</loc>
-    <lastmod>2022-03-19</lastmod>
+    <loc>https://www.deetercesler.com/</loc>
+    <lastmod>2022-04-03</lastmod>
   </url>
   <url>
-    <loc>http://www.deetercesler.com/now</loc>
-    <lastmod>2022-03-19</lastmod>
+    <loc>https://www.deetercesler.com/now</loc>
+    <lastmod>2022-03-29</lastmod>
   </url>
   <url>
-    <loc>http://www.deetercesler.com/fun</loc>
+    <loc>https://www.deetercesler.com/fun</loc>
     <lastmod>2022-03-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.deetercesler.com/startups-vs-big-tech</loc>
+    <lastmod>2022-04-03</lastmod>
   </url>
 </urlset>

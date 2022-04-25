@@ -14,14 +14,14 @@ ReactGA.initialize('UA-110417068-2');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 const consoleArt = `
-
+%c
 ██████╗ ███████╗███████╗████████╗███████╗██████╗ 
 ██╔══██╗██╔════╝██╔════╝╚══██╔══╝██╔════╝██╔══██╗
 ██║  ██║█████╗  █████╗     ██║   █████╗  ██████╔╝
 ██║  ██║██╔══╝  ██╔══╝     ██║   ██╔══╝  ██╔══██╗
 ██████╔╝███████╗███████╗   ██║   ███████╗██║  ██║
 ╚═════╝ ╚══════╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝
-                                                 
+%c                                                 
  ██████╗███████╗███████╗██╗     ███████╗██████╗  
 ██╔════╝██╔════╝██╔════╝██║     ██╔════╝██╔══██╗ 
 ██║     █████╗  ███████╗██║     █████╗  ██████╔╝ 
@@ -31,7 +31,7 @@ const consoleArt = `
                                                  `;
 
 const consoleMessage = `
-Welcome! Happy you're here. 
+%cWelcome! %cHappy you're here. 
 
 If you're checking the console, you're probably another developer seeing who I am and what I'm about.
 
@@ -43,8 +43,10 @@ I will share any code you see that you're interested, if you ask!
 function App(){
 
   useEffect(()=>{
-    console.log(consoleArt);
-    console.log(consoleMessage);
+    console.log(consoleArt, 'color: #3e7bff', 'color: #bc76ff');
+    console.log(consoleMessage,`
+      font-weight: 900;
+    `,'font-weight: 500;');
   })
 
   const homepage = () => {

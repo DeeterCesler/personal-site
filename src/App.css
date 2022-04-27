@@ -547,3 +547,28 @@ svg {
 .blog-text p, .blog-text > ul {
   margin: 40px 0;
 }
+
+.flip-1, .flip-2, .flip-3 {
+  transform: rotateX(-90deg);
+  animation: flip-in 0.5s ease-in forwards;
+  animation-delay: 0.5s;
+}
+
+.flip-2 {
+  animation-delay: 1s;
+}
+
+.flip-3 {
+  animation-delay: 1.5s;
+}
+
+@keyframes flip-in {
+  0% {
+    transform: rotateX(-90deg);
+    transform-style: preserve-3d;
+  }
+  100% {
+    transform: rotateX(0deg);
+    transform-style: preserve-3d;
+  }
+}

@@ -2801,10 +2801,10 @@
   "resolved" "https://registry.npmjs.org/ci-info/-/ci-info-3.3.0.tgz"
   "version" "3.3.0"
 
-"circle-scroll@^0.0.1":
-  "integrity" "sha512-UjUD55HE+yEr3baRZwGtzTdNOVMw3ldtPwdxjaVvsc3ugGF0g1Sgf2SP/ziLq8bKDjLeOY+vmy/7D9pX1zkuOQ=="
-  "resolved" "https://registry.npmjs.org/circle-scroll/-/circle-scroll-0.0.1.tgz"
-  "version" "0.0.1"
+"circle-scroll@^0.0.2":
+  "integrity" "sha512-1bZH7EIj5a+gGK0uVk8njbZMGZRutNYoRnikPsfzwG6C/gNiF97TmyvdaUipsGm0QVhOA+W77xkbognHyKxmyg=="
+  "resolved" "https://registry.npmjs.org/circle-scroll/-/circle-scroll-0.0.2.tgz"
+  "version" "0.0.2"
   dependencies:
     "@babel/cli" "^7.17.10"
     "@babel/core" "^7.17.10"

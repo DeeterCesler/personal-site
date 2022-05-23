@@ -1,5 +1,6 @@
-html, body {
-  background: rgba(13,88,255);
+html,
+body {
+  background: rgba(13, 88, 255);
   background-color: #3f3f3f;
   margin: 0;
   padding: 0;
@@ -44,12 +45,13 @@ html, body {
 }
 
 @media screen and (max-width: 700px) {
-  .titles, .big-name {
+  .titles,
+  .big-name {
     position: relative;
   }
 
   .header-image {
-    background-position: left 58% top 45%;;
+    background-position: left 58% top 45%;
   }
 
   .check-mark-wrapper {
@@ -61,7 +63,6 @@ html, body {
   padding: 4rem 2rem;
 }
 
-
 .hero-wrapper {
   position: fixed;
   top: 10%;
@@ -70,7 +71,8 @@ html, body {
   z-index: -1;
 }
 
-.hero-wrapper, .body {
+.hero-wrapper,
+.body {
   background-color: rgb(0, 0, 0);
   color: #fff;
   font-size: 3em;
@@ -89,14 +91,16 @@ html, body {
   margin: 1.6rem 0;
 }
 
-.link, .links a {
+.link,
+.links a {
   text-shadow: 0 0 #000;
   text-decoration: underline;
   color: white;
   transition: text-shadow 0.3s ease;
 }
 
-.link:hover, .links a:hover {
+.link:hover,
+.links a:hover {
   color: white;
   text-shadow: 4px 4px rgb(110, 110, 110);
   text-decoration: none;
@@ -111,8 +115,8 @@ html, body {
   .spacer {
     height: 5em;
   }
-  .mini-spacer{
-    height: .5em;
+  .mini-spacer {
+    height: 0.5em;
   }
 
   .disappearing-spacer {
@@ -121,39 +125,41 @@ html, body {
 }
 
 @media only screen and (min-width: 700px) {
-  .spacer, .disappearing-spacer {
+  .spacer,
+  .disappearing-spacer {
     height: 11em;
   }
   .explainer {
     width: 45%;
   }
 
-  .mini-spacer{
+  .mini-spacer {
     height: 2em;
   }
 }
 
-.explainer{
+.explainer {
   font-size: 1.3em;
   margin: auto;
 }
 
-.background{
+.background {
   background-size: cover;
   background-repeat: none;
   z-index: -1;
   min-height: 105vh;
 }
 
-.block{
+.block {
   margin: 1em 0 1em 0;
 }
 
-.block a, .block a:hover {
+.block a,
+.block a:hover {
   color: #fff;
 }
 
-.home{
+.home {
   background-color: #000;
   background-size: cover;
   background-repeat: none;
@@ -163,7 +169,8 @@ html, body {
   max-height: 100%;
 }
 
-.cta, .cta-2 {
+.cta,
+.cta-2 {
   display: inline-block;
   background-color: #f68528;
   padding: 10px;
@@ -172,7 +179,8 @@ html, body {
   margin: 10px;
 }
 
-.cta a, .cta-2 a {
+.cta a,
+.cta-2 a {
   text-decoration: none;
   color: white;
 }
@@ -184,12 +192,14 @@ html, body {
   z-index: 1;
 }
 
-.register, .login {
+.register,
+.login {
   padding-left: 30%;
   padding-right: 30%;
 }
 
-.register Input, .login Input {
+.register Input,
+.login Input {
   margin: 1em;
 }
 
@@ -207,7 +217,7 @@ html, body {
   font-weight: 200;
 }
 
-.footer{
+.footer {
   background-color: #3f3f3f;
 }
 
@@ -238,9 +248,9 @@ html, body {
   font-size: 0.75em;
 }
 
-.main{
+.main {
   color: #fff;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   display: inline-block;
   width: 80vw;
   text-align: left;
@@ -251,37 +261,38 @@ html, body {
 }
 
 .wrapper {
-  background-color:rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
-.email{
+.email {
   color: white;
 }
 
-.email{
+.email {
   margin: 25px;
 }
 
-.insta, .insta-logo{
+.insta,
+.insta-logo {
   margin-bottom: 10px;
 }
 
-.tiny{
+.tiny {
   font-size: 10px;
 }
 
-.small{
-  font-size:13px;
+.small {
+  font-size: 13px;
 }
 
-.gray-boi{
+.gray-boi {
   background-color: rgba(100, 100, 100, 1);
   margin: 2em;
   padding: 1em;
   border-radius: 20px;
 }
 
-.subheading{
+.subheading {
   font-size: 1.2rem;
   font-weight: 600;
 }
@@ -290,7 +301,7 @@ html, body {
   margin-left: 10%;
 }
 
-.bold{
+.bold {
   font-weight: 650;
   font-size: 1.8em;
 }
@@ -303,7 +314,7 @@ html, body {
 }
 
 @media only screen and (min-width: 700px) {
-  .headline{
+  .headline {
     font-size: 2.7em;
     font-weight: 800;
     margin-bottom: 3em;
@@ -315,7 +326,7 @@ html, body {
 }
 
 @media only screen and (max-width: 700px) {
-  .headline{
+  .headline {
     font-size: 1.8em;
     font-weight: 800;
     margin-bottom: 3em;
@@ -326,53 +337,53 @@ html, body {
   }
 }
 
-.tiny-spacer{
+.tiny-spacer {
   padding: 5px;
 }
 
 @media only screen and (min-width: 1000px) {
-  .large-view{
+  .large-view {
     visibility: visible;
     margin: 1em;
   }
 
-  .small-view{
+  .small-view {
     display: none;
   }
 
-  .email{
+  .email {
     width: 25%;
-    font-size: .8em;
+    font-size: 0.8em;
   }
 }
-
 
 @media only screen and (max-width: 1000px) {
-  .large-view{
+  .large-view {
     display: none;
   }
-  
-  .small-view{
+
+  .small-view {
     visibility: visible;
     margin: 1em;
   }
 
-  .email{
+  .email {
     width: 65%;
-    font-size: .8em;
+    font-size: 0.8em;
   }
 }
 
-.mailchimp-style{
-  position: absolute; 
+.mailchimp-style {
+  position: absolute;
   left: -5000px;
 }
 
-#mce-error-response, #mce-success-response{
-  display:none
+#mce-error-response,
+#mce-success-response {
+  display: none;
 }
 
-#mc-embedded-subscribe{
+#mc-embedded-subscribe {
   padding: 8px 15px 8px 15px;
   border-radius: 5px;
   border: 0;
@@ -381,25 +392,27 @@ html, body {
   background-color: #f68528;
 }
 
-.small-boi{
+.small-boi {
   font-weight: 100;
-  font-size: .85em;
+  font-size: 0.85em;
 }
 
-#mce-EMAIL{
-  color: black
+#mce-EMAIL {
+  color: black;
 }
 
 .lost h2 {
   color: black;
 }
 
-.lost a {
+.lost a,
+.other li a {
   color: white;
   text-decoration: underline;
 }
 
-.lost a:hover {
+.lost a:hover,
+.other li a:hover {
   color: white;
   text-decoration: none;
 }
@@ -424,7 +437,7 @@ html, body {
 }
 
 .white:hover {
-  color: rgb(192, 192, 192)
+  color: rgb(192, 192, 192);
 }
 
 .item {
@@ -442,21 +455,24 @@ html, body {
   transition: filter 0.3s ease;
 }
 .icons img:hover {
-  transition: .3s;
-  -webkit-filter: drop-shadow(0 0 0.75rem #fff);;
+  transition: 0.3s;
+  -webkit-filter: drop-shadow(0 0 0.75rem #fff);
   filter: drop-shadow(0 0 0.75rem #fff);
 }
 
-
-.blog-text p, .blog-text li {
+.blog-text p,
+.blog-text li {
   font-size: 1.1rem;
 }
 
-.blog-text p, .blog-text > ul {
+.blog-text p,
+.blog-text > ul {
   margin: 40px 0;
 }
 
-.flip-1, .flip-2, .flip-3 {
+.flip-1,
+.flip-2,
+.flip-3 {
   transform: rotateX(-90deg);
   animation: flip-in 0.5s ease-in forwards;
   animation-delay: 0.5s;

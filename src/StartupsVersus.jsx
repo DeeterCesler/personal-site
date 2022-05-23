@@ -1,5 +1,4 @@
 import React from "react";
-// import Scroller from "./Scroller";
 import Scroller from "circle-scroll";
 
 const StartupsVersus = () => {
@@ -52,6 +51,16 @@ const StartupsVersus = () => {
                         <p>In short, be a leader. Or at least think like one. That's what every organization wants.</p>
                     </div>
                 </Scroller>
+                <div className="mini-spacer"/>
+                <h2>Other Blogs</h2>
+                <br/>
+                <ul className="other">
+                    <li><a target="_blank" rel="noreferrer" href="https://tensure.io/bootstrap-vs-flexbox-vs-css-grid/">BOOTSTRAP VS FLEXBOX VS CSS GRID</a></li>
+                    <li><a target="_blank" rel="noreferrer" href="https://tensure.io/use-tdd-for-faster-development/">USE TDD FOR FASTER DEVELOPMENT</a></li>
+                    <li><a target="_blank" rel="noreferrer" href="https://tensure.io/intro-to-behavior-driven-development/">WHAT IS BDD? INTRO TO BEHAVIOR-DRIVEN DEVELOPMENT</a></li>
+                    <li><a target="_blank" rel="noreferrer" href="https://tensure.io/looping-in-javascript/">EVERYTHING YOU NEED TO KNOW ABOUT LOOPING IN JAVASCRIPT</a></li>
+                    <li><a target="_blank" rel="noreferrer" href="https://tensure.io/immutability-in-javascript/">IMMUTABILITY IN JAVASCRIPT: 3 METHODS</a></li>
+                </ul>
                 <div className="mini-spacer"/>
             </div>
         </div>

@@ -2801,6 +2801,16 @@
   "resolved" "https://registry.npmjs.org/ci-info/-/ci-info-3.3.0.tgz"
   "version" "3.3.0"
 
+"circle-scroll-2@file:../circle-scroll":
+  "resolved" "file:../circle-scroll"
+  "version" "0.0.1"
+  dependencies:
+    "@babel/cli" "^7.17.10"
+    "@babel/core" "^7.17.10"
+    "jquery" "^3.6.0"
+    "react" "^18.1.0"
+    "webpack" "^5.70.0"
+
 "circle-scroll@^0.0.2":
   "integrity" "sha512-1bZH7EIj5a+gGK0uVk8njbZMGZRutNYoRnikPsfzwG6C/gNiF97TmyvdaUipsGm0QVhOA+W77xkbognHyKxmyg=="
   "resolved" "https://registry.npmjs.org/circle-scroll/-/circle-scroll-0.0.2.tgz"

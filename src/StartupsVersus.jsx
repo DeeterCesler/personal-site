@@ -55,6 +55,7 @@ const StartupsVersus = () => {
                 <h2>Other Blogs</h2>
                 <br/>
                 <ul className="other">
+                    <li><a target="_blank" rel="noreferrer" href="https://deetercesler.medium.com/using-graphql-with-react-2778750a768d">USING GRAPHQL WITH REACT: So Easy, a Junior Dev Can Do It</a></li>
                     <li><a target="_blank" rel="noreferrer" href="https://tensure.io/bootstrap-vs-flexbox-vs-css-grid/">BOOTSTRAP VS FLEXBOX VS CSS GRID</a></li>
                     <li><a target="_blank" rel="noreferrer" href="https://tensure.io/use-tdd-for-faster-development/">USE TDD FOR FASTER DEVELOPMENT</a></li>
                     <li><a target="_blank" rel="noreferrer" href="https://tensure.io/intro-to-behavior-driven-development/">WHAT IS BDD? INTRO TO BEHAVIOR-DRIVEN DEVELOPMENT</a></li>

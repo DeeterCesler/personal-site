@@ -55,6 +55,7 @@ const StartupsVersus = () => {
                 <h2>Other Blogs (offsite)</h2>
                 <br/>
                 <ul className="other">
+                    <li><a target="_blank" rel="noreferrer" href="https://deetercesler.medium.com/you-know-more-than-you-think-bcea318b4d09">YOU KNOW MORE THAN YOU THINK</a></li>
                     <li><a target="_blank" rel="noreferrer" href="https://deetercesler.medium.com/the-ten-commandments-of-clean-code-89b22a6f01d1">THE TEN COMMANDMENTS OF CLEAN CODE</a></li>
                     <li><a target="_blank" rel="noreferrer" href="https://deetercesler.medium.com/using-graphql-with-react-2778750a768d">USING GRAPHQL WITH REACT: So Easy, a Junior Dev Can Do It</a></li>
                     <li><a target="_blank" rel="noreferrer" href="https://tensure.io/bootstrap-vs-flexbox-vs-css-grid/">BOOTSTRAP VS FLEXBOX VS CSS GRID</a></li>

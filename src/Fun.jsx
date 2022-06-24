@@ -13,6 +13,12 @@ const Fun = () => {
                         Use it now with <code>npm i circle-scroller</code> in your React project.</p>
                     </div>
                     <div className="item">
+                        <h3><a className="link" href="https://crates.io/crates/kaprekar">KAPREKAR</a>: a Rust crate</h3>
+                        <p><i>Kaprekar's constant</i> is a fun (but useless) piece of math. I made a free, open-source Rust crate calculating number of iterations for a given input.
+                            <br/>
+                            <a className="link" href="https://www.youtube.com/watch?v=d8TRcZklX_Q">Learn about Kaprekar's constant</a> or just <a className="link" href="https://crates.io/crates/kaprekar">use the crate</a> with <code>cargo add kaprekar</code> in your Rust project.</p>
+                    </div>
+                    <div className="item">
                         <h3>STOCK CHECKER</h3>
                         <p>text a stock ticker like <b>TSLA</b> to <i>+1 (224) 347-1019</i> to get the most recent price of that security</p>
                     </div>

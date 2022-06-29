@@ -3,7 +3,6 @@ import './App.css'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import HomePage from './HomePage'
 import Logo from './Logo'
-// import Work from './Work';
 import Fun from './Fun'
 import Dungeon from './FUN/dungeon'
 import Now from './Now'

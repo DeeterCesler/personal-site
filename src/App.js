@@ -3,7 +3,7 @@ import './App.css'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import HomePage from './HomePage'
 import Logo from './Logo'
-import Fun from './Fun'
+import Tech from './Tech'
 import Dungeon from './FUN/dungeon'
 import Now from './Now'
 import ReactGA from 'react-ga'
@@ -62,8 +62,8 @@ function App() {
         <Route exact from="/index" to="/" />
         <Route exact path="/index.html" render={homepage} />
         {/* <Route exact path="/work" render={Work}/> */}
-        <Route exact path="/fun" render={Fun} />
-        <Route exact path="/fun/dungeon" render={Dungeon} />
+        <Route exact path="/tech" render={Tech} />
+        <Route exact path="/tech/dungeon" render={Dungeon} />
         <Route exact path="/now" render={Now} />
         <Route exact path="/notfound" render={NotFoundPage} />
         <Route exact path="/startups-vs-big-tech" render={StartupsVersus} />

@@ -67,7 +67,7 @@ const HomePage = () => {
                         <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/now">NOW</a></p>
                         <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/startups-vs-big-tech">BLOG</a></p>
                         <p className="link-p"><a target="_blank" rel="noreferrer" className="link" style= {{ textDecoration: "none" }} href="https://deeter.gumroad.com/l/TSXqK">WRITE BETTER EMAILS</a></p>
-                        <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/fun">SOMETHING FUN</a></p>
+                        <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/tech">TECH</a></p>
                     </div>
                     <div className="icons">
                         <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/DeeterCesler">

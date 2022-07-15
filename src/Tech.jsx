@@ -1,10 +1,10 @@
 import React from "react";
 
-const Fun = () => {
+const Tech = () => {
     return(
         <div className="now">
             <div className="container">
-                <h1 className="header">FUN</h1>
+                <h1 className="header">TECH I'VE MADE</h1>
                 <div className="readability">
                     <div className="item">
                         <h3><a className="link" href="https://www.npmjs.com/package/circle-scroll/">CIRCLE-SCROLLER</a>: my NPM package</h3>
@@ -36,4 +36,4 @@ const Fun = () => {
     )
 }
 
-export default Fun;
+export default Tech;

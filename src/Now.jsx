@@ -10,10 +10,9 @@ const Now = () => {
                 <div className="mini-spacer"/>
                 <div className="main-text">
                     <p className="now-text">🦀 learning <strong>Rust</strong></p>
-                    <p className="now-text">🤝 product owner @ <a className="white" href="https://sharetalent.co/">share talent</a></p>
+                    <p className="now-text">🤝 lead developer @ <a className="white" href="https://sharetalent.co/">share talent</a></p>
                     <p className="now-text">👨‍💻 freelance development contracts: bringing greenfield startup ideas to life from wireframes</p>
-                    <p className="now-text">🇮🇹 keeping a 1000+ day streak on <a className="white" href="https://www.duolingo.com/profile/Deeter">Duolingo</a> with Italian &#38; Spanish 🇦🇷</p>
-                    <p className="now-text">💸 contributing to a <a className="white" href="https://notyourdadsfinance.com">finance blog</a></p>
+                    <p className="now-text">🇦🇷 keeping a 1000+ day Spanish streak on <a className="white" href="https://www.duolingo.com/profile/Deeter">Duolingo</a></p>
                     <p className="now-text">⚙️ introducing newbies to programming 
                     <br/>
                     <br/>

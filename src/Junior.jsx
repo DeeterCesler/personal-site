@@ -38,6 +38,7 @@ const Junior = () => {
                         <p>It doesn't matter so much what code style you commit to—but make it consistent.</p>
                         <p>I recommend <a target="_blank" rel="noreferrer" href="https://eslint.org/">ES Lint</a>. This will find obvious issues with your code and point out solutions without accidentally breaking everything. Minimal setup, maximum headache-prevention.</p>
                         <h3>1. Write Test Cases for Your App's Core Functions</h3>
+                        <p>A junior thinks writing tests is a headache. <b>A senior realizes NOT having tests is a migraine.</b></p>
                         <p>If you manage the codebase and aren't just pushing code to it—and especially if you actually have users actively using your code—you will soon care about tests.</p>
                         <p>Tests are forgotten because they don't have immediate output as a new feature. However, if you actually want to have users that <i>consistently</i> use your creation, you need tests.</p>
                         <p>Tests are headache prevention. Tests preserve your brand's quality. Tests are a way to get ahead of problems before you have them, and help you think holistically about how your code might be used by end users.</p>

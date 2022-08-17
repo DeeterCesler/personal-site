@@ -468,3 +468,31 @@ body {
     transform-style: preserve-3d;
   }
 }
+
+.blog-list {
+  list-style: none;
+  padding: 0;
+}
+
+.blog-list a {
+  color: white;
+  text-decoration: underline;
+  font-size: 1.5rem;
+}
+
+.blog-list li {
+  margin: 15px 0;
+}
+
+.blog-list a:hover {
+  color: rgb(221, 221, 221);
+}
+
+.code {
+  white-space: pre-wrap;
+  padding: 2rem;
+  background-color: whitesmoke;
+  font-family: monospace;
+  color: #000000;
+  word-wrap: normal;
+}

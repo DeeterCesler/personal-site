@@ -1,6 +1,6 @@
 import React from "react";
 import Scroller from "circle-scroll";
-import Codeblock from "./Codeblock";
+import Codeblock from "../Codeblock";
 
 const codeblockOne = `if (num < 10) {
     return true

@@ -5,12 +5,13 @@ import HomePage from './HomePage'
 import Logo from './Logo'
 import Blog from './Blog'
 import Tech from './Tech'
-import Junior from './Junior'
+import Junior from './Blogs/Junior'
 import Dungeon from './FUN/dungeon'
 import Now from './Now'
 import ReactGA from 'react-ga'
 import NotFoundPage from './NotFoundPage'
-import StartupsVersus from './StartupsVersus'
+import StartupsVersus from './Blogs/StartupsVersus'
+import SecurityPrinciples from './Blogs/SecurityPrinciples'
 ReactGA.initialize('UA-110417068-2')
 ReactGA.pageview(window.location.pathname + window.location.search)
 
@@ -66,6 +67,7 @@ function App() {
         {/* <Route exact path="/work" render={Work}/> */}
         <Route exact path="/blog" render={Blog} />
         <Route exact path="/junior" render={Junior} />
+        <Route exact path="/security" render={SecurityPrinciples} />
         <Route exact path="/tech" render={Tech} />
         <Route exact path="/tech/dungeon" render={Dungeon} />
         <Route exact path="/now" render={Now} />

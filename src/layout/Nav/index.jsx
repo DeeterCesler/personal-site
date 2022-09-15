@@ -1,7 +1,7 @@
 import React from "react";
-import home from '../img/home.jpg'
+import home from './img/home.jpg'
 
-const Logo = () => {
+const Nav = () => {
     return(
         <div className="top-nav">
             <div className="logo">
@@ -14,4 +14,4 @@ const Logo = () => {
     )
 }
 
-export default Logo;
+export default Nav;

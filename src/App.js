@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react'
 import './App.css'
 import { Route, Switch, Redirect } from 'react-router-dom'
-import HomePage from './HomePage'
-import Logo from './Logo'
-import Blog from './Blog'
-import Tech from './Tech'
-import Junior from './Blogs/Junior'
+import HomePage from './Pages/HomePage'
+import Nav from './layout/Nav'
+import Blog from './Pages/Blog'
+import Tech from './Pages/Tech'
+import Junior from './Pages/Blogs/Junior'
 import Dungeon from './FUN/dungeon'
-import Now from './Now'
+import Now from './Pages/Now'
 import ReactGA from 'react-ga'
-import NotFoundPage from './NotFoundPage'
-import StartupsVersus from './Blogs/StartupsVersus'
-import SecurityPrinciples from './Blogs/SecurityPrinciples'
+import NotFoundPage from './Pages/NotFoundPage'
+import StartupsVersus from './Pages/Blogs/StartupsVersus'
+import SecurityPrinciples from './Pages/Blogs/SecurityPrinciples'
 ReactGA.initialize('UA-110417068-2')
 ReactGA.pageview(window.location.pathname + window.location.search)
 
@@ -59,7 +59,7 @@ function App() {
 
   return (
     <div className="App">
-      <Logo />
+      <Nav />
       <Switch>
         <Route exact path="/" render={homepage} />
         <Route exact from="/index" to="/" />

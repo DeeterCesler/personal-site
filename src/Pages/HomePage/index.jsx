@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-import JSConfetti from "js-confetti";
-import twitter from "./img/icons/twitter.svg"
-import insta from "./img/icons/instagram.svg"
-import linkedin from "./img/icons/linkedin.svg"
-import medium from "./img/icons/medium.svg"
-import email from "./img/icons/email.svg"
+import Confetti from "../../components/Confetti";
+import { twitter, insta, linkedin, medium, email } from "./assets/icons"
 
 const HomePage = () => {
     const [confettiNumber, setConfettiNumber] = useState(1);

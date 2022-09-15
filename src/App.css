@@ -28,7 +28,7 @@ body {
 
 .header-image {
   border-radius: 0 0 0 120px;
-  background-image: url('./img/climb.JPG');
+  background-image: url('../src/Pages/HomePage/assets/climb.JPG');
   transform: scale(0.8);
   background-size: cover;
   min-height: 1000px;

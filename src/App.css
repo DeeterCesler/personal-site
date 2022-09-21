@@ -38,9 +38,22 @@ body {
   background-repeat: no-repeat;
 }
 
+.body {
+  padding-bottom: 10%;
+  overflow: hidden;
+}
+
 @media screen and (min-width: 700px) {
   .titles {
     position: absolute;
+  }
+
+  .container {
+    max-width: 60%
+  }
+
+  .body {
+    padding: 0 15%;
   }
 }
 
@@ -57,6 +70,20 @@ body {
   .check-mark-wrapper {
     display: none;
   }
+
+  .container {
+    max-width: 80%
+  }
+
+  .body {
+    padding: 0;
+  }
+
+  .header-image {
+    transform: scale(1);
+    margin: 5rem 0;
+  }
+
 }
 
 .container {
@@ -77,12 +104,6 @@ body {
   color: #fff;
   font-size: 3em;
   font-weight: 700;
-}
-
-.body {
-  padding: 0 15%;
-  padding-bottom: 10%;
-  overflow: hidden;
 }
 
 .link-p {

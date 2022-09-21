@@ -7,7 +7,7 @@ const StartupsVersus = () => {
             <div className="container" style={{maxWidth: '60%'}}>
                 <h1 className="header">Working at Big Tech vs. Startups</h1>
                 <div className="spacer"/>
-                <Scroller>
+                <Scroller link="/">
                     <div className="blog-text">
                         <p>You know that one saying about driving? <b>Everyone slower than you is an idiot, and everyone faster than you is a maniac.</b></p>
                         <p>The same sentiment is true in tech companies.</p>

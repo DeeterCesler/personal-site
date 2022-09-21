@@ -48,18 +48,13 @@ const HomePage = () => {
                 <div className="titles">
                     <h3 className="flip-1">I'm a software developer with a marketing background.</h3>
                     <h3 className="subheading flip-2">I'll take your idea from zero to MVP.</h3>
-                    {/* <h3>sites &#38; software</h3>
-                    <h3>email marketing</h3>
-                    <h3>startups</h3> */}
                     <h3 className="shit tiny surprise flip-3" onClick={confetti}><i>click for surprise</i> <span aria-label="hush emoji" role="img">🤫</span></h3>
                 </div>
                 <div className="disappearing-spacer"/>
-                <div className="header-image"/>
+                    <div className="header-image"/>
                 <div className="disappearing-spacer"/>
                 <div className="body">
                     <div className="links">
-                        {/* <a className="link-p" style= {{ textDecoration: "none" }} href="/code">CODE</a> */}
-                        {/* <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/work">WORK</a></p> */}
                         <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/now">NOW</a></p>
                         <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/blog">BLOG</a></p>
                         <p className="link-p"><a target="_blank" rel="noreferrer" className="link" style= {{ textDecoration: "none" }} href="https://deeter.gumroad.com/l/TSXqK">WRITE BETTER EMAILS</a></p>

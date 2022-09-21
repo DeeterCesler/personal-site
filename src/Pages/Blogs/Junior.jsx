@@ -16,7 +16,7 @@ const Junior = () => {
             <div className="container" style={{maxWidth: '60%'}}>
                 <h1 className="header">4 Ways to de-Junior Your Code</h1>
                 <div className="spacer"/>
-                <Scroller>
+                <Scroller link="/">
                     <div className="blog-text">
                         <p>There's no shame in being a junior developer. I was one (and in plenty of technologies, I still am).</p>
                         <p>However, there are a few easy ways to make sure you don't unnecessarily <i>look</i> like one. Add these to your toolbelt.</p>

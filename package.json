@@ -5,7 +5,7 @@
   "dependencies": {
     "autoprefixer": "10.4.5",
     "bootstrap": "^4.3.1",
-    "circle-scroll": "^0.0.2",
+    "circle-scroll": "^0.0.4",
     "jquery": "^3.6.0",
     "js-confetti": "^0.10.2",
     "node": "^17.7.1",

@@ -1,0 +1,47 @@
+.contact {
+    position: absolute;
+    z-index: 500;
+    display: flex;
+}
+
+.modal-shadow {
+    background-color: rgba(1,1,1,0.5);
+    height: 100vh;
+    width: 100vw;
+}
+
+.modal-outline {
+    border: 2px white solid;
+    border-radius: 3px;
+    background-color: white;
+    color: black;
+    width: 70%;
+    padding: 2rem;
+    margin: auto;
+    justify-content: space-around;
+    position: relative;
+}
+
+.modal-outline h2 {
+    align-items: flex-start;
+}
+.modal-outline button {
+    align-items: flex-end;
+}
+
+.modal-outline button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.modal-outline button:after {
+    content: '✕';
+}
+
+@media screen and (min-width: 700px) {
+    .modal-outline {
+        width: 50%;
+        text-align: left;
+        justify-content: start;
+    }
+}

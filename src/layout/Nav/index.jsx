@@ -6,11 +6,7 @@ const Nav = () => {
     const [show, setShow] = useState(false)
 
     const toggleModal = (e) => {
-        if(e.target === e.currentTarget) {
-            console.log('flip it')
-            console.log(show)
-            setShow(!show)
-        }
+        if(e.target === e.currentTarget) setShow(!show)
     }
 
     const Contact = () => {

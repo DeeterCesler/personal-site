@@ -1,4 +1,5 @@
 import React from "react";
+import Counter from "quick-count";
 
 const Tech = () => {
     return(
@@ -7,10 +8,15 @@ const Tech = () => {
                 <h1 className="header">TECH I'VE MADE</h1>
                 <div className="readability">
                     <div className="item">
-                        <h3><a className="link" href="https://www.npmjs.com/package/circle-scroll/">CIRCLE-SCROLLER</a>: my NPM package</h3>
+                        <h3><a className="link" href="https://www.npmjs.com/package/circle-scroll/">CIRCLE SCROLLER</a>: an NPM package</h3>
                         <p>A free, open-source React module. It's essentially imitating TechCrunch's popup when you read an article and it shows you how far you've read.
                             <br/>
                         Use it now with <code>npm i circle-scroller</code> in your React project.</p>
+                    </div>
+                    <div className="item">
+                        <h3><a className="link" href="https://www.npmjs.com/package/quick-count/">QUICK COUNTER</a>: <Counter>420</Counter></h3>
+                        <p>Wrap any number in this component. When the page loads, it'll count up to that number, like so: <Counter time="20">30</Counter>. <br/>You can set the number of seconds, or let it default to 2. It's a neat little visual.</p>
+                        <p>Use it now with <code>npm i quick-count</code> in your React project.</p>
                     </div>
                     <div className="item">
                         <h3><a className="link" href="https://crates.io/crates/kaprekar">KAPREKAR</a>: a Rust crate</h3>

@@ -1,10 +1,11 @@
 import React from "react";
 import Counter from "quick-count";
+import "./style.css";
 
 const Tech = () => {
     return(
         <div className="now">
-            <div className="container">
+            <div className="tech-container">
                 <h1 className="header">TECH I'VE MADE</h1>
                 <div className="readability">
                     <div className="item">

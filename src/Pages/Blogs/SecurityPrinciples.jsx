@@ -7,7 +7,7 @@ const SecurityPrinciples = () => {
             <div className="container">
                 <h1 className="header">8 Security Principles EVERY Software Dev Should Know</h1>
                 <div className="mini-spacer"/>
-                <Scroller link="/">
+                <Scroller link="/blog">
                     <div className="blog-text">
                         <p>It doesn't matter if you're frontend, backend, or a DevOps engineer. You should know these fundamentals.</p>
                         <h3>1. SQL injections: the Most Common Attack</h3>

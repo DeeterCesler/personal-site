@@ -7,7 +7,8 @@ const Blog = () => {
                 <h1 className="header">BLOGS</h1>
                 <div className="mini-spacer"/>
                 <ul className="blog-list">
-                    <li><a href="/security"><b>NEW: </b>8 Security Principles EVERY Software Dev Should Know</a></li>
+                    <li><a href="/senior"><b>NEW: </b>3 Ways a Senior Thinks</a></li>
+                    <li><a href="/security">8 Security Principles EVERY Software Dev Should Know</a></li>
                     <li><a href="/junior">6 Ways to De-Junior Your Code</a></li>
                     <li><a href="/startups-vs-big-tech">Working at Big Tech vs. Startups</a></li>
                     <li><a target="_blank" rel="noreferrer" href="https://deetercesler.medium.com/you-know-more-than-you-think-bcea318b4d09">You Know More Than You Think</a></li>

@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://www.deetercesler.com/blog</loc>
-    <lastmod>2022-08-31</lastmod>
+    <lastmod>2022-10-06</lastmod>
   </url>
   <url>
     <loc>https://www.deetercesler.com/junior</loc>
@@ -27,5 +27,9 @@
   <url>
     <loc>https://www.deetercesler.com/security</loc>
     <lastmod>2022-08-31</lastmod>
+  </url>
+  <url>
+    <loc>https://www.deetercesler.com/senior</loc>
+    <lastmod>2022-10-06</lastmod>
   </url>
 </urlset>

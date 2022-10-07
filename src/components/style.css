@@ -11,4 +11,8 @@
     .blog-container {
         padding: 2rem 15rem;
     }
+
+    .check-mark-wrapper {
+        top: 3.1rem;
+    }
 }

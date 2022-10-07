@@ -15,9 +15,9 @@ const BlogContainer = (props) => {
                 <h2>Other Blogs</h2>
                 <br/>
                 <ul className="other">
+                    <li><a href="/security">8 Security Principles EVERY Software Dev Should Know</a></li>
+                    <li><a href="/junior">6 Ways to De-Junior Your Code</a></li>
                     <li><a href="/startups-vs-big-tech">Working at Big Tech vs. Startups</a></li>
-                    <li><a target="_blank" rel="noreferrer" href="https://deetercesler.medium.com/you-know-more-than-you-think-bcea318b4d09">You Know More Than You Think</a></li>
-                    <li><a target="_blank" rel="noreferrer" href="https://deetercesler.medium.com/the-ten-commandments-of-clean-code-89b22a6f01d1">The Ten Commandments of Clean Code</a></li>
                 </ul>
                 <div className="mini-spacer"/>
         </div>

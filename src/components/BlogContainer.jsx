@@ -2,7 +2,7 @@ import Scroller from "circle-scroll";
 import './style.css'
 
 const BlogContainer = (props) => {
-    return <div className="home blog-container">
+    return <main className="home blog-container">
             <h1 className="header">{props.title}</h1>
                 <div className="mini-spacer"/>
                 <Scroller link="/blog">
@@ -20,7 +20,7 @@ const BlogContainer = (props) => {
                     <li><a href="/startups-vs-big-tech">Working at Big Tech vs. Startups</a></li>
                 </ul>
                 <div className="mini-spacer"/>
-        </div>
+        </main>
 }
 
 export default BlogContainer;

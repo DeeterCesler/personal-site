@@ -39,6 +39,8 @@ const HomePage = () => {
         else setConfettiNumber(confettiNumber+1);
     };  
 
+    console.log('homepage');
+    
     return (
         <div className="home">
             <div className="container">

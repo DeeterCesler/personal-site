@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './App.css'
-import { Route, Routes, Navigate } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import HomePage from './Pages/HomePage'
 import Nav from './layout/Nav'
 import Blog from './Pages/Blog'
@@ -54,31 +54,28 @@ function App() {
     )
   })
 
-  const homepage = () => {
-    return <HomePage />
-  }
-
   return (
     <div className="App">
       <Nav />
       <Routes>
-        <Route exact path="/" render={homepage} />
+        <Route exact path="/" element={<HomePage/>} />
         <Route exact from="/index" to="/" />
-        <Route exact path="/index.html" render={homepage} />
+        <Route exact path="/index.html" element={<HomePage/>} />
         {/* Blogs */}
-        <Route exact path="/blog" render={Blog} />
-        <Route exact path="/junior" render={Junior} />
-        <Route exact path="/senior" render={Senior} />
-        <Route exact path="/security" render={SecurityPrinciples} />
-        <Route exact path="/startups-vs-big-tech" render={StartupsVersus} />
+        <Route exact path="/blog" element={<Blog />} />
+        <Route exact path="/junior" element={<Junior/>} />
+        <Route exact path="/senior" element={<Senior/>} />
+        <Route exact path="/security" element={<SecurityPrinciples/>} />
+        <Route exact path="/startups-vs-big-tech" element={<StartupsVersus/>} />
         {/* Tech */}
-        <Route exact path="/tech" render={Tech} />
-        <Route exact path="/tech/dungeon" render={Dungeon} />
+        <Route exact path="/tech" element={<Tech/>} />
+        <Route exact path="/tech/dungeon" element={<Dungeon/>} />
         {/* Now */}
-        <Route exact path="/now" render={Now} />
+        <Route exact path="/now" element={<Now/>} />
         {/* 404 */}
-        <Route exact path="/notfound" render={NotFoundPage} />
-        <Navigate from="/*" to="/notfound" />
+        <Route exact path="/notfound" element={<NotFoundPage/>} />
+        {/* catch all other routes and redirect to "/notfound" */}
+        <Route path="*" element={<NotFoundPage/>} />
       </Routes>
     </div>
   )

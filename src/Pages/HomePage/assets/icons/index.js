@@ -3,5 +3,6 @@ import insta from './instagram.svg'
 import linkedin from './linkedin.svg'
 import medium from './medium.svg'
 import twitter from './twitter.svg'
+import x_logo from './x_logo.svg'
 
-export { email, insta, linkedin, medium, twitter }
+export { email, insta, linkedin, medium, twitter, x_logo }

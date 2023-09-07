@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import JSConfetti from "js-confetti";
-import { twitter, insta, linkedin, medium, email } from "./assets/icons";
+import { twitter, insta, x_logo, medium, email } from "./assets/icons";
 
 const HomePage = () => {
     const [confettiNumber, setConfettiNumber] = useState(1);
@@ -62,14 +62,14 @@ const HomePage = () => {
                     </div>
                     <div className="icons">
                         <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/DeeterCesler">
-                            <img alt="twitter" src={twitter} style={{marginLeft: 0}} />
+                            <img alt="twitter/X" color="white" src={x_logo} style={{marginLeft: 0}} />
                         </a>
                         <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/deetercesler/">
                             <img alt="insta" src={insta} />
                         </a>
-                        <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/deetercesler/">
+                        {/* <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/deetercesler/">
                             <img alt="linkedin" src={linkedin} />
-                        </a>
+                        </a> */}
                         <a target="_blank" rel="noopener noreferrer" href="https://deetercesler.medium.com/">
                             <img alt="medium" src={medium} />
                         </a>

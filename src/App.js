@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './App.css'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 import HomePage from './Pages/HomePage'
 import Nav from './layout/Nav'
 import Blog from './Pages/Blog'
@@ -61,7 +61,7 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <Switch>
+      <Routes>
         <Route exact path="/" render={homepage} />
         <Route exact from="/index" to="/" />
         <Route exact path="/index.html" render={homepage} />
@@ -78,8 +78,8 @@ function App() {
         <Route exact path="/now" render={Now} />
         {/* 404 */}
         <Route exact path="/notfound" render={NotFoundPage} />
-        <Redirect from="/*" to="/notfound" />
-      </Switch>
+        <Navigate from="/*" to="/notfound" />
+      </Routes>
     </div>
   )
 }

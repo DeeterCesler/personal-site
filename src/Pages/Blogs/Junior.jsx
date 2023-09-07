@@ -31,7 +31,7 @@ const Junior = () => {
             <p>Unless you are building a logger, you don't want lingering print statements in your code. We all have the ubiquitous <Codeblock inline="true">console.log('here');</Codeblock> but it shouldn't be left in once you actually push your code.</p>
             <h3>2. Use a Linter</h3>
             <p>It doesn't matter so much what code style you commit to—but make it consistent.</p>
-            <p>I recommend <a target="_blank" rel="noreferrer" href="https://eslint.org/">ES Lint</a>. This will find obvious issues with your code and point out solutions without accidentally breaking everything. Minimal setup, maximum headache-prevention.</p>
+            <p>I recommend <a target="_blank" rel="noreferrer noopener" href="https://eslint.org/">ES Lint</a>. This will find obvious issues with your code and point out solutions without accidentally breaking everything. Minimal setup, maximum headache-prevention.</p>
             <h3>1. Write Test Cases for Your App's Core Functions</h3>
             <p>A junior thinks writing tests is a headache. <b>A senior realizes NOT having tests is a migraine.</b></p>
             <p>If you manage the codebase and aren't just pushing code to it—and especially if you actually have users actively using your code—you will soon care about tests.</p>

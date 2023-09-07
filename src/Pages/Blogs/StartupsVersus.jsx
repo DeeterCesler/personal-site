@@ -22,7 +22,7 @@ const StartupsVersus = () => {
                 <li>If you don't have an embedded SDET or SDET teams, expect to write your own unit tests (as I believe each dev should be doing anyway).</li>
                 <li>You'll be slower to adopt new tech (which is good in this context), so get pro-level at whatever stack you're using.
                     <ul>
-                        <li>E.g. if you're using JS, learn about <a target="_blank" rel="noreferrer" href="https://www.youtube.com/watch?v=Bv_5Zv5c-Ts&t=44s">the weird parts</a></li>
+                        <li>E.g. if you're using JS, learn about <a target="_blank" rel="noreferrer noopener" href="https://www.youtube.com/watch?v=Bv_5Zv5c-Ts&t=44s">the weird parts</a></li>
                         <li>Learn the basics of every layer in your stack, like how to move fluidly between DB, to server, to frontend, to cloud</li>
                         <li>If your company has a style guide, get intimately familiar. Teach other people how to follow it (or build a linter that can implement it for you)</li>
                     </ul>

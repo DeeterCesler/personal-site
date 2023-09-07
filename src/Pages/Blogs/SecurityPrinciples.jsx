@@ -7,7 +7,7 @@ const SecurityPrinciples = () => {
             <p>It doesn't matter if you're frontend, backend, or a DevOps engineer. You should know these fundamentals.</p>
             <h3>1. SQL injections: the Most Common Attack</h3>
             <p>Cyber attacks are so hot right now. SQL injections are the most common kind. It's an attempt to send commands directly to your database.</p>
-            <p>This doesn't mean they're just changing numbers in the backend. It's biggest danger is slipping in a <a href="https://stackoverflow.com/questions/332365/how-does-the-sql-injection-from-the-bobby-tables-xkcd-comic-work" rel="noreferrer" target="_blank">DROP TABLES</a> and losing literally all of your data forever (unless you had separate backups).</p>
+            <p>This doesn't mean they're just changing numbers in the backend. It's biggest danger is slipping in a <a href="https://stackoverflow.com/questions/332365/how-does-the-sql-injection-from-the-bobby-tables-xkcd-comic-work" rel="noreferrer noopener" target="_blank">DROP TABLES</a> and losing literally all of your data forever (unless you had separate backups).</p>
             <p>The solution is simple: <b>sanitize your inputs</b>. How this works is different in each language or framework. Google your target language + "sanitize inputs" to learn how.</p>
             <h3>2. Cross-Site Scripting (XSS)</h3>
             <p>Sanitizing inputs doesn't just protect your database, but prevents another kind of attack: cross-site scripting. In this one, instead of sliding in a database command, a malicious actor sends code for your server to execute.</p>
@@ -27,7 +27,7 @@ const SecurityPrinciples = () => {
             <h3>5. Run <code>npm audit</code> periodically</h3>
             <p>This is a simple, built-in tool that helps you surface any known security vulnerabilities and the level of severity. There are similar ones in your target language (e.g. <code>cargo audit</code> in Rust).</p>
             <h3>6. Review open source code before your use it</h3>
-            <p>Almost nobody does this. <a href="https://thehackernews.com/2022/07/over-1200-npm-packages-found-involved.html" target="_blank" rel="noreferrer">The results can be hilarious.</a> Realistically, the more known the maintainer, the safer it's going to be. The more a piece of open source is regularly used (judging by the weekly downloads chart on its NPM site) the more vetted it will be.</p>
+            <p>Almost nobody does this. <a href="https://thehackernews.com/2022/07/over-1200-npm-packages-found-involved.html" target="_blank" rel="noreferrer noopener">The results can be hilarious.</a> Realistically, the more known the maintainer, the safer it's going to be. The more a piece of open source is regularly used (judging by the weekly downloads chart on its NPM site) the more vetted it will be.</p>
             <p><b>This is not the same as a security audit.</b> If you're going to users credit card info, don't try it until you know for a fact what kind of software you're using.</p>
             <h3>7. Authenticate your Endpoints</h3>
             <p>Unless it's a simple GET request for public data, guard your endpoints with authentication middleware. That could be an authentication token, a session cookie, whatever. But anything to do with creating or deleting data needs authentication. Never expose any POST, PUT or DELETE methods without knowing which user is doing it.</p>

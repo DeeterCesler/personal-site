@@ -1,3 +1,4 @@
+import React from 'react';
 import Scroller from "circle-scroll";
 import './style.css'
 

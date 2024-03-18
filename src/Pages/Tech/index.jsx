@@ -26,8 +26,9 @@ const Tech = () => {
                             <a className="link" href="https://www.youtube.com/watch?v=d8TRcZklX_Q">Learn about Kaprekar's constant</a> or just <a className="link" href="https://crates.io/crates/kaprekar">use the crate</a> with <code>cargo add kaprekar</code> in your Rust project.</p>
                     </div>
                     <div className="item">
-                        <h3>STOCK CHECKER</h3>
-                        <p>text a stock ticker like <b>TSLA</b> to <i>+1 (224) 347-1019</i> to get the most recent price of that security</p>
+                        <h3 style={{"text-decoration": "line-through"}}>STOCK CHECKER</h3>
+                        <p style={{"text-decoration": "line-through"}}>text a stock ticker like <b>TSLA</b> to <i>+1 (224) 347-1019</i> to get the most recent price of that security</p>
+                        <p><strong>Unfortuantely, regulations made this type of SMS service illegal</strong> and this is no longer active.<br/>For the life of me, I don't understand why.</p>
                     </div>
                     <div className="item">
                         <h3><a className="link" href="http://dungeon-crawler.freeoda.com/">DUNGEON CRAWLER</a>: browser game</h3>

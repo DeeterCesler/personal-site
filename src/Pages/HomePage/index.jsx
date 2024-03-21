@@ -49,11 +49,13 @@ const HomePage = () => {
                 <div className="mini-spacer"></div>
                 <div className="titles">
                     <h3 className="flip-1">I'm a software developer with a marketing background.</h3>
-                    <h3 className="subheading flip-2">I'll take your idea from zero to MVP.</h3>
+                    {/* <h3 className="subheading flip-2">I'll take your idea from zero to MVP.</h3> */}
                     <h3 className="shit tiny surprise flip-3" onClick={confetti}><i>click for surprise</i> <span aria-label="hush emoji" role="img">🤫</span></h3>
                 </div>
                 <div className="disappearing-spacer"/>
-                    <div className="header-image"/>
+                    <div className="header-image">
+                        <img alt="deeter" src="./climb.JPG" />
+                    </div>
                 <div className="disappearing-spacer"/>
                 <div className="body">
                     <div className="links">

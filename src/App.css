@@ -13,7 +13,6 @@ body {
   height: 70px;
   position: fixed;
   display: flex;
-  /* background-image: linear-gradient(rgba(255,255,255,1),rgba(255,255,255,0)); */
 }
 
 .glow {
@@ -33,8 +32,6 @@ body {
 
 .header-image {
   border-radius: 0 0 0 120px;
-  /* background-image: url('../src/Pages/HomePage/assets/climb.JPG'); */
-  /* background-image: url('../public/climb.JPG'); */
   transform: scale(0.8);
   background-size: cover;
   height: 80vh;

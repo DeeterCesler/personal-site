@@ -4,6 +4,10 @@
     display: flex;
 }
 
+.contact:hover {
+    color: #aeaeae;
+}
+
 .modal-shadow {
     background-color: rgba(1,1,1,0.5);
     height: 100vh;

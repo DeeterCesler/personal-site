@@ -13,6 +13,7 @@ import NotFoundPage from './Pages/NotFoundPage'
 import StartupsVersus from './Pages/Blogs/StartupsVersus'
 import SecurityPrinciples from './Pages/Blogs/SecurityPrinciples'
 import Senior from './Pages/Blogs/Senior'
+import PsychedelicBackground from './components/PsychedelicBackground'
 ReactGA.initialize('UA-110417068-2')
 ReactGA.pageview(window.location.pathname + window.location.search)
 
@@ -59,6 +60,7 @@ function App() {
       <Nav />
       <Routes>
         <Route exact path="/" element={<HomePage/>} />
+        <Route exact path="/test" element={<PsychedelicBackground/>} />
         <Route exact from="/index" to="/" />
         <Route exact path="/index.html" element={<HomePage/>} />
         {/* Blogs */}

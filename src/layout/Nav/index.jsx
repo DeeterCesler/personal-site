@@ -37,14 +37,16 @@ const Nav = () => {
         )
     }
     
+    const notHome = window.location.pathname !== '/';
 
     return(
-        <div className="top-nav">
-            <div className="logo">
-                <a href="/">
+        <div className="top-nav" style={{ backgroundColor: notHome ? 'black' : '', borderBottom: notHome ? 'solid 2px white' : '' }}>
+            {notHome && <div className="logo">
+                <a href="/" className="link back-button" style={{textDecoration: 'none', textShadow: 'none'}}>
                     <img src={home} alt="home" />
+                    <div style={{display: 'flex', margin: 'auto', fontWeight: 600}}>Back</div>
                 </a>
-            </div>
+            </div>}
             <div className="glow" />
             {show ? <Contact />
             : <button data-bs-target="#exampleModal" data-bs-toggle="modal" onClick={toggleModal} className="neumorphism-button">Contact</button>

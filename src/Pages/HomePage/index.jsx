@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import JSConfetti from "js-confetti";
 import { insta, x_logo, medium, linkedin, email } from "./assets/icons";
+import PsychedelicBackground from "../../components/PsychedelicBackground";
 
 const HomePage = () => {
     const [confettiNumber, setConfettiNumber] = useState(1);
@@ -38,51 +39,57 @@ const HomePage = () => {
         if(confettiNumber === 3) setConfettiNumber(1);
         else setConfettiNumber(confettiNumber+1);
     };  
-
-    console.log('homepage');
     
     return (
         <div className="home">
+            <PsychedelicBackground>
             <div className="container">
-                <div className="mini-spacer"></div>
-                <h1 className="big-name">Deeter<br/>Cesler</h1>
-                <div className="mini-spacer"></div>
-                <div className="titles">
-                    <h3 className="flip-1">I'm a software developer with a marketing background.</h3>
-                    <h3 className="shit tiny surprise flip-2" onClick={confetti}><i>click for surprise</i> <span aria-label="hush emoji" role="img">🤫</span></h3>
-                </div>
-                <div className="disappearing-spacer"/>
-                    <div className="header-image">
-                        <img alt="deeter" src="./climb.JPG" />
+                <section className="top">
+                    <div className="mini-spacer"></div>
+                    <h1 className="big-name">Deeter<br/>Cesler</h1>
+                    <div className="mini-spacer"></div>
+                    <div className="titles">
+                        <h3 className="flip-1">I'm a software developer with a marketing background.</h3>
+                        <h3 className="shit tiny surprise flip-2" onClick={confetti}><i>{window.innerWidth > '768'?'click' : 'tap'} for surprise</i> <span aria-label="hush emoji" role="img">🤫</span></h3>
                     </div>
-                <div className="disappearing-spacer"/>
-                <div className="body">
-                    <div className="links">
-                        <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/now">NOW</a></p>
-                        <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/blog">BLOG</a></p>
-                        <p className="link-p"><a target="_blank" rel="noreferrer noopener" className="link" style= {{ textDecoration: "none" }} href="https://deeter.gumroad.com/l/TSXqK">WRITE BETTER EMAILS</a></p>
-                        <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/tech">TECH</a></p>
+                </section>
+                <section className="middle">
+                    <div className="disappearing-spacer"/>
+                        <div className="header-image">
+                            <img alt="deeter" src="./climb.JPG" />
+                        </div>
+                    <div className="disappearing-spacer"/>
+                </section>
+                <section className="bottom">
+                    <div className="body">
+                        <div className="links">
+                            <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/now">NOW</a></p>
+                            <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/blog">BLOG</a></p>
+                            <p className="link-p"><a target="_blank" rel="noreferrer noopener" className="link" style= {{ textDecoration: "none" }} href="https://deeter.gumroad.com/l/TSXqK">WRITE BETTER EMAILS</a></p>
+                            <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/tech">TECH</a></p>
+                        </div>
+                        <div className="icons">
+                            <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/DeeterCesler">
+                                <img alt="twitter/X" color="white" src={x_logo} style={{marginLeft: 0}} />
+                            </a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/deetercesler/">
+                                <img alt="insta" src={insta} />
+                            </a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/deetercesler/">
+                                <img alt="linkedin" src={linkedin} />
+                            </a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://deetercesler.medium.com/">
+                                <img alt="medium" src={medium} />
+                            </a>
+                            <a target="_blank" rel="noopener noreferrer" href="mailto:me+site@deetercesler.com">
+                                <img alt="email" src={email} />
+                            </a>
+                        </div>
                     </div>
-                    <div className="icons">
-                        <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/DeeterCesler">
-                            <img alt="twitter/X" color="white" src={x_logo} style={{marginLeft: 0}} />
-                        </a>
-                        <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/deetercesler/">
-                            <img alt="insta" src={insta} />
-                        </a>
-                        <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/deetercesler/">
-                            <img alt="linkedin" src={linkedin} />
-                        </a>
-                        <a target="_blank" rel="noopener noreferrer" href="https://deetercesler.medium.com/">
-                            <img alt="medium" src={medium} />
-                        </a>
-                        <a target="_blank" rel="noopener noreferrer" href="mailto:me+site@deetercesler.com">
-                            <img alt="email" src={email} />
-                        </a>
-                    </div>
-                </div>
-                <div className="mini-spacer"/>
+                    <div className="mini-spacer"/>
+                </section>
             </div>
+        </PsychedelicBackground>
         </div>
     )
 }

@@ -30,7 +30,7 @@ const PsychedelicBackground = ({children}) => {
   return (
     <div className="psychedelic-background" style={{
       width: '100vw',
-      height: '100%',
+      height: '105%',
       background: `linear-gradient(to right, 
         hsla(${hues[0]}, 100%, 70%, 0.8), 
         hsla(${hues[1]}, 100%, 70%, 0.8))`,

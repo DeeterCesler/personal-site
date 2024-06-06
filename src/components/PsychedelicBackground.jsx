@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './psychedelic.css';
 
 const PsychedelicBackground = ({children}) => {
   const [hues, setHues] = useState([Math.floor(Math.random() * 360), Math.floor(Math.random() * 360)]); // Array of two hues
@@ -29,6 +30,7 @@ const PsychedelicBackground = ({children}) => {
 
   return (
     <div className="psychedelic-background" style={{
+      position: 'relative',
       width: '100vw',
       height: '105%',
       background: `linear-gradient(to right, 

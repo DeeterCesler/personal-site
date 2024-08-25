@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import JSConfetti from "js-confetti";
-import { insta, x_logo, medium, linkedin, email } from "./assets/icons";
+import { insta, x_logo, medium, linkedin, github, email } from "./assets/icons";
 import PsychedelicBackground from "../../components/PsychedelicBackground";
 
 const HomePage = () => {
@@ -64,9 +64,8 @@ const HomePage = () => {
                     <div className="body">
                         <div className="links">
                             <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/now">NOW</a></p>
+                            <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/work">WORK</a></p>
                             <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/blog">BLOG</a></p>
-                            <p className="link-p"><a target="_blank" rel="noreferrer noopener" className="link" style= {{ textDecoration: "none" }} href="https://deeter.gumroad.com/l/TSXqK">WRITE BETTER EMAILS</a></p>
-                            <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/tech">TECH</a></p>
                         </div>
                         <div className="icons">
                             <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/DeeterCesler">
@@ -80,6 +79,9 @@ const HomePage = () => {
                             </a>
                             <a target="_blank" rel="noopener noreferrer" href="https://deetercesler.medium.com/">
                                 <img alt="medium" src={medium} />
+                            </a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://github.com/deetercesler">
+                                <img alt="github" src={github} />
                             </a>
                             <a target="_blank" rel="noopener noreferrer" href="mailto:me+site@deetercesler.com">
                                 <img alt="email" src={email} />

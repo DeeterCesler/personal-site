@@ -69,9 +69,9 @@ function App() {
         <Route exact path="/senior" element={<Senior/>} />
         <Route exact path="/security" element={<SecurityPrinciples/>} />
         <Route exact path="/startups-vs-big-tech" element={<StartupsVersus/>} />
-        {/* Tech */}
-        <Route exact path="/tech" element={<Tech/>} />
-        <Route exact path="/tech/dungeon" element={<Dungeon/>} />
+        {/* Work */}
+        <Route exact path="/work" element={<Tech/>} />
+        <Route exact path="/work/dungeon" element={<Dungeon/>} />
         {/* Now */}
         <Route exact path="/now" element={<Now/>} />
         {/* 404 */}

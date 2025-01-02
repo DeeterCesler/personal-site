@@ -37,7 +37,7 @@ const Nav = () => {
         )
     }
     
-    const notHome = window.location.pathname !== '/';
+    const notHome = window.location.pathname !== '/' && window.location.pathname !== '/index' && window.location.pathname !== '/index.html';
 
     return(
         <div className="top-nav" style={{ backgroundColor: notHome ? 'black' : '', borderBottom: notHome ? 'solid 2px white' : '' }}>

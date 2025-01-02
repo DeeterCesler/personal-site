@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './App.css'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import HomePage from './Pages/HomePage'
 import Nav from './layout/Nav'
 import Blog from './Pages/Blog'
@@ -59,10 +59,10 @@ function App() {
     <div className="App">
       <Nav />
       <Routes>
-        <Route exact path="/" element={<HomePage/>} />
-        <Route exact path="/test" element={<PsychedelicBackground/>} />
-        <Route exact from="/index" to="/" />
-        <Route exact path="/index.html" element={<HomePage/>} />
+        <Route path="/" element={<HomePage/>} />
+        <Route path="/test" element={<PsychedelicBackground/>} />
+        <Route path="/index" element={<Navigate to="/" replace />} />
+        <Route path="/index.html" element={<Navigate to="/" replace />} />
         {/* Blogs */}
         <Route exact path="/blog" element={<Blog />} />
         <Route exact path="/junior" element={<Junior/>} />

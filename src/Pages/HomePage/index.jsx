@@ -42,7 +42,12 @@ const HomePage = () => {
     
     return (
         <div className="home">
-            <PsychedelicBackground>
+            <PsychedelicBackground
+                showModel={true}
+                modelUrl="/models/Flower.glb" 
+                modelPosition={[0, 0, 0]} 
+                modelScale={1.5}
+            >
             <div className="container">
                 <section className="top">
                     <div className="mini-spacer"></div>

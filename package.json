@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@react-three/drei": "^10.0.4",
+    "@react-three/fiber": "^9.1.0",
     "bootstrap": "^5.3.1",
     "circle-scroll": "^0.0.4",
     "jquery": "^3.6.0",
@@ -16,7 +18,10 @@
     "react-router": "^0.0.0-experimental-00c655af",
     "react-router-dom": "^6.15.0",
     "react-scripts": "^5.0.1",
-    "reactstrap": "^9.2.0"
+    "reactstrap": "^9.2.0",
+    "ajv": "^6.12.6",
+    "ajv-keywords": "^3.5.2",
+    "three": "^0.150.0"
   },
   "scripts": {
     "start": "react-scripts start",

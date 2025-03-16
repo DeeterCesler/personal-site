@@ -1,0 +1,29 @@
+.fly-in-visible {
+    display: inline-block;
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 1s, transform 1.2s cubic-bezier(0.7, 0, 1, 1);
+    animation: shake 0.5s ease-in-out 1.2s;
+}
+
+.fly-in-hidden {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(200%);
+    transition: opacity 1s, transform 1.2s cubic-bezier(0.7, 0, 1, 1);
+    animation: none;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    10% { transform: translateX(-2px) rotate(-1deg); }
+    20% { transform: translateX(2px) rotate(1deg); }
+    30% { transform: translateX(-2px) rotate(-1deg); }
+    40% { transform: translateX(2px) rotate(1deg); }
+    50% { transform: translateX(-1px) rotate(-0.5deg); }
+    60% { transform: translateX(1px) rotate(0.5deg); }
+    70% { transform: translateX(-1px) rotate(-0.5deg); }
+    80% { transform: translateX(1px) rotate(0.5deg); }
+    90% { transform: translateX(-0.5px) rotate(-0.25deg); }
+    100% { transform: translateX(0); }
+}

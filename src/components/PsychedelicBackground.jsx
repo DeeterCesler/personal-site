@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './psychedelic.css';
-import ThreeJSModel from './ThreeJSModel';
 
-const PsychedelicBackground = ({children, showModel = true, modelUrl = '/models/Flower.glb', modelPosition = [0, 0, 0], modelScale = 2}) => {
+const PsychedelicBackground = ({children}) => {
   const [hues, setHues] = useState([Math.floor(Math.random() * 360), Math.floor(Math.random() * 360)]); // Array of two hues
   const [step, setStep] = useState(() => Math.floor(Math.random() * 1) + 1); // Random step initialization
 
@@ -38,13 +37,6 @@ const PsychedelicBackground = ({children, showModel = true, modelUrl = '/models/
         hsla(${hues[0]}, 100%, 70%, 0.8), 
         hsla(${hues[1]}, 100%, 70%, 0.8))`,
     }}>
-      {showModel && (
-        <ThreeJSModel 
-          modelUrl={modelUrl} 
-          position={modelPosition} 
-          scale={modelScale}
-        />
-      )}
       {children}
     </div>
   );

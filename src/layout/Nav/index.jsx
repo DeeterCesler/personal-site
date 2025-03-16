@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from 'react-router-dom';
 import home from './img/home.jpg'
 import './style.css'
 
 const Nav = () => {
     const [show, setShow] = useState(false)
+    const [notHome, setNotHome] = useState(false)
+    const location = useLocation()
 
     const toggleModal = (e) => {
         if(e.target === e.currentTarget) setShow(!show)
     }
+
+    useEffect(() => {
+        setNotHome(location.pathname !== '/' && 
+                  location.pathname !== '/index' && 
+                  location.pathname !== '/index.html');
+    }, [location.pathname]);
 
     const Contact = () => {
         return(
@@ -32,12 +41,16 @@ const Nav = () => {
                             @deetercesler
                         </a></strong>
                     </div>
+                    <div className="insta">
+                        linkedin: <br/>
+                        <strong><a href="https://www.linkedin.com/in/deetercesler/" target="_blank" rel="noopener noreferrer">
+                            deetercesler
+                        </a></strong>
+                    </div>
                 </div>
             </div>
         )
     }
-    
-    const notHome = window.location.pathname !== '/' && window.location.pathname !== '/index' && window.location.pathname !== '/index.html';
 
     return(
         <div className="top-nav" style={{ backgroundColor: notHome ? 'black' : '', borderBottom: notHome ? 'solid 2px white' : '' }}>

@@ -147,6 +147,11 @@ const ThreeJSModel = ({
       
       // Hide the hint after first interaction
       setShowHint(false);
+
+      return () => {
+  
+        scene.remove(particleSystem);
+      };
     };
     
     // Mouse move handler
@@ -249,6 +254,7 @@ const ThreeJSModel = ({
       currentRef.removeChild(renderer.domElement);
       
       // Dispose resources
+      // eslint-disable-next-line
       particlesRef.current.forEach(system => {
         scene.remove(system);
       });

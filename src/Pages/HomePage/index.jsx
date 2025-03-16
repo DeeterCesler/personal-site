@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import JSConfetti from "js-confetti";
 import { insta, x_logo, medium, linkedin, github, email } from "./assets/icons";
 import PsychedelicBackground from "../../components/PsychedelicBackground";
+import ThreeJSModel from "../../components/ThreeJSModel";
 
 const HomePage = () => {
     const [confettiNumber, setConfettiNumber] = useState(1);
@@ -50,23 +51,28 @@ const HomePage = () => {
             >
             <div className="container">
                 <section className="top">
-                    <div className="mini-spacer"></div>
-                    <h1 className="big-name">Deeter<br/>Cesler</h1>
-                    <div className="mini-spacer"></div>
-                    <div className="titles">
-                        <h3 className="flip-1">I'm a software developer with a marketing background.</h3>
-                        <h3 className="shit tiny surprise flip-2" onClick={confetti}><i>{window.innerWidth > '768'?'click' : 'tap'} for surprise</i> <span aria-label="hush emoji" role="img">🤫</span></h3>
+                    <div className="top-left">
+                        <h1 className="big-name">Deeter<br/>Cesler</h1>
+                        <div className="titles">
+                            <h3 className="flip-1">I'm a software developer with a marketing background.</h3>
+                            {/* <h3 className="shit tiny surprise flip-2" onClick={confetti}><i>{window.innerWidth > '768'?'click' : 'tap'} for surprise</i> <span aria-label="hush emoji" role="img">🤫</span></h3> */}
+                        </div>
+                    </div>
+                    <div className="top-right">
+                        <ThreeJSModel 
+                            modelUrl="/models/Flower.glb" 
+                            position={[0, 0, 0]} 
+                            scale={3}
+                            initialRotation={{ x: 0, y: -95, z: 0 }}
+                        />
                     </div>
                 </section>
                 <section className="middle">
-                    <div className="disappearing-spacer"/>
-                        <div className="header-image">
-                            <img alt="deeter" src="./climb.JPG" />
-                        </div>
-                    <div className="disappearing-spacer"/>
+                    {/* nothing here for now */}
+                    {/* <div className="disappearing-spacer"/> */}
                 </section>
                 <section className="bottom">
-                    <div className="body">
+                    <div>
                         <div className="links">
                             <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/now">NOW</a></p>
                             <p className="link-p"><a className="link" style= {{ textDecoration: "none" }} href="/work">WORK</a></p>

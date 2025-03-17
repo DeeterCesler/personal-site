@@ -14,6 +14,8 @@ import StartupsVersus from './Pages/Blogs/StartupsVersus'
 import SecurityPrinciples from './Pages/Blogs/SecurityPrinciples'
 import Senior from './Pages/Blogs/Senior'
 import PsychedelicBackground from './components/PsychedelicBackground'
+import useTracker from './hooks/useTracker'
+
 ReactGA.initialize('G-Z1TZ5MEDCR')
 
 const consoleArt = `
@@ -53,6 +55,9 @@ function App() {
       'font-weight: 500;',
     )
   })
+
+  // Google Analytics
+  useTracker();
 
   return (
     <div className="App">

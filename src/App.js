@@ -8,14 +8,13 @@ import Tech from './Pages/Tech'
 import Junior from './Pages/Blogs/Junior'
 import Dungeon from './FUN/dungeon'
 import Now from './Pages/Now'
-import ReactGA from 'react-ga'
+import ReactGA from 'react-ga4'
 import NotFoundPage from './Pages/NotFoundPage'
 import StartupsVersus from './Pages/Blogs/StartupsVersus'
 import SecurityPrinciples from './Pages/Blogs/SecurityPrinciples'
 import Senior from './Pages/Blogs/Senior'
 import PsychedelicBackground from './components/PsychedelicBackground'
-ReactGA.initialize('UA-110417068-2')
-ReactGA.pageview(window.location.pathname + window.location.search)
+ReactGA.initialize('G-Z1TZ5MEDCR')
 
 const consoleArt = `
 %c

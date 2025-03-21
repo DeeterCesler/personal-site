@@ -53,7 +53,7 @@ const Nav = () => {
     }
 
     return(
-        <div className="top-nav" style={{ backgroundColor: notHome ? 'black' : '', borderBottom: notHome ? 'solid 2px white' : '' }}>
+        <div className="top-nav" style={{ backgroundColor: notHome ? 'rgba(0,0,0,0.3)' : '', borderBottom: notHome ? 'solid 2px rgba(255,255,255,0.5)' : '' }}>
             {notHome && <div className="logo">
                 <a href="/" className="link back-button" style={{textDecoration: 'none', textShadow: 'none'}}>
                     <img src={home} alt="home" />

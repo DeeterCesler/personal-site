@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import PsychedelicBackground from "../components/PsychedelicBackground";
 
 const Blog = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return(
         <div className="home">
-            <div className="container" style={{maxWidth: '60%'}}>
-                <h1 className="header">BLOGS</h1>
-                <div className="mini-spacer"/>
-                <ul className="blog-list">
+            <PsychedelicBackground>
+                <div className="container" style={{maxWidth: '60%'}}>
+                    <h1 className="header">BLOGS</h1>
+                    <div className="mini-spacer"/>
+                    <ul className="blog-list">
                     <li><a href="/senior"><b>NEW: </b>3 Ways a Senior Thinks</a></li>
                     <li><a href="/security">8 Security Principles EVERY Software Dev Should Know</a></li>
                     <li><a href="/junior">6 Ways to De-Junior Your Code</a></li>
@@ -20,8 +25,9 @@ const Blog = () => {
                     <li><a target="_blank" rel="noreferrer noopener" href="https://tensure.io/looping-in-javascript/">Everything You Need to Know about Looping in JavaScript</a></li>
                     <li><a target="_blank" rel="noreferrer noopener" href="https://tensure.io/immutability-in-javascript/">Immutability in JavaScript: 3 Methods</a></li>
                 </ul>
-                <div className="mini-spacer"/>
-            </div>
+                    <div className="mini-spacer"/>
+                </div>
+            </PsychedelicBackground>
         </div>
     )
 }

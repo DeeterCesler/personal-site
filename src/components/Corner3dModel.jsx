@@ -113,13 +113,13 @@ const ThreeJSModel = ({ modelUrl = '/models/default-model.glb', position = [0, 0
             pointerEvents: 'none' 
         }}
         />
-        <span style={{
+        {/* <span style={{
           position: 'absolute',
           bottom: '10px',
           left: '10px',
           color: 'white',
           fontSize: '8px',
-        }}>Flower by Poly by Google [CC-BY] via Poly Pizza</span>
+        }}>Flower by Poly by Google [CC-BY] via Poly Pizza</span> */}
     </>
   );
 };

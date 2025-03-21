@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Counter from "quick-count";
+import PsychedelicBackground from "../../components/PsychedelicBackground";
 import "./style.css";
 
 const Tech = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return(
         <div className="now">
-            <div className="tech-container">
-                <h1 className="header" id="work">WORK</h1>
-                <div className="readability">
+            <PsychedelicBackground>
+                <div className="tech-container">
+                    <h1 className="header" id="work">WORK</h1>
+                    <div className="readability">
                     <section>
                         <h3>TECH</h3>
                         <div className="item">
@@ -50,8 +55,9 @@ const Tech = () => {
                             <p>Subcontracting for <a className="link" target="_blank" rel="noreferrer" href="https://cannedspinach.com/">Canned Spinach</a>, I wrote the web copy for the IRSF websites redesign (live as of March 2025).</p>
                         </div>
                     </section>
+                    </div>
                 </div>
-            </div>
+            </PsychedelicBackground>
         </div>
     )
 }

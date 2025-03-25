@@ -338,13 +338,6 @@ body::before {
   background-color: #3f3f3f;
 }
 
-.now {
-  background-color: #000000;
-  background-size: cover;
-  background-repeat: none;
-  min-height: 100vh;
-}
-
 .work {
   background-color: #e4e4e4;
   color: #0f0f0f;
@@ -428,7 +421,7 @@ body::before {
 }
 
 .header {
-  font-size: 4em;
+  font-size: 4.5em;
   font-weight: 800;
   max-width: 80%;
   margin-top: 1em;
@@ -454,7 +447,7 @@ body::before {
   }
 
   .header {
-    font-size: 1.9em;
+    font-size: 3.5rem;
   }
 }
 
@@ -633,6 +626,8 @@ body::before {
   box-shadow: 4px 4px 10px #6e6e6e, -1px -1px 5px #6e6e6e;
   align-items: flex-end;
   font-weight: 600;
+  min-width: 80px;
+  height: 40px;
 }
 
 .neumorphism-button:hover {

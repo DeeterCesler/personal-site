@@ -4,7 +4,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import HomePage from './Pages/HomePage'
 import Nav from './layout/Nav'
 import Blog from './Pages/Blog'
-import Tech from './Pages/Tech'
+import Work from './Pages/Work'
 import Junior from './Pages/Blogs/Junior'
 import Dungeon from './FUN/dungeon'
 import Now from './Pages/Now'
@@ -74,7 +74,7 @@ function App() {
         <Route exact path="/security" element={<SecurityPrinciples/>} />
         <Route exact path="/startups-vs-big-tech" element={<StartupsVersus/>} />
         {/* Work */}
-        <Route exact path="/work" element={<Tech/>} />
+        <Route exact path="/work" element={<Work />} />
         <Route exact path="/work/dungeon" element={<Dungeon/>} />
         {/* Now */}
         <Route exact path="/now" element={<Now/>} />

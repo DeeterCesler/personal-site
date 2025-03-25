@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom';
-import home from './img/home.jpg'
 import './style.css'
 
 const Nav = () => {
@@ -53,16 +52,15 @@ const Nav = () => {
     }
 
     return(
-        <div className="top-nav" style={{ backgroundColor: notHome ? 'rgba(0,0,0,0.3)' : '', borderBottom: notHome ? 'solid 2px rgba(255,255,255,0.5)' : '' }}>
-            {notHome && <div className="logo">
-                <a href="/" className="link back-button" style={{textDecoration: 'none', textShadow: 'none'}}>
-                    <img src={home} alt="home" />
-                    <div style={{display: 'flex', margin: 'auto', fontWeight: 600}}>Back</div>
+        <div className="top-nav">
+            {notHome && <div className="contact">
+                <a href="/" className="" style={{textDecoration: "none"}}>
+                    <button className="neumorphism-button">Back</button>
                 </a>
             </div>}
             <div className="glow" />
             {show ? <Contact />
-            : <button data-bs-target="#exampleModal" data-bs-toggle="modal" onClick={toggleModal} className="neumorphism-button">Contact</button>
+            : <button data-bs-toggle="modal" onClick={toggleModal} className="neumorphism-button">Contact</button>
             }
         </div>
     )

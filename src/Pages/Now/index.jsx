@@ -1,14 +1,15 @@
 import React from "react";
-import PsychedelicBackground from "../components/PsychedelicBackground";
+import PsychedelicBackground from "../../components/PsychedelicBackground";
+import './style.css'
 
 const Now = () => {
     return(
         <div className="home">
             <PsychedelicBackground>
-                <div className="container">
+                <div className="container now">
                     <h1 className="header">NOW</h1>
                     <div className="mini-spacer"/>
-                    <p><i>Updated December 24, 2024</i></p>
+                    <p><i>Updated March 24, 2025</i></p>
                     <div className="mini-spacer"/>
                     <div className="mini-spacer"/>
                     <div className="main-text">

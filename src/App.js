@@ -9,46 +9,23 @@ import Junior from './Pages/Blogs/Junior'
 import Dungeon from './FUN/dungeon'
 import Now from './Pages/Now'
 import ReactGA from 'react-ga4'
-import NotFoundPage from './Pages/NotFoundPage'
+import NotFound from './Pages/NotFound'
 import StartupsVersus from './Pages/Blogs/StartupsVersus'
 import SecurityPrinciples from './Pages/Blogs/SecurityPrinciples'
 import Senior from './Pages/Blogs/Senior'
-import PsychedelicBackground from './components/PsychedelicBackground'
 import useTracker from './hooks/useTracker'
+import generateConsoleName from './utils/ConsoleName'
 
 ReactGA.initialize('G-Z1TZ5MEDCR')
 
-const consoleArt = `
-%c
-██████╗ ███████╗███████╗████████╗███████╗██████╗ 
-██╔══██╗██╔════╝██╔════╝╚══██╔══╝██╔════╝██╔══██╗
-██║  ██║█████╗  █████╗     ██║   █████╗  ██████╔╝
-██║  ██║██╔══╝  ██╔══╝     ██║   ██╔══╝  ██╔══██╗
-██████╔╝███████╗███████╗   ██║   ███████╗██║  ██║
-╚═════╝ ╚══════╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝
-%c                                                 
- ██████╗███████╗███████╗██╗     ███████╗██████╗  
-██╔════╝██╔════╝██╔════╝██║     ██╔════╝██╔══██╗ 
-██║     █████╗  ███████╗██║     █████╗  ██████╔╝ 
-██║     ██╔══╝  ╚════██║██║     ██╔══╝  ██╔══██╗ 
-╚██████╗███████╗███████║███████╗███████╗██║  ██║ 
- ╚═════╝╚══════╝╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝ 
-                                                 `
 
-const consoleMessage = `
-%cWelcome! %cHappy you're here. 
-
-If you're checking the console, you're probably another developer seeing who I am and what I'm about.
-
-I will share any code you see that you're interested, if you ask!
-
-`
 
 function App() {
   useEffect(() => {
-    console.log(consoleArt, 'color: #3e7bff', 'color: #bc76ff')
+    const {art, message, colors} = generateConsoleName()
+    console.log(art, `color: ${colors[0]}`, `color: ${colors[1]}`)
     console.log(
-      consoleMessage,
+      message,
       `
       font-weight: 900;
     `,
@@ -64,7 +41,6 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<HomePage/>} />
-        <Route path="/test" element={<PsychedelicBackground/>} />
         <Route path="/index" element={<Navigate to="/" replace />} />
         <Route path="/index.html" element={<Navigate to="/" replace />} />
         {/* Blogs */}
@@ -79,9 +55,9 @@ function App() {
         {/* Now */}
         <Route exact path="/now" element={<Now/>} />
         {/* 404 */}
-        <Route exact path="/notfound" element={<NotFoundPage/>} />
+        <Route exact path="/notfound" element={<NotFound/>} />
         {/* catch all other routes and redirect to "/notfound" */}
-        <Route path="*" element={<NotFoundPage/>} />
+        <Route path="*" element={<NotFound/>} />
       </Routes>
     </div>
   )

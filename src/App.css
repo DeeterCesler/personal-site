@@ -358,14 +358,6 @@ body::before {
   font-size: 0.75em;
 }
 
-.main {
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: inline-block;
-  width: 80vw;
-  text-align: left;
-}
-
 .readability h3 {
   font-weight: 800;
 }
@@ -423,7 +415,6 @@ body::before {
 .header {
   font-size: 4.5em;
   font-weight: 800;
-  max-width: 80%;
   margin-top: 1em;
 }
 

@@ -1,0 +1,17 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Horizontal */
+    align-items: center; /* Vertical */
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 80vw;
+    text-align: left;
+    padding: 20px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+}
+
+h1 {
+    margin-bottom: 1rem;
+}

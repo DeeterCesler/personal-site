@@ -579,7 +579,7 @@ body::before {
 }
 
 .blog-list {
-  list-style: none;
+  list-style: disc;
   padding: 0;
 }
 
@@ -590,7 +590,7 @@ body::before {
 }
 
 .blog-list li {
-  margin: 15px 0;
+  margin: 21px 0;
 }
 
 .blog-list a:hover {

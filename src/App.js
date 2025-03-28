@@ -45,10 +45,10 @@ function App() {
         <Route path="/index.html" element={<Navigate to="/" replace />} />
         {/* Blogs */}
         <Route exact path="/blog" element={<Blog />} />
-        <Route exact path="/junior" element={<Junior/>} />
-        <Route exact path="/senior" element={<Senior/>} />
-        <Route exact path="/security" element={<SecurityPrinciples/>} />
-        <Route exact path="/startups-vs-big-tech" element={<StartupsVersus/>} />
+        <Route exact path="/blog/junior" element={<Junior/>} />
+        <Route exact path="/blog/senior" element={<Senior/>} />
+        <Route exact path="/blog/security" element={<SecurityPrinciples/>} />
+        <Route exact path="/blog/startups-vs-big-tech" element={<StartupsVersus/>} />
         {/* Work */}
         <Route exact path="/work" element={<Work />} />
         <Route exact path="/work/dungeon" element={<Dungeon/>} />

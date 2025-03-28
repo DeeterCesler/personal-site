@@ -271,7 +271,7 @@ body::before {
 }
 
 .home {
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.5);
   background-size: cover;
   background-repeat: none;
   z-index: -1;
@@ -541,6 +541,13 @@ body::before {
   filter: drop-shadow(0 0 0.75rem #fff);
 }
 
+.blog-text {
+  border-radius: 40px;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 2rem;
+}
+
 .blog-text p,
 .blog-text li {
   font-size: 1.1rem;
@@ -548,7 +555,7 @@ body::before {
 
 .blog-text p,
 .blog-text > ul {
-  margin: 40px 0;
+  margin: 0px 0 40px 0;
 }
 
 .flip-1,

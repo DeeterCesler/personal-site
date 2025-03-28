@@ -1,6 +1,7 @@
 import React from "react";
 import Codeblock from "../../components/Codeblock";
 import BlogContainer from "../../components/BlogContainer";
+import PsychedelicBackground from "../../components/PsychedelicBackground";
 
 const codeblockOne = `if (num < 10) {
     return true
@@ -12,33 +13,35 @@ const codeblockTwo = 'return num < 10';
 
 const Junior = () => {
     return(
-        <BlogContainer title="4 Ways to de-Junior Your Code">
-            <p>There's no shame in being a junior developer. I was one (and in plenty of technologies, I still am).</p>
-            <p>However, there are a few easy ways to make sure you don't unnecessarily <i>look</i> like one. Add these to your toolbelt.</p>
-            <h3>4. Find and remove any <code>return true</code> or <code>return false</code> in your code</h3>
-            <p>Whenever you have a <code>return <i>boolean</i></code>, you'll almost always find it after an if-check of some kind. That if-check itself is necessarily checking a boolean.</p>
-            <p>Instead of returning true or false, just return the check you did to find it. E.g.:</p>
-            <Codeblock>
-                {codeblockOne}
-            </Codeblock>
-            <p>Can just become</p>
-            <Codeblock>
-                {codeblockTwo}
-            </Codeblock>
-            <p>Sometimes, you might run into a situation where a function returns a boolean sometimes, and a value other times (like an integer or string). </p>
-            <p>If this happens, this is a bad function and should be rewritten. You avoid this problem in typed languages like Rust, TypeScript, and Java. But in a language like JavaScript, it lets you cheat. Don't cheat.</p>
-            <h3>3. Remove Print Statements</h3>
-            <p>Unless you are building a logger, you don't want lingering print statements in your code. We all have the ubiquitous <Codeblock inline="true">console.log('here');</Codeblock> but it shouldn't be left in once you actually push your code.</p>
-            <h3>2. Use a Linter</h3>
-            <p>It doesn't matter so much what code style you commit to—but make it consistent.</p>
-            <p>I recommend <a target="_blank" rel="noreferrer noopener" href="https://eslint.org/">ES Lint</a>. This will find obvious issues with your code and point out solutions without accidentally breaking everything. Minimal setup, maximum headache-prevention.</p>
-            <h3>1. Write Test Cases for Your App's Core Functions</h3>
-            <p>A junior thinks writing tests is a headache. <b>A senior realizes NOT having tests is a migraine.</b></p>
-            <p>If you manage the codebase and aren't just pushing code to it—and especially if you actually have users actively using your code—you will soon care about tests.</p>
-            <p>Tests are forgotten because they don't have immediate output as a new feature. However, if you actually want to have users that <i>consistently</i> use your creation, you need tests.</p>
-            <p>Tests are headache prevention. Tests preserve your brand's quality. Tests are a way to get ahead of problems before you have them, and help you think holistically about how your code might be used by end users.</p>
-            <p>If you don't know where to start with testing, write a unit test for a function. There are lots of open source testing software already out there: jest, mocha, chai, selenium, cypress. Take your pick.</p>
-        </BlogContainer>
+        <PsychedelicBackground>
+            <BlogContainer title="4 Ways to de-Junior Your Code">
+                <p>There's no shame in being a junior developer. I was one (and in plenty of technologies, I still am).</p>
+                <p>However, there are a few easy ways to make sure you don't unnecessarily <i>look</i> like one. Add these to your toolbelt.</p>
+                <h3>4. Find and remove any <code>return true</code> or <code>return false</code> in your code</h3>
+                <p>Whenever you have a <code>return <i>boolean</i></code>, you'll almost always find it after an if-check of some kind. That if-check itself is necessarily checking a boolean.</p>
+                <p>Instead of returning true or false, just return the check you did to find it. E.g.:</p>
+                <Codeblock>
+                    {codeblockOne}
+                </Codeblock>
+                <p>Can just become</p>
+                <Codeblock>
+                    {codeblockTwo}
+                </Codeblock>
+                <p>Sometimes, you might run into a situation where a function returns a boolean sometimes, and a value other times (like an integer or string). </p>
+                <p>If this happens, this is a bad function and should be rewritten. You avoid this problem in typed languages like Rust, TypeScript, and Java. But in a language like JavaScript, it lets you cheat. Don't cheat.</p>
+                <h3>3. Remove Print Statements</h3>
+                <p>Unless you are building a logger, you don't want lingering print statements in your code. We all have the ubiquitous <Codeblock inline="true">console.log('here');</Codeblock> but it shouldn't be left in once you actually push your code.</p>
+                <h3>2. Use a Linter</h3>
+                <p>It doesn't matter so much what code style you commit to—but make it consistent.</p>
+                <p>I recommend <a target="_blank" rel="noreferrer noopener" href="https://eslint.org/">ES Lint</a>. This will find obvious issues with your code and point out solutions without accidentally breaking everything. Minimal setup, maximum headache-prevention.</p>
+                <h3>1. Write Test Cases for Your App's Core Functions</h3>
+                <p>A junior thinks writing tests is a headache. <b>A senior realizes NOT having tests is a migraine.</b></p>
+                <p>If you manage the codebase and aren't just pushing code to it—and especially if you actually have users actively using your code—you will soon care about tests.</p>
+                <p>Tests are forgotten because they don't have immediate output as a new feature. However, if you actually want to have users that <i>consistently</i> use your creation, you need tests.</p>
+                <p>Tests are headache prevention. Tests preserve your brand's quality. Tests are a way to get ahead of problems before you have them, and help you think holistically about how your code might be used by end users.</p>
+                <p>If you don't know where to start with testing, write a unit test for a function. There are lots of open source testing software already out there: jest, mocha, chai, selenium, cypress. Take your pick.</p>
+            </BlogContainer>
+        </PsychedelicBackground>
     )
 }
 

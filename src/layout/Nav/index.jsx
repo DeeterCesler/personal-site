@@ -17,6 +17,13 @@ const Nav = () => {
                   location.pathname !== '/index.html');
     }, [location.pathname]);
 
+    const getBackUrl = () => {
+        if (location.pathname.startsWith('/blog/')) {
+            return '/blog';
+        }
+        return '/';
+    }
+
     const Contact = () => {
         return(
             <div onClick={(e)=>toggleModal(e)} className="contact modal-shadow">
@@ -54,7 +61,7 @@ const Nav = () => {
     return(
         <div className="top-nav">
             {notHome && <div className="contact">
-                <a href="/" className="" style={{textDecoration: "none"}}>
+                <a href={getBackUrl()} className="" style={{textDecoration: "none"}}>
                     <button className="neumorphism-button">Back</button>
                 </a>
             </div>}

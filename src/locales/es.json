@@ -1,0 +1,29 @@
+{
+    "nav": {
+        "contact": "Contacto",
+        "back": "Volver",
+        "contactModal": {
+            "title": "contacto",
+            "email": "email:",
+            "instagram": "instagram:",
+            "twitter": "twitter:",
+            "linkedin": "linkedin:"
+        }
+    },
+    "homepage": {
+        "title": "Deeter Cesler",
+        "subtitle": "Soy un desarrollador de software con un fondo en marketing."
+    },
+    "internalLinks": {
+        "now": "AHORA",
+        "work": "TRABAJO",
+        "blog": "BLOG"
+    },
+    "notFound": {
+        "title": "WHOOPS",
+        "subtitle": "PERDISTE",
+        "description": "Sucede a todos",
+        "description2": "algún día",
+        "link": "VOLVER"
+    }
+}

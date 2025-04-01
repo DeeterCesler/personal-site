@@ -3,8 +3,10 @@ import PsychedelicBackground from "../../components/PsychedelicBackground";
 import ThreeJSModel from "../../components/ThreeJSModel";
 import SocialLinks from "../../components/SocialLinks";
 import InternalLinks from "../../components/InternalLinks";
+import { useTranslation } from "react-i18next";
 
 const HomePage = () => {
+    const { t } = useTranslation();
 
     return (
         <div className="home">
@@ -17,9 +19,9 @@ const HomePage = () => {
             <div className="container">
                 <section className="top">
                     <div className="top-left">
-                        <h1 className="big-name">Deeter<br/>Cesler</h1>
+                        <h1 className="big-name">{t('homepage.title')}</h1>
                         <div className="titles">
-                            <h3 className="flip-1">I'm a software developer with a marketing background.</h3>
+                            <h3 className="flip-1">{t('homepage.subtitle')}</h3>
                         </div>
                     </div>
                     <div className="top-right">

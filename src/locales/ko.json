@@ -1,0 +1,29 @@
+{
+    "nav": {
+        "contact": "연락처",
+        "back": "돌아가기",
+        "contactModal": {
+            "title": "연락처",
+            "email": "이메일:",
+            "instagram": "인스타그램:",
+            "twitter": "트위터:",
+            "linkedin": "링크드인:"
+        }
+    },
+    "homepage": {
+        "title": "Deeter Cesler",
+        "subtitle": "나는 마케팅 배경을 가진 소프트웨어 개발자입니다."
+    },
+    "internalLinks": {
+        "now": "지금",
+        "work": "일",
+        "blog": "블로그"
+    },
+    "notFound": {
+        "title": "WHOOPS",
+        "subtitle": "당신은 잃어버렸습니다",
+        "description": "모든 사람이 겪는 일입니다",
+        "description2": "언젠가는",
+        "link": "돌아가기"
+    }
+}

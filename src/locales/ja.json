@@ -1,0 +1,29 @@
+{
+    "nav": {
+        "contact": "連絡先",
+        "back": "戻る",
+        "contactModal": {
+            "title": "連絡先",
+            "email": "メール:",
+            "instagram": "インスタグラム:",
+            "twitter": "ツイッター:",
+            "linkedin": "リンクドイン:"
+        }
+    },
+    "homepage": {
+        "title": "Deeter Cesler",
+        "subtitle": "私はマーケティングの背景を持つソフトウェア開発者です。"
+    },
+    "internalLinks": {
+        "now": "今",
+        "work": "仕事",
+        "blog": "ブログ"
+    },
+    "notFound": {
+        "title": "WHOOPS",
+        "subtitle": "あなたは迷っています",
+        "description": "誰もが経験することです",
+        "description2": "時々",
+        "link": "戻る"
+    }
+}

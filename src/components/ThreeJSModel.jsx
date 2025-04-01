@@ -156,7 +156,6 @@ const ThreeJSModel = ({
     
     // Mouse move handler
     const handleMouseMove = (event) => {
-      console.log(event.clientX, event.clientY);
       // Calculate normalized mouse coordinates (-1 to 1)
       const rect = currentRef.getBoundingClientRect();
       const x = ((event.clientX - rect.left) / currentRef.clientWidth) * 2 - 1;

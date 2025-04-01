@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import './i18n'; // Import i18n configuration
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

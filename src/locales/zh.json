@@ -1,0 +1,29 @@
+{
+    "nav": {
+        "contact": "联系",
+        "back": "返回",
+        "contactModal": {
+            "title": "联系",
+            "email": "电子邮件:",
+            "instagram": "instagram:",
+            "twitter": "twitter:",
+            "linkedin": "linkedin:"
+        }
+    },
+    "homepage": {
+        "title": "Deeter Cesler",
+        "subtitle": "我是一名软件开发人员，拥有营销背景。"
+    },
+    "internalLinks": {
+        "now": "现在",
+        "work": "工作",
+        "blog": "博客"
+    },
+    "notFound": {
+        "title": "WHOOPS",
+        "subtitle": "你迷路了",
+        "description": "每个人都经历过",
+        "description2": "有时",
+        "link": "返回"
+    }
+}

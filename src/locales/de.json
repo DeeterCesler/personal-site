@@ -1,0 +1,29 @@
+{
+    "nav": {
+        "contact": "Kontakt",
+        "back": "Zurück",
+        "contactModal": {
+            "title": "Kontakt",
+            "email": "Email:",
+            "instagram": "Instagram:",
+            "twitter": "Twitter:",
+            "linkedin": "LinkedIn:"
+        }
+    },
+    "homepage": {
+        "title": "Deeter Cesler",
+        "subtitle": "Ich bin ein Softwareentwickler mit einem Marketing-Hintergrund."
+    },
+    "internalLinks": {
+        "now": "AKTUELL",
+        "work": "ARBEIT",
+        "blog": "BLOG"
+    },
+    "notFound": {
+        "title": "WHOOPS",
+        "subtitle": "DU BIST VERLOREN",
+        "description": "Es passiert jedem",
+        "description2": "irgendwann",
+        "link": "ZURÜCK"
+    }
+}

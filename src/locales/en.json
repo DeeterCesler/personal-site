@@ -1,0 +1,29 @@
+{
+    "nav": {
+        "contact": "Contact",
+        "back": "Back",
+        "contactModal": {
+            "title": "contact",
+            "email": "email:",
+            "instagram": "insta:",
+            "twitter": "twitter:",
+            "linkedin": "linkedin:"
+        }
+    },
+    "homepage": {
+        "title": "Deeter Cesler",
+        "subtitle": "I'm a software developer with a marketing background."
+    },
+    "internalLinks": {
+        "now": "NOW",
+        "work": "WORK",
+        "blog": "BLOG"
+    },
+    "notFound": {
+        "title": "WHOOPS",
+        "subtitle": "YOU GOT LOST",
+        "description": "it happens to everyone",
+        "description2": "or the link you found was old",
+        "link": "GO BACK"
+    }
+} 

@@ -1,3 +1,8 @@
 .now-text {
     font-size: 1.5rem;
 }
+
+.shadow-background-now {
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 100vh;
+}

@@ -1,3 +1,9 @@
 .tech-container {
     padding: 3rem;;
 }
+
+
+.shadow-background-work {
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 200%;
+}

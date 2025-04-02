@@ -1,18 +1,24 @@
 import React, { useEffect } from 'react'
 import './App.css'
+// Packages
 import { Navigate, Route, Routes } from 'react-router-dom'
-import HomePage from './Pages/HomePage'
+import ReactGA from 'react-ga4'
+// Components
 import Nav from './layout/Nav'
+// Pages
+import HomePage from './Pages/HomePage'
 import Blog from './Pages/Blog'
 import Work from './Pages/Work'
-import Junior from './Pages/Blogs/Junior'
 import Dungeon from './FUN/dungeon'
 import Now from './Pages/Now'
-import ReactGA from 'react-ga4'
+import NorsePrivacy from './Pages/NorsePrivacy'
 import NotFound from './Pages/NotFound'
+// Blogs
+import Junior from './Pages/Blogs/Junior'
 import StartupsVersus from './Pages/Blogs/StartupsVersus'
 import SecurityPrinciples from './Pages/Blogs/SecurityPrinciples'
 import Senior from './Pages/Blogs/Senior'
+// Hooks, Utils, Context
 import useTracker from './hooks/useTracker'
 import generateConsoleName from './utils/ConsoleName'
 import { LanguageProvider } from './context/LanguageContext'
@@ -54,6 +60,8 @@ function App() {
           <Route exact path="/work/dungeon" element={<Dungeon/>} />
           {/* Now */}
           <Route exact path="/now" element={<Now/>} />
+          {/* Norse Privacy Policy */}
+          <Route exact path="/norse/privacy" element={<NorsePrivacy/>} />
           {/* 404 */}
           <Route exact path="/notfound" element={<NotFound/>} />
           {/* catch all other routes and redirect to "/notfound" */}

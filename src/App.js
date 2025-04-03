@@ -27,16 +27,8 @@ ReactGA.initialize('G-Z1TZ5MEDCR')
 
 function App() {
   useEffect(() => {
-    const {art, message, colors} = generateConsoleName()
-    console.log(art, `color: ${colors[0]}`, `color: ${colors[1]}`)
-    console.log(
-      message,
-      `
-      font-weight: 900;
-    `,
-      'font-weight: 500;',
-    )
-  })
+    generateConsoleName()
+  }, [])
 
   // Google Analytics
   useTracker();

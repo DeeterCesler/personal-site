@@ -40,7 +40,7 @@ const generateConsoleName = () => {
       'font-weight: 500;',
     )
 
-    return {art: consoleArt, message: consoleMessage, colors: [randomColorOne, randomColorTwo]}
+    return;
 }
 
 export default generateConsoleName;

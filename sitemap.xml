@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://www.deetercesler.com/blog</loc>
-    <lastmod>2025-04-02</lastmod>
+    <lastmod>2025-04-09</lastmod>
   </url>
   <url>
     <loc>https://www.deetercesler.com/junior</loc>
@@ -31,5 +31,25 @@
   <url>
     <loc>https://www.deetercesler.com/senior</loc>
     <lastmod>2022-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://www.deetercesler.com/immutability</loc>
+    <lastmod>2025-04-09</lastmod>
+  </url>
+  <url>
+    <loc>https://www.deetercesler.com/bdd</loc>
+    <lastmod>2025-04-09</lastmod>
+  </url>
+  <url>
+    <loc>https://www.deetercesler.com/testing</loc>
+    <lastmod>2025-04-09</lastmod>
+  </url>
+  <url>
+    <loc>https://www.deetercesler.com/looping</loc>
+    <lastmod>2025-04-09</lastmod>
+  </url>
+  <url>
+    <loc>https://www.deetercesler.com/bootstrap-flexbox-css-grid</loc>
+    <lastmod>2025-04-09</lastmod>
   </url>
 </urlset>

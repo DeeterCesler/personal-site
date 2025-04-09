@@ -5,6 +5,9 @@ import './style.css'
 const BlogContainer = (props) => {
     return <main className="home blog-container">
             <h1 className="header">{props.title}</h1>
+            {props.host && <span className="author"><i>Originally hosted on {props.host}</i></span>}
+            <br/>
+            {props.publishedDate && <span className="published-date"><i>Published: {props.publishedDate}</i></span>}
                 <div className="mini-spacer"/>
                 <Scroller link="/blog">
                     <div className="blog-text">

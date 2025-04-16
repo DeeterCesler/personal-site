@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '../../context/ThemeContext';
 import './style.css'
 
 const Nav = () => {
@@ -8,6 +9,7 @@ const Nav = () => {
     const [notHome, setNotHome] = useState(false)
     const location = useLocation()
     const { t } = useTranslation();
+    const { isDark, toggleTheme } = useTheme();
 
     const toggleModal = (e) => {
         if(e.target === e.currentTarget) setShow(!show)
@@ -68,9 +70,21 @@ const Nav = () => {
                 </a>
             </div>}
             <div className="glow" />
-            {show ? <Contact />
-            : <button data-bs-toggle="modal" onClick={toggleModal} className="neumorphism-button">{t('nav.contact')}</button>
-            }
+            <div className="nav-buttons">
+                <button 
+                    onClick={toggleTheme} 
+                    className="neumorphism-button theme-toggle"
+                    style={{marginRight: '0rem'}}
+                    aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+                >
+                    <span className={`theme-icon ${!isDark ? 'active' : ''}`}>☀️</span>
+                    <span className="theme-separator">/</span>
+                    <span className={`theme-icon ${isDark ? 'active' : ''}`}>🌙</span>
+                </button>
+                {show ? <Contact />
+                : <button data-bs-toggle="modal" onClick={toggleModal} className="neumorphism-button">{t('nav.contact')}</button>
+                }
+            </div>
         </div>
     )
 }

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useTheme } from '../context/ThemeContext';
 import './psychedelic.css';
 
 const PsychedelicBackground = ({children}) => {
+  const { isDark } = useTheme();
   const [hues, setHues] = useState([Math.floor(Math.random() * 360), Math.floor(Math.random() * 360)]); // Array of two hues
   const [step, setStep] = useState(() => Math.floor(Math.random() * 1) + 1); // Random step initialization
 
@@ -34,8 +36,8 @@ const PsychedelicBackground = ({children}) => {
       width: '100vw',
       height: '105%',
       background: `linear-gradient(to right, 
-        hsla(${hues[0]}, 100%, 70%, 0.8), 
-        hsla(${hues[1]}, 100%, 70%, 0.8))`,
+        hsla(${hues[0]}, 100%, ${isDark ? '30%' : '70%'}, 0.8), 
+        hsla(${hues[1]}, 100%, ${isDark ? '30%' : '70%'}, 0.8))`,
     }}>
       {children}
     </div>

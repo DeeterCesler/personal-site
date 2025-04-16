@@ -1,6 +1,7 @@
 import React from 'react';
 import Scroller from "circle-scroll";
 import './style.css'
+import MoreBlogsFooter from './MoreBlogsFooter';
 
 const BlogContainer = (props) => {
     return <main className="home blog-container">
@@ -18,11 +19,7 @@ const BlogContainer = (props) => {
                 <div className="mini-spacer"/>
                 <h2>Other Blogs</h2>
                 <br/>
-                <ul className="other">
-                    <li><a href="/security">8 Security Principles EVERY Software Dev Should Know</a></li>
-                    <li><a href="/junior">6 Ways to De-Junior Your Code</a></li>
-                    <li><a href="/startups-vs-big-tech">Working at Big Tech vs. Startups</a></li>
-                </ul>
+                <MoreBlogsFooter shortRef={props.shortRef} />
                 <div className="mini-spacer"/>
         </main>
 }

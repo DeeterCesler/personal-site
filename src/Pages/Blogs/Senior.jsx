@@ -5,7 +5,7 @@ import PsychedelicBackground from "../../components/PsychedelicBackground";
 const Senior = () => {
     return(
         <PsychedelicBackground>
-            <BlogContainer title="3 Ways a Senior Thinks">
+            <BlogContainer title="3 Ways a Senior Thinks" shortRef="senior">
                 <p>A senior is supposed to know more than a junior—needing to look less up, a better intuition for effective solutions, and knows more nuance of tech.</p>
                 <p>Everyone's aware of the expected technical <i>skill</i> difference. What's less discussed is the different ways a junior is supposed to <i>think</i>.</p>
                 <h3>1. Don't make it harder than it has to be</h3>

@@ -5,7 +5,7 @@ import PsychedelicBackground from "../../../components/PsychedelicBackground";
 const TDDArticle = () => {
     return (
         <PsychedelicBackground>
-            <BlogContainer title="Use TDD for Faster Development" host="Tensure.io" author="Deeter Cesler" publishedDate="July 22, 2021">
+            <BlogContainer title="Use TDD for Faster Development" host="Tensure.io" author="Deeter Cesler" publishedDate="July 22, 2021" shortRef="tdd">
                 <p>Every engineer <em>knows</em> they should be adding tests to their work, but most of us, it's one of those things that gets "cut for time."</p>
                 <p>If you're on any sort of deadline (which, yeah) then this pressure is totally understandable. You don't get more points from the customer for writing tests to make sure something works. They only care if it works!</p>
                 <p>The usual argument says adding tests is a way to prevent future problems. Spot on. However, there's another reason you should be writing tests that pay off now instead of in the future.</p>

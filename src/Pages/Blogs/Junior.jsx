@@ -14,7 +14,7 @@ const codeblockTwo = 'return num < 10';
 const Junior = () => {
     return(
         <PsychedelicBackground>
-            <BlogContainer title="4 Ways to de-Junior Your Code">
+            <BlogContainer title="4 Ways to de-Junior Your Code" shortRef="junior">
                 <p>There's no shame in being a junior developer. I was one (and in plenty of technologies, I still am).</p>
                 <p>However, there are a few easy ways to make sure you don't unnecessarily <i>look</i> like one. Add these to your toolbelt.</p>
                 <h3>4. Find and remove any <code>return true</code> or <code>return false</code> in your code</h3>

@@ -21,9 +21,9 @@ const Blog = () => {
                             <li><a target="_blank" rel="noreferrer noopener" href="https://deetercesler.medium.com/you-know-more-than-you-think-bcea318b4d09">You Know More Than You Think</a></li>
                             <li><a target="_blank" rel="noreferrer noopener" href="https://deetercesler.medium.com/using-graphql-with-react-2778750a768d">Use GraphQL with React: So Easy, a Junior Dev Can Do It</a></li>
                             <li><a href="/blog/immutability">Immutability in JavaScript</a></li>
-                            <li><a href="/blog/bdd">BDD Testing</a></li>
-                            <li><a href="/blog/testing">TDD vs. BDD</a></li>
-                            <li><a href="/blog/looping">Looping in JavaScript</a></li>
+                            <li><a href="/blog/bdd">What is BDD? Intro to Behavior-Driven Development</a></li>
+                            <li><a href="/blog/tdd">Use TDD for Faster Development</a></li>
+                            <li><a href="/blog/looping">Everything You Need to Know About Looping in JavaScript</a></li>
                             <li><a href="/blog/bootstrap-flexbox-css-grid">Managing Frontend Layouts: Bootstrap vs Flexbox vs CSS Grid</a></li>
                         </ul>
                         <div className="mini-spacer"/>

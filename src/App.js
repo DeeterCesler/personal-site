@@ -54,7 +54,7 @@ function App() {
           <Route exact path="/blog/startups-vs-big-tech" element={<StartupsVersus/>} />
           <Route exact path="/blog/immutability" element={<Immutability/>} />
           <Route exact path="/blog/bdd" element={<Bdd/>} />
-          <Route exact path="/blog/testing" element={<TDDArticle/>} />
+          <Route exact path="/blog/tdd" element={<TDDArticle/>} />
           <Route exact path="/blog/looping" element={<Looping/>} />
           <Route exact path="/blog/bootstrap-flexbox-css-grid" element={<LayoutManagementArticle/>} />
           {/* Work */}

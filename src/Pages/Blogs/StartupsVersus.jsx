@@ -5,7 +5,7 @@ import PsychedelicBackground from "../../components/PsychedelicBackground";
 const StartupsVersus = () => {
     return(
         <PsychedelicBackground>
-            <BlogContainer title="Working at Big Tech vs. Startups">
+            <BlogContainer title="Working at Big Tech vs. Startups" shortRef="startups-vs-big-tech">
                 <p>You know that one saying about driving? <b>Everyone slower than you is an idiot, and everyone faster than you is a maniac.</b></p>
                 <p>The same sentiment is true in tech companies.</p>
                 <p>There's a big difference in the culture of coding for a big tech company versus startups. Every tech company thinks they like to move fast with high quality. But those mean very different things depending on the company. For Big Tech Co, fast might mean six months. Any sooner than that, and (probably fairly) your project could be considered rushed.</p>

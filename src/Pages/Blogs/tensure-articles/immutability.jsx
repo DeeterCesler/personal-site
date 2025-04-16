@@ -6,7 +6,7 @@ import PsychedelicBackground from "../../../components/PsychedelicBackground";
 const ImmutabilityArticle = () => {
     return (
         <PsychedelicBackground>
-            <BlogContainer title="Immutability in JavaScript: 3 Methods" host="Tensure.io" author="Deeter Cesler" publishedDate="October 12, 2021">
+            <BlogContainer title="Immutability in JavaScript: 3 Methods" host="Tensure.io" author="Deeter Cesler" publishedDate="October 12, 2021" shortRef="immutability">
                 <p>Immutability means something cannot be changed. You might want this to make sure you're preserving a value.</p>
                 <p>For example, if you're having multiple functions input the same value, but the value can potentially change between the function's operations, you'll want to ensure the original value isn't accidentally getting overwritten somewhere in the process.</p>
                 <h3>1. CONST</h3>

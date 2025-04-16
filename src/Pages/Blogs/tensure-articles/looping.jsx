@@ -5,7 +5,7 @@ import PsychedelicBackground from "../../../components/PsychedelicBackground";
 const LoopingArticle = () => {
     return (
         <PsychedelicBackground>
-            <BlogContainer title="Everything You Need to Know About Looping in JavaScript" host="Tensure.io" author="Deeter Cesler" publishedDate="October 5, 2021">
+            <BlogContainer title="Everything You Need to Know About Looping in JavaScript" host="Tensure.io" author="Deeter Cesler" publishedDate="October 5, 2021" shortRef="looping">
                 <p>Looping is one of the first things you learn as a programmer. It's not just "for" and "while" loops. You've got more options for looping than you'll probably want to know about.</p>
                 <p>Let's take a look.</p>
 

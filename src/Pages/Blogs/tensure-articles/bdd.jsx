@@ -6,7 +6,7 @@ import PsychedelicBackground from "../../../components/PsychedelicBackground";
 const BddArticle = () => {
     return (
         <PsychedelicBackground>
-            <BlogContainer title="What is BDD? Intro to Behavior-Driven Development" host="Tensure.io" author="Deeter Cesler" publishedDate="August 3, 2021">
+            <BlogContainer title="What is BDD? Intro to Behavior-Driven Development" host="Tensure.io" author="Deeter Cesler" publishedDate="August 3, 2021" shortRef="bdd">
                 <p>If adding tests to your code is an afterthought for most developers, creating test automation is an after-afterthought. Nevertheless, test automation is necessary once a code repo gets so large that QA can't keep up with regular manual tests, or when you have to be absolutely certain there aren't any critical bugs introduced with new merges (especially when you have lots of different teams working in the same repo).</p>
                 
                 <p>There are many types of test automation you can add at this stage, but today I want to highlight my favorite: behavior-driven development.</p>

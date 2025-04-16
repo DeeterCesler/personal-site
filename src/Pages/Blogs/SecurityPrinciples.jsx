@@ -5,7 +5,7 @@ import PsychedelicBackground from "../../components/PsychedelicBackground";
 const SecurityPrinciples = () => {
     return(
         <PsychedelicBackground>
-            <BlogContainer title="8 Security Principles EVERY Software Dev Should Know">
+            <BlogContainer title="8 Security Principles EVERY Software Dev Should Know" shortRef="security">
                 <p>It doesn't matter if you're frontend, backend, or a DevOps engineer. You should know these fundamentals.</p>
                 <h3>1. SQL injections: the Most Common Attack</h3>
                 <p>Cyber attacks are so hot right now. SQL injections are the most common kind. It's an attempt to send commands directly to your database.</p>

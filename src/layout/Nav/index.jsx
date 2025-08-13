@@ -6,13 +6,24 @@ import './style.css'
 
 const Nav = () => {
     const [show, setShow] = useState(false)
+    const [closing, setClosing] = useState(false)
     const [notHome, setNotHome] = useState(false)
     const location = useLocation()
     const { t } = useTranslation();
     const { isDark, toggleTheme } = useTheme();
 
     const toggleModal = (e) => {
-        if(e.target === e.currentTarget) setShow(!show)
+        if(e.target === e.currentTarget) {
+            if (show) {
+                setClosing(true)
+                setTimeout(() => {
+                    setShow(false)
+                    setClosing(false)
+                }, 200)
+            } else {
+                setShow(true)
+            }
+        }
     }
 
     useEffect(() => {
@@ -30,8 +41,8 @@ const Nav = () => {
 
     const Contact = () => {
         return(
-            <div onClick={(e)=>toggleModal(e)} className="contact modal-shadow">
-                <div className="modal-outline">
+            <div onClick={(e)=>toggleModal(e)} className={`contact modal-shadow ${closing ? 'closing' : ''}`}>
+                <div className={`modal-outline ${closing ? 'closing' : ''}`}>
                     <button onClick={toggleModal}/>
                     <h2 className="contact-header">{t('nav.contactModal.title')}</h2>
                     <br/>
@@ -81,9 +92,8 @@ const Nav = () => {
                     <span className="theme-separator">/</span>
                     <span className={`theme-icon ${isDark ? 'active' : ''}`}>🌙</span>
                 </button>
-                {show ? <Contact />
-                : <button data-bs-toggle="modal" onClick={toggleModal} className="neumorphism-button">{t('nav.contact')}</button>
-                }
+                <button data-bs-toggle="modal" onClick={toggleModal} className="neumorphism-button">{t('nav.contact')}</button>
+                {show && <Contact />}
             </div>
         </div>
     )

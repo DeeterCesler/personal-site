@@ -46,25 +46,28 @@ const HomePage = () => {
                         <Card 
                             image="/pics/ana1.png" 
                             alt="ANA Airlines"
-                            style={{ margin: '5%', display: 'inline-block'}} 
                             title="ANA Airlines"
                             caption="Solo implementation of a game for the ANA Airlines' conference booth. Two players on separate tablets go back-and-forth answering trivia questions about Japan while an audience watches."
                         />
                         <Card 
                             image="/pics/norse.jpg" 
                             alt="Learn Old Norse"
-                            style={{ margin: '5%', display: 'inline-block', }} 
                             title="Norse Language App"
                             caption="Created an iOS app for learning ancient Norse runes and their phonetics."
                             link="https://apps.apple.com/us/app/norse-flashcards/id6743998805?l=es-MX&platform=iphone"
                         />
                         <Card
                             image="/pics/chca.png" 
-                            alt="placeholder"
-                            style={{ margin: '5%', display: 'inline-block', }} 
+                            alt="CHCA"
                             title="CHCA"
                             caption="Copywriting contract CHCA website redesign."
                             link="https://www.chca-oh.org"
+                        />
+                        <Card
+                            image="/pics/swater.png" 
+                            alt="Smartwater game"
+                            title="Smartwater"
+                            caption="Created a Smartwater-themed matching game for visitors to play at their conference booth, introducing new flavors through gameplay."
                         />
                     </CurtainReveal>
                 </section>

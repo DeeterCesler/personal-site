@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const CurtainReveal = ({ 
   startHeight = 200,
@@ -10,6 +10,11 @@ const CurtainReveal = ({
 }) => {
   const [progress, setProgress] = useState(0);
   const [isLocked, setIsLocked] = useState(false);
+  const [screenSize, setScreenSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight
+  });
+  const [cardPositions, setCardPositions] = useState({});
   const ref = useRef();
   
   useEffect(() => {
@@ -53,11 +58,23 @@ const CurtainReveal = ({
       }
     };
     
+    const handleResize = () => {
+      setScreenSize({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+      handleScroll(); // Recalculate on resize
+    };
+    
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleResize, { passive: true });
     handleScroll(); // Check initial position
     
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [oneTime, isLocked]);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [oneTime, isLocked, startTrigger, speed, screenSize]);
 
   const getPhase = () => {
     if (progress < 0.3) return 0;
@@ -91,13 +108,100 @@ const CurtainReveal = ({
 
   const getContainerHeight = () => {
     const revealProgress = Math.max(0, Math.min(1, (progress - 0.8) / 0.2));
-    return startHeight + (innerHeight * revealProgress);
+    const baseHeight = startHeight + (innerHeight * revealProgress);
+    
+    // Get screen dimensions from state
+    const { width: screenWidth } = screenSize;
+    
+    // Calculate responsive height based on screen size
+    let responsiveHeight = baseHeight;
+    
+    if (screenWidth < 640) { // Mobile
+      // On mobile, calculate height based on actual content layout
+      const cardHeight = 400; // Card height from CSS
+      const cardWidth = Math.min(300, screenWidth - 32); // Responsive card width
+      const gap = 16; // Gap between cards
+      const padding = 32; // Container padding
+      
+      // Calculate how many cards fit per row
+      const cardsPerRow = Math.max(1, Math.floor((screenWidth - padding) / (cardWidth + gap)));
+      
+      // Calculate how many rows we need
+      const totalCards = React.Children.count(children);
+      const rowsNeeded = Math.ceil(totalCards / cardsPerRow);
+      
+      // Calculate total content height needed
+      const contentHeight = rowsNeeded * (cardHeight + gap) + padding;
+      
+      // Use the larger of base height or content height
+      responsiveHeight = Math.max(baseHeight, contentHeight);
+      
+    } else if (screenWidth < 1024) { // Tablet
+      // On tablet, moderate height adjustment
+      responsiveHeight = baseHeight + 100;
+    } else { // Desktop
+      // On desktop, use original calculation
+      responsiveHeight = baseHeight;
+    }
+    
+    // Ensure minimum height for the reveal animation
+    const minHeight = startHeight + 100;
+    return Math.max(responsiveHeight, minHeight);
   };
+
+  const getContentHeight = () => {
+    const { width: screenWidth } = screenSize;
+    
+    if (screenWidth < 640) { // Mobile
+      // On mobile, use min-height to let content determine actual height
+      return 'auto';
+    } else {
+      // On larger screens, use fixed height for animation
+      return `${startHeight + innerHeight}px`;
+    }
+  };
+
+  const getContentMinHeight = () => {
+    const { width: screenWidth } = screenSize;
+    
+    if (screenWidth < 640) { // Mobile
+      // On mobile, ensure minimum height for the reveal animation
+      return `${startHeight + innerHeight}px`;
+    } else {
+      // On larger screens, use the same height
+      return `${startHeight + innerHeight}px`;
+    }
+  };
+
+  const handleCardDrag = (cardIndex, deltaX, deltaY) => {
+    setCardPositions(prev => {
+      const current = prev[cardIndex] || { x: 0, y: 0 };
+      return {
+        ...prev,
+        [cardIndex]: {
+          x: current.x + deltaX,
+          y: current.y + deltaY
+        }
+      };
+    });
+  };
+
+  // Clone children and add drag props
+  const childrenWithDrag = React.Children.map(children, (child, index) => {
+    if (React.isValidElement(child) && child.type.name === 'Card') {
+      return React.cloneElement(child, {
+        onDrag: (deltaX, deltaY) => handleCardDrag(index, deltaX, deltaY),
+        dragOffset: cardPositions[index] || { x: 0, y: 0 },
+        key: index
+      });
+    }
+    return child;
+  });
 
   return (
     <div 
       ref={ref}
-      className="relative w-full overflow-hidden transition-all duration-700 ease-out"
+      className="relative w-full overflow-hidden transition-all duration-700 ease-out inline-block"
       style={{ 
         height: `${getContainerHeight()}px`,
         width: '100vw',
@@ -108,17 +212,19 @@ const CurtainReveal = ({
     >
       {/* Content */}
       <div 
-        className="absolute inset-0 bg-slate-200 flex items-center justify-center transition-all duration-100 ease-out border-t border-b border-white"
+        className="absolute inset-0 bg-slate-200 flex flex-wrap items-center justify-center gap-2 sm:gap-4 p-2 sm:p-4 transition-all duration-100 ease-out border-t border-b border-white overflow-hidden"
         style={{ 
           clipPath: getClipPath(),
           borderColor: phase >= 2 ? 'white' : 'transparent',
           borderLeft: 'none',
           borderRight: 'none',
           borderWidth: '2px',
-          height: `${startHeight + innerHeight}px`
+          height: getContentHeight(),
+          alignContent: 'center',
+          minHeight: getContentMinHeight()
         }}
       >
-        {children || (
+        {childrenWithDrag || (
           <div className="text-white text-center">
             <h2 className="text-4xl font-bold mb-4">Hidden Content</h2>
             <p className="text-xl">Revealed through the curtain</p>

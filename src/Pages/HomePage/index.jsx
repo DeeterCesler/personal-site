@@ -4,6 +4,8 @@ import ThreeJSModel from "../../components/ThreeJSModel";
 import SocialLinks from "../../components/SocialLinks";
 import InternalLinks from "../../components/InternalLinks";
 import { useTranslation } from "react-i18next";
+import CurtainReveal from "../../components/CurtainReveal";
+import Card from "../../components/Card/Card";
 
 const HomePage = () => {
     const { t } = useTranslation();
@@ -33,8 +35,37 @@ const HomePage = () => {
                         />
                     </div>
                 </section>
-                <section className="middle">
-                    {/* nothing here for now */}
+                <section className="middle" style={{ marginTop: '100px' }}>
+                    <CurtainReveal
+                        oneTime={true} 
+                        startHeight={250} 
+                        innerHeight={250} 
+                        startTrigger={0.5} 
+                        speed={2}
+                    >
+                        <Card 
+                            image="/pics/ana1.png" 
+                            alt="ANA Airlines"
+                            style={{ margin: '5%', display: 'inline-block'}} 
+                            title="ANA Airlines"
+                            caption="Solo implementation of a game for the ANA Airlines' conference booth. Two players on separate tablets go back-and-forth answering trivia questions about Japan while an audience watches."
+                        />
+                        <Card 
+                            image="/pics/norse.jpg" 
+                            alt="Learn Old Norse"
+                            style={{ margin: '5%', display: 'inline-block', }} 
+                            title="Norse Language App"
+                            caption="Created an iOS app for learning ancient Norse runes and their phonetics."
+                        />
+                        <Card
+                            image="/pics/chca.png" 
+                            alt="placeholder"
+                            style={{ margin: '5%', display: 'inline-block', }} 
+                            title="CHCA"
+                            caption="Copywriting contract CHCA website redesign."
+                            link="https://www.chca-oh.org"
+                        />
+                    </CurtainReveal>
                 </section>
                 <section className="bottom">
                     <div>

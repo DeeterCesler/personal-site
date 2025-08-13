@@ -1,0 +1,70 @@
+.project-container {
+    position: relative;
+    padding: 50px 20px;
+    /* full screen width, despite parent padding */
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    /* */
+    box-sizing: border-box;
+    --m: 
+        conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) calc(50% - 40px) bottom/80px 51% repeat-x,
+        conic-gradient(from 135deg at top,#0000,#000 1deg 89deg,#0000 90deg) top/80px 51% repeat-x;
+    -webkit-mask: var(--m);
+    mask: var(--m);
+}
+
+.offset {
+    top: -41px;
+}
+
+.white {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3), #ffffff);
+}
+
+.gray {
+    background: linear-gradient(to bottom, rgba(156, 156, 156), rgba(255,255,255,0.7));
+}
+
+.red {
+    background-color: red;
+}
+
+.app-screenshots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.app-screenshots img {
+    width: 100px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.project-card {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.project-card h3 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.project-card a {
+    display: inline-block;
+    background-color: #007aff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.project-card a:hover {
+    background-color: #0056b3;
+}

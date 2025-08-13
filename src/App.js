@@ -28,6 +28,7 @@ import useTracker from './hooks/useTracker'
 import generateConsoleName from './utils/ConsoleName'
 import { LanguageProvider } from './context/LanguageContext'
 import { ThemeProvider } from './context/ThemeContext'
+import { ColorProvider } from './context/ColorContext'
 
 ReactGA.initialize('G-Z1TZ5MEDCR')
 
@@ -42,6 +43,7 @@ function App() {
   return (
     <LanguageProvider>
       <ThemeProvider>
+        <ColorProvider>
         <div className="App">
           <Nav />
           <Routes>
@@ -72,6 +74,7 @@ function App() {
             <Route path="*" element={<NotFound/>} />
           </Routes>
         </div>
+        </ColorProvider>
       </ThemeProvider>
     </LanguageProvider>
   )

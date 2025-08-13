@@ -56,6 +56,7 @@ const HomePage = () => {
                             style={{ margin: '5%', display: 'inline-block', }} 
                             title="Norse Language App"
                             caption="Created an iOS app for learning ancient Norse runes and their phonetics."
+                            link="https://apps.apple.com/us/app/norse-flashcards/id6743998805?l=es-MX&platform=iphone"
                         />
                         <Card
                             image="/pics/chca.png" 

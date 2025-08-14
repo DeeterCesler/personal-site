@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PsychedelicBackground from "../../components/PsychedelicBackground";
 import ThreeJSModel from "../../components/ThreeJSModel";
 import SocialLinks from "../../components/SocialLinks";
@@ -9,12 +9,6 @@ import Card from "../../components/Card/Card";
 
 const HomePage = () => {
     const { t } = useTranslation();
-    const [activeCard, setActiveCard] = useState(null);
-
-    const handleCardClick = (id) => {
-        setActiveCard(id);
-    };
-
     const isMobile = window.innerWidth < 640;
 
     return (
@@ -42,11 +36,11 @@ const HomePage = () => {
                         />
                     </div>
                 </section>
-                <section className="middle" style={{ marginTop: isMobile ? '50px' : '100px' }}>
+                <section className="middle" style={{ marginTop: isMobile ? '50px' : '0px' }}>
                     <CurtainReveal
                         oneTime={true} 
-                        startHeight={250} 
-                        innerHeight={300} 
+                        startHeight={50} 
+                        innerHeight={400} 
                         startTrigger={0.5} 
                         speed={2}
                     >

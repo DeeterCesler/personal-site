@@ -10,33 +10,30 @@ const Carousel = ({ children, containerWidth }) => {
 
   // Calculate responsive settings
   useEffect(() => {
-    console.log('Container width:', containerWidth);
     if (!containerWidth) return;
 
     let newCardsPerView = 1;
     let newShowNavigation = false;
 
-    if (containerWidth < 640) {
+    if (containerWidth <= 640) {
       // Mobile: 1 card, always show navigation
       newCardsPerView = 1;
       newShowNavigation = true;
-    } else if (containerWidth < 1024) {
+    } else if (containerWidth <= 1024) {
       // Tablet: 3 cards
       newCardsPerView = 3;
-      newShowNavigation = React.Children.count(children) > 3;
+      newShowNavigation = true;
     } else {
       // Desktop: 5 cards
       newCardsPerView = 5;
       newShowNavigation = React.Children.count(children) > 5;
     }
 
-    console.log('Cards per view:', newCardsPerView, 'Show navigation:', newShowNavigation);
     setCardsPerView(newCardsPerView);
     setShowNavigation(newShowNavigation);
   }, [containerWidth, children]);
 
   const totalCards = React.Children.count(children);
-  const maxIndex = Math.max(0, totalCards - cardsPerView);
 
   const goToNext = () => {
     setCurrentIndex(prev => (prev + 1) % totalCards);
@@ -46,17 +43,55 @@ const Carousel = ({ children, containerWidth }) => {
     setCurrentIndex(prev => (prev - 1 + totalCards) % totalCards);
   };
 
-  const goToCard = (index) => {
-    setCurrentIndex(index % totalCards);
-  };
-
   // Calculate card positions and visibility
   const getCardStyle = (index) => {
     const cardWidth = 300;
     const gap = 20;
     const totalWidth = cardWidth + gap;
     
-    // Calculate relative position considering circular nature
+    // For tablet view (3 cards), we need to ensure we always show exactly 3 cards
+    if (cardsPerView === 3) {
+      // Calculate which 3 cards should be visible
+      // We want to show currentIndex, currentIndex+1, currentIndex+2
+      // But handle wrapping properly
+      
+      let adjustedIndex = index;
+      if (adjustedIndex < currentIndex) {
+        adjustedIndex += totalCards;
+      }
+      
+      // Calculate relative position from currentIndex
+      let relativeIndex = adjustedIndex - currentIndex;
+      
+      // Only show the 3 cards we want
+      if (relativeIndex >= 0 && relativeIndex < 3) {
+        let x;
+        if (relativeIndex === 0) {
+          x = -totalWidth; // Left card
+        } else if (relativeIndex === 1) {
+          x = 0; // Center card
+        } else if (relativeIndex === 2) {
+          x = totalWidth; // Right card
+        }
+        
+        return {
+          x,
+          opacity: 1,
+          scale: 1,
+          zIndex: 10
+        };
+      } else {
+        // Hide all other cards
+        return {
+          x: 0,
+          opacity: 0,
+          scale: 0.8,
+          zIndex: 1
+        };
+      }
+    }
+
+    // Original logic for mobile and desktop
     let relativeIndex = index - currentIndex;
     
     // Handle wrapping for circular effect
@@ -98,8 +133,10 @@ const Carousel = ({ children, containerWidth }) => {
         zIndex = 1;
       }
     } else {
-      // Tablet/Desktop: show multiple cards
+      // Desktop: show multiple cards
       if (relativeIndex >= 0 && relativeIndex < cardsPerView) {
+        // For 5 cards, use the original calculation
+        x = relativeIndex * totalWidth - (cardsPerView - 1) * totalWidth / 2;
         opacity = 1;
         scale = 1;
         zIndex = 10;
@@ -144,25 +181,24 @@ const Carousel = ({ children, containerWidth }) => {
   }
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-full">
       {/* Carousel Container */}
       <div 
         ref={carouselRef}
-        className="relative flex items-center justify-center"
+        className="relative flex items-center justify-center overflow-hidden"
         style={{ 
-          height: '525px',
-          width: '100%'
+          height: '450px',
+          width: '100%',
+          maxWidth: cardsPerView === 3 ? '960px' : '100%', // Limit width for 3 cards to prevent gaps
+          transform: cardsPerView === 3 ? 'translateX(40px)' : 'none' // Move tablet layout slightly right
         }}
       >
         <AnimatePresence mode="wait">
           {React.Children.map(children, (child, index) => {
-            console.log('Child:', child, 'Type:', child?.type?.name);
             if (React.isValidElement(child) && (child.type.name === 'Card' || child.type?.displayName === 'Card')) {
               const { image, alt, style, title, caption, link } = child.props;
               const cardStyle = getCardStyle(index);
-              
-              console.log('Card style:', cardStyle, 'for index:', index);
-              
+
               return (
                 <motion.div
                   key={index}

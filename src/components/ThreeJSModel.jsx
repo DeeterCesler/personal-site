@@ -13,17 +13,79 @@ const ThreeJSModel = ({
   const mountRef = useRef(null);
   const mousePosition = useRef({ x: 0, y: 0 });
   const particlesRef = useRef([]);
-  const isMobile = useRef(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
-  const [showHint, setShowHint] = useState(true);
+  const modelRef = useRef(null);
+  const sceneRef = useRef(null);
+  const [containerSize, setContainerSize] = useState('100%');
+  const [containerPosition, setContainerPosition] = useState({ bottom: 0, right: 0 });
   
   useEffect(() => {
+    // Function to determine responsive scale based on screen size
+    const getResponsiveScale = () => {
+      const width = window.innerWidth;
+      if (width < 640) { // Mobile
+        const newScale = scale * 0.8;
+        return newScale;
+      } else if (width <= 1024) { // Tablet
+        const newScale = scale * 0.2;
+        return newScale;
+      } else { // Desktop
+        return scale;
+      }
+    };
+
+    // Function to update container size and position
+    const updateContainerSize = () => {
+      const width = window.innerWidth;
+      if (width < 1024) { // Tablet and mobile
+        setContainerSize('100%');
+        setContainerPosition({ bottom: 0, right: 0 });
+      } else { // Desktop
+        setContainerSize('100%');
+        setContainerPosition({ bottom: 0, right: 0 });
+      }
+    };
+
+    // Function to update camera settings
+    const updateCameraSettings = () => {
+      const newSettings = getResponsiveCameraSettings();
+      camera.fov = newSettings.fov;
+      camera.position.z = newSettings.zPosition;
+      camera.updateProjectionMatrix();
+    };
+
+    // Function to update model scale
+    const updateModelScale = () => {
+      if (modelRef.current) {
+        const newScale = getResponsiveScale();
+        modelRef.current.scale.set(newScale, newScale, newScale);
+      }
+    };
+
+    // Set initial container size
+    updateContainerSize();
+
     // Current reference to the mounting point div
     const currentRef = mountRef.current;
     
     // Scene setup
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, currentRef.clientWidth / currentRef.clientHeight, 0.1, 1000);
-    camera.position.z = 5;
+    sceneRef.current = scene;
+    
+    // Responsive camera setup
+    const getResponsiveCameraSettings = () => {
+      const width = window.innerWidth;
+      if (width <= 640) { // Mobile
+        return { fov: 75, zPosition: 5 };
+      } else if (width <= 1024) { // Tablet - zoom out much more
+        return { fov: 105, zPosition: 9 };
+      } else { // Desktop
+        return { fov: 75, zPosition: 5 };
+      }
+    };
+    
+    const cameraSettings = getResponsiveCameraSettings();
+    const camera = new THREE.PerspectiveCamera(cameraSettings.fov, currentRef.clientWidth / currentRef.clientHeight, 0.1, 1000);
+    camera.position.z = cameraSettings.zPosition;
     
     // Renderer setup
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -53,21 +115,22 @@ const ThreeJSModel = ({
       new THREE.PointsMaterial({ color: 0xaaffcc, size: 0.05, transparent: true }),
       new THREE.PointsMaterial({ color: 0xccaaff, size: 0.05, transparent: true })
     ];
-    
+
     // Load 3D model
-    let model;
     const loader = new GLTFLoader();
 
     loader.load(
       modelUrl,
       (gltf) => {
-        model = gltf.scene;
+        const model = gltf.scene;
+        modelRef.current = model;
         
         // Apply position
         model.position.set(position[0], position[1], position[2]);
         
-        // Apply scale
-        model.scale.set(scale, scale, scale);
+        // Apply initial responsive scale
+        const initialScale = getResponsiveScale();
+        model.scale.set(initialScale, initialScale, initialScale);
         
         // Store initial rotation in radians
         const initialYRad = initialRotation.y * Math.PI / 180;
@@ -145,9 +208,6 @@ const ThreeJSModel = ({
       scene.add(particleSystem);
       particlesRef.current.push(particleSystem);
       
-      // Hide the hint after first interaction
-      setShowHint(false);
-
       return () => {
   
         scene.remove(particleSystem);
@@ -218,15 +278,15 @@ const ThreeJSModel = ({
         system.geometry.attributes.position.needsUpdate = true;
       });
       
-      if (model) {
+      if (modelRef.current) {
         // Calculate target rotation based on mouse position
-        const targetRotationY = Math.atan2(mousePosition.current.x, 1) + model.userData.initialRotation.y;
+        const targetRotationY = Math.atan2(mousePosition.current.x, 1) + modelRef.current.userData.initialRotation.y;
         // Adjust X rotation calculation for better up/down movement
-        const targetRotationX = (Math.PI / 3) * mousePosition.current.y + model.userData.initialRotation.x;
+        const targetRotationX = (Math.PI / 3) * mousePosition.current.y + modelRef.current.userData.initialRotation.x;
         
         // Smoothly interpolate current rotation to target rotation
-        model.rotation.y += (targetRotationY - model.rotation.y) * 0.1;
-        model.rotation.x += (targetRotationX - model.rotation.x) * 0.15; // Slightly faster interpolation for vertical movement
+        modelRef.current.rotation.y += (targetRotationY - modelRef.current.rotation.y) * 0.1;
+        modelRef.current.rotation.x += (targetRotationX - modelRef.current.rotation.x) * 0.15; // Slightly faster interpolation for vertical movement
       }
       
       controls.update();
@@ -238,16 +298,24 @@ const ThreeJSModel = ({
     // Handle window resize
     const handleResize = () => {
       camera.aspect = currentRef.clientWidth / currentRef.clientHeight;
-      camera.updateProjectionMatrix();
+      updateCameraSettings(); // Update camera settings on resize
       renderer.setSize(currentRef.clientWidth, currentRef.clientHeight);
+      updateModelScale(); // Update model scale on resize
+      updateContainerSize(); // Update container size on resize
     };
     
     window.addEventListener('resize', handleResize);
+    
+    // Also add a separate listener for responsive scaling
+    window.addEventListener('resize', updateModelScale);
+    window.addEventListener('resize', updateContainerSize);
     
     // Clean up
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', updateModelScale);
+      window.removeEventListener('resize', updateContainerSize);
       currentRef.removeEventListener('click', handleInteraction);
       currentRef.removeEventListener('touchstart', handleInteraction);
       currentRef.removeChild(renderer.domElement);
@@ -258,8 +326,8 @@ const ThreeJSModel = ({
         scene.remove(system);
       });
       
-      if (model) {
-        scene.remove(model);
+      if (modelRef.current) {
+        scene.remove(modelRef.current);
       }
       
       renderer.dispose();
@@ -272,10 +340,10 @@ const ThreeJSModel = ({
         ref={mountRef} 
         style={{ 
           position: 'absolute', 
-          bottom: 0,
-          right: 0,
-          width: '100%', 
-          height: '100%', 
+          bottom: containerPosition.bottom,
+          right: containerPosition.right,
+          width: containerSize, 
+          height: containerSize, 
           pointerEvents: 'auto'
         }}
       />

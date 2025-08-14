@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Carousel from './Carousel';
 
 const CurtainReveal = ({ 
-  startHeight = 200,
+  startHeight = 50, // Default back to 200
   innerHeight = 200,
   oneTime = false,
   startTrigger = 0,     // 0-1: when to start (0=top enters, 1=bottom enters)
@@ -78,17 +78,6 @@ const CurtainReveal = ({
   };
   }, [oneTime, isLocked, startTrigger, speed, screenSize]);
 
-
-
-  const getPhase = () => {
-    if (progress < 0.3) return 0;
-    if (progress < 0.6) return 1;
-    if (progress < 0.8) return 2;
-    return 3;
-  };
-
-  const phase = getPhase();
-
   const getClipPath = () => {
     if (progress < 0.3) return 'inset(50% 100% 50% 0%)';
     if (progress < 0.6) {
@@ -121,36 +110,15 @@ const CurtainReveal = ({
     let responsiveHeight = baseHeight;
     
     if (screenWidth < 640) { // Mobile
-      // On mobile, calculate height based on actual content layout
-      const cardHeight = 400; // Card height from CSS
-      const cardWidth = Math.min(300, screenWidth - 32); // Responsive card width
-      const gap = 16; // Gap between cards
-      const padding = 32; // Container padding
-      
-      // Calculate how many cards fit per row
-      const cardsPerRow = Math.max(1, Math.floor((screenWidth - padding) / (cardWidth + gap)));
-      
-      // Calculate how many rows we need
-      const totalCards = React.Children.count(children);
-      const rowsNeeded = Math.ceil(totalCards / cardsPerRow);
-      
-      // Calculate total content height needed
-      const contentHeight = rowsNeeded * (cardHeight + gap) + padding;
-      
-      // Use the larger of base height or content height
-      // responsiveHeight = Math.max(baseHeight, contentHeight);
       responsiveHeight = 525;
-      
     } else if (screenWidth < 1024) { // Tablet
-      // On tablet, moderate height adjustment
-      responsiveHeight = baseHeight + 100;
+      responsiveHeight = 450;
     } else { // Desktop
-      // On desktop, use original calculation
-      responsiveHeight = baseHeight;
+      responsiveHeight = 450;
     }
     
     // Ensure minimum height for the reveal animation
-    const minHeight = startHeight + 100;
+    const minHeight = startHeight + 50;
     return Math.max(responsiveHeight, minHeight);
   };
 
@@ -161,8 +129,10 @@ const CurtainReveal = ({
       // On mobile, use min-height to let content determine actual height
       return 'auto';
     } else {
-      // On larger screens, use fixed height for animation
-      return `${startHeight + innerHeight}px`;
+      // On larger screens, use dynamic height based on progress
+      const revealProgress = Math.max(0, Math.min(1, (progress - 0.8) / 0.2));
+      const dynamicHeight = startHeight + (innerHeight * revealProgress);
+      return `${Math.max(startHeight + 50, dynamicHeight)}px`;
     }
   };
 
@@ -171,10 +141,12 @@ const CurtainReveal = ({
     
     if (screenWidth < 640) { // Mobile
       // On mobile, ensure minimum height for the reveal animation
-      return `${startHeight + innerHeight}px`;
+      return `${startHeight + 50}px`;
     } else {
-      // On larger screens, use the same height
-      return `${startHeight + innerHeight}px`;
+      // On larger screens, use dynamic height
+      const revealProgress = Math.max(0, Math.min(1, (progress - 0.8) / 0.2));
+      const dynamicHeight = startHeight + (innerHeight * revealProgress);
+      return `${Math.max(startHeight + 50, dynamicHeight)}px`;
     }
   };
 
@@ -190,16 +162,19 @@ const CurtainReveal = ({
         height: `${getContainerHeight()}px`,
         width: '100vw',
         marginLeft: 'calc(50% - 50vw)',
-        paddingTop:  isMobile ? '0' : '100px',
-        paddingBottom: isMobile ? '0' : '100px',
+        paddingTop: '0px',
+        paddingBottom: '0px',
+        // paddingTop:  isMobile ? '0' : '20px',
+        // paddingBottom: isMobile ? '0' : '20px',
       }}
     >
       {/* Content */}
       <div 
-        className="absolute inset-0 bg-slate-200 transition-all duration-100 ease-out border-t border-b border-white overflow-hidden"
+        className="absolute inset-0 bg-slate-200 transition-all duration-100 ease-out border-t border-b overflow-hidden"
         style={{ 
           clipPath: getClipPath(),
-          borderColor: phase >= 2 ? 'white' : 'transparent',
+          // borderColor: phase >= 2 ? 'white' : 'transparent',
+          borderColor: 'white',
           borderLeft: 'none',
           borderRight: 'none',
           borderWidth: '5px',

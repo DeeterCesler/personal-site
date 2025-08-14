@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PsychedelicBackground from "../../components/PsychedelicBackground";
 import ThreeJSModel from "../../components/ThreeJSModel";
 import SocialLinks from "../../components/SocialLinks";
@@ -9,6 +9,13 @@ import Card from "../../components/Card/Card";
 
 const HomePage = () => {
     const { t } = useTranslation();
+    const [activeCard, setActiveCard] = useState(null);
+
+    const handleCardClick = (id) => {
+        setActiveCard(id);
+    };
+
+    const isMobile = window.innerWidth < 640;
 
     return (
         <div className="home">
@@ -35,21 +42,23 @@ const HomePage = () => {
                         />
                     </div>
                 </section>
-                <section className="middle" style={{ marginTop: '100px' }}>
+                <section className="middle" style={{ marginTop: isMobile ? '50px' : '100px' }}>
                     <CurtainReveal
                         oneTime={true} 
                         startHeight={250} 
-                        innerHeight={250} 
+                        innerHeight={300} 
                         startTrigger={0.5} 
                         speed={2}
                     >
                         <Card 
+                            id="1"
                             image="/pics/ana1.png" 
                             alt="ANA Airlines"
                             title="ANA Airlines"
                             caption="Solo implementation of a game for the ANA Airlines' conference booth. Two players on separate tablets go back-and-forth answering trivia questions about Japan while an audience watches."
                         />
                         <Card 
+                            id="2"
                             image="/pics/norse.jpg" 
                             alt="Learn Old Norse"
                             title="Norse Language App"
@@ -57,6 +66,7 @@ const HomePage = () => {
                             link="https://apps.apple.com/us/app/norse-flashcards/id6743998805?l=es-MX&platform=iphone"
                         />
                         <Card
+                            id="3"
                             image="/pics/chca.png" 
                             alt="CHCA"
                             title="CHCA"
@@ -64,6 +74,7 @@ const HomePage = () => {
                             link="https://www.chca-oh.org"
                         />
                         <Card
+                            id="4"
                             image="/pics/swater.png" 
                             alt="Smartwater game"
                             title="Smartwater"

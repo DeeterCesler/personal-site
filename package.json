@@ -10,6 +10,7 @@
     "ajv-keywords": "^3.5.2",
     "bootstrap": "^5.3.1",
     "circle-scroll": "^0.0.6",
+    "framer-motion": "^12.23.12",
     "i18next": "^24.2.3",
     "i18next-browser-languagedetector": "^8.0.4",
     "jquery": "^3.6.0",

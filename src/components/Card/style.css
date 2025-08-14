@@ -105,3 +105,18 @@
     /* make the shadow darker */
   
 };
+
+.card.dragging {
+    transition: none !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card {
+    transition: transform 0.2s ease-out;
+}
+
+.card:hover:not(.dragging) {
+    transform: scale(1.05);
+}
+
+

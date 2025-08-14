@@ -279,24 +279,6 @@ const ThreeJSModel = ({
           pointerEvents: 'auto'
         }}
       />
-      {showHint && isMobile.current && (
-        <div style={{
-          position: 'absolute',
-          bottom: '-30px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          backgroundColor: 'rgba(0,0,0,0.7)',
-          color: 'white',
-          padding: '10px 20px',
-          borderRadius: '20px',
-          fontFamily: 'sans-serif',
-          fontSize: '14px',
-          animation: 'pulse 2s infinite',
-          zIndex: 10
-        }}>
-          {isMobile.current ? 'Tap to interact' : 'Click to interact'}
-        </div>
-      )}
       <style jsx>{`
         @keyframes pulse {
           0% { opacity: 0.6; }

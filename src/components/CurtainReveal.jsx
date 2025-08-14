@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Carousel from './Carousel';
 
 const CurtainReveal = ({ 
   startHeight = 200,
@@ -14,9 +15,10 @@ const CurtainReveal = ({
     width: window.innerWidth,
     height: window.innerHeight
   });
-  const [cardPositions, setCardPositions] = useState({});
   const ref = useRef();
-  
+
+   
+
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
@@ -58,23 +60,25 @@ const CurtainReveal = ({
       }
     };
     
-    const handleResize = () => {
-      setScreenSize({
-        width: window.innerWidth,
-        height: window.innerHeight
-      });
-      handleScroll(); // Recalculate on resize
-    };
-    
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleResize, { passive: true });
-    handleScroll(); // Check initial position
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleResize);
-    };
+      const handleResize = () => {
+    setScreenSize({
+      width: window.innerWidth,
+      height: window.innerHeight
+    });
+    handleScroll(); // Recalculate on resize
+  };
+  
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  window.addEventListener('resize', handleResize, { passive: true });
+  handleScroll(); // Check initial position
+  
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+    window.removeEventListener('resize', handleResize);
+  };
   }, [oneTime, isLocked, startTrigger, speed, screenSize]);
+
+
 
   const getPhase = () => {
     if (progress < 0.3) return 0;
@@ -134,7 +138,8 @@ const CurtainReveal = ({
       const contentHeight = rowsNeeded * (cardHeight + gap) + padding;
       
       // Use the larger of base height or content height
-      responsiveHeight = Math.max(baseHeight, contentHeight);
+      // responsiveHeight = Math.max(baseHeight, contentHeight);
+      responsiveHeight = 525;
       
     } else if (screenWidth < 1024) { // Tablet
       // On tablet, moderate height adjustment
@@ -173,75 +178,59 @@ const CurtainReveal = ({
     }
   };
 
-  const handleCardDrag = (cardIndex, deltaX, deltaY) => {
-    setCardPositions(prev => {
-      const current = prev[cardIndex] || { x: 0, y: 0 };
-      return {
-        ...prev,
-        [cardIndex]: {
-          x: current.x + deltaX,
-          y: current.y + deltaY
-        }
-      };
-    });
-  };
 
-  // Clone children and add drag props
-  const childrenWithDrag = React.Children.map(children, (child, index) => {
-    if (React.isValidElement(child) && child.type.name === 'Card') {
-      return React.cloneElement(child, {
-        onDrag: (deltaX, deltaY) => handleCardDrag(index, deltaX, deltaY),
-        dragOffset: cardPositions[index] || { x: 0, y: 0 },
-        key: index
-      });
-    }
-    return child;
-  });
+  const isMobile = screenSize.width < 640;
 
   return (
     <div 
+      id="curtain-reveal"
       ref={ref}
       className="relative w-full overflow-hidden transition-all duration-700 ease-out inline-block"
       style={{ 
         height: `${getContainerHeight()}px`,
         width: '100vw',
         marginLeft: 'calc(50% - 50vw)',
-        paddingTop: '100px',
-        paddingBottom: '100px'
+        paddingTop:  isMobile ? '0' : '100px',
+        paddingBottom: isMobile ? '0' : '100px',
       }}
     >
       {/* Content */}
       <div 
-        className="absolute inset-0 bg-slate-200 flex flex-wrap items-center justify-center gap-2 sm:gap-4 p-2 sm:p-4 transition-all duration-100 ease-out border-t border-b border-white overflow-hidden"
+        className="absolute inset-0 bg-slate-200 transition-all duration-100 ease-out border-t border-b border-white overflow-hidden"
         style={{ 
           clipPath: getClipPath(),
           borderColor: phase >= 2 ? 'white' : 'transparent',
           borderLeft: 'none',
           borderRight: 'none',
-          borderWidth: '2px',
+          borderWidth: '5px',
           height: getContentHeight(),
-          alignContent: 'center',
-          minHeight: getContentMinHeight()
+          minHeight: getContentMinHeight(),
+          position: 'relative'
         }}
       >
-        {childrenWithDrag || (
+        {children ? (
+          <Carousel containerWidth={screenSize.width}>
+            {children}
+          </Carousel>
+        ) : (
           <div className="text-white text-center">
             <h2 className="text-4xl font-bold mb-4">Hidden Content</h2>
             <p className="text-xl">Revealed through the curtain</p>
           </div>
         )}
       </div>
-      
-      {/* Lines */}
+
       <div className="absolute inset-0 pointer-events-none">
-        {/* Horizontal line */}
         <div 
+          id="horizontal-line"
           className="absolute top-1/2 h-px bg-white transition-opacity duration-100 ease-out"
           style={{
             width: progress < 0.6 ? `${Math.max(0, (progress - 0.3) / 0.3) * 100}%` : '100%',
+            height: '5px',
             right: 0,
             transform: 'translateY(-50%)',
-            opacity: getLineOpacity()
+            opacity: getLineOpacity(),
+            marginTop: 10,
           }}
         />
       </div>

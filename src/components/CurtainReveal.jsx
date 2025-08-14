@@ -223,14 +223,15 @@ const CurtainReveal = ({
       <div className="absolute inset-0 pointer-events-none">
         <div 
           id="horizontal-line"
-          className="absolute top-1/2 h-px bg-white transition-opacity duration-100 ease-out"
+          className="absolute h-px bg-white transition-opacity duration-100 ease-out"
           style={{
             width: progress < 0.6 ? `${Math.max(0, (progress - 0.3) / 0.3) * 100}%` : '100%',
             height: '5px',
             right: 0,
+            top: `${startHeight + (isMobile ? 0 : 100)}px`,
             transform: 'translateY(-50%)',
             opacity: getLineOpacity(),
-            marginTop: 10,
+            marginTop: isMobile ? '20px' : 0,
           }}
         />
       </div>

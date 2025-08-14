@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import Carousel from './Carousel';
 
 const CurtainReveal = ({ 
-  startHeight = 50, // Default back to 200
-  innerHeight = 200,
+  startHeight,
+  innerHeight,
   oneTime = false,
   startTrigger = 0,     // 0-1: when to start (0=top enters, 1=bottom enters)
   speed = 1,            // multiplier for animation completion distance
@@ -101,25 +101,26 @@ const CurtainReveal = ({
 
   const getContainerHeight = () => {
     const revealProgress = Math.max(0, Math.min(1, (progress - 0.8) / 0.2));
-    const baseHeight = startHeight + (innerHeight * revealProgress);
     
     // Get screen dimensions from state
     const { width: screenWidth } = screenSize;
     
-    // Calculate responsive height based on screen size
-    let responsiveHeight = baseHeight;
-    
+    // Calculate target responsive height based on screen size
+    let targetHeight;
     if (screenWidth < 640) { // Mobile
-      responsiveHeight = 525;
+      targetHeight = 525;
     } else if (screenWidth < 1024) { // Tablet
-      responsiveHeight = 450;
+      targetHeight = 450;
     } else { // Desktop
-      responsiveHeight = 450;
+      targetHeight = 450;
     }
+    
+    // Start at startHeight and progressively expand to targetHeight
+    const expandedHeight = startHeight + (targetHeight - startHeight) * revealProgress;
     
     // Ensure minimum height for the reveal animation
     const minHeight = startHeight + 50;
-    return Math.max(responsiveHeight, minHeight);
+    return Math.max(expandedHeight, minHeight);
   };
 
   const getContentHeight = () => {
@@ -128,6 +129,8 @@ const CurtainReveal = ({
     if (screenWidth < 640) { // Mobile
       // On mobile, use min-height to let content determine actual height
       return 'auto';
+    } else if (screenWidth < 1024) { // Tablet
+      // return 'auto';
     } else {
       // On larger screens, use dynamic height based on progress
       const revealProgress = Math.max(0, Math.min(1, (progress - 0.8) / 0.2));
@@ -139,9 +142,11 @@ const CurtainReveal = ({
   const getContentMinHeight = () => {
     const { width: screenWidth } = screenSize;
     
-    if (screenWidth < 640) { // Mobile
+    if (screenWidth <= 640) { // Mobile
       // On mobile, ensure minimum height for the reveal animation
       return `${startHeight + 50}px`;
+    } else if (screenWidth <= 1024) { // Tablet
+      // return 'auto';
     } else {
       // On larger screens, use dynamic height
       const revealProgress = Math.max(0, Math.min(1, (progress - 0.8) / 0.2));
@@ -203,7 +208,7 @@ const CurtainReveal = ({
             width: progress < 0.6 ? `${Math.max(0, (progress - 0.3) / 0.3) * 100}%` : '100%',
             height: '5px',
             right: 0,
-            top: `${startHeight + (isMobile ? 0 : 100)}px`,
+            top: `${startHeight + (isMobile ? 0 : 0)}px`,
             transform: 'translateY(-50%)',
             opacity: getLineOpacity(),
             marginTop: isMobile ? '20px' : 0,

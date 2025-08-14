@@ -9,7 +9,8 @@ import Card from "../../components/Card/Card";
 
 const HomePage = () => {
     const { t } = useTranslation();
-    const isMobile = window.innerWidth < 640;
+    const isMobile = window.innerWidth <= 640;
+    const isTablet = window.innerWidth <= 1024 && window.innerWidth > 640;
 
     return (
         <div className="home">
@@ -39,10 +40,11 @@ const HomePage = () => {
                 <section className="middle" style={{ marginTop: isMobile ? '50px' : '0px' }}>
                     <CurtainReveal
                         oneTime={true} 
-                        startHeight={50} 
+                        startHeight={200} 
                         innerHeight={400} 
-                        startTrigger={0.5} 
+                        startTrigger={0.25} 
                         speed={2}
+                        style={{ marginBottom: isTablet ? '500px' : '0px' }}
                     >
                         <Card 
                             id="1"

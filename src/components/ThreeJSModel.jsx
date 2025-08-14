@@ -77,7 +77,7 @@ const ThreeJSModel = ({
       if (width <= 640) { // Mobile
         return { fov: 75, zPosition: 5 };
       } else if (width <= 1024) { // Tablet - zoom out much more
-        return { fov: 105, zPosition: 9 };
+        return { fov: 25, zPosition: 5 };
       } else { // Desktop
         return { fov: 75, zPosition: 5 };
       }

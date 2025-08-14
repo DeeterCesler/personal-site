@@ -21,13 +21,15 @@ const HomePage = () => {
                 modelScale={1.5}
             >
             <div className="container">
-                <section className="top">
+                <section className="top" style={{ minHeight: isMobile || isTablet ? '20vh' : '60vh', marginBottom: isMobile ? '100px' : isTablet ? '250px' : '0px' }}>
                     <div className="top-left">
                         <h1 className="big-name">{t('homepage.title')}</h1>
                         <div className="titles">
                             <h3 className="flip-1">{t('homepage.subtitle')}</h3>
                         </div>
                     </div>
+                    {/* hide the flower on mobile and tablet */}
+                    {(!isMobile && !isTablet) && (
                     <div className="top-right">
                         <ThreeJSModel 
                             modelUrl="/models/Flower.glb" 
@@ -36,13 +38,14 @@ const HomePage = () => {
                             initialRotation={{ x: 0, y: -95, z: 0 }}
                         />
                     </div>
+                    )}
                 </section>
                 <section className="middle" style={{ marginTop: isMobile ? '50px' : '0px' }}>
                     <CurtainReveal
                         oneTime={true} 
                         startHeight={200} 
                         innerHeight={400} 
-                        startTrigger={0.25} 
+                        startTrigger={isMobile ? 0.5 : isTablet ? 0.4 : 0.25} 
                         speed={2}
                         style={{ marginBottom: isTablet ? '500px' : '0px' }}
                     >

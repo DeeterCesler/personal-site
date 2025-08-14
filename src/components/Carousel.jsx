@@ -39,23 +39,32 @@ const Carousel = ({ children, containerWidth }) => {
   const maxIndex = Math.max(0, totalCards - cardsPerView);
 
   const goToNext = () => {
-    setCurrentIndex(prev => (prev >= maxIndex ? 0 : prev + 1));
+    setCurrentIndex(prev => (prev + 1) % totalCards);
   };
 
   const goToPrevious = () => {
-    setCurrentIndex(prev => (prev <= 0 ? maxIndex : prev - 1));
+    setCurrentIndex(prev => (prev - 1 + totalCards) % totalCards);
   };
 
   const goToCard = (index) => {
-    setCurrentIndex(Math.max(0, Math.min(index, maxIndex)));
+    setCurrentIndex(index % totalCards);
   };
 
   // Calculate card positions and visibility
   const getCardStyle = (index) => {
-    const relativeIndex = index - currentIndex;
     const cardWidth = 300;
     const gap = 20;
     const totalWidth = cardWidth + gap;
+    
+    // Calculate relative position considering circular nature
+    let relativeIndex = index - currentIndex;
+    
+    // Handle wrapping for circular effect
+    if (relativeIndex > totalCards / 2) {
+      relativeIndex -= totalCards;
+    } else if (relativeIndex < -totalCards / 2) {
+      relativeIndex += totalCards;
+    }
     
     let x = relativeIndex * totalWidth;
     let opacity = 1;

@@ -52,9 +52,9 @@ const HomePage = () => {
                         <Card 
                             id="1"
                             image="/pics/ana1.png" 
-                            alt="ANA Airlines"
-                            title="ANA Airlines"
-                            caption="Solo implementation of a game for the ANA Airlines' conference booth. Two players on separate tablets go back-and-forth answering trivia questions about Japan while an audience watches."
+                            alt="ANA "
+                            title="All Nippon Airways"
+                            caption="All Nippon Airways (ANA) is Japan's largest airline. I am conducting an ongoing, solo implementation of a game for the ANA conference booth. Two players on separate tablets go back-and-forth answering trivia questions about Japan while an audience watches."
                         />
                         <Card 
                             id="2"

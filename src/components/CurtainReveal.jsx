@@ -165,8 +165,8 @@ const CurtainReveal = ({
       className="relative w-full overflow-hidden transition-all duration-700 ease-out inline-block"
       style={{ 
         height: `${getContainerHeight()}px`,
-        width: isMobile ? '100%' : '100vw',
-        marginLeft: isMobile ? '0' : 'calc(50% - 50vw)',
+        width: '100vw',
+        marginLeft: 'calc(50% - 50vw)',
         paddingTop: '0px',
         paddingBottom: '0px',
         // paddingTop:  isMobile ? '0' : '20px',

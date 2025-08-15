@@ -19,6 +19,7 @@ const Carousel = ({ children, containerWidth }) => {
       // Mobile: 1 card, always show navigation
       newCardsPerView = 1;
       newShowNavigation = true;
+      console.log('Mobile detected:', containerWidth, 'cardsPerView:', newCardsPerView);
     } else if (containerWidth <= 1024) {
       // Tablet: 3 cards
       newCardsPerView = 3;
@@ -45,7 +46,7 @@ const Carousel = ({ children, containerWidth }) => {
 
   // Calculate card positions and visibility
   const getCardStyle = (index) => {
-    const cardWidth = 300;
+    const cardWidth = containerWidth <= 640 ? Math.min(300, containerWidth - 40) : 300;
     const gap = 20;
     const totalWidth = cardWidth + gap;
     
@@ -114,18 +115,23 @@ const Carousel = ({ children, containerWidth }) => {
         opacity = 1;
         scale = 1;
         zIndex = 10;
+        console.log('Center card:', { index, x, opacity, scale, containerWidth, cardWidth });
       } else if (relativeIndex === -1) {
-        // Previous card - show on left
-        x = -320; // 300px card + 20px gap
+        // Previous card - show on left, but ensure it's visible on narrow screens
+        const maxLeftOffset = Math.min(320, Math.max(50, (containerWidth - cardWidth) / 2));
+        x = -maxLeftOffset;
         opacity = 0.3;
         scale = 0.9;
         zIndex = 5;
+        console.log('Left card:', { index, x, opacity, scale, containerWidth, cardWidth, maxLeftOffset });
       } else if (relativeIndex === 1) {
-        // Next card - show on right
-        x = 320; // 300px card + 20px gap
+        // Next card - show on right, but ensure it's visible on narrow screens
+        const maxRightOffset = Math.min(320, Math.max(50, (containerWidth - cardWidth) / 2));
+        x = maxRightOffset;
         opacity = 0.3;
         scale = 0.9;
         zIndex = 5;
+        console.log('Right card:', { index, x, opacity, scale, containerWidth, cardWidth, maxRightOffset });
       } else {
         // Hidden cards
         opacity = 0;
@@ -190,7 +196,8 @@ const Carousel = ({ children, containerWidth }) => {
           height: '450px',
           width: '100%',
           maxWidth: cardsPerView === 3 ? '960px' : '100%', // Limit width for 3 cards to prevent gaps
-          transform: cardsPerView === 3 ? 'translateX(40px)' : 'none' // Move tablet layout slightly right
+          transform: cardsPerView === 3 ? 'translateX(40px)' : 'none', // Move tablet layout slightly right
+          minWidth: cardsPerView === 1 ? '100%' : 'auto' // Ensure full width on mobile
         }}
       >
         <AnimatePresence mode="wait">
@@ -215,7 +222,7 @@ const Carousel = ({ children, containerWidth }) => {
                   }}
                   style={{
                     zIndex: cardStyle.zIndex,
-                    width: '300px',
+                    width: containerWidth <= 640 ? Math.min(300, containerWidth - 40) : '300px',
                     height: '400px'
                   }}
                 >
@@ -224,10 +231,10 @@ const Carousel = ({ children, containerWidth }) => {
                     alt={alt}
                     style={{
                       ...style,
-                      width: '300px',
+                      width: containerWidth <= 640 ? Math.min(300, containerWidth - 40) : '300px',
                       height: '400px',
-                      minWidth: '300px',
-                      maxWidth: '300px'
+                      minWidth: containerWidth <= 640 ? Math.min(300, containerWidth - 40) : '300px',
+                      maxWidth: containerWidth <= 640 ? Math.min(300, containerWidth - 40) : '300px'
                     }}
                     title={title}
                     caption={caption}

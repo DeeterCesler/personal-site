@@ -57,7 +57,9 @@ const Card = ({ image, alt, style, title, caption, link }) => {
                 ...style, 
                 transform: getTransform(),
                 width: style?.width || '300px',
-                height: style?.height || '400px'
+                height: style?.height || '400px',
+                minWidth: style?.minWidth || '250px',
+                maxWidth: style?.maxWidth || '300px'
             }}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}

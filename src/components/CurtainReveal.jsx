@@ -107,7 +107,7 @@ const CurtainReveal = ({
     
     // Calculate target responsive height based on screen size
     let targetHeight;
-    if (screenWidth < 640) { // Mobile
+    if (screenWidth < 700) { // Mobile
       targetHeight = 525;
     } else if (screenWidth < 1024) { // Tablet
       targetHeight = 450;
@@ -126,7 +126,7 @@ const CurtainReveal = ({
   const getContentHeight = () => {
     const { width: screenWidth } = screenSize;
     
-    if (screenWidth < 640) { // Mobile
+    if (screenWidth < 700) { // Mobile
       // On mobile, use min-height to let content determine actual height
       return 'auto';
     } else if (screenWidth < 1024) { // Tablet
@@ -156,7 +156,7 @@ const CurtainReveal = ({
   };
 
 
-  const isMobile = screenSize.width < 640;
+  const isMobile = screenSize.width < 700;
 
   return (
     <div 

@@ -1,12 +1,26 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Carousel from './Carousel';
 
+/**
+ * CurtainReveal Component
+ * 
+ * A component that reveals content through an animated curtain effect based on scroll position.
+ * 
+ * @param {number} startHeight - Initial height of the container
+ * @param {number} innerHeight - Target height when fully revealed
+ * @param {boolean} oneTime - Whether the reveal should lock after completion
+ * @param {number} startTrigger - When to start the reveal (0=top enters, 1=bottom enters)
+ * @param {number} speed - Multiplier for animation completion distance
+ * @param {boolean} autoOpenOnShortPage - Auto-open when page is too short to scroll (80%+ visible)
+ * @param {React.ReactNode} children - Content to be revealed
+ */
 const CurtainReveal = ({ 
   startHeight,
   innerHeight,
   oneTime = false,
   startTrigger = 0,     // 0-1: when to start (0=top enters, 1=bottom enters)
   speed = 1,            // multiplier for animation completion distance
+  autoOpenOnShortPage = false, // Auto-open when page is too short to scroll
   children 
 }) => {
   const [progress, setProgress] = useState(0);
@@ -15,15 +29,32 @@ const CurtainReveal = ({
     width: window.innerWidth,
     height: window.innerHeight
   });
+  const [isAutoOpened, setIsAutoOpened] = useState(false);
   const ref = useRef();
-
-   
 
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
     
+    const checkIfPageTooShort = () => {
+      if (!autoOpenOnShortPage) return false;
+      
+      const documentHeight = document.documentElement.scrollHeight;
+      const viewportHeight = window.innerHeight;
+      const scrollableHeight = documentHeight - viewportHeight;
+      
+      // If 80% or more of the page is already visible, consider it too short
+      // This helps on devices like iPad where the page height might be close to viewport height
+      return scrollableHeight <= (viewportHeight * 0.2);
+    };
+    
     const handleScroll = () => {
+      // If auto-opened and page is short, keep curtain open
+      if (isAutoOpened && checkIfPageTooShort()) {
+        setProgress(1);
+        return;
+      }
+      
       const rect = element.getBoundingClientRect();
       const viewHeight = window.innerHeight;
       
@@ -60,23 +91,42 @@ const CurtainReveal = ({
       }
     };
     
-      const handleResize = () => {
-    setScreenSize({
-      width: window.innerWidth,
-      height: window.innerHeight
-    });
-    handleScroll(); // Recalculate on resize
-  };
-  
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  window.addEventListener('resize', handleResize, { passive: true });
-  handleScroll(); // Check initial position
-  
-  return () => {
-    window.removeEventListener('scroll', handleScroll);
-    window.removeEventListener('resize', handleResize);
-  };
-  }, [oneTime, isLocked, startTrigger, speed, screenSize]);
+    const handleResize = () => {
+      setScreenSize({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+      
+      // Check if page became too short after resize
+      if (autoOpenOnShortPage && checkIfPageTooShort() && !isAutoOpened) {
+        setIsAutoOpened(true);
+        // Add a small delay to show the animation
+        setTimeout(() => {
+          setProgress(1);
+        }, 100);
+      }
+      
+      handleScroll(); // Recalculate on resize
+    };
+    
+    // Check initial state for auto-open
+    if (autoOpenOnShortPage && checkIfPageTooShort()) {
+      setIsAutoOpened(true);
+      // Add a small delay to show the animation
+      setTimeout(() => {
+        setProgress(1);
+      }, 100);
+    }
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleResize, { passive: true });
+    handleScroll(); // Check initial position
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [oneTime, isLocked, startTrigger, speed, screenSize, autoOpenOnShortPage, isAutoOpened]);
 
   const getClipPath = () => {
     if (progress < 0.3) return 'inset(50% 100% 50% 0%)';
@@ -107,7 +157,7 @@ const CurtainReveal = ({
     
     // Calculate target responsive height based on screen size
     let targetHeight;
-    if (screenWidth < 700) { // Mobile
+    if (screenWidth <= 640) { // Mobile
       targetHeight = 525;
     } else if (screenWidth < 1024) { // Tablet
       targetHeight = 450;
@@ -118,7 +168,7 @@ const CurtainReveal = ({
     // Start at startHeight and progressively expand to targetHeight
     const expandedHeight = startHeight + (targetHeight - startHeight) * revealProgress;
     
-    // Ensure minimum height for the reveal animation
+    // Ensure minimum height for the reveal anima640n
     const minHeight = startHeight + 50;
     return Math.max(expandedHeight, minHeight);
   };
@@ -126,7 +176,7 @@ const CurtainReveal = ({
   const getContentHeight = () => {
     const { width: screenWidth } = screenSize;
     
-    if (screenWidth < 700) { // Mobile
+    if (screenWidth <= 640) { // Mobile
       // On mobile, use min-height to let content determine actual height
       return 'auto';
     } else if (screenWidth < 1024) { // Tablet
@@ -156,7 +206,7 @@ const CurtainReveal = ({
   };
 
 
-  const isMobile = screenSize.width < 700;
+  const isMobile = screenSize.width <= 640;
 
   return (
     <div 

@@ -1,5 +1,5 @@
 /* Mobile */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 640px) {
     .blog-container {
         padding: 2rem;
         padding-top: 4rem;
@@ -8,7 +8,7 @@
 
 
 /* Desktop */
-@media screen and (min-width: 701px) {
+@media screen and (min-width: 641px) {
     .blog-container {
         padding: 2rem 15rem;
     }

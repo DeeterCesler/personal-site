@@ -47,6 +47,7 @@ const HomePage = () => {
                         innerHeight={400} 
                         startTrigger={isMobile ? 0.5 : isTablet ? 0.4 : 0.25} 
                         speed={2}
+                        autoOpenOnShortPage={true}
                         style={{ marginBottom: isTablet ? '500px' : '0px' }}
                     >
                         <Card 

@@ -22,7 +22,7 @@ const ThreeJSModel = ({
     // Function to determine responsive scale based on screen size
     const getResponsiveScale = () => {
       const width = window.innerWidth;
-      if (width < 700) { // Mobile
+      if (width <= 640) { // Mobile
         const newScale = scale * 0.8;
         return newScale;
       } else if (width <= 1024) { // Tablet

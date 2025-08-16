@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Card from './Card/Card';
 
@@ -8,7 +8,7 @@ const Carousel = ({ children, containerWidth }) => {
   const [showNavigation, setShowNavigation] = useState(true);
   const carouselRef = useRef(null);
 
-  const checkContainerWidth = () => {
+  const checkContainerWidth = useCallback(() => {
     if (!containerWidth) return;
 
     let newCardsPerView = 1;
@@ -30,17 +30,18 @@ const Carousel = ({ children, containerWidth }) => {
 
     setCardsPerView(newCardsPerView);
     setShowNavigation(newShowNavigation);
-  };
+  }, [containerWidth, children]);
 
   // Calculate responsive settings
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     checkContainerWidth();
-  }, [containerWidth, children]);
+  }, [containerWidth, children, checkContainerWidth]);
 
   useEffect(() => {
     window.addEventListener('resize', checkContainerWidth);
     return () => window.removeEventListener('resize', checkContainerWidth);
-  }, []);
+  }, [checkContainerWidth]);
 
   const totalCards = React.Children.count(children);
 

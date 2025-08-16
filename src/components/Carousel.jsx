@@ -5,11 +5,10 @@ import Card from './Card/Card';
 const Carousel = ({ children, containerWidth }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(1);
-  const [showNavigation, setShowNavigation] = useState(false);
+  const [showNavigation, setShowNavigation] = useState(true);
   const carouselRef = useRef(null);
 
-  // Calculate responsive settings
-  useEffect(() => {
+  const checkContainerWidth = () => {
     if (!containerWidth) return;
 
     let newCardsPerView = 1;
@@ -32,7 +31,17 @@ const Carousel = ({ children, containerWidth }) => {
 
     setCardsPerView(newCardsPerView);
     setShowNavigation(newShowNavigation);
+  };
+
+  // Calculate responsive settings
+  useEffect(() => {
+    checkContainerWidth();
   }, [containerWidth, children]);
+
+  useEffect(() => {
+    window.addEventListener('resize', checkContainerWidth);
+    return () => window.removeEventListener('resize', checkContainerWidth);
+  }, []);
 
   const totalCards = React.Children.count(children);
 
@@ -161,12 +170,19 @@ const Carousel = ({ children, containerWidth }) => {
     };
   };
 
+  console.log('Mobile render check:', {
+    containerWidth,
+    showNavigation, 
+    childrenCount: React.Children.count(children),
+    cardsPerView
+  });
   if (!showNavigation) {
     // Show all cards in grid layout when no navigation needed
     return (
       <div className="flex flex-wrap items-center justify-center gap-5 p-4">
         {React.Children.map(children, (child, index) => {
-          if (React.isValidElement(child) && child.type.name === 'Card') {
+          console.log('Rendering child:', index, child?.type)
+          if (React.isValidElement(child)) {
             const { image, alt, style, title, caption, link } = child.props;
             return (
               <Card
@@ -184,14 +200,12 @@ const Carousel = ({ children, containerWidth }) => {
         })}
       </div>
     );
-  }
-
-  return (
+  } else return (
     <div className="relative w-full">
       {/* Carousel Container */}
       <div 
         ref={carouselRef}
-        className="relative flex items-center justify-center overflow-hidden"
+        className="relative flex items-center justify-center"
         style={{ 
           height: '450px',
           width: '100%',
@@ -202,7 +216,8 @@ const Carousel = ({ children, containerWidth }) => {
       >
         <AnimatePresence mode="wait">
           {React.Children.map(children, (child, index) => {
-            if (React.isValidElement(child) && (child.type.name === 'Card' || child.type?.displayName === 'Card')) {
+            console.log('Show navvy Rendering child:', index, child?.type)
+            if (React.isValidElement(child)) {
               const { image, alt, style, title, caption, link } = child.props;
               const cardStyle = getCardStyle(index);
 

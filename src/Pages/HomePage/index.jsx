@@ -11,6 +11,7 @@ const HomePage = () => {
     const { t } = useTranslation();
     const isMobile = window.innerWidth <= 640;
     const isTablet = window.innerWidth <= 1024 && window.innerWidth > 640;
+    console.log('innerwidth', window.innerWidth);
 
     return (
         <div className="home">
@@ -21,7 +22,7 @@ const HomePage = () => {
                 modelScale={1.5}
             >
             <div className="container">
-                <section className="top" style={{ minHeight: isMobile || isTablet ? '20vh' : '60vh', marginBottom: isMobile ? '100px' : isTablet ? '250px' : '0px' }}>
+                <section className="top" style={{ minHeight: isMobile || isTablet ? '20vh' : '60vh', marginBottom: isMobile ? '100px' : (isTablet ? '250px' : '0px' )}}>
                     <div className="top-left">
                         <h1 className="big-name">{t('homepage.title')}</h1>
                         <div className="titles">

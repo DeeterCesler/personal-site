@@ -26,8 +26,8 @@ const CurtainReveal = ({
   const [progress, setProgress] = useState(0);
   const [isLocked, setIsLocked] = useState(false);
   const [screenSize, setScreenSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight
+    width: typeof window !== 'undefined' ? window.innerWidth : 1024,
+    height: typeof window !== 'undefined' ? window.innerHeight : 768
   });
   const [isAutoOpened, setIsAutoOpened] = useState(false);
   const ref = useRef();
@@ -153,17 +153,17 @@ const CurtainReveal = ({
     const revealProgress = Math.max(0, Math.min(1, (progress - 0.8) / 0.2));
     
     // Get screen dimensions from state
-    const { width: screenWidth } = screenSize;
+    // const { width: screenWidth } = screenSize;
     
     // Calculate target responsive height based on screen size
     let targetHeight;
-    if (screenWidth <= 640) { // Mobile
-      targetHeight = 525;
-    } else if (screenWidth < 1024) { // Tablet
+    // if (screenWidth <= 640) { // Mobile
+    //   targetHeight = 525;
+    // } else if (screenWidth < 1024) { // Tablet
+    //   targetHeight = 450;
+    // } else { // Desktop
       targetHeight = 450;
-    } else { // Desktop
-      targetHeight = 450;
-    }
+    // }
     
     // Start at startHeight and progressively expand to targetHeight
     const expandedHeight = startHeight + (targetHeight - startHeight) * revealProgress;
@@ -174,35 +174,15 @@ const CurtainReveal = ({
   };
 
   const getContentHeight = () => {
-    const { width: screenWidth } = screenSize;
-    
-    if (screenWidth <= 640) { // Mobile
-      // On mobile, use min-height to let content determine actual height
-      return 'auto';
-    } else if (screenWidth < 1024) { // Tablet
-      // return 'auto';
-    } else {
-      // On larger screens, use dynamic height based on progress
-      const revealProgress = Math.max(0, Math.min(1, (progress - 0.8) / 0.2));
-      const dynamicHeight = startHeight + (innerHeight * revealProgress);
-      return `${Math.max(startHeight + 50, dynamicHeight)}px`;
-    }
+    const revealProgress = Math.max(0, Math.min(1, (progress - 0.8) / 0.2));
+    const dynamicHeight = startHeight + (innerHeight * revealProgress);
+    return `${Math.max(startHeight + 50, dynamicHeight)}px`;
   };
 
   const getContentMinHeight = () => {
-    const { width: screenWidth } = screenSize;
-    
-    if (screenWidth <= 640) { // Mobile
-      // On mobile, ensure minimum height for the reveal animation
-      return `${startHeight + 50}px`;
-    } else if (screenWidth <= 1024) { // Tablet
-      // return 'auto';
-    } else {
-      // On larger screens, use dynamic height
-      const revealProgress = Math.max(0, Math.min(1, (progress - 0.8) / 0.2));
-      const dynamicHeight = startHeight + (innerHeight * revealProgress);
-      return `${Math.max(startHeight + 50, dynamicHeight)}px`;
-    }
+    const revealProgress = Math.max(0, Math.min(1, (progress - 0.8) / 0.2));
+    const dynamicHeight = startHeight + (innerHeight * revealProgress);
+    return `${Math.max(startHeight + 50, dynamicHeight)}px`;
   };
 
 

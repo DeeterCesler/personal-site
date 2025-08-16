@@ -49,7 +49,7 @@ const CurtainReveal = ({
     };
     
     const handleScroll = () => {
-      // If auto-opened and page is short, keep curtain open
+      // If auto-opened and page is short, keep curtain open and don't recalculate
       if (isAutoOpened && checkIfPageTooShort()) {
         setProgress(1);
         return;
@@ -118,12 +118,17 @@ const CurtainReveal = ({
       }, 100);
     }
     
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Only add scroll listener if not auto-opened to prevent fighting
+    if (!isAutoOpened) {
+      window.addEventListener('scroll', handleScroll, { passive: true });
+    }
     window.addEventListener('resize', handleResize, { passive: true });
     handleScroll(); // Check initial position
     
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      if (!isAutoOpened) {
+        window.removeEventListener('scroll', handleScroll);
+      }
       window.removeEventListener('resize', handleResize);
     };
   }, [oneTime, isLocked, startTrigger, speed, screenSize, autoOpenOnShortPage, isAutoOpened]);

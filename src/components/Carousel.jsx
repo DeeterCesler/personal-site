@@ -18,7 +18,6 @@ const Carousel = ({ children, containerWidth }) => {
       // Mobile: 1 card, always show navigation
       newCardsPerView = 1;
       newShowNavigation = true;
-      console.log('Mobile detected:', containerWidth, 'cardsPerView:', newCardsPerView);
     } else if (containerWidth <= 1024) {
       // Tablet: 3 cards
       newCardsPerView = 3;
@@ -124,7 +123,6 @@ const Carousel = ({ children, containerWidth }) => {
         opacity = 1;
         scale = 1;
         zIndex = 10;
-        console.log('Center card:', { index, x, opacity, scale, containerWidth, cardWidth });
       } else if (relativeIndex === -1) {
         // Previous card - show on left, but ensure it's visible on narrow screens
         const maxLeftOffset = Math.min(320, Math.max(50, (containerWidth - cardWidth) / 2));
@@ -132,7 +130,6 @@ const Carousel = ({ children, containerWidth }) => {
         opacity = 0.3;
         scale = 0.9;
         zIndex = 5;
-        console.log('Left card:', { index, x, opacity, scale, containerWidth, cardWidth, maxLeftOffset });
       } else if (relativeIndex === 1) {
         // Next card - show on right, but ensure it's visible on narrow screens
         const maxRightOffset = Math.min(320, Math.max(50, (containerWidth - cardWidth) / 2));
@@ -140,7 +137,6 @@ const Carousel = ({ children, containerWidth }) => {
         opacity = 0.3;
         scale = 0.9;
         zIndex = 5;
-        console.log('Right card:', { index, x, opacity, scale, containerWidth, cardWidth, maxRightOffset });
       } else {
         // Hidden cards
         opacity = 0;
@@ -170,18 +166,11 @@ const Carousel = ({ children, containerWidth }) => {
     };
   };
 
-  console.log('Mobile render check:', {
-    containerWidth,
-    showNavigation, 
-    childrenCount: React.Children.count(children),
-    cardsPerView
-  });
   if (!showNavigation) {
     // Show all cards in grid layout when no navigation needed
     return (
       <div className="flex flex-wrap items-center justify-center gap-5 p-4">
         {React.Children.map(children, (child, index) => {
-          console.log('Rendering child:', index, child?.type)
           if (React.isValidElement(child)) {
             const { image, alt, style, title, caption, link } = child.props;
             return (
@@ -216,7 +205,6 @@ const Carousel = ({ children, containerWidth }) => {
       >
         <AnimatePresence mode="wait">
           {React.Children.map(children, (child, index) => {
-            console.log('Show navvy Rendering child:', index, child?.type)
             if (React.isValidElement(child)) {
               const { image, alt, style, title, caption, link } = child.props;
               const cardStyle = getCardStyle(index);

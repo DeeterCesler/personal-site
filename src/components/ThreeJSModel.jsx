@@ -36,7 +36,7 @@ const ThreeJSModel = ({
     // Function to update container size and position
     const updateContainerSize = () => {
       const width = window.innerWidth;
-      if (width < 1024) { // Tablet and mobile
+      if (width <= 1024) { // Tablet and mobile
         setContainerSize('100%');
         setContainerPosition({ bottom: 0, right: 0 });
       } else { // Desktop
@@ -77,7 +77,7 @@ const ThreeJSModel = ({
       if (width <= 640) { // Mobile
         return { fov: 75, zPosition: 5 };
       } else if (width <= 1024) { // Tablet - zoom out much more
-        return { fov: 25, zPosition: 5 };
+        return { fov: 5, zPosition: 5 };
       } else { // Desktop
         return { fov: 75, zPosition: 5 };
       }

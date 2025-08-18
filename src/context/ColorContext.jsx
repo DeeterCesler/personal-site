@@ -26,6 +26,46 @@ import { createContext, useContext, useState } from 'react';
         hex: '#E3DFF2',
         inUse: false,
     },
+    {
+        hex: '#FFE5E5',
+        inUse: false,
+    }, // soft peachy pink
+    {
+        hex: '#E5F3FF',
+        inUse: false,
+    }, // powder blue
+    {
+        hex: '#FFF0E5',
+        inUse: false,
+    }, // cream peach
+    {
+        hex: '#F0E5FF',
+        inUse: false,
+    }, // lavender mist
+    {
+        hex: '#E5FFE5',
+        inUse: false,
+    }, // mint cream
+    {
+        hex: '#FFFFE5',
+        inUse: false,
+    }, // ivory yellow
+    {
+        hex: '#FFE5F0',
+        inUse: false,
+    }, // blush pink
+    {
+        hex: '#E5FFFF',
+        inUse: false,
+    }, // pale cyan
+    {
+        hex: '#F5E5FF',
+        inUse: false,
+    }, // light orchid
+    {
+        hex: '#E5F0FF',
+        inUse: false,
+    }, // alice blue
 ];
 
 const ColorContext = createContext(cardBackgroundColors);

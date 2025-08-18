@@ -28,29 +28,6 @@ const Now = () => {
                             title="Goals App"
                             caption="Ongoing fun project: developing an app to help you complete goals with friends"
                         />
-                        <Card
-                            id="3"
-                            image="/pics/chca.png" 
-                            alt="CHCA Copywriting"
-                            title="CHCA Copywriting"
-                            caption="June 30: finished a copywriting contract for Cincinnati Hills Christian Academy"
-                            link="https://www.chca-oh.org/"
-                        />
-                        <Card
-                            id="4"
-                            alt="Dev Grid Extension"
-                            title="Dev Grid Extension"
-                            caption="April 7: Just published a new Chrome extension: Dev Grid"
-                            link="https://github.com/DeeterCesler/dev-grid-extension"
-                        />
-                        <Card
-                            id="5"
-                            image="/pics/norse.jpg" 
-                            alt="Norse Flashcards"
-                            title="Norse Flashcards"
-                            caption="April 2: published a new iOS app: Norse Flashcards"
-                            link="https://apps.apple.com/us/app/norse-flashcards/id6743998805?l=es-MX&platform=iphone"
-                        />
                         <br/>
                     </div>
                     <div className="mini-spacer"/>

@@ -2,8 +2,49 @@
     padding: 3rem;;
 }
 
-
 .shadow-background-work {
     background-color: rgba(0, 0, 0, 0.2);
-    height: 200%;
+    min-height: 100vh;
+    height: 100%;
+}
+
+.sub-header {
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+}
+
+/* Responsive grid for cards */
+.main-text {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: fit-content; /* Only as wide as its children */
+    max-width: 1200px;
+    margin: 0;
+    justify-items: start; /* This ensures all grid items align to the start (left) */
+    justify-content: start; /* Prevents grid from expanding to full width */
+}
+
+/* Ensure cards don't get too wide on large screens */
+.main-text .card {
+    justify-self: start;
+    max-width: 350px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-text {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .main-text .card {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .main-text {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
 }

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useColor } from '../../context/ColorContext';
 import './style.css';
 
-const Card = ({ image = "/pics/code.jpg", alt, style, title, caption, link }) => {
+const Card = ({ image = "/pics/code.jpg", alt, style, title, caption, link, customHtml }) => {
     console.log(image);
     const [isFlipped, setIsFlipped] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
@@ -75,7 +75,7 @@ const Card = ({ image = "/pics/code.jpg", alt, style, title, caption, link }) =>
                     <h3 className="card-title">{title}</h3>
                     <p className="card-caption">{caption}</p>
                     {link && <a className="card-link" href={link} target="_blank" rel="noopener noreferrer">See more</a>}
-
+                    {customHtml && <div dangerouslySetInnerHTML={{ __html: customHtml }} />}
                 </div>
             </div>
         </div>

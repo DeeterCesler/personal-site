@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Counter from "quick-count";
 import PsychedelicBackground from "../../components/PsychedelicBackground";
 import Card from "../../components/Card/Card";
 import Carousel from "../../components/Carousel";

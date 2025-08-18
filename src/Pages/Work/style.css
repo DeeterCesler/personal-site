@@ -33,6 +33,20 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    .shadow-background-work {
+        min-height: auto;
+        height: auto;
+    }
+    
+    .tech-container {
+        padding: 1.5rem;
+    }
+    
+    .sub-header {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+    
     .main-text {
         grid-template-columns: 1fr;
         gap: 1.5rem;

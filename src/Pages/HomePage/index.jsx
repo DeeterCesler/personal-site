@@ -11,7 +11,6 @@ const HomePage = () => {
     const { t } = useTranslation();
     const isMobile = window.innerWidth <= 640;
     const isTablet = window.innerWidth <= 1024 && window.innerWidth > 640;
-    console.log('innerwidth', window.innerWidth);
 
     return (
         <div className="home">

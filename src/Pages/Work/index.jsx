@@ -7,14 +7,27 @@ import "./style.css";
 const Tech = () => {
     const [isMobile, setIsMobile] = useState(false);
 
+    const checkMobile = () => {
+        setIsMobile(window.innerWidth <= 768);
+    };
+
     useEffect(() => {
-        window.scrollTo(0, 0);
-        
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
-        
         checkMobile();
+        
+        // Reset height on initial load if mobile
+        if (window.innerWidth <= 768) {
+            setTimeout(() => {
+                const container = document.querySelector('.shadow-background-work');
+                if (container) {
+                    container.style.height = 'auto';
+                    container.style.minHeight = 'auto';
+                    container.style.overflow = 'hidden';
+                } else {
+                    console.log('Container not found');
+                }
+            }, 100);
+        }
+
         window.addEventListener('resize', checkMobile);
         
         return () => window.removeEventListener('resize', checkMobile);

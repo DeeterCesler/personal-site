@@ -3,7 +3,6 @@ import { useColor } from '../../context/ColorContext';
 import './style.css';
 
 const Card = ({ image = "/pics/code.jpg", alt, style, title, caption, link, customHtml }) => {
-    console.log(image);
     const [isFlipped, setIsFlipped] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     const cardRef = useRef(null);

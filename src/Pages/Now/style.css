@@ -4,5 +4,40 @@
 
 .shadow-background-now {
     background-color: rgba(0, 0, 0, 0.2);
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
+}
+
+/* Responsive grid for cards */
+.main-text {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Ensure cards don't get too wide on large screens */
+.main-text .card {
+    justify-self: center;
+    max-width: 350px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-text {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .main-text .card {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .main-text {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
 }

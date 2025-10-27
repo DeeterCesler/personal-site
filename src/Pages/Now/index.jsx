@@ -11,10 +11,17 @@ const Now = () => {
                     <div className="container now">
                         <h1 className="header">NOW</h1>
                         <div className="mini-spacer"/>
-                        <p><i>Updated Aug 18, 2025</i></p>
+                        <p><i>Updated Oct 27, 2025</i></p>
                         <div className="mini-spacer"/>
                         <div className="mini-spacer"/>
                     <div className="main-text">
+                        <Card
+                            id="3"
+                            image="/pics/narratize.png" 
+                            alt="Narratize"
+                            title="Narratize"
+                            caption="Ongoing contract: supporting Narratize.com, a platform for internal collaboration, documentation, and knowledge sharing."
+                        />
                         <Card 
                             id="1"
                             image="/pics/ana1.png" 

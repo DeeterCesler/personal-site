@@ -11,6 +11,7 @@ const Nav = () => {
     const location = useLocation()
     const { t } = useTranslation();
     const { isDark, toggleTheme } = useTheme();
+    const isMobile = window.innerWidth <= 640;
 
     const toggleModal = (e) => {
         if(e.target === e.currentTarget) {
@@ -80,6 +81,13 @@ const Nav = () => {
                     <button className="neumorphism-button">{t('nav.back')}</button>
                 </a>
             </div>}
+            {isMobile && (
+                <img 
+                    src="/hibiscus.png" 
+                    alt="Hibiscus" 
+                    className="hibiscus-nav"
+                />
+            )}
             <div className="glow" />
             <div className="nav-buttons">
                 <button 

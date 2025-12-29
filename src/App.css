@@ -651,4 +651,8 @@ body::before {
     order: -1;
     min-height: 300px;
   }
+
+  .big-name {
+    font-size: 3rem;
+  }
 }

@@ -12,6 +12,7 @@ import Work from './Pages/Work'
 import Dungeon from './FUN/dungeon'
 import Now from './Pages/Now'
 import NorsePrivacy from './Pages/NorsePrivacy'
+import GroupPrayPrivacy from './Pages/GroupPrayPrivacy'
 import NotFound from './Pages/NotFound'
 // Blogs
 import Junior from './Pages/Blogs/Junior'
@@ -68,6 +69,8 @@ function App() {
             <Route exact path="/now" element={<Now/>} />
             {/* Norse Privacy Policy */}
             <Route exact path="/norse/privacy" element={<NorsePrivacy/>} />
+            {/* GroupPray Privacy Policy */}
+            <Route exact path="/grouppray/privacy" element={<GroupPrayPrivacy/>} />
             {/* 404 */}
             <Route exact path="/notfound" element={<NotFound/>} />
             {/* catch all other routes and redirect to "/notfound" */}

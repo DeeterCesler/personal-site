@@ -1,37 +1,71 @@
 import React, { useEffect } from "react";
-import PsychedelicBackground from "../components/PsychedelicBackground";
+import WaveCanvas from "../components/WaveCanvas";
+import "./Blog.css";
+
+const articles = [
+  { title: "3 Ways a Senior Thinks", href: "/blog/senior" },
+  { title: "8 Security Principles EVERY Software Dev Should Know", href: "/blog/security" },
+  {
+    title: "The 10 Commandments of Clean Code",
+    href: "https://deetercesler.medium.com/the-ten-commandments-of-clean-code-89b22a6f01d1",
+    external: true,
+    featured: true,
+    badge: "Editor's Pick · Medium",
+  },
+  { title: "6 Ways to De-Junior Your Code", href: "/blog/junior" },
+  { title: "Working at Big Tech vs. Startups", href: "/blog/startups-vs-big-tech" },
+  {
+    title: "You Know More Than You Think",
+    href: "https://deetercesler.medium.com/you-know-more-than-you-think-bcea318b4d09",
+    external: true,
+  },
+  {
+    title: "Use GraphQL with React: So Easy, a Junior Dev Can Do It",
+    href: "https://deetercesler.medium.com/using-graphql-with-react-2778750a768d",
+    external: true,
+  },
+  { title: "Immutability in JavaScript", href: "/blog/immutability" },
+  { title: "What is BDD? Intro to Behavior-Driven Development", href: "/blog/bdd" },
+  { title: "Use TDD for Faster Development", href: "/blog/tdd" },
+  { title: "Everything You Need to Know About Looping in JavaScript", href: "/blog/looping" },
+  { title: "Managing Frontend Layouts: Bootstrap vs Flexbox vs CSS Grid", href: "/blog/bootstrap-flexbox-css-grid" },
+];
 
 const Blog = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-    return(
-        <div className="home">
-            <PsychedelicBackground>
-                <div style={{height: '200%', backgroundColor: 'rgba(0, 0, 0, 0.2)'}}>
-                    <div className="container" style={{maxWidth: '60%'}}>
-                        <h1 className="header">BLOGS</h1>
-                        <div className="mini-spacer"/>
-                        <ul className="blog-list">
-                            <li><a href="/blog/senior">3 Ways a Senior Thinks</a></li>
-                            <li><a href="/blog/security">8 Security Principles EVERY Software Dev Should Know</a></li>
-                            <li><a target="_blank" rel="noreferrer noopener" href="https://deetercesler.medium.com/the-ten-commandments-of-clean-code-89b22a6f01d1" style={{fontWeight: 'bold', color: '#ffd700'}}>⭐ The 10 Commandments of Clean Code ⭐</a><br/><span className="" style={{fontSize: '1rem', color: '#fff'}}>Selected by Medium's editors for <i>Programming</i> category</span></li>
-                            <li><a href="/blog/junior">6 Ways to De-Junior Your Code</a></li>
-                            <li><a href="/blog/startups-vs-big-tech">Working at Big Tech vs. Startups</a></li>
-                            <li><a target="_blank" rel="noreferrer noopener" href="https://deetercesler.medium.com/you-know-more-than-you-think-bcea318b4d09">You Know More Than You Think</a></li>
-                            <li><a target="_blank" rel="noreferrer noopener" href="https://deetercesler.medium.com/using-graphql-with-react-2778750a768d">Use GraphQL with React: So Easy, a Junior Dev Can Do It</a></li>
-                            <li><a href="/blog/immutability">Immutability in JavaScript</a></li>
-                            <li><a href="/blog/bdd">What is BDD? Intro to Behavior-Driven Development</a></li>
-                            <li><a href="/blog/tdd">Use TDD for Faster Development</a></li>
-                            <li><a href="/blog/looping">Everything You Need to Know About Looping in JavaScript</a></li>
-                            <li><a href="/blog/bootstrap-flexbox-css-grid">Managing Frontend Layouts: Bootstrap vs Flexbox vs CSS Grid</a></li>
-                        </ul>
-                        <div className="mini-spacer"/>
-                    </div>
-                </div>
-            </PsychedelicBackground>
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <div className="blog-page">
+      <WaveCanvas />
+      <div className="blog-page-content">
+        <h1 className="blog-page-title">Writing</h1>
+        <div className="article-list">
+          {articles.map((article, i) => (
+            <a
+              key={i}
+              className="article-card"
+              href={article.href}
+              target={article.external ? "_blank" : undefined}
+              rel={article.external ? "noreferrer noopener" : undefined}
+            >
+              <div className="article-card-left">
+                {article.badge && (
+                  <span className="article-card-badge">⭐ {article.badge}</span>
+                )}
+                <span className="article-card-title">{article.title}</span>
+              </div>
+              {article.external
+                ? <span className="article-external-icon">↗</span>
+                : <span className="article-card-arrow">→</span>
+              }
+            </a>
+          ))}
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
 export default Blog;

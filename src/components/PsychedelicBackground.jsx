@@ -35,8 +35,8 @@ const PsychedelicBackground = ({children}) => {
       position: 'relative',
       width: '100vw',
       height: '105%',
-      background: `linear-gradient(to right, 
-        hsla(${hues[0]}, 100%, ${isDark ? '30%' : '70%'}, 0.8), 
+      background: `linear-gradient(to right,
+        hsla(${hues[0]}, 100%, ${isDark ? '30%' : '70%'}, 0.8),
         hsla(${hues[1]}, 100%, ${isDark ? '30%' : '70%'}, 0.8))`,
     }}>
       {children}

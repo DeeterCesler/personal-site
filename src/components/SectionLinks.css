@@ -1,0 +1,42 @@
+.section-links {
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+.section-link-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  transition: color 0.2s ease, background-color 0.2s ease;
+  margin: 0 -2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  border-radius: 2px;
+}
+
+.section-link-row:hover {
+  color: var(--text);
+}
+
+.section-link-label {
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.section-link-arrow {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  color: var(--text-muted);
+  display: inline-block;
+  transition: transform 0.25s ease, color 0.2s ease;
+}
+
+.section-link-row:hover .section-link-arrow {
+  transform: translateX(7px);
+  color: var(--text);
+}

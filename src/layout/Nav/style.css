@@ -1,153 +1,195 @@
-.contact {
-    position: absolute;
-    z-index: 500;
-    display: flex;
+/* ── Nav bar ── */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 60px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--nav-border);
 }
 
-.contact:hover {
-    color: #aeaeae;
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.neumorphism-button {
-    color: white;
-    margin: 1rem;
-    padding: .3rem .5rem;
-    min-height: 20px;
-    background-color: rgba(1,1,1,0.2);
-    border-radius: 5px;
-    border: none;
-    box-shadow: 4px 4px 10px #6e6e6e, -1px -1px 5px #6e6e6e;
-    align-items: flex-end;
-    font-weight: 600;
-    min-width: 80px;
-    height: 40px;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+/* ── Left side ── */
+.nav-wordmark {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--text);
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+.nav-wordmark:hover {
+  opacity: 1;
 }
 
-.neumorphism-button:hover {
-    box-shadow: 5px 5px 10px #6e6e6e, -1px -1px 4px #6e6e6e;
-    color: #e6e6e6;
+.nav-back {
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.nav-back:hover {
+  color: var(--text);
 }
 
-.nav-buttons {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    right: 0;
+/* ── Right side ── */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.theme-toggle {
-    min-width: 85px;
-    width: 85px;
-    padding: 0;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.3rem;
+.nav-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.nav-icon-btn:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
 }
 
-.theme-icon {
-    opacity: 0.5;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    cursor: pointer;
+.nav-contact-btn {
+  height: 36px;
+  padding: 0 16px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.nav-contact-btn:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
 }
 
-.theme-icon.active {
-    opacity: 1;
-    transform: scale(1.2);
+/* ── Contact modal ── */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.18s ease;
+}
+.modal-backdrop.closing {
+  animation: fadeOut 0.18s ease forwards;
 }
 
-.theme-separator {
-    opacity: 0.4;
-    font-size: 1rem;
-    user-select: none;
+.modal-box {
+  position: relative;
+  background: var(--modal-bg);
+  border: 1px solid var(--modal-border);
+  border-radius: 10px;
+  padding: 40px 36px 36px;
+  width: 90%;
+  max-width: 420px;
+  animation: slideUp 0.22s ease;
+}
+.modal-box.closing {
+  animation: slideDown 0.18s ease forwards;
 }
 
-.modal-shadow {
-    background-color: rgba(1,1,1,0.5);
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: fadeIn 0.2s ease-in-out;
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 4px 6px;
+  transition: color 0.2s ease;
+}
+.modal-close:hover {
+  color: var(--text);
 }
 
-.modal-outline {
-    border: 2px white solid;
-    border-radius: 3px;
-    background-color: white;
-    color: black;
-    width: 70%;
-    max-width: 500px;
-    padding: 2rem;
-    margin: 0;
-    justify-content: space-around;
-    position: relative;
-    animation: fadeIn 0.2s ease-in-out;
+.modal-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 28px;
 }
 
-.modal-shadow.closing {
-    animation: fadeOut 0.2s ease-in-out;
+.modal-items {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
-.modal-outline.closing {
-    animation: fadeOut 0.2s ease-in-out;
+.modal-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
+.modal-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.modal-item a {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.modal-item a:hover {
+  opacity: 0.7;
+}
+
+/* ── Animations ── */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
-
 @keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
+  from { opacity: 1; }
+  to   { opacity: 0; }
 }
-.modal-outline h2 {
-    align-items: flex-start;
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0);    }
 }
-.modal-outline button {
-    align-items: flex-end;
-}
-
-.modal-outline button {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-}
-.modal-outline button:after {
-    content: '✕';
-}
-
-@media screen and (min-width: 640px) {
-    .modal-outline {
-        width: 50%;
-        max-width: 600px;
-        text-align: left;
-        justify-content: start;
-    }
-}
-
-@media screen and (max-width: 640px) {
-    .hibiscus-nav {
-        width: 50px;
-        height: 50px;
-        object-fit: contain;
-        margin-left: 1rem;
-        align-self: center;
-    }
+@keyframes slideDown {
+  from { opacity: 1; transform: translateY(0);    }
+  to   { opacity: 0; transform: translateY(10px); }
 }

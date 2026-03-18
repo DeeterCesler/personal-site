@@ -11,7 +11,7 @@ const Card = ({ image = "/pics/code.jpg", alt, style, title, caption, link, cust
     const [askew, setAskew] = useState(0);
 
     const setDegrees = () => {
-        const degrees = Math.random() * 10 - 5;
+        const degrees = Math.random() * 4 - 2;
         setAskew(degrees);
     };
 

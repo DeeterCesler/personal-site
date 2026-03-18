@@ -1,4 +1,4 @@
-import { insta, x_logo, medium, linkedin, github, email } from "../assets/icons";
+import { insta, x_logo, medium, linkedin, github, email, substack } from "../assets/icons";
 
 const icons = [
     {
@@ -20,6 +20,11 @@ const icons = [
         url: "https://deetercesler.medium.com/",
         alt: "medium",
         icon: medium
+    },
+    {
+        url: "https://deeeter.substack.com/",
+        alt: "substack",
+        icon: substack
     },
     {
         url: "https://github.com/deetercesler",

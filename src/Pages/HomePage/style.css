@@ -1,70 +1,86 @@
-.project-container {
-    position: relative;
-    padding: 50px 20px;
-    /* full screen width, despite parent padding */
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    /* */
-    box-sizing: border-box;
-    --m: 
-        conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) calc(50% - 40px) bottom/80px 51% repeat-x,
-        conic-gradient(from 135deg at top,#0000,#000 1deg 89deg,#0000 90deg) top/80px 51% repeat-x;
-    -webkit-mask: var(--m);
-    mask: var(--m);
+.home-page {
+  min-height: 100vh;
+  position: relative;
 }
 
-.offset {
-    top: -41px;
+/* All content sits above the fixed canvas */
+.home-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 5vw 80px;
 }
 
-.white {
-    background: linear-gradient(to bottom, rgba(255,255,255,0.3), #ffffff);
+.home-backdrop {
+  display: none;
 }
 
-.gray {
-    background: linear-gradient(to bottom, rgba(156, 156, 156), rgba(255,255,255,0.7));
+[data-theme="dark"] .home-backdrop {
+  display: block;
+  position: fixed;
+  top: -20vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  height: 140vh;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
 }
 
-.red {
-    background-color: red;
+/* ── Hero ── */
+.hero-section {
+  padding-top: calc(60px + 10vw);
+  padding-bottom: 6vw;
 }
 
-.app-screenshots {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
+.hero-name {
+  font-size: clamp(3.2rem, 9vw, 7.5rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--text);
+  margin: 0 0 1.4rem;
 }
 
-.app-screenshots img {
-    width: 100px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+.hero-sub {
+  font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin: 0;
+  max-width: 380px;
+  line-height: 1.65;
 }
 
-.project-card {
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: center;
+/* ── Sections ── */
+.home-section {
+  padding: 5vw 0 0;
 }
 
-.project-card h3 {
-    color: #333;
-    margin-bottom: 15px;
+.section-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 0 0 0;
 }
 
-.project-card a {
-    display: inline-block;
-    background-color: #007aff;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
+/* ── Footer row ── */
+.home-footer {
+  padding-top: 32px;
+  padding-bottom: 16px;
 }
 
-.project-card a:hover {
-    background-color: #0056b3;
+/* Icons already handled in App.css — just center them */
+.home-footer .icons {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
 }

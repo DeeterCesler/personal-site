@@ -9,7 +9,7 @@ const Contact = () => {
                 <div className="col"/>
                 <br/>
                 <div className="insta col-md">
-                    <strong><a className="email" href="mailto:deeter.cesler@gmail.com">deeter.cesler@gmail.com</a></strong>
+                    <strong><a className="email" href="mailto:me+site@deetercesler.com">me@deetercesler.com</a></strong>
                     <p className="small">I always respond to email.</p>
                 </div>
                 <div className="insta col-md">

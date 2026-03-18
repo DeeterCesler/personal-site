@@ -1,98 +1,79 @@
-import React from "react";
-import PsychedelicBackground from "../../components/PsychedelicBackground";
-import ThreeJSModel from "../../components/ThreeJSModel";
-import SocialLinks from "../../components/SocialLinks";
-import InternalLinks from "../../components/InternalLinks";
-import { useTranslation } from "react-i18next";
-import CurtainReveal from "../../components/CurtainReveal";
-import Card from "../../components/Card/Card";
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import WaveCanvas from '../../components/WaveCanvas';
+import ProjectGrid from '../../components/ProjectGrid';
+import SectionLinks from '../../components/SectionLinks';
+import SocialLinks from '../../components/SocialLinks';
+import './style.css';
+
+const projects = [
+  {
+    id: '1',
+    image: '/pics/ana1.png',
+    alt: 'All Nippon Airways',
+    title: 'Multiplayer Conference Game: All Nippon Airways',
+    caption:
+      'Solo implementation of a live, competitive trivia game for the ANA conference booth — two players on separate tablets while an audience watches on a third TV screen.',
+  },
+  {
+    id: '2',
+    image: '/pics/norse.jpg',
+    alt: 'Norse Flashcards',
+    title: 'iOS App: Norse Flashcards',
+    caption: 'iOS app for learning ancient Norse runes and their phonetics.',
+    link: 'https://apps.apple.com/us/app/norse-flashcards/id6743998805',
+  },
+  {
+    id: '3',
+    image: '/pics/chca.png',
+    alt: 'CHCA',
+    title: 'Web copy: CHCA Website',
+    caption: 'Copywriting and website redesign for Cincinnati Hills Christian Academy.',
+    link: 'https://www.chca-oh.org',
+  },
+  {
+    id: '4',
+    image: '/pics/swater.png',
+    alt: 'Smartwater',
+    title: 'Conference Game: Smartwater Match',
+    caption:
+      'Matching game for the Smartwater conference booth, introducing new flavors through gameplay.',
+  },
+];
 
 const HomePage = () => {
-    const { t } = useTranslation();
-    const isMobile = window.innerWidth <= 640;
-    const isTablet = window.innerWidth <= 1024 && window.innerWidth > 640;
+  const { t } = useTranslation();
 
-    return (
-        <div className="home">
-            <PsychedelicBackground
-                showModel={true}
-                modelUrl="/models/Flower.glb" 
-                modelPosition={[0, 0, 0]} 
-                modelScale={1.5}
-            >
-            <div className="container">
-                <section className="top" style={{ minHeight: isMobile || isTablet ? '20vh' : '60vh', marginBottom: isMobile ? '100px' : (isTablet ? '250px' : '0px' )}}>
-                    <div className="top-left">
-                        <h1 className="big-name">{t('homepage.title')}</h1>
-                        <div className="titles">
-                            <h3 className="flip-1">{t('homepage.subtitle')}</h3>
-                        </div>
-                    </div>
-                    {/* hide the flower on mobile and tablet */}
-                    {(!isMobile && !isTablet) && (
-                    <div className="top-right">
-                        <ThreeJSModel 
-                            modelUrl="/models/Flower.glb" 
-                            position={[0, 0, 0]} 
-                            scale={3}
-                            initialRotation={{ x: 0, y: -95, z: 0 }}
-                        />
-                    </div>
-                    )}
-                </section>
-                <section className="middle" style={{ marginTop: isMobile ? '50px' : '0px' }}>
-                    <CurtainReveal
-                        oneTime={true} 
-                        startHeight={200} 
-                        innerHeight={400} 
-                        startTrigger={isMobile ? 0.5 : isTablet ? 0.4 : 0.25} 
-                        speed={2}
-                        autoOpenOnShortPage={true}
-                        style={{ marginBottom: isTablet ? '500px' : '0px' }}
-                    >
-                        <Card 
-                            id="1"
-                            image="/pics/ana1.png" 
-                            alt="ANA "
-                            title="All Nippon Airways"
-                            caption="All Nippon Airways (ANA) is Japan's largest airline. I am conducting an ongoing, solo implementation of a game for the ANA conference booth. Two players on separate tablets go back-and-forth answering trivia questions about Japan while an audience watches."
-                        />
-                        <Card 
-                            id="2"
-                            image="/pics/norse.jpg" 
-                            alt="Learn Old Norse"
-                            title="Norse Language App"
-                            caption="Created an iOS app for learning ancient Norse runes and their phonetics."
-                            link="https://apps.apple.com/us/app/norse-flashcards/id6743998805?l=es-MX&platform=iphone"
-                        />
-                        <Card
-                            id="3"
-                            image="/pics/chca.png" 
-                            alt="CHCA"
-                            title="CHCA"
-                            caption="Copywriting contract CHCA website redesign."
-                            link="https://www.chca-oh.org"
-                        />
-                        <Card
-                            id="4"
-                            image="/pics/swater.png" 
-                            alt="Smartwater game"
-                            title="Smartwater"
-                            caption="Created a Smartwater-themed matching game for visitors to play at their conference booth, introducing new flavors through gameplay."
-                        />
-                    </CurtainReveal>
-                </section>
-                <section className="bottom">
-                    <div>
-                        <InternalLinks />
-                        <SocialLinks />
-                    </div>
-                    <div className="mini-spacer"/>
-                </section>
-            </div>
-        </PsychedelicBackground>
-        </div>
-    )
-}
+  return (
+    <div className="home-page">
+      <WaveCanvas />
+
+      <div className="home-backdrop" />
+      <div className="home-content">
+        {/* Hero */}
+        <section className="hero-section">
+          <h1 className="hero-name">{t('homepage.title')}</h1>
+          <p className="hero-sub">{t('homepage.subtitle')}</p>
+        </section>
+
+        {/* Work */}
+        <section className="home-section">
+          <p className="section-eyebrow">Selected Work</p>
+          <ProjectGrid projects={projects} />
+        </section>
+
+        {/* Nav links */}
+        <section className="home-section">
+          <SectionLinks />
+        </section>
+
+        {/* Social */}
+        <section className="home-section home-footer">
+          <SocialLinks />
+        </section>
+      </div>
+    </div>
+  );
+};
 
 export default HomePage;

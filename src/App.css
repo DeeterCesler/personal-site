@@ -11,8 +11,7 @@
 }
 html,
 body {
-  background: rgba(13, 88, 255);
-  background-color: #3f3f3f;
+  background-color: var(--bg);
   margin: 0;
   padding: 0;
 }
@@ -72,7 +71,6 @@ body::before {
 
 .top-nav {
   width: 100%;
-  /* background-color: #000; */
   z-index: 2;
   height: 70px;
   position: fixed;
@@ -169,6 +167,7 @@ body::before {
   width: 100%;
   max-width: none;
   box-sizing: border-box;
+  animation: fadeInUp 0.7s ease-out forwards;
 }
 
 .hero-wrapper {
@@ -195,17 +194,35 @@ body::before {
 
 .link,
 .links a {
-  text-shadow: 0 0 #000;
-  text-decoration: underline;
-  color: white;
-  transition: text-shadow 0.3s ease;
+  text-decoration: none;
+  color: #f0f0ea;
+  position: relative;
+  display: inline-block;
+  transition: color 0.2s ease;
+}
+
+.link::after,
+.links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: #f0f0ea;
+  transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .link:hover,
 .links a:hover {
-  color: white;
-  text-shadow: 4px 4px rgb(110, 110, 110);
+  color: #ffffff;
+  text-shadow: none;
   text-decoration: none;
+}
+
+.link:hover::after,
+.links a:hover::after {
+  width: 100%;
 }
 
 .back-button {
@@ -271,13 +288,10 @@ body::before {
 }
 
 .home {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: transparent;
   background-size: cover;
   background-repeat: none;
-  z-index: -1;
   min-height: 100vh;
-  /* height: 1500px; */
-  /* max-height: 100%; */
 }
 
 .psychedelic-background {
@@ -328,19 +342,34 @@ body::before {
   font-size: 5rem;
   font-weight: 900;
   margin-top: 2rem;
+  letter-spacing: -0.03em;
+  color: #f0f0ea;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .titles h3 {
-  font-weight: 200;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  color: rgba(240, 240, 234, 0.7);
 }
 
 .footer {
-  background-color: #3f3f3f;
+  background-color: var(--bg);
 }
 
 .work {
-  background-color: #e4e4e4;
-  color: #0f0f0f;
+  background-color: var(--bg);
+  color: var(--text);
   background-size: cover;
   background-repeat: none;
   height: 100%;
@@ -531,14 +560,14 @@ body::before {
 
 .icons img {
   display: inline-block;
-  height: 1.8rem;
-  margin: 0 0.6rem;
-  transition: filter 0.3s ease;
+  height: 1.6rem;
+  margin: 0 0.55rem;
+  filter: var(--icon-filter);
+  opacity: 0.55;
+  transition: opacity 0.2s ease;
 }
 .icons img:hover {
-  transition: 0.3s;
-  -webkit-filter: drop-shadow(0 0 0.75rem #fff);
-  filter: drop-shadow(0 0 0.75rem #fff);
+  opacity: 1;
 }
 
 .blog-text {

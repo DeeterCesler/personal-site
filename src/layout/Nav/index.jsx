@@ -1,110 +1,123 @@
-import React, { useState, useEffect } from "react";
-import { useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../context/ThemeContext';
-import './style.css'
+import './style.css';
+
+const SunIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="5" />
+    <line x1="12" y1="1" x2="12" y2="3" />
+    <line x1="12" y1="21" x2="12" y2="23" />
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+    <line x1="1" y1="12" x2="3" y2="12" />
+    <line x1="21" y1="12" x2="23" y2="12" />
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+  </svg>
+);
+
+const MoonIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+  </svg>
+);
+
+const ContactModal = ({ onClose, closing }) => {
+  const { t } = useTranslation();
+  return (
+    <div
+      className={`modal-backdrop ${closing ? 'closing' : ''}`}
+      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
+    >
+      <div className={`modal-box ${closing ? 'closing' : ''}`}>
+        <button className="modal-close" onClick={onClose} aria-label="Close">✕</button>
+        <h2 className="modal-title">{t('nav.contactModal.title')}</h2>
+        <div className="modal-items">
+          <div className="modal-item">
+            <span className="modal-label">{t('nav.contactModal.email')}</span>
+            <a href="mailto:me+site@deetercesler.com">me@deetercesler.com</a>
+          </div>
+          <div className="modal-item">
+            <span className="modal-label">{t('nav.contactModal.instagram')}</span>
+            <a href="https://www.instagram.com/deetercesler/" target="_blank" rel="noopener noreferrer">@deetercesler</a>
+          </div>
+          <div className="modal-item">
+            <span className="modal-label">{t('nav.contactModal.twitter')}</span>
+            <a href="https://www.twitter.com/deetercesler/" target="_blank" rel="noopener noreferrer">@deetercesler</a>
+          </div>
+          <div className="modal-item">
+            <span className="modal-label">{t('nav.contactModal.linkedin')}</span>
+            <a href="https://www.linkedin.com/in/deetercesler/" target="_blank" rel="noopener noreferrer">deetercesler</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Nav = () => {
-    const [show, setShow] = useState(false)
-    const [closing, setClosing] = useState(false)
-    const [notHome, setNotHome] = useState(false)
-    const location = useLocation()
-    const { t } = useTranslation();
-    const { isDark, toggleTheme } = useTheme();
-    const isMobile = window.innerWidth <= 640;
+  const [showContact, setShowContact] = useState(false);
+  const [closing, setClosing] = useState(false);
+  const [notHome, setNotHome] = useState(false);
+  const location = useLocation();
+  const { t } = useTranslation();
+  const { isDark, toggleTheme } = useTheme();
 
-    const toggleModal = (e) => {
-        if(e.target === e.currentTarget) {
-            if (show) {
-                setClosing(true)
-                setTimeout(() => {
-                    setShow(false)
-                    setClosing(false)
-                }, 200)
-            } else {
-                setShow(true)
-            }
-        }
-    }
+  useEffect(() => {
+    setNotHome(
+      location.pathname !== '/' &&
+      location.pathname !== '/index' &&
+      location.pathname !== '/index.html'
+    );
+  }, [location.pathname]);
 
-    useEffect(() => {
-        setNotHome(location.pathname !== '/' && 
-                  location.pathname !== '/index' && 
-                  location.pathname !== '/index.html');
-    }, [location.pathname]);
+  const getBackUrl = () =>
+    location.pathname.startsWith('/blog/') ? '/blog' : '/';
 
-    const getBackUrl = () => {
-        if (location.pathname.startsWith('/blog/')) {
-            return '/blog';
-        }
-        return '/';
-    }
+  const openContact = () => setShowContact(true);
+  const closeContact = () => {
+    setClosing(true);
+    setTimeout(() => { setShowContact(false); setClosing(false); }, 200);
+  };
 
-    const Contact = () => {
-        return(
-            <div onClick={(e)=>toggleModal(e)} className={`contact modal-shadow ${closing ? 'closing' : ''}`}>
-                <div className={`modal-outline ${closing ? 'closing' : ''}`}>
-                    <button onClick={toggleModal}/>
-                    <h2 className="contact-header">{t('nav.contactModal.title')}</h2>
-                    <br/>
-                    <div className="insta">
-                        {t('nav.contactModal.email')} <br/>
-                        <strong><a className="" href="mailto:deeter.cesler@gmail.com">deeter.cesler@gmail.com</a></strong>
-                    </div>
-                    <div className="insta">
-                        {t('nav.contactModal.instagram')} <br/>
-                        <strong><a href="https://www.instagram.com/deetercesler/" target="_blank" rel="noopener noreferrer">
-                            @deetercesler
-                        </a></strong>
-                    </div>
-                    <div className="insta">
-                        {t('nav.contactModal.twitter')} <br/>
-                        <strong><a href="https://www.twitter.com/deetercesler/" target="_blank" rel="noopener noreferrer">
-                            @deetercesler
-                        </a></strong>
-                    </div>
-                    <div className="insta">
-                        {t('nav.contactModal.linkedin')} <br/>
-                        <strong><a href="https://www.linkedin.com/in/deetercesler/" target="_blank" rel="noopener noreferrer">
-                            deetercesler
-                        </a></strong>
-                    </div>
-                </div>
-            </div>
-        )
-    }
-
-    return(
-        <div className="top-nav">
-            {notHome && <div className="contact">
-                <a href={getBackUrl()} className="" style={{textDecoration: "none"}}>
-                    <button className="neumorphism-button">{t('nav.back')}</button>
-                </a>
-            </div>}
-            {isMobile && (
-                <img 
-                    src="/hibiscus.png" 
-                    alt="Hibiscus" 
-                    className="hibiscus-nav"
-                />
+  return (
+    <>
+      <nav className="site-nav">
+        <div className="nav-inner">
+          <div className="nav-left">
+            {notHome ? (
+              <a href={getBackUrl()} className="nav-back">
+                ← {t('nav.back')}
+              </a>
+            ) : (
+              <Link to="/" className="nav-wordmark">DC</Link>
             )}
-            <div className="glow" />
-            <div className="nav-buttons">
-                <button 
-                    onClick={toggleTheme} 
-                    className="neumorphism-button theme-toggle"
-                    style={{marginRight: '0rem'}}
-                    aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-                >
-                    <span className={`theme-icon ${!isDark ? 'active' : ''}`}>☀️</span>
-                    <span className="theme-separator">/</span>
-                    <span className={`theme-icon ${isDark ? 'active' : ''}`}>🌙</span>
-                </button>
-                <button data-bs-toggle="modal" onClick={toggleModal} className="neumorphism-button">{t('nav.contact')}</button>
-                {show && <Contact />}
-            </div>
+          </div>
+
+          <div className="nav-right">
+            <button
+              className="nav-icon-btn"
+              onClick={toggleTheme}
+              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {isDark ? <SunIcon /> : <MoonIcon />}
+            </button>
+            <button className="nav-contact-btn" onClick={openContact}>
+              {t('nav.contact')}
+            </button>
+          </div>
         </div>
-    )
-}
+      </nav>
+
+      {showContact && (
+        <ContactModal onClose={closeContact} closing={closing} />
+      )}
+    </>
+  );
+};
 
 export default Nav;

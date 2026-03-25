@@ -93,7 +93,7 @@ const Tech = () => {
         },
         {
             id: "67",
-            image: "/pics/ana1.png",
+            image: "/pics/swater.png",
             alt: "smartwater",
             title: "Conference Game: Smartwater Match",
             caption:
@@ -139,7 +139,7 @@ const Tech = () => {
             image: "/pics/chca.png",
             alt: "CHCA Copywriting",
             title: "Web copy: CHCA Website",
-            caption: "June 30: finished a copywriting contract for Cincinnati Hills Christian Academy",
+            caption: "Working with Canned Spinach, I wrote the web copy for Cincinnati Hills Christian Academy website redesign.",
             link: "https://www.chca-oh.org/"
         },
         {
@@ -147,7 +147,7 @@ const Tech = () => {
             image: "/pics/irsf.png",
             alt: "IRSF Website",
             title: "Web copy: IRSF Website",
-            caption: "Subcontracting for Canned Spinach, I wrote the web copy for the IRSF websites redesign (live as of March 2025).",
+            caption: "Working with Canned Spinach, I wrote the web copy for the IRSF website redesign (live as of March 2025).",
             link: "https://www.rettsyndrome.org/"
         },
     ];

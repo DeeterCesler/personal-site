@@ -81,7 +81,7 @@ const Tech = () => {
             alt: "Anime Expo Game",
             title: "Conference Game: Anime Expo Game",
             caption:
-                "Ongoing contract: developing an game that's been played at Anime Expo LA (NYC Comic Con next!)",
+                "Developed a game for ANA Airline's booth, played at Anime Expo LA and NYC Comic Con.",
         },
         {
             id: "1",
@@ -97,7 +97,15 @@ const Tech = () => {
             alt: "smartwater",
             title: "Conference Game: Smartwater Match",
             caption:
-                "Ongoing contract: developing an game that's been played at Anime Expo LA (NYC Comic Con next!)",
+                "Developed a game for the Smartwater conference booth.",
+        },
+        {
+            id: "68",
+            image: "/pics/cas2.gif",
+            alt: "Cascade",
+            title: "Conference Game: Cascade Match",
+            caption:
+                "Developed a game for the Cascade conference booth.",
         },
         {
             id: "2",

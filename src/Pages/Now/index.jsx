@@ -19,6 +19,13 @@ const projects = [
         caption:
             "Ongoing fun project: developing an app to help you complete goals with friends",
     },
+    {
+        id: "4",
+        alt: "Travel app",
+        title: "Travel app",
+        caption:
+            "Working on an AI-powered travel app to help you plan your trips.",
+    }
 ];
 
 const Now = () => {
@@ -29,7 +36,7 @@ const Now = () => {
                     <div className="container now">
                         <h1 className="header">NOW</h1>
                         <div className="mini-spacer"/>
-                        <p><i>Updated Mar 18, 2026</i></p>
+                        <p><i>Updated Mar 27, 2026</i></p>
                         <div className="mini-spacer"/>
                         <div className="mini-spacer"/>
                     <div className="main-text">

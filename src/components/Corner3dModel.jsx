@@ -55,9 +55,7 @@ const ThreeJSModel = ({ modelUrl = '/models/default-model.glb', position = [0, 0
         
         scene.add(model);
       },
-      (xhr) => {
-        console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
-      },
+      () => {},
       (error) => {
         console.error('An error happened loading the model:', error);
       }

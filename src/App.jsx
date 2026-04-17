@@ -52,21 +52,21 @@ function App() {
             <Route path="/index" element={<Navigate to="/" replace />} />
             <Route path="/index.html" element={<Navigate to="/" replace />} />
             {/* Blogs */}
-            <Route exact path="/blog" element={<Blog />} />
-            <Route exact path="/blog/junior" element={<Junior/>} />
-            <Route exact path="/blog/senior" element={<Senior/>} />
-            <Route exact path="/blog/security" element={<SecurityPrinciples/>} />
-            <Route exact path="/blog/startups-vs-big-tech" element={<StartupsVersus/>} />
-            <Route exact path="/blog/immutability" element={<Immutability/>} />
-            <Route exact path="/blog/bdd" element={<Bdd/>} />
-            <Route exact path="/blog/tdd" element={<TDDArticle/>} />
-            <Route exact path="/blog/looping" element={<Looping/>} />
-            <Route exact path="/blog/bootstrap-flexbox-css-grid" element={<LayoutManagementArticle/>} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/junior" element={<Junior/>} />
+            <Route path="/blog/senior" element={<Senior/>} />
+            <Route path="/blog/security" element={<SecurityPrinciples/>} />
+            <Route path="/blog/startups-vs-big-tech" element={<StartupsVersus/>} />
+            <Route path="/blog/immutability" element={<Immutability/>} />
+            <Route path="/blog/bdd" element={<Bdd/>} />
+            <Route path="/blog/tdd" element={<TDDArticle/>} />
+            <Route path="/blog/looping" element={<Looping/>} />
+            <Route path="/blog/bootstrap-flexbox-css-grid" element={<LayoutManagementArticle/>} />
             {/* Work */}
-            <Route exact path="/work" element={<Work />} />
-            <Route exact path="/work/dungeon" element={<Dungeon/>} />
+            <Route path="/work" element={<Work />} />
+            <Route path="/work/dungeon" element={<Dungeon/>} />
             {/* Now */}
-            <Route exact path="/now" element={<Now/>} />
+            <Route path="/now" element={<Now/>} />
             {/* Norse Privacy Policy */}
             <Route exact path="/norse/privacy" element={<NorsePrivacy/>} />
             {/* GroupPray Privacy Policy */}

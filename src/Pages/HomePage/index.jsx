@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import WaveCanvas from '../../components/WaveCanvas';
 import ProjectGrid from '../../components/ProjectGrid';
 import SectionLinks from '../../components/SectionLinks';
@@ -53,7 +53,7 @@ const HomePage = () => {
         {/* Hero */}
         <section className="hero-section">
           <h1 className="hero-name">{t('homepage.title')}</h1>
-          <p className="hero-sub">{t('homepage.subtitle')}</p>
+          <p className="hero-sub"><Trans i18nKey="homepage.subtitle" components={{ bold: <strong /> }} /></p>
         </section>
 
         {/* Work */}

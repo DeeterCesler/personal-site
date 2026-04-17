@@ -22,8 +22,6 @@ const Tech = () => {
                     container.style.height = 'auto';
                     container.style.minHeight = 'auto';
                     container.style.overflow = 'hidden';
-                } else {
-                    console.log('Container not found');
                 }
             }, 100);
         }

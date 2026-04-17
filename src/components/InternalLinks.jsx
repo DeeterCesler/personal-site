@@ -4,16 +4,13 @@ import { useTranslation } from "react-i18next";
 const InternalLinks = () => {
     const { t } = useTranslation();
 
-    const handleLinkClick = (e) => {
+    const handleLinkClick = () => {
         if (navigator.vibrate) {
             try {
                 navigator.vibrate(200);
-                console.log('Haptic feedback triggered');
             } catch (error) {
-                console.error('Haptic feedback failed:', error);
+                // silently ignore vibrate failures
             }
-        } else {
-            console.log('navigator.vibrate not supported');
         }
     };
 

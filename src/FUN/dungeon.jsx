@@ -1,19 +1,16 @@
 import React from "react";
+import WaveCanvas from "../components/WaveCanvas";
 
 const Dungeon = () => {
     return(
-        <div className="now">
+        <div className="">
+            <WaveCanvas />
             <div className="container">
-                <div className="spacer"/>
                 {/* <div className="disappearing-spacer"/> */}
-                <h1 className="header">DUNGEON CRAWLER</h1>
-                <p className="subheader">Note: you need a keyboard for this</p>
-                <div className="spacer"/>
-                <div className="container">
-                    <iframe className="iframe" src="http://dungeon-crawler.freeoda.com/" title="Dungeon Crawler"></iframe>
+                <h1 className="header" style={{textAlign: "center"}}>DUNGEON CRAWLER</h1>
+                <div className="">
+                    <iframe className="iframe" src="/dungeon/index.html" title="Dungeon Crawler"></iframe>
                 </div>
-                <div className="spacer"/>
-                <div className="spacer"/>
             </div>
         </div>
     )

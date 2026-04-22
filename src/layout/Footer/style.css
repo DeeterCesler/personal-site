@@ -3,6 +3,7 @@
   z-index: 2;
   border-top: 1px solid var(--border);
   padding: 28px 0;
+  background-color: var(--bg);
 }
 
 .site-footer-inner {

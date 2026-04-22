@@ -70,7 +70,7 @@ function App() {
             <Route path="/blog/bootstrap-flexbox-css-grid" element={<LayoutManagementArticle/>} />
             {/* Work */}
             <Route path="/work" element={<Work />} />
-            <Route path="/work/dungeon" element={<Dungeon/>} />
+            <Route path="/dungeon" element={<Dungeon/>} />
             <Route path="/slop" element={<SlopBin/>} />
             {/* Now */}
             <Route path="/now" element={<Now/>} />

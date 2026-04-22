@@ -236,7 +236,7 @@ body::before {
 
 .App {
   text-align: left;
-  color: #fff;
+  color: var(--text);
 }
 
 @media only screen and (max-width: 640px) {
@@ -434,6 +434,7 @@ body::before {
 
 .subheader {
   margin-left: 10%;
+  color: var(--text);
 }
 
 .bold {
@@ -445,6 +446,7 @@ body::before {
   font-size: 4.5em;
   font-weight: 800;
   margin-top: 1em;
+  color: var(--text);
 }
 
 @media only screen and (min-width: 640px) {
@@ -534,6 +536,8 @@ body::before {
 .iframe {
   width: 80vw;
   height: 110vh;
+  display: block;
+  margin: 0 auto;
 }
 
 .white {

@@ -1,0 +1,135 @@
+.cm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: cm-fade-in 0.18s ease;
+}
+.cm-backdrop.closing {
+  animation: cm-fade-out 0.18s ease forwards;
+}
+
+.cm-box {
+  position: relative;
+  background: var(--modal-bg);
+  border: 1px solid var(--modal-border);
+  border-radius: 16px;
+  padding: 44px 40px 36px;
+  width: 90%;
+  max-width: 380px;
+  animation: cm-slide-up 0.22s ease;
+}
+.cm-box.closing {
+  animation: cm-slide-down 0.18s ease forwards;
+}
+
+.cm-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  color: var(--text-faint);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 4px 6px;
+  transition: color 0.2s ease;
+  line-height: 1;
+}
+.cm-close:hover {
+  color: var(--text);
+}
+
+.cm-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 0 0 16px;
+}
+
+/* Email — hero element */
+.cm-email {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  margin-bottom: 28px;
+}
+.cm-email:hover {
+  opacity: 0.65;
+}
+
+.cm-divider {
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 24px;
+}
+
+/* Social rows */
+.cm-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cm-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.15s ease;
+  margin: 0 -10px;
+}
+.cm-row:hover {
+  background: var(--bg-card);
+}
+
+.cm-icon {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  filter: var(--icon-filter);
+  opacity: 0.5;
+  transition: opacity 0.15s ease;
+}
+.cm-row:hover .cm-icon {
+  opacity: 1;
+}
+
+.cm-handle {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text);
+  flex: 1;
+}
+
+.cm-platform {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-faint);
+  letter-spacing: 0.04em;
+}
+
+/* Animations */
+@keyframes cm-fade-in  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes cm-fade-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes cm-slide-up {
+  from { opacity: 0; transform: translateY(14px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+@keyframes cm-slide-down {
+  from { opacity: 1; transform: translateY(0)   scale(1);    }
+  to   { opacity: 0; transform: translateY(8px) scale(0.98); }
+}

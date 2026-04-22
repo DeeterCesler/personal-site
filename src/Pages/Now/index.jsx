@@ -6,11 +6,13 @@ import './style.css'
 const projects = [
     {
         id: "3",
-        image: "/pics/prayer.png",
+        image: "/pics/prayer-app-icon-zoomed.png",
         alt: "prayer",
         title: "iOS App: Prayer Groups",
         caption:
-            "iOS App currently in beta testing. It's a simple app to help you pray with your friends.",
+            "iOS App recently released (and still updating). It's a simple app to help you pray with your friends in groups.",
+        link: "https://apps.apple.com/us/app/prayer-groups/id6759305922",
+        cta: "View on App Store",
     },
     {
         id: "2",
@@ -36,7 +38,7 @@ const Now = () => {
                     <div className="container now">
                         <h1 className="header">NOW</h1>
                         <div className="mini-spacer"/>
-                        <p><i>Updated Mar 27, 2026</i></p>
+                        <p><i>Updated Apr 22, 2026</i></p>
                         <div className="mini-spacer"/>
                         <div className="mini-spacer"/>
                     <div className="main-text">
@@ -48,6 +50,8 @@ const Now = () => {
                                 alt={project.alt}
                                 title={project.title}
                                 caption={project.caption}
+                                link={project.link}
+                                cta={project.cta}
                             />
                         ))}
                         <br/>

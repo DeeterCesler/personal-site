@@ -1,0 +1,30 @@
+.site-footer {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+}
+
+.site-footer-inner {
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  padding: 0 var(--layout-padding-x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-contact-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.footer-contact-btn:hover {
+  color: var(--text);
+}

@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../context/ThemeContext';
+import { useContact } from '../../context/ContactContext';
 import './style.css';
 
 const SunIcon = () => (
@@ -26,46 +27,13 @@ const MoonIcon = () => (
   </svg>
 );
 
-const ContactModal = ({ onClose, closing }) => {
-  const { t } = useTranslation();
-  return (
-    <div
-      className={`modal-backdrop ${closing ? 'closing' : ''}`}
-      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
-    >
-      <div className={`modal-box ${closing ? 'closing' : ''}`}>
-        <button className="modal-close" onClick={onClose} aria-label="Close">✕</button>
-        <h2 className="modal-title">{t('nav.contactModal.title')}</h2>
-        <div className="modal-items">
-          <div className="modal-item">
-            <span className="modal-label">{t('nav.contactModal.email')}</span>
-            <a href="mailto:me+site@deetercesler.com">me@deetercesler.com</a>
-          </div>
-          <div className="modal-item">
-            <span className="modal-label">{t('nav.contactModal.instagram')}</span>
-            <a href="https://www.instagram.com/deetercesler/" target="_blank" rel="noopener noreferrer">@deetercesler</a>
-          </div>
-          <div className="modal-item">
-            <span className="modal-label">{t('nav.contactModal.twitter')}</span>
-            <a href="https://www.twitter.com/deetercesler/" target="_blank" rel="noopener noreferrer">@deetercesler</a>
-          </div>
-          <div className="modal-item">
-            <span className="modal-label">{t('nav.contactModal.linkedin')}</span>
-            <a href="https://www.linkedin.com/in/deetercesler/" target="_blank" rel="noopener noreferrer">deetercesler</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const Nav = () => {
-  const [showContact, setShowContact] = useState(false);
-  const [closing, setClosing] = useState(false);
   const [notHome, setNotHome] = useState(false);
   const location = useLocation();
   const { t } = useTranslation();
   const { isDark, toggleTheme } = useTheme();
+  const { openContact } = useContact();
 
   useEffect(() => {
     setNotHome(
@@ -77,12 +45,6 @@ const Nav = () => {
 
   const getBackUrl = () =>
     location.pathname.startsWith('/blog/') ? '/blog' : '/';
-
-  const openContact = () => setShowContact(true);
-  const closeContact = () => {
-    setClosing(true);
-    setTimeout(() => { setShowContact(false); setClosing(false); }, 200);
-  };
 
   return (
     <>
@@ -113,9 +75,6 @@ const Nav = () => {
         </div>
       </nav>
 
-      {showContact && (
-        <ContactModal onClose={closeContact} closing={closing} />
-      )}
     </>
   );
 };

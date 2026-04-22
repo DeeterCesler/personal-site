@@ -105,38 +105,6 @@ const Tech = () => {
             caption:
                 "Developed a game for the Cascade conference booth.",
         },
-        {
-            id: "2",
-            image: "/pics/scroller.gif",
-            alt: "Circle Scroller",
-            title: "NPM Package: Circle Scroller",
-            caption: "A free, open-source React module. It's essentially imitating TechCrunch's popup when you read an article and it shows you how far you've read. Use it now with npm i circle-scroller in your React project.",
-            link: "https://www.npmjs.com/package/circle-scroll/"
-        },
-        {
-            id: "3",
-            image: "/pics/code.jpg",
-            alt: "Quick Counter",
-            title: "NPM Package: Quick Counter",
-            caption: "Wrap any number in this component. When the page loads, it'll count up to that number. You can set the number of seconds, or let it default to 2. It's a neat little visual. Use it now with npm i quick-count in your React project.",
-            link: "https://www.npmjs.com/package/quick-count/"
-        },
-        {
-            id: "4",
-            image: "/pics/code.jpg",
-            alt: "Kaprekar",
-            title: "Rust Crate: Kaprekar",
-            caption: "Kaprekar's constant is a fun (but useless) piece of math. I made a free, open-source Rust crate calculating number of iterations for a given input.",
-            link: "https://crates.io/crates/kaprekar"
-        },
-        {
-            id: "5",
-            image: "/pics/dungeon.gif",
-            alt: "Dungeon Crawler",
-            title: "jQuery Game: Dungeon Crawler",
-            caption: "keyboard required (AKA desktop only). browser-based game I made back in boot camp while learning jQuery",
-            link: "http://dungeon-crawler.freeoda.com/"
-        }
     ];
 
     const copywritingCards = [

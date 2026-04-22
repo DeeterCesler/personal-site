@@ -40,3 +40,70 @@
   transform: translateX(7px);
   color: var(--text);
 }
+
+/* Trash row — reset button defaults, match link row */
+.trash-row {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 22px 2px;
+}
+
+/* Lid wobble on hover */
+@keyframes lid-wobble {
+  0%,  100% { transform: rotate(0deg)   translateY(0);    }
+  20%        { transform: rotate(-12deg) translateY(-3px); }
+  45%        { transform: rotate(8deg)   translateY(-5px); }
+  65%        { transform: rotate(-5deg)  translateY(-2px); }
+  82%        { transform: rotate(3deg)   translateY(-1px); }
+}
+
+.trash-label {
+  display: flex;
+  align-items: center;
+}
+
+/* Hidden by default — clipped behind the icon to its right */
+.trash-text {
+  display: inline-block;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+  padding-right: 0.35em;
+  transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.22s ease;
+}
+
+.trash-row:hover .trash-text {
+  max-width: 300px;
+  opacity: 1;
+}
+
+.trash-icon {
+  display: inline-block;
+  transform-origin: center bottom;
+  flex-shrink: 0;
+}
+
+.trash-row:hover .trash-icon {
+  animation: lid-wobble 0.45s ease-in-out forwards;
+}
+
+/* Full-screen swallow overlay */
+.slop-overlay {
+  position: fixed;
+  inset: 0;
+  background: #080808;
+  z-index: 9999;
+  clip-path: circle(0% at var(--cx) var(--cy));
+  transition: clip-path 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  pointer-events: none;
+}
+
+.slop-overlay.active {
+  clip-path: circle(150% at var(--cx) var(--cy));
+  pointer-events: all;
+}

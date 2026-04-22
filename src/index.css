@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Layout ────────────────────────────────────────────── */
+:root {
+  --layout-max-width: 1100px;
+  --layout-padding-x: 5vw;
+}
+
 /* ── Theme tokens ──────────────────────────────────────── */
 :root,
 [data-theme="dark"] {

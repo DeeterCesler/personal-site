@@ -7,9 +7,9 @@
 .home-content {
   position: relative;
   z-index: 2;
-  max-width: 1100px;
+  max-width: var(--layout-max-width);
   margin: 0 auto;
-  padding: 0 5vw 80px;
+  padding: 0 var(--layout-padding-x) 80px;
 }
 
 .home-backdrop {
@@ -58,7 +58,7 @@
 
 /* ── Sections ── */
 .home-section {
-  padding: 5vw 0 0;
+  padding: var(--layout-padding-x) 0 0;
 }
 
 .section-eyebrow {

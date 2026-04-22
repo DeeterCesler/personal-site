@@ -5,11 +5,13 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import ReactGA from 'react-ga4'
 // Components
 import Nav from './layout/Nav'
+import Footer from './layout/Footer'
 // Pages
 import HomePage from './Pages/HomePage'
 import Blog from './Pages/Blog'
 import Work from './Pages/Work'
 import Dungeon from './FUN/dungeon'
+import SlopBin from './Pages/SlopBin'
 import Now from './Pages/Now'
 import NorsePrivacy from './Pages/NorsePrivacy'
 import GroupPrayPrivacy from './Pages/GroupPrayPrivacy'
@@ -30,6 +32,8 @@ import generateConsoleName from './utils/ConsoleName'
 import { LanguageProvider } from './context/LanguageContext'
 import { ThemeProvider } from './context/ThemeContext'
 import { ColorProvider } from './context/ColorContext'
+import { ContactProvider } from './context/ContactContext'
+import ContactModal from './components/ContactModal'
 
 ReactGA.initialize('G-Z1TZ5MEDCR')
 
@@ -45,8 +49,10 @@ function App() {
     <LanguageProvider>
       <ThemeProvider>
         <ColorProvider>
+        <ContactProvider>
         <div className="App">
           <Nav />
+          <ContactModal />
           <Routes>
             <Route path="/" element={<HomePage/>} />
             <Route path="/index" element={<Navigate to="/" replace />} />
@@ -65,6 +71,7 @@ function App() {
             {/* Work */}
             <Route path="/work" element={<Work />} />
             <Route path="/work/dungeon" element={<Dungeon/>} />
+            <Route path="/slop" element={<SlopBin/>} />
             {/* Now */}
             <Route path="/now" element={<Now/>} />
             {/* Norse Privacy Policy */}
@@ -76,7 +83,9 @@ function App() {
             {/* catch all other routes and redirect to "/notfound" */}
             <Route path="*" element={<NotFound/>} />
           </Routes>
+          <Footer />
         </div>
+        </ContactProvider>
         </ColorProvider>
       </ThemeProvider>
     </LanguageProvider>

@@ -6,7 +6,7 @@ import './style.css';
 const projects = [
   {
     id: 'dungeon',
-    title: 'Dungeon Crawler',
+    title: 'jQuery Game:Dungeon Crawler',
     caption: 'Browser-based dungeon crawler I built in boot camp while learning jQuery. Keyboard required — desktop only.',
     link: '/dungeon',
     badge: 'made in boot camp',
@@ -15,7 +15,7 @@ const projects = [
   },
   {
     id: 'circle-scroller',
-    title: 'Circle Scroller',
+    title: 'NPM Package: Circle Scroller',
     caption: 'React component that shows reading progress as a circle — like TechCrunch\'s article indicator. npm i circle-scroller',
     link: 'https://www.npmjs.com/package/circle-scroll/',
     badge: 'npm package',
@@ -24,7 +24,7 @@ const projects = [
   },
   {
     id: 'quick-counter',
-    title: 'Quick Counter',
+    title: 'NPM Package: Quick Counter',
     caption: 'Wrap any number and it counts up to it on page load. Configurable duration. npm i quick-count',
     link: 'https://www.npmjs.com/package/quick-count/',
     badge: 'npm package',
@@ -33,7 +33,7 @@ const projects = [
   },
   {
     id: 'kaprekar',
-    title: 'Kaprekar',
+    title: 'Rust Crate: Kaprekar',
     caption: "Kaprekar's constant is a fun (but useless) piece of math. Free, open-source Rust crate.",
     link: 'https://crates.io/crates/kaprekar',
     badge: 'rust crate',

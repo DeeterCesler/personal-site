@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './App.css'
 // Packages
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import ReactGA from 'react-ga4'
 // Components
 import Nav from './layout/Nav'
@@ -37,6 +37,12 @@ import ContactModal from './components/ContactModal'
 
 ReactGA.initialize('G-Z1TZ5MEDCR')
 
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  return null
+}
+
 function App() {
   useEffect(() => {
     generateConsoleName()
@@ -51,6 +57,7 @@ function App() {
         <ColorProvider>
         <ContactProvider>
         <div className="App">
+          <ScrollToTop />
           <Nav />
           <ContactModal />
           <Routes>

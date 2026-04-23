@@ -116,8 +116,11 @@
 
 /* ── Mobile: always show info ── */
 @media (max-width: 640px) {
-  .pg-card-title-bar {
-    display: none;
+  .pg-card-title-bar span {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .pg-card-panel {

@@ -11,21 +11,25 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
     const [isDark, setIsDark] = useState(() => {
-        const saved = localStorage.getItem('theme');
-        const prefersDark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
-        // Set immediately to prevent FOUC before first render
+        const prefersDark = mediaQuery.matches;
         document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
         document.body.style.backgroundColor = prefersDark ? '#06060c' : '#f2f0e8';
         return prefersDark;
     });
 
     useEffect(() => {
-        const theme = isDark ? 'dark' : 'light';
-        localStorage.setItem('theme', theme);
-        document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
         document.body.style.backgroundColor = isDark ? '#06060c' : '#f2f0e8';
     }, [isDark]);
+
+    useEffect(() => {
+        const handler = (e) => setIsDark(e.matches);
+        mediaQuery.addEventListener('change', handler);
+        return () => mediaQuery.removeEventListener('change', handler);
+    }, []);
 
     const toggleTheme = () => {
         setIsDark(prev => !prev);

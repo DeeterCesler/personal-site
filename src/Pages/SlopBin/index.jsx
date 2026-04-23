@@ -6,7 +6,7 @@ import './style.css';
 const projects = [
   {
     id: 'dungeon',
-    title: 'jQuery Game:Dungeon Crawler',
+    title: 'jQuery Game: Dungeon Crawler',
     caption: 'Browser-based dungeon crawler I built in boot camp while learning jQuery. Keyboard required — desktop only.',
     link: '/dungeon',
     badge: 'made in boot camp',
@@ -59,8 +59,8 @@ const SlopBin = () => {
   return (
     <div className="slop-bin">
       <div className="slop-bin-inner">
-        <h1 className="slop-bin-header">SLOP BIN</h1>
-        <p className="slop-bin-sub">stuff i made for fun, curiosity, or a weekend</p>
+        <h1 className="slop-bin-header" style={{ marginTop: '2rem' }}>SLOP BIN</h1>
+        <p className="slop-bin-sub">stuff i made for fun, curiosity, or on a weekend</p>
         <div className="slop-card-grid">
           {projects.map((project, i) => (
             <motion.div

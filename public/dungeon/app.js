@@ -347,7 +347,7 @@ const escapeCheck = () => {
 // =============================================================
 
 
-$(".instructions").append("<h2>Use the arrow keys (or W, A, S, and D) to move. <br/> Press space to attack. <br /> <br/> Collect coins, avoid (or fight) enemies, <br/> and escape through the door.</h2>")
+$(".instructions").append("<h2>Move with arrow keys, WASD, or the D-pad below. <br/> Press Space or ⚔ Attack to attack. <br /> <br/> Collect coins, avoid (or fight) enemies, <br/> and escape through the door.</h2>")
 
 
 // =============================================================

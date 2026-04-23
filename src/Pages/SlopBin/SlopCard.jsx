@@ -36,7 +36,7 @@ const SlopCard = ({ title, caption, link, badge, image, alt, placeholder }) => {
           <h3 className="slop-card-title-back">{title}</h3>
           <p className="slop-card-caption">{caption}</p>
           {link && (
-            <a href={link} target="_blank" rel="noopener noreferrer" className="slop-card-link">
+            <a href={link} target="_blank" rel="noopener noreferrer" className="slop-card-link" onClick={e => e.stopPropagation()} onTouchEnd={e => e.stopPropagation()}>
               open →
             </a>
           )}

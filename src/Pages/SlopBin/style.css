@@ -72,6 +72,10 @@
   opacity: 0.42;
 }
 
+.slop-card.flipped .slop-card-front {
+  pointer-events: none;
+}
+
 .slop-card-front,
 .slop-card-back {
   position: absolute;

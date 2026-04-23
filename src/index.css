@@ -9,33 +9,64 @@
 }
 
 /* ── Theme tokens ──────────────────────────────────────── */
-:root,
-[data-theme="dark"] {
-  --bg:               #06060c;
-  --bg-secondary:     #0e0e1a;
-  --bg-card:          rgba(255, 255, 255, 0.04);
-  --bg-glass:         rgba(6, 6, 12, 0.78);
 
-  --text:             #f0f0ea;
-  --text-muted:       rgba(240, 240, 234, 0.45);
-  --text-faint:       rgba(240, 240, 234, 0.25);
+/* Light default */
+:root {
+  --bg:               #f2f0e8;
+  --bg-secondary:     #e8e6de;
+  --bg-card:          rgba(0, 0, 0, 0.03);
+  --bg-glass:         rgba(242, 240, 232, 0.85);
 
-  --border:           rgba(255, 255, 255, 0.07);
-  --border-strong:    rgba(255, 255, 255, 0.18);
+  --text:             #1a1a2e;
+  --text-muted:       rgba(26, 26, 46, 0.5);
+  --text-faint:       rgba(26, 26, 46, 0.28);
 
-  --nav-bg:           rgba(6, 6, 12, 0.8);
-  --nav-border:       rgba(255, 255, 255, 0.06);
+  --border:           rgba(0, 0, 0, 0.08);
+  --border-strong:    rgba(0, 0, 0, 0.22);
 
-  --modal-bg:         #0e0e1a;
-  --modal-border:     rgba(255, 255, 255, 0.1);
+  --nav-bg:           rgba(242, 240, 232, 0.88);
+  --nav-border:       rgba(0, 0, 0, 0.07);
 
-  --wave-r: 255;
-  --wave-g: 255;
-  --wave-b: 255;
+  --modal-bg:         #ffffff;
+  --modal-border:     rgba(0, 0, 0, 0.1);
 
-  --icon-filter:      brightness(0) invert(1);
+  --wave-r: 0;
+  --wave-g: 0;
+  --wave-b: 0;
+
+  --icon-filter:      brightness(0);
 }
 
+/* System dark preference (before JS runs) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:               #06060c;
+    --bg-secondary:     #0e0e1a;
+    --bg-card:          rgba(255, 255, 255, 0.04);
+    --bg-glass:         rgba(6, 6, 12, 0.78);
+
+    --text:             #f0f0ea;
+    --text-muted:       rgba(240, 240, 234, 0.45);
+    --text-faint:       rgba(240, 240, 234, 0.25);
+
+    --border:           rgba(255, 255, 255, 0.07);
+    --border-strong:    rgba(255, 255, 255, 0.18);
+
+    --nav-bg:           rgba(6, 6, 12, 0.8);
+    --nav-border:       rgba(255, 255, 255, 0.06);
+
+    --modal-bg:         #0e0e1a;
+    --modal-border:     rgba(255, 255, 255, 0.1);
+
+    --wave-r: 255;
+    --wave-g: 255;
+    --wave-b: 255;
+
+    --icon-filter:      brightness(0) invert(1);
+  }
+}
+
+/* Explicit overrides from JS toggle */
 [data-theme="light"] {
   --bg:               #f2f0e8;
   --bg-secondary:     #e8e6de;
@@ -60,6 +91,32 @@
   --wave-b: 0;
 
   --icon-filter:      brightness(0);
+}
+
+[data-theme="dark"] {
+  --bg:               #06060c;
+  --bg-secondary:     #0e0e1a;
+  --bg-card:          rgba(255, 255, 255, 0.04);
+  --bg-glass:         rgba(6, 6, 12, 0.78);
+
+  --text:             #f0f0ea;
+  --text-muted:       rgba(240, 240, 234, 0.45);
+  --text-faint:       rgba(240, 240, 234, 0.25);
+
+  --border:           rgba(255, 255, 255, 0.07);
+  --border-strong:    rgba(255, 255, 255, 0.18);
+
+  --nav-bg:           rgba(6, 6, 12, 0.8);
+  --nav-border:       rgba(255, 255, 255, 0.06);
+
+  --modal-bg:         #0e0e1a;
+  --modal-border:     rgba(255, 255, 255, 0.1);
+
+  --wave-r: 255;
+  --wave-g: 255;
+  --wave-b: 255;
+
+  --icon-filter:      brightness(0) invert(1);
 }
 
 /* ── Base ──────────────────────────────────────────────── */

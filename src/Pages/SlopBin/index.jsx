@@ -8,7 +8,7 @@ const projects = [
     id: 'dungeon',
     title: 'Dungeon Crawler',
     caption: 'Browser-based dungeon crawler I built in boot camp while learning jQuery. Keyboard required — desktop only.',
-    link: '/work/dungeon',
+    link: '/dungeon',
     badge: 'made in boot camp',
     image: '/pics/dungeon.gif',
     alt: 'Dungeon Crawler game',

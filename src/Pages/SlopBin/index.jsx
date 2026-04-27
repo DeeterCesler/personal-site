@@ -10,7 +10,7 @@ const projects = [
     caption: 'Browser-based dungeon crawler I built in boot camp while learning jQuery. Keyboard required — desktop only.',
     link: '/dungeon',
     badge: 'made in boot camp',
-    image: '/pics/dungeon.gif',
+    image: '/pics/dungeon.webm',
     alt: 'Dungeon Crawler game',
   },
   {
@@ -19,7 +19,7 @@ const projects = [
     caption: 'React component that shows reading progress as a circle — like TechCrunch\'s article indicator. npm i circle-scroller',
     link: 'https://www.npmjs.com/package/circle-scroll/',
     badge: 'npm package',
-    image: '/pics/scroller.gif',
+    image: '/pics/scroller.webm',
     alt: 'Circle Scroller',
   },
   {

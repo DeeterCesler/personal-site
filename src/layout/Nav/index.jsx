@@ -52,9 +52,9 @@ const Nav = () => {
         <div className="nav-inner">
           <div className="nav-left">
             {notHome ? (
-              <a href={getBackUrl()} className="nav-back">
+              <Link to={getBackUrl()} className="nav-back">
                 ← {t('nav.back')}
-              </a>
+              </Link>
             ) : (
               <Link to="/" className="nav-wordmark">DC</Link>
             )}

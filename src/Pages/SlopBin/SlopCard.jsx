@@ -25,7 +25,10 @@ const SlopCard = ({ title, caption, link, badge, image, alt, placeholder }) => {
         ) : (
           <>
             <h3 className="slop-title-overlay">{title}</h3>
-            <img src={image} alt={alt} className="slop-card-img" />
+            {/\.webm$/.test(image)
+              ? <video src={image} autoPlay loop muted playsInline className="slop-card-img" />
+              : <img src={image} alt={alt} loading="lazy" className="slop-card-img" />
+            }
           </>
         )}
       </div>

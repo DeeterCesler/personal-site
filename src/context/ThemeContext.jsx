@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
 
 const ThemeContext = createContext();
 
@@ -11,10 +11,13 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const mediaQueryRef = useRef(null);
+    if (!mediaQueryRef.current) {
+        mediaQueryRef.current = window.matchMedia('(prefers-color-scheme: dark)');
+    }
 
     const [isDark, setIsDark] = useState(() => {
-        const prefersDark = mediaQuery.matches;
+        const prefersDark = mediaQueryRef.current.matches;
         document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
         document.body.style.backgroundColor = prefersDark ? '#06060c' : '#f2f0e8';
         return prefersDark;
@@ -26,9 +29,10 @@ export const ThemeProvider = ({ children }) => {
     }, [isDark]);
 
     useEffect(() => {
+        const mq = mediaQueryRef.current;
         const handler = (e) => setIsDark(e.matches);
-        mediaQuery.addEventListener('change', handler);
-        return () => mediaQuery.removeEventListener('change', handler);
+        mq.addEventListener('change', handler);
+        return () => mq.removeEventListener('change', handler);
     }, []);
 
     const toggleTheme = () => {

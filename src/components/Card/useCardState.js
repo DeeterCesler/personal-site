@@ -7,6 +7,7 @@ const useCardState = (rotationRange = 2) => {
 
   useEffect(() => {
     setRotation(Math.random() * rotationRange * 2 - rotationRange);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const transform = [

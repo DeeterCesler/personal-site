@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import WaveCanvas from "../components/WaveCanvas";
 import "./Blog.css";
 
@@ -32,19 +32,15 @@ const articles = [
 ];
 
 const Blog = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className="blog-page">
       <WaveCanvas />
       <div className="blog-page-content">
         <h1 className="blog-page-title">Writing</h1>
         <div className="article-list">
-          {articles.map((article, i) => (
+          {articles.map((article) => (
             <a
-              key={i}
+              key={article.href}
               className="article-card"
               href={article.href}
               target={article.external ? "_blank" : undefined}

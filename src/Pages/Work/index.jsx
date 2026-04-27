@@ -13,10 +13,10 @@ const Tech = () => {
 
     useEffect(() => {
         checkMobile();
-        
-        // Reset height on initial load if mobile
+
+        let timer;
         if (window.innerWidth <= 768) {
-            setTimeout(() => {
+            timer = setTimeout(() => {
                 const container = document.querySelector('.shadow-background-work');
                 if (container) {
                     container.style.height = 'auto';
@@ -27,8 +27,11 @@ const Tech = () => {
         }
 
         window.addEventListener('resize', checkMobile);
-        
-        return () => window.removeEventListener('resize', checkMobile);
+
+        return () => {
+            clearTimeout(timer);
+            window.removeEventListener('resize', checkMobile);
+        };
     }, []);
 
     const renderCards = (cards) => {
@@ -99,7 +102,7 @@ const Tech = () => {
         },
         {
             id: "68",
-            image: "/pics/cas2.gif",
+            image: "/pics/cas2.webm",
             alt: "Cascade",
             title: "Conference Game: Cascade Match",
             caption:
@@ -110,7 +113,7 @@ const Tech = () => {
     const copywritingCards = [
         {
             id: "7",
-            image: "/pics/chca.png",
+            image: "/pics/chca.jpg",
             alt: "CHCA Copywriting",
             title: "Web copy: CHCA Website",
             caption: "Working with Canned Spinach, I wrote the web copy for Cincinnati Hills Christian Academy website redesign.",

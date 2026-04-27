@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 const MoreBlogsFooter = ({shortRef}) => {
     const blogs = [
         {
@@ -47,9 +49,12 @@ const MoreBlogsFooter = ({shortRef}) => {
         }
     ]
 
-    const randomBlogs = blogs.sort(() => Math.random() - 0.5);
-    const filteredBlogs = randomBlogs.filter((blog) => blog.shortRef !== shortRef);
-    const limitedBlogs = filteredBlogs.slice(0, 3);
+    const limitedBlogs = useMemo(() =>
+        [...blogs].sort(() => Math.random() - 0.5)
+            .filter((blog) => blog.shortRef !== shortRef)
+            .slice(0, 3),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [shortRef]);
 
     return (
         <ul className="other">

@@ -1,0 +1,201 @@
+body {
+    background-color: black;
+}
+
+button {
+    background-color: #ff3300;
+    color: aliceblue;
+    font-family: 'Tillana', cursive;
+    font-size: 1em;
+    border-radius: 10px;
+    /* height: 50px; */
+    width: 100px;
+}
+
+button:hover {
+    background-color: #ff5c33;
+}
+
+.wrapper {
+    text-align: center;
+    font-family: 'Tillana', cursive;
+}
+
+div {
+    line-height: 0;
+}
+
+.instructions {
+    line-height: 2em;
+}
+
+.grid {
+    min-height: 400px;
+    min-width: 400px;
+}
+
+.cell {
+    display: inline-block;
+    background-image: url("img/dirt-floor.png");
+    background-size: contain;
+}
+
+.holder {
+    position: relative;
+}
+
+
+#snake-head{
+    position: relative;
+}
+
+.wall, .breakable-wall, .coin, #snake-head, .holder, .enem, .escape, .cell{
+    height: 20px;
+    width: 20px;
+}
+
+.wall{
+    background-color: black;
+}
+
+.score {
+    font-size: 2em;
+}
+
+img {
+    height: 20px;
+}
+
+#sword {
+    z-index: 1;
+}
+
+h1, h2, h3 {
+    color: white;
+}
+
+.game-area {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.dpad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    line-height: normal;
+}
+
+.dpad-middle-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    line-height: normal;
+}
+
+.dpad-center {
+    width: 50px;
+    height: 50px;
+    background-color: #222;
+    border-radius: 4px;
+}
+
+.dpad-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.dpad-attack {
+    width: 120px;
+    margin-top: 8px;
+    font-size: 1em;
+}
+
+@media (max-width: 480px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .wrapper {
+        padding: 0 8px;
+    }
+
+    .game-area {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .grid {
+        min-height: 0;
+        min-width: 0;
+    }
+
+    .wall, .breakable-wall, .coin, #snake-head, .holder, .enem, .enemy, .escape, .cell {
+        height: 17px;
+        width: 17px;
+    }
+
+    img {
+        height: 17px;
+    }
+
+    .dpad-btn {
+        width: 64px;
+        height: 64px;
+        font-size: 1.5em;
+        border-radius: 8px;
+    }
+
+    .dpad-center {
+        width: 64px;
+        height: 64px;
+    }
+
+    .dpad-middle-row {
+        gap: 8px;
+    }
+
+    .dpad {
+        gap: 8px;
+    }
+
+    .dpad-attack {
+        width: 160px;
+        height: 56px;
+        font-size: 1.1em;
+        margin-top: 10px;
+    }
+
+    .instructions h2 {
+        font-size: 0.8em;
+        line-height: 1.6em;
+    }
+
+    button {
+        width: auto;
+        padding: 0 16px;
+        height: 48px;
+    }
+}
+
+@media (max-width: 350px) {
+    .wall, .breakable-wall, .coin, #snake-head, .holder, .enem, .enemy, .escape, .cell {
+        height: 15px;
+        width: 15px;
+    }
+
+    img {
+        height: 15px;
+    }
+}

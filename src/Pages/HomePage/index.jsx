@@ -25,7 +25,7 @@ const projects = [
   },
   {
     id: '3',
-    image: '/pics/chca.png',
+    image: '/pics/chca.jpg',
     alt: 'CHCA',
     title: 'Web copy: CHCA Website',
     caption: 'Copywriting and website redesign for Cincinnati Hills Christian Academy.',

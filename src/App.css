@@ -273,7 +273,7 @@ body::before {
 
 .background {
   background-size: cover;
-  background-repeat: none;
+  background-repeat: no-repeat;
   z-index: -1;
   min-height: 105vh;
 }
@@ -290,7 +290,7 @@ body::before {
 .home {
   background-color: transparent;
   background-size: cover;
-  background-repeat: none;
+  background-repeat: no-repeat;
   min-height: 100vh;
 }
 
@@ -371,7 +371,7 @@ body::before {
   background-color: var(--bg);
   color: var(--text);
   background-size: cover;
-  background-repeat: none;
+  background-repeat: no-repeat;
   height: 100%;
 }
 
@@ -438,7 +438,7 @@ body::before {
 }
 
 .bold {
-  font-weight: 650;
+  font-weight: 600;
   font-size: 1.8em;
 }
 
@@ -471,10 +471,6 @@ body::before {
   .header {
     font-size: 3.5rem;
   }
-}
-
-.tiny-spacer {
-  padding: 5px;
 }
 
 @media only screen and (min-width: 1000px) {
@@ -542,7 +538,7 @@ body::before {
 
 .white {
   color: white;
-  font-weight: 650;
+  font-weight: 600;
   text-decoration: underline;
 }
 

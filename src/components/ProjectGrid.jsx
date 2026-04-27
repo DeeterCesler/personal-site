@@ -11,7 +11,7 @@ const ProjectCard = ({ image, alt, title, caption, link }) => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <img src={image} alt={alt} className="pg-card-img" />
+      <img src={image} alt={alt} className="pg-card-img" loading="lazy" />
 
       {/* Always-visible title strip */}
       <div className="pg-card-title-bar">

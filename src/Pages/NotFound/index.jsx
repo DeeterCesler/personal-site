@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import WaveCanvas from "../../components/WaveCanvas";
 import "./style.css";
@@ -14,7 +15,7 @@ const NotFound = () => {
                 <h3>{t('notFound.subtitle')}</h3>
                 <p>{t('notFound.description')}</p>
                 <p>{t('notFound.description2')}</p>
-                <a href="/">{t('notFound.link')}</a>
+                <Link to="/">{t('notFound.link')}</Link>
             </div>
         </div>
     )

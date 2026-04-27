@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Card from './Card/Card';
 
 const Carousel = ({ children, containerWidth }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -168,26 +167,11 @@ const Carousel = ({ children, containerWidth }) => {
   };
 
   if (!showNavigation) {
-    // Show all cards in grid layout when no navigation needed
     return (
       <div className="flex flex-wrap items-center justify-center gap-5 p-4">
-        {React.Children.map(children, (child, index) => {
-          if (React.isValidElement(child)) {
-            const { image, alt, style, title, caption, link } = child.props;
-            return (
-              <Card
-                key={index}
-                image={image}
-                alt={alt}
-                style={style}
-                title={title}
-                caption={caption}
-                link={link}
-              />
-            );
-          }
-          return child;
-        })}
+        {React.Children.map(children, child =>
+          React.isValidElement(child) ? child : null
+        )}
       </div>
     );
   } else return (
@@ -206,48 +190,33 @@ const Carousel = ({ children, containerWidth }) => {
       >
         <AnimatePresence mode="wait">
           {React.Children.map(children, (child, index) => {
-            if (React.isValidElement(child)) {
-              const { image, alt, style, title, caption, link } = child.props;
-              const cardStyle = getCardStyle(index);
-
-              return (
-                <motion.div
-                  key={index}
-                  className="absolute"
-                  initial={false}
-                  animate={{
-                    x: cardStyle.x,
-                    opacity: cardStyle.opacity,
-                    scale: cardStyle.scale
-                  }}
-                  transition={{
-                    duration: 0.5,
-                    ease: "easeInOut"
-                  }}
-                  style={{
-                    zIndex: cardStyle.zIndex,
-                    width: containerWidth <= 640 ? Math.min(300, containerWidth - 40) : '300px',
-                    height: '400px'
-                  }}
-                >
-                  <Card
-                    image={image}
-                    alt={alt}
-                    style={{
-                      ...style,
-                      width: containerWidth <= 640 ? Math.min(300, containerWidth - 40) : '300px',
-                      height: '400px',
-                      minWidth: containerWidth <= 640 ? Math.min(300, containerWidth - 40) : '300px',
-                      maxWidth: containerWidth <= 640 ? Math.min(300, containerWidth - 40) : '300px'
-                    }}
-                    title={title}
-                    caption={caption}
-                    link={link}
-                  />
-                </motion.div>
-              );
-            }
-            return null;
+            if (!React.isValidElement(child)) return null;
+            const cardStyle = getCardStyle(index);
+            const mobileWidth = containerWidth <= 640 ? Math.min(300, containerWidth - 40) : '300px';
+            return (
+              <motion.div
+                key={child.key ?? index}
+                className="absolute"
+                initial={false}
+                animate={{
+                  x: cardStyle.x,
+                  opacity: cardStyle.opacity,
+                  scale: cardStyle.scale
+                }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                style={{ zIndex: cardStyle.zIndex, width: mobileWidth, height: '400px' }}
+              >
+                {React.cloneElement(child, {
+                  style: {
+                    ...child.props.style,
+                    width: mobileWidth,
+                    height: '400px',
+                    minWidth: mobileWidth,
+                    maxWidth: mobileWidth,
+                  }
+                })}
+              </motion.div>
+            );
           })}
         </AnimatePresence>
       </div>

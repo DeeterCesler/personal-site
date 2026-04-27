@@ -76,18 +76,15 @@ export const ColorProvider = ({ children }) => {
     const [colors, setColors] = useState(cardBackgroundColors);
 
     const getRandomColor = () => {
-        const randomIndex = Math.floor(Math.random() * colors.length);
-        const randomColor = colors[randomIndex];
-        if (randomColor.inUse) {
-            return getRandomColor();
-        } else {
-            randomColor.inUse = true;
-            return randomColor;
-        }
+        const available = colors.filter(c => !c.inUse);
+        const pool = available.length > 0 ? available : colors;
+        const randomColor = pool[Math.floor(Math.random() * pool.length)];
+        setColors(prev => prev.map(c => c.hex === randomColor.hex ? { ...c, inUse: true } : c));
+        return randomColor;
     };
 
     const releaseColor = (color) => {
-        color.inUse = false;
+        setColors(prev => prev.map(c => c.hex === color.hex ? { ...c, inUse: false } : c));
     };
 
     return <ColorContext.Provider value={{ colors, setColors, getRandomColor, releaseColor }}>{children}</ColorContext.Provider>;

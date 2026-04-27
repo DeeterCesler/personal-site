@@ -5,7 +5,7 @@ import './psychedelic.css';
 const PsychedelicBackground = ({children}) => {
   const { isDark } = useTheme();
   const [hues, setHues] = useState([Math.floor(Math.random() * 360), Math.floor(Math.random() * 360)]); // Array of two hues
-  const [step, setStep] = useState(() => Math.floor(Math.random() * 1) + 1); // Random step initialization
+  const [step, setStep] = useState(() => Math.floor(Math.random() * 3) + 1);
 
   useEffect(() => {
     const updateColors = () => {
@@ -22,7 +22,7 @@ const PsychedelicBackground = ({children}) => {
       });
 
       setHues(newHues);
-      setStep(Math.floor(Math.random()) + 1);
+      setStep(Math.floor(Math.random() * 3) + 1);
     };
 
     const intervalId = setInterval(updateColors, 32);

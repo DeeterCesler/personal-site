@@ -13,7 +13,8 @@ const Card = ({ image = "/pics/code.jpg", alt, style, title, caption, link, cta 
         const color = getRandomColor();
         setColor(color);
         return () => releaseColor(color);
-    }, [getRandomColor, releaseColor]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <div
@@ -33,7 +34,7 @@ const Card = ({ image = "/pics/code.jpg", alt, style, title, caption, link, cta 
             <div className="card-front" onClick={() => setIsFlipped(!isFlipped)}>
                 <h2 className="card-title-overlay">{title}</h2>
                 {/\.webm$/.test(image)
-                    ? <video src={image} autoPlay loop muted playsInline style={{ maxHeight: '200px', width: '100%' }} />
+                    ? <video src={image} autoPlay loop muted playsInline />
                     : <img src={image} alt={alt} loading="lazy" style={{ maxHeight: '200px', width: '100%' }} />
                 }
             </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../context/ThemeContext';
 import { useContact } from '../../context/ContactContext';
@@ -31,6 +31,7 @@ const MoonIcon = () => (
 const Nav = () => {
   const [notHome, setNotHome] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const { isDark, toggleTheme } = useTheme();
   const { openContact } = useContact();
@@ -43,8 +44,17 @@ const Nav = () => {
     );
   }, [location.pathname]);
 
-  const getBackUrl = () =>
+  const getFallbackUrl = () =>
     location.pathname.startsWith('/blog/') ? '/blog' : '/';
+
+  const handleBack = (e) => {
+    e.preventDefault();
+    if (window.history.state?.idx > 0) {
+      navigate(-1);
+    } else {
+      navigate(getFallbackUrl(), { replace: true });
+    }
+  };
 
   return (
     <>
@@ -52,9 +62,9 @@ const Nav = () => {
         <div className="nav-inner">
           <div className="nav-left">
             {notHome ? (
-              <Link to={getBackUrl()} className="nav-back">
+              <a href={getFallbackUrl()} onClick={handleBack} className="nav-back">
                 ← {t('nav.back')}
-              </Link>
+              </a>
             ) : (
               <Link to="/" className="nav-wordmark">DC</Link>
             )}

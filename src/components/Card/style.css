@@ -20,7 +20,8 @@
     transform-origin: center;
 }
 
-.card img {
+.card img,
+.card video {
     border-radius: 11px;
     min-height: 390px;
     width: 100%;

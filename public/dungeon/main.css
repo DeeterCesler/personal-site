@@ -127,7 +127,7 @@ h1, h2, h3 {
     }
 
     .wrapper {
-        padding: 0 8px;
+        padding: 0;
     }
 
     .game-area {

@@ -1,1 +1,0 @@
-import{n as e,s as t}from"./jsx-runtime-DTJ6URaS.js";var n=t(e()),r=(e=2)=>{let[t,r]=(0,n.useState)(!1),[i,a]=(0,n.useState)(!1),[o,s]=(0,n.useState)(0);return(0,n.useEffect)(()=>{s(Math.random()*e*2-e)},[]),{isFlipped:t,setIsFlipped:r,isHovered:i,setIsHovered:a,transform:[`rotate(${o}deg)`,t?`rotateY(180deg)`:``,i&&!t?`scale(1.05)`:``].filter(Boolean).join(` `)}};export{r as t};

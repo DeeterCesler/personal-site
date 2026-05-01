@@ -40,6 +40,15 @@ const projects = [
     image: '/pics/code.jpg',
     alt: 'Kaprekar Rust crate',
   },
+  {
+    id: 'chiasm-builder',
+    title: 'Chiasm Builder',
+    caption: 'Interactive tool for building and visualizing chiastic structures in biblical texts: color-coded, indented, and shareable.',
+    link: 'https://splendid-selkie-d0f26a.netlify.app/',
+    badge: 'web tool',
+    image: '/pics/chiasm.png',
+    alt: 'Chiasm Builder showing Genesis flood narrative chiastic structure',
+  },
 ];
 
 const cardVariants = {

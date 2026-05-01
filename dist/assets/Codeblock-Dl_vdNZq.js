@@ -1,1 +1,0 @@
-import{n as e,t}from"./jsx-runtime-DTJ6URaS.js";e();var n=t(),r=e=>(0,n.jsx)(n.Fragment,{children:e.inline?(0,n.jsx)(`pre`,{style:{display:`inline`},children:(0,n.jsx)(`span`,{className:`code`,style:{padding:3},children:e.children})}):(0,n.jsx)(`pre`,{children:(0,n.jsx)(`p`,{className:`code`,children:e.children})})});export{r as t};

@@ -75,6 +75,14 @@
 
 .slop-card.flipped .slop-card-front {
   pointer-events: none;
+  visibility: hidden;
+  transition: visibility 0s linear 0.11s;
+}
+
+.slop-card:not(.flipped) .slop-card-back {
+  visibility: hidden;
+  transition: visibility 0s linear 0.11s;
+  pointer-events: none;
 }
 
 .slop-card-front,
@@ -108,7 +116,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 2;
+
   margin: 0;
   padding: 20px;
   font-size: 1.05rem;

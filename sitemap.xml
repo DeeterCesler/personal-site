@@ -14,6 +14,10 @@
   </url>
   <url>
     <loc>https://www.deetercesler.com/slop</loc>
+    <lastmod>2026-05-02</lastmod>
+  </url>
+  <url>
+    <loc>https://www.deetercesler.com/dungeon</loc>
     <lastmod>2026-04-22</lastmod>
   </url>
   <url>
@@ -21,39 +25,39 @@
     <lastmod>2025-04-16</lastmod>
   </url>
   <url>
-    <loc>https://www.deetercesler.com/junior</loc>
+    <loc>https://www.deetercesler.com/blog/junior</loc>
     <lastmod>2022-03-28</lastmod>
   </url>
   <url>
-    <loc>https://www.deetercesler.com/startups-vs-big-tech</loc>
+    <loc>https://www.deetercesler.com/blog/startups-vs-big-tech</loc>
     <lastmod>2022-03-28</lastmod>
   </url>
   <url>
-    <loc>https://www.deetercesler.com/security</loc>
+    <loc>https://www.deetercesler.com/blog/security</loc>
     <lastmod>2022-03-28</lastmod>
   </url>
   <url>
-    <loc>https://www.deetercesler.com/senior</loc>
+    <loc>https://www.deetercesler.com/blog/senior</loc>
     <lastmod>2022-03-28</lastmod>
   </url>
   <url>
-    <loc>https://www.deetercesler.com/immutability</loc>
+    <loc>https://www.deetercesler.com/blog/immutability</loc>
     <lastmod>2025-04-09</lastmod>
   </url>
   <url>
-    <loc>https://www.deetercesler.com/bdd</loc>
+    <loc>https://www.deetercesler.com/blog/bdd</loc>
     <lastmod>2025-04-09</lastmod>
   </url>
   <url>
-    <loc>https://www.deetercesler.com/tdd</loc>
+    <loc>https://www.deetercesler.com/blog/tdd</loc>
     <lastmod>2025-04-16</lastmod>
   </url>
   <url>
-    <loc>https://www.deetercesler.com/looping</loc>
+    <loc>https://www.deetercesler.com/blog/looping</loc>
     <lastmod>2025-04-09</lastmod>
   </url>
   <url>
-    <loc>https://www.deetercesler.com/bootstrap-flexbox-css-grid</loc>
+    <loc>https://www.deetercesler.com/blog/bootstrap-flexbox-css-grid</loc>
     <lastmod>2025-04-09</lastmod>
   </url>
 </urlset>

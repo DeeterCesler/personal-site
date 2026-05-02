@@ -63,6 +63,7 @@
   position: relative;
   width: 260px;
   height: 340px;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   transition: transform 0.22s ease-out;
   cursor: pointer;
@@ -80,6 +81,7 @@
 .slop-card-back {
   position: absolute;
   inset: 0;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: var(--card-radius, 6px);
   overflow: hidden;

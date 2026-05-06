@@ -10,7 +10,7 @@ const projects = [
         alt: "prayer",
         title: "iOS App: Prayer Groups",
         caption:
-            "iOS App recently released (and still updating). It's a simple app to help you pray with your friends in groups.",
+            "iOS App recently released. It's a simple app to help you pray with your friends in groups. Still actively updating it, adding tweaks and new features regularly.",
         link: "https://apps.apple.com/us/app/prayer-groups/id6759305922",
         cta: "View on App Store",
     },
@@ -38,7 +38,7 @@ const Now = () => {
                     <div className="container now">
                         <h1 className="header">NOW</h1>
                         <div className="mini-spacer"/>
-                        <p><i>Updated Apr 22, 2026</i></p>
+                        <p><i>Updated May 5, 2026</i></p>
                         <div className="mini-spacer"/>
                         <div className="mini-spacer"/>
                     <div className="main-text">

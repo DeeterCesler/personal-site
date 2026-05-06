@@ -26,3 +26,6 @@ yarn-error.log*
 # Claude
 CLAUDE.md
 TODO.md
+
+# Local tools
+gif-maker/

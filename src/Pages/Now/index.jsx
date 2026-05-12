@@ -5,14 +5,12 @@ import './style.css'
 
 const projects = [
     {
-        id: "3",
-        image: "/pics/prayer-app-icon-zoomed.png",
-        alt: "prayer",
-        title: "iOS App: Prayer Groups",
+        id: "5",
+        image: "/pics/marco-icon.png",
+        alt: "Marco Polo Tag",
+        title: "Mobile App: Marco Polo Tag",
         caption:
-            "iOS App recently released. It's a simple app to help you pray with your friends in groups. Still actively updating it, adding tweaks and new features regularly.",
-        link: "https://apps.apple.com/us/app/prayer-groups/id6759305922",
-        cta: "View on App Store",
+            "Building a real-world tag game for mobile. Players join as Hunter or Hunted and use live GPS, maps, and a compass to track each other down in real time.",
     },
     {
         id: "2",
@@ -38,7 +36,7 @@ const Now = () => {
                     <div className="container now">
                         <h1 className="header">NOW</h1>
                         <div className="mini-spacer"/>
-                        <p><i>Updated May 5, 2026</i></p>
+                        <p><i>Updated May 11, 2026</i></p>
                         <div className="mini-spacer"/>
                         <div className="mini-spacer"/>
                     <div className="main-text">

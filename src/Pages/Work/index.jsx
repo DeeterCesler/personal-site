@@ -93,6 +93,14 @@ const Tech = () => {
             link: "https://apps.apple.com/us/app/norse-flashcards/id6743998805?l=es-MX&platform=iphone"
         },
         {
+            id: "3",
+            image: "/pics/prayer-app-icon-zoomed.png",
+            alt: "prayer",
+            title: "iOS App: Prayer Groups",
+            caption: "A simple app to help you pray with your friends in groups. Available on the App Store.",
+            link: "https://apps.apple.com/us/app/prayer-groups/id6759305922",
+        },
+        {
             id: "67",
             image: "/pics/swater.png",
             alt: "smartwater",

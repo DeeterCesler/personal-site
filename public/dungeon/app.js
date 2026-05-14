@@ -21,7 +21,7 @@ const buildGrid = (height, width) => {
 
 const imageFill = () => {
     $(".coin").append("<img src='img/coin.png'>");
-    $(".enemy").append("<img class='skelly' src='img/skeleton.jpg'>");
+    $(".enemy").append("<img class='skelly' src='img/skeleton'>");
     $(".wall").append("<img src='img/wall.png'>");
     $(".breakable-wall").append("<img src='img/broken-wall.png'>");
     $(".escape").append("<img src='img/door.png'>");
@@ -391,7 +391,7 @@ class Enemy {
                     console.log("SIBS");
                     $("#sword").remove();
                 }
-                $(".enemy").append("<img class='skelly' src='img/skeleton.jpg'>");
+                $(".enemy").append("<img class='skelly' src='img/skeleton'>");
                 if(newEnemyPosition === "#" + $("#snake-head").parent().parent().attr("id")){
                     console.log("samesies");
                     gameOver();

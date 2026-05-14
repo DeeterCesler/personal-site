@@ -38,7 +38,9 @@ const SlopCard = ({ title, caption, link, badge, image, alt, placeholder }) => {
         <div className="slop-card-back-inner">
           {badge && <span className="slop-badge">{badge}</span>}
           <h3 className="slop-card-title-back">{title}</h3>
-          <p className="slop-card-caption">{caption}</p>
+          {Array.isArray(caption)
+            ? <ul className="slop-card-caption slop-card-caption-list">{caption.map((item, i) => <li key={i}>{item}</li>)}</ul>
+            : <p className="slop-card-caption">{caption}</p>}
           {link && (
             link.startsWith('/')
               ? <Link to={link} className="slop-card-link" onClick={e => e.stopPropagation()} onTouchEnd={e => e.stopPropagation()}>open →</Link>

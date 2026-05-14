@@ -143,24 +143,6 @@
   letter-spacing: 0.2em;
 }
 
-/* Back: crumpled paper texture + dark ink text */
-.slop-card-back {
-  transform: rotateY(180deg);
-  background:
-    linear-gradient(160deg, rgba(245,232,195,0.42) 0%, rgba(232,215,168,0.48) 100%),
-    url('/pics/paper-texture.avif') center / cover;
-  color: #2a1f0e;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  text-align: center;
-  box-shadow:
-    4px 6px 18px rgba(0, 0, 0, 0.65),
-    1px 2px 4px rgba(0, 0, 0, 0.32);
-}
-
-
 .slop-badge {
   font-size: 10px;
   font-weight: 700;
@@ -199,9 +181,12 @@
   align-self: flex-end;
 }
 
-/* Colorful back */
+/* Back: crumpled paper texture + dark ink text */
 .slop-card-back {
   transform: rotateY(180deg);
+  background:
+    linear-gradient(160deg, rgba(245,232,195,0.42) 0%, rgba(232,215,168,0.48) 100%),
+    url('/pics/paper-texture.avif') center / cover;
   color: #111;
   display: flex;
   align-items: center;
@@ -231,6 +216,16 @@
   line-height: 1.6;
   color: #4a3820;
   margin: 0;
+}
+
+.slop-card-caption-list {
+  padding-left: 1.1em;
+  list-style: disc;
+  text-align: left;
+}
+
+.slop-card-caption-list li {
+  margin-bottom: 2px;
 }
 
 .slop-card-link {

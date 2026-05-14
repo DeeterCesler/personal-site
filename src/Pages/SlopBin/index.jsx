@@ -5,6 +5,19 @@ import './style.css';
 
 const projects = [
   {
+    id: 'color-qr',
+    title: 'Color QR',
+    caption: [
+      'Embed pixel art into a scannable QR',
+      'Colorize QRs with custom palettes for branding',
+      'Dual-channel encoding packs two messages into a single code',
+      'Custom 4-color protocol fits 2x more data per cell than black-and-white QR',
+    ],
+    badge: 'experiment',
+    image: '/pics/color-qr.png',
+    alt: 'ColorCode multi-color QR generator',
+  },
+  {
     id: 'dungeon',
     title: 'jQuery Game: Dungeon Crawler',
     caption: 'Browser-based dungeon crawler I built in boot camp while learning jQuery. Keyboard required — desktop only.',

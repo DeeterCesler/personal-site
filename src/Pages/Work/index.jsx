@@ -70,6 +70,14 @@ const Tech = () => {
 
     const techCards = [
         {
+            id: "3",
+            image: "/pics/prayer-app-icon-zoomed.png",
+            alt: "prayer",
+            title: "iOS App: Prayer Groups",
+            caption: "A simple app to help you pray with your friends in groups. Available on the App Store.",
+            link: "https://apps.apple.com/us/app/prayer-groups/id6759305922",
+        },
+        {
             id: "6",
             image: "/pics/narratize.png",
             alt: "Narratize",
@@ -91,14 +99,6 @@ const Tech = () => {
             title: "iOS App: Norse Flashcards",
             caption: "Learn the old Norse runic alphabet for free. It's available on the App Store and is totally open-sourced.",
             link: "https://apps.apple.com/us/app/norse-flashcards/id6743998805?l=es-MX&platform=iphone"
-        },
-        {
-            id: "3",
-            image: "/pics/prayer-app-icon-zoomed.png",
-            alt: "prayer",
-            title: "iOS App: Prayer Groups",
-            caption: "A simple app to help you pray with your friends in groups. Available on the App Store.",
-            link: "https://apps.apple.com/us/app/prayer-groups/id6759305922",
         },
         {
             id: "67",

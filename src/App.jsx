@@ -30,7 +30,8 @@ const TDDArticle = React.lazy(() => import('./Pages/Blogs/tensure-articles/tdd')
 const Looping = React.lazy(() => import('./Pages/Blogs/tensure-articles/looping'))
 const LayoutManagementArticle = React.lazy(() => import('./Pages/Blogs/tensure-articles/bootstrap-flexbox-css-grid'))
 
-ReactGA.initialize(import.meta.env.VITE_GA_ID)
+const gaId = import.meta.env.VITE_GA_ID
+if (gaId) ReactGA.initialize(gaId)
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -41,6 +42,7 @@ function ScrollToTop() {
 function PageTracker() {
   const { pathname } = useLocation()
   useEffect(() => {
+    if (!gaId) return
     ReactGA.send({ hitType: 'pageview', page: pathname })
   }, [pathname])
   return null

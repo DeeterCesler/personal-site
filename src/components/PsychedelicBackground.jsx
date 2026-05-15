@@ -1,34 +1,36 @@
-import React, { useState, useEffect } from 'react';
+// DO NOT DELETE: kept intentionally for future use even when no page imports it.
+// If you "clean up unused components," skip this one.
+import React, { useEffect, useRef, useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import './psychedelic.css';
 
-const PsychedelicBackground = ({children}) => {
+const randHue = () => Math.floor(Math.random() * 360);
+const randStep = () => Math.floor(Math.random() * 3) + 1;
+
+const PsychedelicBackground = ({ children }) => {
   const { isDark } = useTheme();
-  const [hues, setHues] = useState([Math.floor(Math.random() * 360), Math.floor(Math.random() * 360)]); // Array of two hues
-  const [step, setStep] = useState(() => Math.floor(Math.random() * 3) + 1);
+  const [hues, setHues] = useState(() => [randHue(), randHue()]);
+  const huesRef = useRef(hues);
+  const stepRef = useRef(randStep());
 
   useEffect(() => {
-    const updateColors = () => {
-      const newHues = hues.map((hue, index) => {
-        const targetHue = index === 0 ? hues[1] : hues[0]; // Alternate target hues
-        const newHue = (hue + step) % 360;
-        const distance = Math.abs(newHue - targetHue);
+    huesRef.current = hues;
+  }, [hues]);
 
-        if (distance < step) {
-          return targetHue;
-        } else {
-          return newHue;
-        }
+  useEffect(() => {
+    const id = setInterval(() => {
+      const [h0, h1] = huesRef.current;
+      const s = stepRef.current;
+      const next = [h0, h1].map((hue, i) => {
+        const target = i === 0 ? h1 : h0;
+        const newHue = (hue + s) % 360;
+        return Math.abs(newHue - target) < s ? target : newHue;
       });
-
-      setHues(newHues);
-      setStep(Math.floor(Math.random() * 3) + 1);
-    };
-
-    const intervalId = setInterval(updateColors, 32);
-
-    return () => clearInterval(intervalId);
-  }, [hues, step]);
+      stepRef.current = randStep();
+      setHues(next);
+    }, 32);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <div className="psychedelic-background" style={{

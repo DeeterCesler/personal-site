@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useRef } from 'react';
+import { createContext, useContext, useEffect, useState, useRef } from 'react';
 
 const ContactContext = createContext(null);
 
@@ -6,6 +6,8 @@ export const ContactProvider = ({ children }) => {
   const [open, setOpen] = useState(false);
   const [closing, setClosing] = useState(false);
   const timerRef = useRef(null);
+
+  useEffect(() => () => clearTimeout(timerRef.current), []);
 
   const openContact = () => setOpen(true);
   const closeContact = () => {

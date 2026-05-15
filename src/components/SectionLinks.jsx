@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import './SectionLinks.css';
@@ -13,6 +13,9 @@ const SectionLinks = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [overlay, setOverlay] = useState({ active: false, x: '50%', y: '50%' });
+  const navTimerRef = useRef(null);
+
+  useEffect(() => () => clearTimeout(navTimerRef.current), []);
 
   const handleClick = () => {
     if (navigator.vibrate) {
@@ -24,7 +27,8 @@ const SectionLinks = () => {
     const x = `${e.clientX}px`;
     const y = `${e.clientY}px`;
     setOverlay({ active: true, x, y });
-    setTimeout(() => navigate('/slop'), 520);
+    clearTimeout(navTimerRef.current);
+    navTimerRef.current = setTimeout(() => navigate('/slop'), 520);
   };
 
   return (

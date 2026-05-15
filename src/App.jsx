@@ -29,6 +29,7 @@ const Bdd = React.lazy(() => import('./Pages/Blogs/tensure-articles/bdd'))
 const TDDArticle = React.lazy(() => import('./Pages/Blogs/tensure-articles/tdd'))
 const Looping = React.lazy(() => import('./Pages/Blogs/tensure-articles/looping'))
 const LayoutManagementArticle = React.lazy(() => import('./Pages/Blogs/tensure-articles/bootstrap-flexbox-css-grid'))
+const Psychedelic = React.lazy(() => import('./Pages/Psychedelic'))
 
 const gaId = import.meta.env.VITE_GA_ID
 if (gaId) ReactGA.initialize(gaId)
@@ -82,6 +83,7 @@ function App() {
                   <Route path="/dungeon" element={<Dungeon />} />
                   <Route path="/slop" element={<SlopBin />} />
                   <Route path="/now" element={<Now />} />
+                  <Route path="/psychedelic" element={<Psychedelic />} />
                   <Route path="/norse/privacy" element={<NorsePrivacy />} />
                   <Route path="/grouppray/privacy" element={<GroupPrayPrivacy />} />
                   <Route path="/notfound" element={<NotFound />} />

@@ -15,7 +15,7 @@ const BlogContainer = (props) => {
                         {props.children}
                     </div>
                 </Scroller>
-                <div style={{backgroundColor: 'white', width: '100%', height: '2px'}} />
+                <div className="blog-divider" />
                 <div className="mini-spacer"/>
                 <h2>Other Blogs</h2>
                 <br/>

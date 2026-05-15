@@ -17,3 +17,20 @@
         top: 3.1rem;
     }
 }
+
+.blog-container .header,
+.blog-container .author,
+.blog-container .published-date,
+.blog-container > h2 {
+    max-width: 72ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blog-divider {
+    width: 100%;
+    max-width: 72ch;
+    height: 1px;
+    background: var(--border);
+    margin: 1rem auto;
+}

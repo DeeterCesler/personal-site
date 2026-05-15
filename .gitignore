@@ -14,6 +14,7 @@
 
 # misc
 .DS_Store
+.env
 .env.local
 .env.development.local
 .env.test.local
@@ -26,6 +27,7 @@ yarn-error.log*
 # Claude
 CLAUDE.md
 TODO.md
+code-audit.md
 
 # Local tools
 gif-maker/

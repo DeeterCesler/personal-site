@@ -15,6 +15,13 @@
   justify-content: space-between;
 }
 
+.site-footer-inner .icons {
+  margin-top: 0;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
 .footer-contact-btn {
   background: none;
   border: none;

@@ -570,6 +570,16 @@ body::before {
   opacity: 1;
 }
 
+@media (max-width: 480px) {
+  .icons img {
+    height: 1.25rem;
+    margin: 0 0.7rem;
+  }
+  .icons img:first-child {
+    margin-left: 0;
+  }
+}
+
 .blog-text {
   border-radius: 40px;
   padding: 2rem;

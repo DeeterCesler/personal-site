@@ -1,10 +1,11 @@
 import React from "react";
 import BlogContainer from "../../../components/BlogContainer";
-import PsychedelicBackground from "../../../components/PsychedelicBackground";
+import WaveCanvas from "../../../components/WaveCanvas";
 
 const LoopingArticle = () => {
     return (
-        <PsychedelicBackground>
+        <>
+            <WaveCanvas />
             <BlogContainer title="Everything You Need to Know About Looping in JavaScript" host="Tensure.io" author="Deeter Cesler" publishedDate="October 5, 2021" shortRef="looping">
                 <p>Looping is one of the first things you learn as a programmer. It's not just "for" and "while" loops. You've got more options for looping than you'll probably want to know about.</p>
                 <p>Let's take a look.</p>
@@ -56,7 +57,7 @@ const LoopingArticle = () => {
                 <p>Of course, there are many more clever tricks you can use to iterate, manipulate, and search through arrays (e.g. <code>reduce()</code>, <code>values()</code>, <code>Object.keys()</code>, <code>find()</code>) but they all require a bit more complexity than you typically need.</p>
                 <p>The loops and methods here are your fundamentals, and will likely make up 99% of all the looping you'll do.</p>
             </BlogContainer>
-        </PsychedelicBackground>
+        </>
     );
 }
 

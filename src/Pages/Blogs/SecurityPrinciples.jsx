@@ -1,11 +1,12 @@
 import React from "react";
 import BlogContainer from "../../components/BlogContainer";
-import PsychedelicBackground from "../../components/PsychedelicBackground";
+import WaveCanvas from "../../components/WaveCanvas";
 
 const SecurityPrinciples = () => {
     return(
-        <PsychedelicBackground>
-            <BlogContainer title="8 Security Principles EVERY Software Dev Should Know" shortRef="security">
+        <>
+            <WaveCanvas />
+            <BlogContainer title="8 Security Principles EVERY Software Dev Should Know" publishedDate="August 31, 2022" shortRef="security">
                 <p>It doesn't matter if you're frontend, backend, or a DevOps engineer. You should know these fundamentals.</p>
                 <h3>1. SQL injections: the Most Common Attack</h3>
                 <p>Cyber attacks are so hot right now. SQL injections are the most common kind. It's an attempt to send commands directly to your database.</p>
@@ -38,7 +39,7 @@ const SecurityPrinciples = () => {
                 <p>A user does not need to access the admin panel. A develop doesn't (usually) need to access the production database. A database manager doesn't need access to user passwords (which should be hashed anyway, right?).</p>
                 <p>This isn't about trust (just kidding, it definitely is), but minimizing unnecessary risks. A user trying to delete a photo should only be able to delete their own photos, no one else's. A developer shouldn't be able to accidentally force-push their branch to master.</p>
             </BlogContainer>
-        </PsychedelicBackground>
+        </>
     )
 }
 

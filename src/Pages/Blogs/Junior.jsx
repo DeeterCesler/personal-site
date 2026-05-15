@@ -1,7 +1,7 @@
 import React from "react";
 import Codeblock from "../../components/Codeblock";
 import BlogContainer from "../../components/BlogContainer";
-import PsychedelicBackground from "../../components/PsychedelicBackground";
+import WaveCanvas from "../../components/WaveCanvas";
 
 const codeblockOne = `if (num < 10) {
     return true
@@ -13,8 +13,9 @@ const codeblockTwo = 'return num < 10';
 
 const Junior = () => {
     return(
-        <PsychedelicBackground>
-            <BlogContainer title="4 Ways to de-Junior Your Code" shortRef="junior">
+        <>
+            <WaveCanvas />
+            <BlogContainer title="4 Ways to de-Junior Your Code" publishedDate="August 17, 2022" shortRef="junior">
                 <p>There's no shame in being a junior developer. I was one (and in plenty of technologies, I still am).</p>
                 <p>However, there are a few easy ways to make sure you don't unnecessarily <i>look</i> like one. Add these to your toolbelt.</p>
                 <h3>4. Find and remove any <code>return true</code> or <code>return false</code> in your code</h3>
@@ -41,7 +42,7 @@ const Junior = () => {
                 <p>Tests are headache prevention. Tests preserve your brand's quality. Tests are a way to get ahead of problems before you have them, and help you think holistically about how your code might be used by end users.</p>
                 <p>If you don't know where to start with testing, write a unit test for a function. There are lots of open source testing software already out there: jest, mocha, chai, selenium, cypress. Take your pick.</p>
             </BlogContainer>
-        </PsychedelicBackground>
+        </>
     )
 }
 

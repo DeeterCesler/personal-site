@@ -1,10 +1,11 @@
 import React from "react";
 import BlogContainer from "../../../components/BlogContainer";
-import PsychedelicBackground from "../../../components/PsychedelicBackground";
+import WaveCanvas from "../../../components/WaveCanvas";
 
 const TDDArticle = () => {
     return (
-        <PsychedelicBackground>
+        <>
+            <WaveCanvas />
             <BlogContainer title="Use TDD for Faster Development" host="Tensure.io" author="Deeter Cesler" publishedDate="July 22, 2021" shortRef="tdd">
                 <p>Every engineer <em>knows</em> they should be adding tests to their work, but most of us, it's one of those things that gets "cut for time."</p>
                 <p>If you're on any sort of deadline (which, yeah) then this pressure is totally understandable. You don't get more points from the customer for writing tests to make sure something works. They only care if it works!</p>
@@ -61,7 +62,7 @@ const TDDArticle = () => {
                 <h3>The Last Word</h3>
                 <p>TDD is like sharpening the saw. It may not seem "productive," so you may have a mental block about making time for it, but it absolutely makes up for the up-front cost by increasing your rate of productivity.</p>
             </BlogContainer>
-        </PsychedelicBackground>
+        </>
     );
 }
 

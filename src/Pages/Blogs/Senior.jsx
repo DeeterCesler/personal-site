@@ -1,11 +1,12 @@
 import React from 'react';
 import BlogContainer from "../../components/BlogContainer";
-import PsychedelicBackground from "../../components/PsychedelicBackground";
+import WaveCanvas from "../../components/WaveCanvas";
 
 const Senior = () => {
     return(
-        <PsychedelicBackground>
-            <BlogContainer title="3 Ways a Senior Thinks" shortRef="senior">
+        <>
+            <WaveCanvas />
+            <BlogContainer title="3 Ways a Senior Thinks" publishedDate="October 6, 2022" shortRef="senior">
                 <p>A senior is supposed to know more than a junior—needing to look less up, a better intuition for effective solutions, and knows more nuance of tech.</p>
                 <p>Everyone's aware of the expected technical <i>skill</i> difference. What's less discussed is the different ways a junior is supposed to <i>think</i>.</p>
                 <h3>1. Don't make it harder than it has to be</h3>
@@ -23,7 +24,7 @@ const Senior = () => {
                 <p>You never need to put someone else down to give your opinion. Even if you don't like their ideas, there is never a need to be rude about it. Software development is a beautiful area of life where it really is about making a solid, logic-based argument for your interests. No one likes an asshole. The good news is you can be bold your entire life without being one.</p>
                 <p>A senior leads by making things easier for the team, making the team better and more knowledgeable, and gives strong opinions when the time comes. Once you have the role, embody it well.</p>
             </BlogContainer>
-        </PsychedelicBackground>
+        </>
     )
 }
 

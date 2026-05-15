@@ -1,10 +1,11 @@
 import React from "react";
 import BlogContainer from "../../../components/BlogContainer";
-import PsychedelicBackground from "../../../components/PsychedelicBackground";
+import WaveCanvas from "../../../components/WaveCanvas";
 
 const LayoutManagementArticle = () => {
     return (
-        <PsychedelicBackground>
+        <>
+            <WaveCanvas />
             <BlogContainer title="Managing Frontend Layouts: Bootstrap vs Flexbox vs CSS Grid" host="Tensure.io" author="Deeter Cesler" publishedDate="August 16, 2021" shortRef="layout-management">
                 <p>The most commonly-mentioned tools I come across when it comes to managing front end layouts are Bootstrap, flexbox, and CSS grid. They all have their place, and generally go from simplest implementation to more complex.</p>
                 
@@ -38,7 +39,7 @@ const LayoutManagementArticle = () => {
                 </ul>
                 <p>Now, go off and make beautiful things.</p>
             </BlogContainer>
-        </PsychedelicBackground>
+        </>
     );
 }
 

@@ -7,21 +7,17 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@react-three/drei": "^10.0.4",
-    "@react-three/fiber": "^9.1.0",
     "bootstrap": "^5.3.1",
     "circle-scroll": "^0.0.6",
     "framer-motion": "^12.23.12",
     "i18next": "^24.2.3",
     "i18next-browser-languagedetector": "^8.0.4",
     "jquery": "^4.0.0",
-    "js-confetti": "^0.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-ga4": "^2.1.0",
     "react-i18next": "^15.4.1",
-    "react-router-dom": "^6.15.0",
-    "three": "^0.150.0"
+    "react-router-dom": "^6.15.0"
   },
   "scripts": {
     "start": "vite",

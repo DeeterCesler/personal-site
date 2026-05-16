@@ -5,6 +5,20 @@ import './style.css';
 
 const projects = [
   {
+    id: 'home-prices-in-bitcoin',
+    title: 'Home Prices in Bitcoin',
+    caption: [
+      'Chrome extension that converts every USD price on Zillow into its Bitcoin equivalent',
+      'Per-price toggle pill flips the page between BTC and USD',
+      'Auto-updates on infinite scroll and React re-renders',
+      'Built so I can stop doing the math in my head',
+    ],
+    link: 'https://github.com/DeeterCesler/bitcoin-housing-price',
+    badge: 'browser extension',
+    image: '/pics/bitcoin-housing.png',
+    alt: 'Zillow listing showing sale price in Bitcoin instead of USD',
+  },
+  {
     id: 'color-qr',
     title: 'Color QR',
     caption: [

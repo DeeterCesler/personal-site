@@ -5,6 +5,14 @@ import './style.css'
 
 const projects = [
     {
+        id: "6",
+        image: "/pics/privacy-analyzer-icon.png",
+        alt: "Privacy Policy Analyzer",
+        title: "Privacy Policy Analyzer",
+        caption:
+            "Chrome extension that surfaces a plain-English breakdown of any site's privacy policy and highlights how they use your data and any red flags that pop up.",
+    },
+    {
         id: "5",
         image: "/pics/marco-icon.png",
         alt: "Marco Polo Tag",

@@ -11,6 +11,8 @@ const projects = [
         title: "Privacy Policy Analyzer",
         caption:
             "Chrome extension that surfaces a plain-English breakdown of any site's privacy policy and highlights how they use your data and any red flags that pop up.",
+        link: "https://github.com/DeeterCesler/terms",
+        cta: "GitHub",
     },
     {
         id: "5",

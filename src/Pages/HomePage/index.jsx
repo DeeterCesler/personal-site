@@ -9,7 +9,7 @@ import './style.css';
 const projects = [
   {
     id: '1',
-    image: '/pics/ana1.png',
+    image: '/pics/ana1.webp',
     alt: 'All Nippon Airways',
     title: 'Multiplayer Conference Game: All Nippon Airways',
     caption:

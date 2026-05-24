@@ -86,7 +86,7 @@ const Tech = () => {
         },
         {
             id: "69",
-            image: "/pics/ana1.png",
+            image: "/pics/ana1.webp",
             alt: "Anime Expo Game",
             title: "Conference Game: Anime Expo Game",
             caption:
@@ -129,7 +129,7 @@ const Tech = () => {
         },
         {
             id: "6",
-            image: "/pics/irsf.png",
+            image: "/pics/irsf.webp",
             alt: "IRSF Website",
             title: "Web copy: IRSF Website",
             caption: "Working with Canned Spinach, I wrote the web copy for the IRSF website redesign (live as of March 2025).",

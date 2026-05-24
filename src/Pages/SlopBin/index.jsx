@@ -15,7 +15,7 @@ const projects = [
     ],
     link: 'https://github.com/DeeterCesler/bitcoin-housing-price',
     badge: 'browser extension',
-    image: '/pics/bitcoin-housing.png',
+    image: '/pics/bitcoin-housing.webp',
     alt: 'Zillow listing showing sale price in Bitcoin instead of USD',
   },
   {

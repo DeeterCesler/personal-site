@@ -6,7 +6,7 @@ import './style.css'
 const projects = [
     {
         id: "6",
-        image: "/pics/privacy-analyzer-icon.png",
+        image: "/pics/privacy-analyzer-icon.webp",
         alt: "Privacy Policy Analyzer",
         title: "Privacy Policy Analyzer",
         caption:

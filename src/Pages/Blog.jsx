@@ -37,6 +37,18 @@ const Blog = () => {
       <WaveCanvas />
       <div className="blog-page-content">
         <h1 className="blog-page-title">Writing</h1>
+        <p className="blog-page-subtitle">
+          tech blogs here, fun blogs on{" "}
+          <a
+            href="https://deeeter.substack.com/"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="blog-page-subtitle-link"
+          >
+            substack
+          </a>
+          .
+        </p>
         <div className="article-list">
           {articles.map((article) => (
             <a

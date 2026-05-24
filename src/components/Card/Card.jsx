@@ -3,7 +3,7 @@ import { useColor } from '../../context/ColorContext';
 import useCardState from './useCardState';
 import './style.css';
 
-const Card = ({ image = "/pics/code.jpg", alt, style, title, caption, link, cta = "See more" }) => {
+const Card = ({ image = "/pics/code.jpg", alt, style, title, caption, link, cta = "See more", link2, cta2 = "See more" }) => {
     const { isFlipped, setIsFlipped, isHovered, setIsHovered, transform } = useCardState(2);
     const cardRef = useRef(null);
     const [color, setColor] = useState(null);
@@ -42,7 +42,8 @@ const Card = ({ image = "/pics/code.jpg", alt, style, title, caption, link, cta 
                 <div>
                     <h3 className="card-title">{title}</h3>
                     <p className="card-caption">{caption}</p>
-                    {link && <a className="card-link" href={link} target="_blank" rel="noopener noreferrer">{cta}</a>}
+                    {link && <a className="card-link" href={link} target="_blank" rel="noopener noreferrer" style={{ fontWeight: 700 }}>{cta}</a>}
+                    {link2 && <a className="card-link" href={link2} target="_blank" rel="noopener noreferrer" style={{ marginLeft: link ? '12px' : 0 }}>{cta2}</a>}
                 </div>
             </div>
         </div>

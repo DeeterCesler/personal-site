@@ -17,11 +17,11 @@ const projects = [
   },
   {
     id: '2',
-    image: '/pics/norse.jpg',
-    alt: 'Norse Flashcards',
-    title: 'iOS App: Norse Flashcards',
-    caption: 'iOS app for learning ancient Norse runes and their phonetics.',
-    link: 'https://apps.apple.com/us/app/norse-flashcards/id6743998805',
+    image: '/pics/prayer-app-icon-zoomed.png',
+    alt: 'Prayer Groups',
+    title: 'iOS App: Prayer Groups',
+    caption: 'A simple app to help you pray with your friends in groups. Available on the App Store.',
+    link: 'https://apps.apple.com/us/app/prayer-groups/id6759305922',
   },
   {
     id: '3',

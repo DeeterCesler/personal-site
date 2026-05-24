@@ -11,8 +11,10 @@ const projects = [
         title: "Privacy Policy Analyzer",
         caption:
             "Chrome extension that surfaces a plain-English breakdown of any site's privacy policy and highlights how they use your data and any red flags that pop up.",
-        link: "https://github.com/DeeterCesler/terms",
-        cta: "GitHub",
+        link: "https://chromewebstore.google.com/detail/term-checker/eaieffmcnlfeeblaofmeobaplbiipkko",
+        cta: "Chrome Web Store",
+        link2: "https://github.com/DeeterCesler/terms",
+        cta2: "GitHub",
     },
     {
         id: "5",
@@ -46,7 +48,7 @@ const Now = () => {
                     <div className="container now">
                         <h1 className="header">NOW</h1>
                         <div className="mini-spacer"/>
-                        <p><i>Updated May 11, 2026</i></p>
+                        <p><i>Updated May 23, 2026</i></p>
                         <div className="mini-spacer"/>
                         <div className="mini-spacer"/>
                     <div className="main-text">
@@ -60,6 +62,8 @@ const Now = () => {
                                 caption={project.caption}
                                 link={project.link}
                                 cta={project.cta}
+                                link2={project.link2}
+                                cta2={project.cta2}
                             />
                         ))}
                         <br/>

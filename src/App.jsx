@@ -19,6 +19,7 @@ const SlopBin = React.lazy(() => import('./Pages/SlopBin'))
 const Now = React.lazy(() => import('./Pages/Now'))
 const NorsePrivacy = React.lazy(() => import('./Pages/NorsePrivacy'))
 const GroupPrayPrivacy = React.lazy(() => import('./Pages/GroupPrayPrivacy'))
+const Privacy = React.lazy(() => import('./Pages/Privacy'))
 const NotFound = React.lazy(() => import('./Pages/NotFound'))
 const Junior = React.lazy(() => import('./Pages/Blogs/Junior'))
 const StartupsVersus = React.lazy(() => import('./Pages/Blogs/StartupsVersus'))
@@ -68,6 +69,7 @@ const ROUTE_TITLES = {
   '/slop': `Slop Bin | ${SITE}`,
   '/now': `Now | ${SITE}`,
   '/psychedelic': `Psychedelic | ${SITE}`,
+  '/privacy': `Privacy | ${SITE}`,
   '/norse/privacy': `Norse Flashcards Privacy | ${SITE}`,
   '/grouppray/privacy': `GroupPray Privacy | ${SITE}`,
   '/notfound': `Not Found | ${SITE}`,
@@ -115,6 +117,7 @@ function App() {
                   <Route path="/slop" element={<SlopBin />} />
                   <Route path="/now" element={<Now />} />
                   <Route path="/psychedelic" element={<Psychedelic />} />
+                  <Route path="/privacy" element={<Privacy />} />
                   <Route path="/norse/privacy" element={<NorsePrivacy />} />
                   <Route path="/grouppray/privacy" element={<GroupPrayPrivacy />} />
                   <Route path="/notfound" element={<NotFound />} />

@@ -5,6 +5,23 @@ import './style.css'
 
 const projects = [
     {
+        id: "8",
+        image: "/pics/fitted.png",
+        alt: "Fitted",
+        title: "Fitted",
+        caption:
+            "Career history as a living database. Build a master resume once, then tailor a draft for any job in seconds.",
+        link: "https://usefitted.com",
+        cta: "usefitted.com",
+    },
+    {
+        id: "7",
+        alt: "Fixing cold email",
+        title: "Fixing cold email",
+        caption:
+            "Working on something to fix cold email and separate signal from noise. More soon.",
+    },
+    {
         id: "6",
         image: "/pics/privacy-analyzer-icon.webp",
         alt: "Privacy Policy Analyzer",
@@ -23,6 +40,8 @@ const projects = [
         title: "Mobile App: Marco Polo Tag",
         caption:
             "Building a real-world tag game for mobile. Players join as Hunter or Hunted and use live GPS, maps, and a compass to track each other down in real time.",
+        link: "https://inspiring-banoffee-668346.netlify.app/",
+        cta: "Try the prototype",
     },
     {
         id: "2",
@@ -48,7 +67,7 @@ const Now = () => {
                     <div className="container now">
                         <h1 className="header">NOW</h1>
                         <div className="mini-spacer"/>
-                        <p><i>Updated May 23, 2026</i></p>
+                        <p><i>Updated May 24, 2026</i></p>
                         <div className="mini-spacer"/>
                         <div className="mini-spacer"/>
                     <div className="main-text">

@@ -43,7 +43,7 @@ const SocialLinks = () => {
         <div className="icons">
             {icons.map((icon) => (
                 <a key={icon.url} target="_blank" rel="noopener noreferrer" href={icon.url}>
-                    <img alt={icon.alt} src={icon.icon} />
+                    <img alt={icon.alt} src={icon.icon} width="24" height="24" />
                 </a>
             ))}
         </div>

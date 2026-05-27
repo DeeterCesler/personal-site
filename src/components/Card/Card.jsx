@@ -35,7 +35,7 @@ const Card = ({ image = "/pics/code.jpg", alt, style, title, caption, link, cta 
                 <h2 className="card-title-overlay">{title}</h2>
                 {/\.webm$/.test(image)
                     ? <video src={image} autoPlay loop muted playsInline />
-                    : <img src={image} alt={alt} loading="lazy" style={{ maxHeight: '200px', width: '100%' }} />
+                    : <img src={image} alt={alt} loading="lazy" width="400" height="200" style={{ maxHeight: '200px', width: '100%', height: 'auto' }} />
                 }
             </div>
             <div className="card-back" style={{ backgroundColor: color?.hex }} onClick={() => setIsFlipped(!isFlipped)}>

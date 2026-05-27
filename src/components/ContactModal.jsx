@@ -32,7 +32,7 @@ const ContactModal = () => {
         <div className="cm-socials">
           {socials.map(({ icon, label, handle, url }) => (
             <a key={url} className="cm-row" href={url} target="_blank" rel="noopener noreferrer">
-              <img src={icon} alt={label} className="cm-icon" />
+              <img src={icon} alt={label} className="cm-icon" width="17" height="17" />
               <span className="cm-handle">{handle}</span>
               <span className="cm-platform">{label}</span>
             </a>

@@ -16,13 +16,15 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-ga4": "^2.1.0",
+    "react-helmet-async": "^3.0.0",
     "react-i18next": "^15.4.1",
     "react-router-dom": "^6.15.0"
   },
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/prerender.mjs",
+    "build:no-prerender": "vite build",
     "preview": "vite preview"
   },
   "eslintConfig": {
@@ -41,6 +43,8 @@
     "@vitejs/plugin-react": "^6.0.1",
     "autoprefixer": "10.4.15",
     "postcss": "^8.4.16",
+    "puppeteer": "^25.1.0",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.1.8",
     "vite": "^8.0.0"
   }

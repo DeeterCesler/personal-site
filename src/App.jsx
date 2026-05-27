@@ -10,6 +10,7 @@ import { ColorProvider } from './context/ColorContext'
 import { ContactProvider } from './context/ContactContext'
 import ContactModal from './components/ContactModal'
 import generateConsoleName from './utils/ConsoleName'
+import Seo from './components/Seo'
 
 const HomePage = React.lazy(() => import('./Pages/HomePage'))
 const Blog = React.lazy(() => import('./Pages/Blog'))
@@ -50,39 +51,6 @@ function PageTracker() {
   return null
 }
 
-const SITE = 'Deeter Cesler'
-const HOME_TITLE = `${SITE} | product engineer, software engineer, copywriter, guerrilla marketer`
-const ROUTE_TITLES = {
-  '/': HOME_TITLE,
-  '/blog': `Writing | ${SITE}`,
-  '/blog/junior': `6 Ways to De-Junior Your Code | ${SITE}`,
-  '/blog/senior': `3 Ways a Senior Thinks | ${SITE}`,
-  '/blog/security': `8 Security Principles Every Software Dev Should Know | ${SITE}`,
-  '/blog/startups-vs-big-tech': `Working at Big Tech vs Startups | ${SITE}`,
-  '/blog/immutability': `Immutability in JavaScript | ${SITE}`,
-  '/blog/bdd': `Intro to Behavior-Driven Development | ${SITE}`,
-  '/blog/tdd': `Use TDD for Faster Development | ${SITE}`,
-  '/blog/looping': `Looping in JavaScript | ${SITE}`,
-  '/blog/bootstrap-flexbox-css-grid': `Bootstrap vs Flexbox vs CSS Grid | ${SITE}`,
-  '/work': `Work | ${SITE}`,
-  '/dungeon': `Dungeon | ${SITE}`,
-  '/slop': `Slop Bin | ${SITE}`,
-  '/now': `Now | ${SITE}`,
-  '/psychedelic': `Psychedelic | ${SITE}`,
-  '/privacy': `Privacy | ${SITE}`,
-  '/norse/privacy': `Norse Flashcards Privacy | ${SITE}`,
-  '/grouppray/privacy': `GroupPray Privacy | ${SITE}`,
-  '/notfound': `Not Found | ${SITE}`,
-}
-
-function DocumentTitle() {
-  const { pathname } = useLocation()
-  useEffect(() => {
-    document.title = ROUTE_TITLES[pathname] || `Not Found | ${SITE}`
-  }, [pathname])
-  return null
-}
-
 function App() {
   useEffect(() => {
     generateConsoleName()
@@ -95,7 +63,7 @@ function App() {
           <div className="App">
             <ScrollToTop />
             <PageTracker />
-            <DocumentTitle />
+            <Seo />
             <Nav />
             <ContactModal />
             <ErrorBoundary>

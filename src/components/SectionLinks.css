@@ -41,7 +41,7 @@
   color: var(--text);
 }
 
-/* Trash row — reset button defaults, match link row */
+/* Trash row, reset button defaults, match link row */
 .trash-row {
   background: none;
   border: none;
@@ -66,7 +66,7 @@
   align-items: center;
 }
 
-/* Hidden by default — clipped behind the icon to its right */
+/* Hidden by default, clipped behind the icon to its right */
 .trash-text {
   display: inline-block;
   max-width: 0;

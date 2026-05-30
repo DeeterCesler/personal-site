@@ -13,7 +13,7 @@
   padding: 80px 2.5rem 6rem;
 }
 
-/* Distressed header — slight tilt, worn shadow */
+/* Distressed header, slight tilt, worn shadow */
 .slop-bin-header {
   font-size: clamp(3rem, 10vw, 7rem);
   font-weight: 900;

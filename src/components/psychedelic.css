@@ -1,4 +1,4 @@
-/* Wave canvas background — pseudo-element fades removed */
+/* Wave canvas background, pseudo-element fades removed */
 .psychedelic-background::before,
 .psychedelic-background::after {
   content: none;

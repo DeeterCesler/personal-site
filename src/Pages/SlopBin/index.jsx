@@ -34,7 +34,7 @@ const projects = [
   {
     id: 'dungeon',
     title: 'jQuery Game: Dungeon Crawler',
-    caption: 'Browser-based dungeon crawler I built in boot camp while learning jQuery. Keyboard required — desktop only.',
+    caption: 'Browser-based dungeon crawler I built in boot camp while learning jQuery. Keyboard required, desktop only.',
     link: '/dungeon',
     badge: 'made in boot camp',
     image: '/pics/dungeon.webm',
@@ -43,7 +43,7 @@ const projects = [
   {
     id: 'circle-scroller',
     title: 'NPM Package: Circle Scroller',
-    caption: 'React component that shows reading progress as a circle — like TechCrunch\'s article indicator. npm i circle-scroller',
+    caption: 'React component that shows reading progress as a circle, like TechCrunch\'s article indicator. npm i circle-scroller',
     link: 'https://www.npmjs.com/package/circle-scroll/',
     badge: 'npm package',
     image: '/pics/scroller.webm',

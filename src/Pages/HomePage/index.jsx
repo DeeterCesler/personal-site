@@ -13,7 +13,7 @@ const projects = [
     alt: 'All Nippon Airways',
     title: 'Multiplayer Conference Game: All Nippon Airways',
     caption:
-      'Solo implementation of a live, competitive trivia game for the ANA conference booth — two players on separate tablets while an audience watches on a third TV screen.',
+      'Solo implementation of a live, competitive trivia game for the ANA conference booth, two players on separate tablets while an audience watches on a third TV screen.',
   },
   {
     id: '2',

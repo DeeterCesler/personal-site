@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import SlopCard from './SlopCard';
+import Carousel from '../../components/Carousel';
 import './style.css';
 
 const projects = [
@@ -92,24 +93,41 @@ const cardVariants = {
 };
 
 const SlopBin = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
   return (
     <div className="slop-bin">
       <div className="slop-bin-inner">
         <h1 className="slop-bin-header" style={{ marginTop: '2rem' }}>SLOP BIN</h1>
         <p className="slop-bin-sub">stuff i made for fun, curiosity, or on a weekend</p>
-        <div className="slop-card-grid">
-          {projects.map((project, i) => (
-            <motion.div
-              key={project.id}
-              custom={i}
-              variants={cardVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              <SlopCard {...project} />
-            </motion.div>
-          ))}
-        </div>
+        {isMobile ? (
+          <Carousel containerWidth={window.innerWidth}>
+            {projects.map((project) => (
+              <SlopCard key={project.id} {...project} />
+            ))}
+          </Carousel>
+        ) : (
+          <div className="slop-card-grid">
+            {projects.map((project, i) => (
+              <motion.div
+                key={project.id}
+                custom={i}
+                variants={cardVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                <SlopCard {...project} />
+              </motion.div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import WaveCanvas from "../../components/WaveCanvas";
 import Card from "../../components/Card/Card";
+import Carousel from "../../components/Carousel";
 import './style.css'
 
 const projects = [
@@ -60,6 +61,30 @@ const projects = [
 ];
 
 const Now = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const check = () => setIsMobile(window.innerWidth <= 768);
+        check();
+        window.addEventListener('resize', check);
+        return () => window.removeEventListener('resize', check);
+    }, []);
+
+    const renderCard = (project) => (
+        <Card
+            key={project.id}
+            id={project.id}
+            image={project.image}
+            alt={project.alt}
+            title={project.title}
+            caption={project.caption}
+            link={project.link}
+            cta={project.cta}
+            link2={project.link2}
+            cta2={project.cta2}
+        />
+    );
+
     return(
         <div className="home">
             <WaveCanvas />
@@ -70,23 +95,16 @@ const Now = () => {
                         <p><i>Updated May 24, 2026</i></p>
                         <div className="mini-spacer"/>
                         <div className="mini-spacer"/>
-                    <div className="main-text">
-                        {projects.map((project) => (
-                            <Card
-                                key={project.id}
-                                id={project.id}
-                                image={project.image}
-                                alt={project.alt}
-                                title={project.title}
-                                caption={project.caption}
-                                link={project.link}
-                                cta={project.cta}
-                                link2={project.link2}
-                                cta2={project.cta2}
-                            />
-                        ))}
-                        <br/>
-                    </div>
+                    {isMobile ? (
+                        <Carousel containerWidth={window.innerWidth}>
+                            {projects.map(renderCard)}
+                        </Carousel>
+                    ) : (
+                        <div className="main-text">
+                            {projects.map(renderCard)}
+                            <br/>
+                        </div>
+                    )}
                     <div className="mini-spacer"/>
                     </div>
                 </div>

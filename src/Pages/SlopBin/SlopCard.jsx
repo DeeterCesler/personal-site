@@ -7,9 +7,17 @@ const randomRadius = () => {
   return `${r()}px ${r()}px ${r()}px ${r()}px / ${r()}px ${r()}px ${r()}px ${r()}px`;
 };
 
-const SlopCard = ({ title, caption, link, badge, image, alt, placeholder, style }) => {
+const SlopCard = ({ title, caption, link, cta = 'open →', link2, cta2 = 'open →', badge, image, alt, placeholder, style }) => {
   const { isFlipped, setIsFlipped, isHovered, setIsHovered, transform } = useCardState(6);
   const [radius] = useState(randomRadius);
+
+  const renderLink = (href, label) => {
+    if (!href) return null;
+    const stop = e => e.stopPropagation();
+    return href.startsWith('/')
+      ? <Link to={href} className="slop-card-link" onClick={stop} onTouchEnd={stop}>{label}</Link>
+      : <a href={href} target="_blank" rel="noopener noreferrer" className="slop-card-link" onClick={stop} onTouchEnd={stop}>{label}</a>;
+  };
 
   return (
     <div
@@ -41,11 +49,8 @@ const SlopCard = ({ title, caption, link, badge, image, alt, placeholder, style 
           {Array.isArray(caption)
             ? <ul className="slop-card-caption slop-card-caption-list">{caption.map((item, i) => <li key={i}>{item}</li>)}</ul>
             : <p className="slop-card-caption">{caption}</p>}
-          {link && (
-            link.startsWith('/')
-              ? <Link to={link} className="slop-card-link" onClick={e => e.stopPropagation()} onTouchEnd={e => e.stopPropagation()}>open →</Link>
-              : <a href={link} target="_blank" rel="noopener noreferrer" className="slop-card-link" onClick={e => e.stopPropagation()} onTouchEnd={e => e.stopPropagation()}>open →</a>
-          )}
+          {renderLink(link, cta)}
+          {renderLink(link2, cta2)}
         </div>
       </div>
     </div>

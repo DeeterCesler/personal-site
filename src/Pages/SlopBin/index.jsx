@@ -11,7 +11,6 @@ const projects = [
     caption: [
       'Chrome extension that converts every USD price on Zillow into its Bitcoin equivalent',
       'Per-price toggle pill flips the page between BTC and USD',
-      'Auto-updates on infinite scroll and React re-renders',
       'Built so I can stop doing the math in my head',
     ],
     link: 'https://github.com/DeeterCesler/bitcoin-housing-price',

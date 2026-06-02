@@ -78,10 +78,6 @@ export const ROUTE_SEO = {
     title: `Norse Flashcards Privacy | ${SITE}`,
     description: 'Privacy policy for the Norse Flashcards iOS app.',
   },
-  '/grouppray/privacy': {
-    title: `GroupPray Privacy | ${SITE}`,
-    description: 'Privacy policy for the GroupPray iOS app.',
-  },
   '/notfound': {
     title: `Not Found | ${SITE}`,
     description: 'The page you are looking for does not exist.',

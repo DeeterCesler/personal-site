@@ -270,7 +270,8 @@ const Carousel = ({ children, containerWidth }) => {
           width: '100%',
           maxWidth: cardsPerView === 3 ? '960px' : '100%', // Limit width for 3 cards to prevent gaps
           transform: cardsPerView === 3 ? 'translateX(40px)' : 'none', // Move tablet layout slightly right
-          minWidth: cardsPerView === 1 ? '100%' : 'auto' // Ensure full width on mobile
+          minWidth: cardsPerView === 1 ? '100%' : 'auto', // Ensure full width on mobile
+          overflow: 'hidden' // Clip the deck's fanned/flying cards so they don't extend page scroll width
         }}
       >
         {React.Children.map(children, (child, index) => {

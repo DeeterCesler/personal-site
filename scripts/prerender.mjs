@@ -42,36 +42,52 @@ const browser = await puppeteer.launch({ headless: true })
 
 async function snapshot(pathname) {
   const page = await browser.newPage()
-  page.setDefaultNavigationTimeout(30000)
-  await page.setRequestInterception(true)
-  page.on('request', (req) => {
-    const t = req.resourceType()
-    if (t === 'image' || t === 'media' || t === 'font') return req.abort()
-    req.continue()
-  })
-  const url = `${ORIGIN}${pathname}`
-  await page.goto(url, { waitUntil: 'networkidle0' })
-  // Wait until the lazy-loaded route component has mounted (real markup, not Suspense fallback)
-  // and Helmet has populated canonical/title.
-  await page.waitForFunction(
-    () => {
-      const root = document.querySelector('#root')
-      if (!root) return false
-      // Real route content always has more than just the empty Suspense fallback.
-      const hasRealContent =
-        !!root.querySelector('main, h1, h2, canvas, .blog-container, .home, [data-page]')
-      const hasMeta =
-        !!document.querySelector('link[rel="canonical"][data-rh="true"]') &&
-        document.title.length > 0
-      return hasRealContent && hasMeta
-    },
-    { timeout: 20000 }
-  )
-  // One more tick so any final Helmet merge across nested components settles.
-  await new Promise((r) => setTimeout(r, 100))
-  const html = await page.content()
-  await page.close()
-  return html
+  try {
+    page.setDefaultNavigationTimeout(30000)
+    await page.setRequestInterception(true)
+    page.on('request', (req) => {
+      const t = req.resourceType()
+      if (t === 'image' || t === 'media' || t === 'font') return req.abort()
+      req.continue()
+    })
+    const url = `${ORIGIN}${pathname}`
+    await page.goto(url, { waitUntil: 'networkidle0' })
+    // Wait until the lazy-loaded route component has mounted (real markup, not Suspense fallback)
+    // and Helmet has populated canonical/title. Helmet commits client-side via rAF, which can be
+    // slow on a loaded machine, so give it generous headroom (the retry below covers the rest).
+    await page.waitForFunction(
+      () => {
+        const root = document.querySelector('#root')
+        if (!root) return false
+        // Real route content always has more than just the empty Suspense fallback.
+        const hasRealContent =
+          !!root.querySelector('main, h1, h2, canvas, .blog-container, .home, [data-page]')
+        const hasMeta =
+          !!document.querySelector('link[rel="canonical"][data-rh="true"]') &&
+          document.title.length > 0
+        return hasRealContent && hasMeta
+      },
+      { timeout: 30000 }
+    )
+    // One more tick so any final Helmet merge across nested components settles.
+    await new Promise((r) => setTimeout(r, 100))
+    return await page.content()
+  } finally {
+    await page.close()
+  }
+}
+
+// Helmet's rAF-based commit can be throttled under load and miss the wait window.
+// Retry the route a couple of times before failing the whole build over one flake.
+async function snapshotWithRetry(pathname, attempts = 3) {
+  for (let attempt = 1; ; attempt++) {
+    try {
+      return await snapshot(pathname)
+    } catch (err) {
+      if (attempt >= attempts) throw err
+      console.warn(`  ⚠ ${pathname} attempt ${attempt} failed (${err.message.split('\n')[0]}); retrying…`)
+    }
+  }
 }
 
 async function writeRoute(pathname, html) {
@@ -85,12 +101,12 @@ async function writeRoute(pathname, html) {
 try {
   console.log(`Prerendering ${ROUTES.length} routes...`)
   for (const route of ROUTES) {
-    const html = await snapshot(route)
+    const html = await snapshotWithRetry(route)
     await writeRoute(route, html)
   }
 
   console.log('Prerendering 404 page...')
-  const notFoundHtml = await snapshot('/notfound')
+  const notFoundHtml = await snapshotWithRetry('/notfound')
   await writeFile(join(distDir, '404.html'), notFoundHtml)
   console.log('  ✓ /404.html')
 } finally {

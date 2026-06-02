@@ -7,14 +7,14 @@ const randomRadius = () => {
   return `${r()}px ${r()}px ${r()}px ${r()}px / ${r()}px ${r()}px ${r()}px ${r()}px`;
 };
 
-const SlopCard = ({ title, caption, link, badge, image, alt, placeholder }) => {
+const SlopCard = ({ title, caption, link, badge, image, alt, placeholder, style }) => {
   const { isFlipped, setIsFlipped, isHovered, setIsHovered, transform } = useCardState(6);
   const [radius] = useState(randomRadius);
 
   return (
     <div
       className={`slop-card${isFlipped ? ' flipped' : ''}${placeholder ? ' slop-placeholder' : ''}`}
-      style={{ transform, '--card-radius': radius }}
+      style={{ ...style, transform, '--card-radius': radius }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

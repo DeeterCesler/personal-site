@@ -143,6 +143,14 @@ const Tech = () => {
             caption: "Working with Canned Spinach, I wrote the web copy for the IRSF website redesign (live as of March 2025).",
             link: "https://www.rettsyndrome.org/"
         },
+        {
+            id: "8",
+            image: "/pics/tonys.png",
+            alt: "Tony's Family Italian Restaurante",
+            title: "Web copy: Tony's Family Italian Restaurante",
+            caption: "I wrote the web copy for Tony's Family Italian Restaurante, a family-owned Italian spot in Montgomery, Ohio.",
+            link: "https://tonysfamilyitalianrestaurante.com/"
+        },
     ];
 
     return(

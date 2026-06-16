@@ -92,6 +92,10 @@
   animation: lid-wobble 0.45s ease-in-out forwards;
 }
 
+.trash-icon svg {
+  display: block;
+}
+
 /* Full-screen swallow overlay */
 .slop-overlay {
   position: fixed;
@@ -106,4 +110,17 @@
 .slop-overlay.active {
   clip-path: circle(150% at var(--cx) var(--cy));
   pointer-events: all;
+}
+
+/* ── Neobrutalist: thick separators + hard offset shadow on the big labels ── */
+[data-mode="neobrutalist"] .section-links {
+  border-top: 4px solid var(--border-strong);
+}
+
+[data-mode="neobrutalist"] .section-link-row {
+  border-bottom: 4px solid var(--border-strong);
+}
+
+[data-mode="neobrutalist"] .section-link-label {
+  text-shadow: 4px 4px 0 var(--heading-shadow);
 }

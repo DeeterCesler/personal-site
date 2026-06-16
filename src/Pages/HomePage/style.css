@@ -84,3 +84,8 @@
   margin: 0;
   padding: 0;
 }
+
+/* ── Neobrutalist: hard black offset shadow on the hero name ── */
+[data-mode="neobrutalist"] .hero-name {
+  text-shadow: 5px 5px 0 var(--heading-shadow);
+}

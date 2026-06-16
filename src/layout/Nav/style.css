@@ -12,6 +12,37 @@
   border-bottom: 1px solid var(--nav-border);
 }
 
+/* Bold nav separator in neobrutalist mode (light only; dark/classic stay 1px). */
+[data-mode="neobrutalist"] .site-nav {
+  border-bottom-width: 3px;
+}
+
+/* Buttons match the separator's line thickness. */
+[data-mode="neobrutalist"] .nav-icon-btn,
+[data-mode="neobrutalist"] .nav-contact-btn {
+  border-width: 3px;
+}
+
+/* DC wordmark in a square card-reminiscent tile (thick border + hard shadow). */
+[data-mode="neobrutalist"] .nav-wordmark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--border-strong);
+  border-radius: 6px;
+  box-shadow: 3px 3px 0 var(--border-strong);
+  background: var(--bg);
+  opacity: 1;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+[data-mode="neobrutalist"] .nav-wordmark:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--border-strong);
+}
+
 .nav-inner {
   max-width: var(--layout-max-width);
   margin: 0 auto;

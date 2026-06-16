@@ -9,8 +9,39 @@
 }
 
 /* ── Theme tokens ──────────────────────────────────────── */
+/*
+ * Two hardcoded site modes, switched by THEME_MODE in src/themeMode.js
+ * (it sets data-mode on <html>). Flip that constant + commit to change the
+ * live look:
+ *   classic       — original tan light mode, subtle borders
+ *   neobrutalist  — bright per-session random palette, bold strokes + hard shadows
+ * Dark mode is identical in both modes.
+ */
 
-/* Light default */
+/*
+ * OLD LIGHT MODE (tan) — preserved reference copy, kept available.
+ * (These values are also live below as the `classic` mode.)
+ *
+ * :root {
+ *   --bg:               #f2f0e8;
+ *   --bg-secondary:     #e8e6de;
+ *   --bg-card:          rgba(0, 0, 0, 0.03);
+ *   --bg-glass:         rgba(242, 240, 232, 0.85);
+ *   --text:             #1a1a2e;
+ *   --text-muted:       rgba(26, 26, 46, 0.5);
+ *   --text-faint:       rgba(26, 26, 46, 0.28);
+ *   --border:           rgba(0, 0, 0, 0.08);
+ *   --border-strong:    rgba(0, 0, 0, 0.22);
+ *   --nav-bg:           rgba(242, 240, 232, 0.88);
+ *   --nav-border:       rgba(0, 0, 0, 0.07);
+ *   --modal-bg:         #ffffff;
+ *   --modal-border:     rgba(0, 0, 0, 0.1);
+ *   --wave-r: 0; --wave-g: 0; --wave-b: 0;
+ *   --icon-filter:      brightness(0);
+ * }
+ */
+
+/* Baseline / no-JS fallback = classic light (tan). */
 :root {
   --bg:               #f2f0e8;
   --bg-secondary:     #e8e6de;
@@ -37,7 +68,7 @@
   --icon-filter:      brightness(0);
 }
 
-/* System dark preference (before JS runs) */
+/* ── Dark (applies in both modes; unchanged) ─────────────── */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg:               #06060c;
@@ -66,8 +97,36 @@
   }
 }
 
-/* Explicit overrides from JS toggle */
-[data-theme="light"] {
+[data-theme="dark"] {
+  --bg:               #06060c;
+  --bg-secondary:     #0e0e1a;
+  --bg-card:          rgba(255, 255, 255, 0.04);
+  --bg-glass:         rgba(6, 6, 12, 0.78);
+
+  --text:             #f0f0ea;
+  --text-muted:       rgba(240, 240, 234, 0.45);
+  --text-faint:       rgba(240, 240, 234, 0.25);
+
+  --border:           rgba(255, 255, 255, 0.07);
+  --border-strong:    rgba(255, 255, 255, 0.18);
+
+  --nav-bg:           rgba(6, 6, 12, 0.8);
+  --nav-border:       rgba(255, 255, 255, 0.06);
+
+  --modal-bg:         #0e0e1a;
+  --modal-border:     rgba(255, 255, 255, 0.1);
+
+  --wave-r: 255;
+  --wave-g: 255;
+  --wave-b: 255;
+
+  --icon-filter:      brightness(0) invert(1);
+}
+
+/* ════════════════════════════════════════════════════════
+ * CLASSIC mode — original tan light
+ * ════════════════════════════════════════════════════════ */
+[data-mode="classic"][data-theme="light"] {
   --bg:               #f2f0e8;
   --bg-secondary:     #e8e6de;
   --bg-card:          rgba(0, 0, 0, 0.03);
@@ -93,30 +152,130 @@
   --icon-filter:      brightness(0);
 }
 
-[data-theme="dark"] {
-  --bg:               #06060c;
-  --bg-secondary:     #0e0e1a;
-  --bg-card:          rgba(255, 255, 255, 0.04);
-  --bg-glass:         rgba(6, 6, 12, 0.78);
+/* ════════════════════════════════════════════════════════
+ * NEOBRUTALIST mode — bright light, one palette picked at random
+ * per session by ThemeContext.jsx (sets data-palette). Bold strokes
+ * (solid ink / solid white) + hard shadows live in the component CSS.
+ * Palette: Bright mint #5DE8A8 / Hot pink #FF5C8A
+ *          / Electric yellow #FFE14D / Cobalt #3D5AFE.
+ * ════════════════════════════════════════════════════════ */
 
-  --text:             #f0f0ea;
-  --text-muted:       rgba(240, 240, 234, 0.45);
-  --text-faint:       rgba(240, 240, 234, 0.25);
+/* Default / no-palette fallback — Bright mint. */
+[data-mode="neobrutalist"][data-theme="light"] {
+  --bg:               #5DE8A8;
+  --bg-secondary:     #4BD697;
+  --bg-card:          rgba(26, 26, 46, 0.05);
+  --bg-glass:         rgba(93, 232, 168, 0.85);
 
-  --border:           rgba(255, 255, 255, 0.07);
-  --border-strong:    rgba(255, 255, 255, 0.18);
+  --text:             #1A1A2E;
+  --text-muted:       rgba(26, 26, 46, 0.58);
+  --text-faint:       rgba(26, 26, 46, 0.32);
 
-  --nav-bg:           rgba(6, 6, 12, 0.8);
-  --nav-border:       rgba(255, 255, 255, 0.06);
+  --border:           rgba(26, 26, 46, 0.9);
+  --border-strong:    #1A1A2E;
+  --heading-shadow:   #FFFFFF;
 
-  --modal-bg:         #0e0e1a;
-  --modal-border:     rgba(255, 255, 255, 0.1);
+  --nav-bg:           rgba(93, 232, 168, 0.9);
+  --nav-border:       rgba(26, 26, 46, 0.9);
 
-  --wave-r: 255;
-  --wave-g: 255;
-  --wave-b: 255;
+  --modal-bg:         #E0FBEF;
+  --modal-border:     rgba(26, 26, 46, 0.14);
 
+  --wave-r: 26;
+  --wave-g: 26;
+  --wave-b: 46;
+
+  --icon-filter:      brightness(0);
+}
+
+/* Bright mint #5DE8A8 */
+[data-mode="neobrutalist"][data-theme="light"][data-palette="mint"] {
+  --bg:               #5DE8A8;
+  --bg-secondary:     #4BD697;
+  --bg-card:          rgba(26, 26, 46, 0.05);
+  --bg-glass:         rgba(93, 232, 168, 0.85);
+  --text:             #1A1A2E;
+  --text-muted:       rgba(26, 26, 46, 0.58);
+  --text-faint:       rgba(26, 26, 46, 0.32);
+  --border:           rgba(26, 26, 46, 0.9);
+  --border-strong:    #1A1A2E;
+  --heading-shadow:   #FFFFFF;
+  --nav-bg:           rgba(93, 232, 168, 0.9);
+  --nav-border:       rgba(26, 26, 46, 0.9);
+  --modal-bg:         #E0FBEF;
+  --modal-border:     rgba(26, 26, 46, 0.14);
+  --wave-r: 26; --wave-g: 26; --wave-b: 46;
+  --icon-filter:      brightness(0);
+}
+
+/* Hot pink #FF5C8A */
+[data-mode="neobrutalist"][data-theme="light"][data-palette="pink"] {
+  --bg:               #FF5C8A;
+  --bg-secondary:     #F04A79;
+  --bg-card:          rgba(26, 26, 46, 0.06);
+  --bg-glass:         rgba(255, 92, 138, 0.85);
+  --text:             #1A1A2E;
+  --text-muted:       rgba(26, 26, 46, 0.6);
+  --text-faint:       rgba(26, 26, 46, 0.35);
+  --border:           rgba(26, 26, 46, 0.9);
+  --border-strong:    #1A1A2E;
+  --heading-shadow:   #FFFFFF;
+  --nav-bg:           rgba(255, 92, 138, 0.9);
+  --nav-border:       rgba(26, 26, 46, 0.9);
+  --modal-bg:         #FFE3EC;
+  --modal-border:     rgba(26, 26, 46, 0.14);
+  --wave-r: 26; --wave-g: 26; --wave-b: 46;
+  --icon-filter:      brightness(0);
+}
+
+/* Electric yellow #FFE14D */
+[data-mode="neobrutalist"][data-theme="light"][data-palette="yellow"] {
+  --bg:               #FFE14D;
+  --bg-secondary:     #F5D43A;
+  --bg-card:          rgba(26, 26, 46, 0.05);
+  --bg-glass:         rgba(255, 225, 77, 0.85);
+  --text:             #1A1A2E;
+  --text-muted:       rgba(26, 26, 46, 0.6);
+  --text-faint:       rgba(26, 26, 46, 0.35);
+  --border:           rgba(26, 26, 46, 0.9);
+  --border-strong:    #1A1A2E;
+  --heading-shadow:   #FFFFFF;
+  --nav-bg:           rgba(255, 225, 77, 0.9);
+  --nav-border:       rgba(26, 26, 46, 0.9);
+  --modal-bg:         #FFF6CC;
+  --modal-border:     rgba(26, 26, 46, 0.14);
+  --wave-r: 26; --wave-g: 26; --wave-b: 46;
+  --icon-filter:      brightness(0);
+}
+
+/* Cobalt #3D5AFE — deep saturated blue, light (white) text. */
+[data-mode="neobrutalist"][data-theme="light"][data-palette="cobalt"] {
+  --bg:               #3D5AFE;
+  --bg-secondary:     #314CE8;
+  --bg-card:          rgba(255, 255, 255, 0.08);
+  --bg-glass:         rgba(61, 90, 254, 0.82);
+  --text:             #FFFFFF;
+  --text-muted:       rgba(255, 255, 255, 0.7);
+  --text-faint:       rgba(255, 255, 255, 0.4);
+  --border:           rgba(255, 255, 255, 0.85);
+  --border-strong:    #FFFFFF;
+  --heading-shadow:   #1A1A2E;
+  --nav-bg:           rgba(61, 90, 254, 0.9);
+  --nav-border:       rgba(255, 255, 255, 0.85);
+  --modal-bg:         #2A45D6;
+  --modal-border:     rgba(255, 255, 255, 0.18);
+  --wave-r: 255; --wave-g: 255; --wave-b: 255;
   --icon-filter:      brightness(0) invert(1);
+}
+
+/* Neobrutalist dark — keeps the dark palette but bolds the strokes (white) and
+   uses a bright accent for the hard heading shadow. Only overrides what differs
+   from [data-theme="dark"]; everything else falls back to it. */
+[data-mode="neobrutalist"][data-theme="dark"] {
+  --border:           rgba(255, 255, 255, 0.9);
+  --border-strong:    #FFFFFF;
+  --nav-border:       rgba(255, 255, 255, 0.9);
+  --heading-shadow:   #5DE8A8;
 }
 
 /* ── Base ──────────────────────────────────────────────── */

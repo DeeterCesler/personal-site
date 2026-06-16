@@ -118,3 +118,24 @@
 .card:hover:not(.dragging) {
     transform: scale(1.04);
 }
+
+/* ── Neobrutalist: match the homepage cards (light mode only; dark/classic stay as-is) ── */
+[data-mode="neobrutalist"] .card {
+    border: 3px solid var(--border-strong) !important;
+    box-shadow: 8px 8px 0 var(--border-strong);
+}
+
+[data-mode="neobrutalist"] .card:hover {
+    border-color: var(--border-strong) !important;
+    box-shadow: 12px 12px 0 var(--border-strong);
+}
+
+/* Inner faces sit flush inside the 3px border (12px outer − 3px = 9px),
+   so the border doesn't peek through as a wedge at the corners. */
+[data-mode="neobrutalist"] .card img,
+[data-mode="neobrutalist"] .card video,
+[data-mode="neobrutalist"] .card-front,
+[data-mode="neobrutalist"] .card-back,
+[data-mode="neobrutalist"] .card-title-overlay {
+    border-radius: 9px;
+}

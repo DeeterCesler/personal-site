@@ -124,3 +124,14 @@
 [data-mode="neobrutalist"] .section-link-label {
   text-shadow: 4px 4px 0 var(--heading-shadow);
 }
+
+/* Dark: fade the shadow accent when the DC tile cycles it. */
+[data-mode="neobrutalist"][data-theme="dark"] .section-link-label {
+  transition: text-shadow 0.25s ease;
+}
+
+[data-mode="neobrutalist"] .section-link-arrow {
+  color: var(--text);
+  font-weight: 900;
+  -webkit-text-stroke: 0.04em currentColor;
+}

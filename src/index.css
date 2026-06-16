@@ -278,6 +278,13 @@
   --heading-shadow:   #5DE8A8;
 }
 
+/* The hard heading-shadow accent cycles through the palette colors when the
+   DC tile is clicked (dark mode shifts only this; everything else stays). */
+[data-mode="neobrutalist"][data-theme="dark"][data-palette="mint"]   { --heading-shadow: #5DE8A8; }
+[data-mode="neobrutalist"][data-theme="dark"][data-palette="pink"]   { --heading-shadow: #FF5C8A; }
+[data-mode="neobrutalist"][data-theme="dark"][data-palette="yellow"] { --heading-shadow: #FFE14D; }
+[data-mode="neobrutalist"][data-theme="dark"][data-palette="cobalt"] { --heading-shadow: #3D5AFE; }
+
 /* ── Base ──────────────────────────────────────────────── */
 html {
   background-color: var(--bg);

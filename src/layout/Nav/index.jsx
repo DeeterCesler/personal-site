@@ -33,8 +33,18 @@ const Nav = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { isDark, toggleTheme } = useTheme();
+  const { isDark, toggleTheme, mode, cyclePalette } = useTheme();
   const { openContact } = useContact();
+
+  // On the home page in neobrutalist mode, clicking the DC tile cycles the
+  // palette instead of navigating (it's already a no-op link to "/").
+  // Light: the whole scheme shifts. Dark: only the heading drop-shadow accent.
+  const handleWordmarkClick = (e) => {
+    if (mode === 'neobrutalist') {
+      e.preventDefault();
+      cyclePalette();
+    }
+  };
 
   useEffect(() => {
     setNotHome(
@@ -66,7 +76,7 @@ const Nav = () => {
                 ← {t('nav.back')}
               </a>
             ) : (
-              <Link to="/" className="nav-wordmark">DC</Link>
+              <Link to="/" className="nav-wordmark" onClick={handleWordmarkClick}>DC</Link>
             )}
           </div>
 

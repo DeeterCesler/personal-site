@@ -48,11 +48,7 @@ export const ThemeProvider = ({ children }) => {
         mediaQueryRef.current = window.matchMedia('(prefers-color-scheme: dark)');
     }
 
-    const paletteRef = useRef(null);
-    if (!paletteRef.current) {
-        paletteRef.current = getSessionPalette();
-    }
-    const palette = paletteRef.current;
+    const [palette, setPalette] = useState(getSessionPalette);
 
     // Drives all CSS gating: [data-mode] picks classic vs neobrutalist token sets,
     // [data-palette] (neobrutalist only) picks which bright color this session.
@@ -89,8 +85,19 @@ export const ThemeProvider = ({ children }) => {
         setIsDark(prev => !prev);
     };
 
+    // Cycle to the next light palette. The home-page DC tile triggers this
+    // (only in neobrutalist + light mode); persists for the rest of the session.
+    const cyclePalette = () => {
+        setPalette((prev) => {
+            const i = LIGHT_PALETTES.indexOf(prev);
+            const next = LIGHT_PALETTES[(i + 1) % LIGHT_PALETTES.length];
+            try { sessionStorage.setItem('lightPalette', next); } catch (_) {}
+            return next;
+        });
+    };
+
     return (
-        <ThemeContext.Provider value={{ isDark, toggleTheme, palette, mode: THEME_MODE }}>
+        <ThemeContext.Provider value={{ isDark, toggleTheme, palette, mode: THEME_MODE, cyclePalette }}>
             {children}
         </ThemeContext.Provider>
     );

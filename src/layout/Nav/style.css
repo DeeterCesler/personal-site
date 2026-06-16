@@ -43,6 +43,20 @@
   box-shadow: 4px 4px 0 var(--border-strong);
 }
 
+/* Bolder button label + icon. */
+[data-mode="neobrutalist"] .nav-contact-btn {
+  font-weight: 700;
+  color: var(--text);
+}
+
+[data-mode="neobrutalist"] .nav-icon-btn {
+  color: var(--text);
+}
+
+[data-mode="neobrutalist"] .nav-icon-btn svg {
+  stroke-width: 3;
+}
+
 .nav-inner {
   max-width: var(--layout-max-width);
   margin: 0 auto;

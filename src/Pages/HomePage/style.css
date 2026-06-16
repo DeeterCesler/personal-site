@@ -89,3 +89,18 @@
 [data-mode="neobrutalist"] .hero-name {
   text-shadow: 5px 5px 0 var(--heading-shadow);
 }
+
+/* Dark: fade the shadow accent when the DC tile cycles it. */
+[data-mode="neobrutalist"][data-theme="dark"] .hero-name {
+  transition: text-shadow 0.25s ease;
+}
+
+[data-mode="neobrutalist"] .hero-sub {
+  font-weight: 700;
+  color: var(--text);
+}
+
+[data-mode="neobrutalist"] .section-eyebrow {
+  font-weight: 800;
+  color: var(--text);
+}

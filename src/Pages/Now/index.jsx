@@ -6,6 +6,13 @@ import './style.css'
 
 const projects = [
     {
+        id: "9",
+        alt: "Harmonize Trainer",
+        title: "Harmonize Trainer",
+        caption:
+            "Mobile app that trains your ear for harmony. It plays you a note, you sing the harmony above it, and a live pitch meter gives you real-time feedback on how close you are. Built in Flutter, currently in testing.",
+    },
+    {
         id: "8",
         image: "/pics/fitted.png",
         alt: "Fitted",

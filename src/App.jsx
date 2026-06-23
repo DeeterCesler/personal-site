@@ -20,6 +20,7 @@ const SlopBin = React.lazy(() => import('./Pages/SlopBin'))
 const Now = React.lazy(() => import('./Pages/Now'))
 const NorsePrivacy = React.lazy(() => import('./Pages/NorsePrivacy'))
 const Privacy = React.lazy(() => import('./Pages/Privacy'))
+const HarmonizePrivacy = React.lazy(() => import('./Pages/HarmonizePrivacy'))
 const NotFound = React.lazy(() => import('./Pages/NotFound'))
 const Junior = React.lazy(() => import('./Pages/Blogs/Junior'))
 const StartupsVersus = React.lazy(() => import('./Pages/Blogs/StartupsVersus'))
@@ -86,6 +87,7 @@ function App() {
                   <Route path="/psychedelic" element={<Psychedelic />} />
                   <Route path="/privacy" element={<Privacy />} />
                   <Route path="/norse/privacy" element={<NorsePrivacy />} />
+                  <Route path="/harmonize/privacy" element={<HarmonizePrivacy />} />
                   <Route path="/notfound" element={<NotFound />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>

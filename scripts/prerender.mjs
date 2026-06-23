@@ -19,6 +19,7 @@ const ROUTES = [
   '/privacy',
   '/norse/privacy',
   '/grouppray/privacy',
+  '/harmonize/privacy',
   '/blog/junior',
   '/blog/senior',
   '/blog/security',

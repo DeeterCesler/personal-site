@@ -100,14 +100,15 @@ const Tech = () => {
             caption: "Learn the old Norse runic alphabet for free. It's available on the App Store and is totally open-sourced.",
             link: "https://apps.apple.com/us/app/norse-flashcards/id6743998805?l=es-MX&platform=iphone"
         },
-        {
-            id: "70",
-            image: "/pics/restore-britain.png",
-            alt: "How Many Votes to Restore Britain",
-            title: "Web App: Restore Britain Vote Modeler",
-            caption: "An interactive electoral modeling tool built on 2024 UK General Election data, letting you simulate vote transfers and see what it would take to flip any constituency.",
-            link: "https://howmanyvotestorestorebrita.in/",
-        },
+        // Hidden (not deleted): Restore Britain Vote Modeler electoral map
+        // {
+        //     id: "70",
+        //     image: "/pics/restore-britain.png",
+        //     alt: "How Many Votes to Restore Britain",
+        //     title: "Web App: Restore Britain Vote Modeler",
+        //     caption: "An interactive electoral modeling tool built on 2024 UK General Election data, letting you simulate vote transfers and see what it would take to flip any constituency.",
+        //     link: "https://howmanyvotestorestorebrita.in/",
+        // },
         {
             id: "67",
             image: "/pics/swater.png",

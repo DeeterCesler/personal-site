@@ -46,6 +46,9 @@ const Tech = () => {
                             title={card.title}
                             caption={card.caption}
                             link={card.link}
+                            cta={card.cta}
+                            link2={card.link2}
+                            cta2={card.cta2}
                         />
                     ))}
                 </Carousel>
@@ -61,6 +64,9 @@ const Tech = () => {
                             title={card.title}
                             caption={card.caption}
                             link={card.link}
+                            cta={card.cta}
+                            link2={card.link2}
+                            cta2={card.cta2}
                         />
                     ))}
                 </div>
@@ -69,6 +75,25 @@ const Tech = () => {
     };
 
     const techCards = [
+        {
+            id: "8",
+            image: "/pics/harmonize.png",
+            alt: "Harmonize Trainer",
+            title: "iOS App: Harmonize Trainer",
+            caption: "A vocal harmony trainer. It plays you a note, you sing the harmony, and a live pitch meter gives you real-time feedback. Available on the App Store.",
+            link: "https://apps.apple.com/us/app/harmonize-trainer/id6781284983",
+            cta: "App Store",
+            link2: "https://harmonizetrainer.com",
+            cta2: "harmonizetrainer.com",
+        },
+        {
+            id: "9",
+            image: "/pics/bonnie-brae.jpg",
+            alt: "Bonnie Brae Collies",
+            title: "Website: Bonnie Brae Collies",
+            caption: "Designed and built the website for Bonnie Brae Collies, a collie breeding program and boutique dog boarding service in Sedalia, Colorado.",
+            link: "https://bonniebraecollies.com/",
+        },
         {
             id: "3",
             image: "/pics/prayer-app-icon-zoomed.png",

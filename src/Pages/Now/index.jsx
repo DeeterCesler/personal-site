@@ -11,9 +11,11 @@ const projects = [
         alt: "Harmonize Trainer",
         title: "Harmonize Trainer",
         caption:
-            "Mobile app that trains your ear for harmony. It plays you a note, you sing the harmony above it, and a live pitch meter gives you real-time feedback on how close you are. Built in Flutter, currently in testing.",
-        link: "https://harmonizetrainer.com",
-        cta: "harmonizetrainer.com",
+            "Mobile app that trains your ear for harmony. It plays you a note, you sing the harmony above it, and a live pitch meter gives you real-time feedback on how close you are. Built in Flutter, now live on the App Store.",
+        link: "https://apps.apple.com/us/app/harmonize-trainer/id6781284983",
+        cta: "App Store",
+        link2: "https://harmonizetrainer.com",
+        cta2: "harmonizetrainer.com",
     },
     {
         id: "8",
@@ -102,7 +104,7 @@ const Now = () => {
                     <div className="container now">
                         <h1 className="header">NOW</h1>
                         <div className="mini-spacer"/>
-                        <p><i>Updated May 24, 2026</i></p>
+                        <p><i>Updated July 15, 2026</i></p>
                         <div className="mini-spacer"/>
                         <div className="mini-spacer"/>
                     {isMobile ? (

@@ -1,5 +1,7 @@
+'use client';
+
 import { useEffect, useRef, useState } from 'react';
-import { useColor } from '../../context/ColorContext';
+import { useColor } from '@/context/ColorContext';
 import useCardState from './useCardState';
 import './style.css';
 

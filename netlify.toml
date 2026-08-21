@@ -1,6 +1,6 @@
 [build]
   command = "npm install --include=dev && npm run build"
-  publish = "dist"
+  publish = "out"
 
 [[redirects]]
   from = "/index"

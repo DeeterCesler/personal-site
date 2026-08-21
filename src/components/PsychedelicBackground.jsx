@@ -1,7 +1,9 @@
+'use client';
+
 // DO NOT DELETE: kept intentionally for future use even when no page imports it.
 // If you "clean up unused components," skip this one.
 import React, { useEffect, useRef, useState } from 'react';
-import { useTheme } from '../context/ThemeContext';
+import { useTheme } from '@/context/ThemeContext';
 import './psychedelic.css';
 
 const randHue = () => Math.floor(Math.random() * 360);

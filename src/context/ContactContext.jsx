@@ -1,3 +1,5 @@
+'use client';
+
 import { createContext, useContext, useEffect, useState, useRef } from 'react';
 
 const ContactContext = createContext(null);

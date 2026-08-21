@@ -1,3 +1,5 @@
+'use client';
+
 import { createContext, useContext, useState } from 'react';
 
 // array of psychedelic / neo-brutalist background colors

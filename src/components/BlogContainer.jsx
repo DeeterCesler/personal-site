@@ -1,6 +1,7 @@
+'use client';
+
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import Scroller from "circle-scroll";
+import BlogScroller from './BlogScroller';
 import './style.css'
 import MoreBlogsFooter from './MoreBlogsFooter';
 import { SITE, SITE_URL, DEFAULT_OG_IMAGE } from '../seo/routes';
@@ -26,23 +27,20 @@ const BlogContainer = (props) => {
         ...(datePublished ? { datePublished, dateModified: datePublished } : {}),
     }
     return <main className="home blog-container">
-            <Helmet>
-                <script type="application/ld+json">
-                    {JSON.stringify(articleSchema)}
-                </script>
-                <meta property="og:type" content="article" />
-                {datePublished && <meta property="article:published_time" content={datePublished} />}
-            </Helmet>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+            />
             <h1 className="header">{props.title}</h1>
             {props.host && <span className="author"><i>Originally hosted on {props.host}</i></span>}
             <br/>
             {props.publishedDate && <span className="published-date"><i>Published: {props.publishedDate}</i></span>}
                 <div className="mini-spacer"/>
-                <Scroller link="/blog">
+                <BlogScroller link="/blog">
                     <div className="blog-text">
                         {props.children}
                     </div>
-                </Scroller>
+                </BlogScroller>
                 <div className="blog-divider" />
                 <div className="mini-spacer"/>
                 <h2>Other Blogs</h2>

@@ -1,5 +1,8 @@
+'use client';
+
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import './SectionLinks.css';
 
@@ -21,7 +24,7 @@ const TrashIcon = () => (
 
 const SectionLinks = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const router = useRouter();
   const [overlay, setOverlay] = useState({ active: false, x: '50%', y: '50%' });
   const navTimerRef = useRef(null);
 
@@ -38,7 +41,7 @@ const SectionLinks = () => {
     const y = `${e.clientY}px`;
     setOverlay({ active: true, x, y });
     clearTimeout(navTimerRef.current);
-    navTimerRef.current = setTimeout(() => navigate('/slop'), 520);
+    navTimerRef.current = setTimeout(() => router.push('/slop'), 520);
   };
 
   return (
@@ -51,7 +54,7 @@ const SectionLinks = () => {
         {links.map(({ key, to }) => (
           <Link
             key={to}
-            to={to}
+            href={to}
             className="section-link-row"
             onClick={handleClick}
           >

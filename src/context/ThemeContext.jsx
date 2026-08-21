@@ -1,3 +1,5 @@
+'use client';
+
 import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
 import { THEME_MODE } from '../themeMode';
 
@@ -44,15 +46,14 @@ const lightBgFor = (palette) =>
 
 export const ThemeProvider = ({ children }) => {
     const mediaQueryRef = useRef(null);
-    if (!mediaQueryRef.current) {
-        mediaQueryRef.current = window.matchMedia('(prefers-color-scheme: dark)');
-    }
 
     const [palette, setPalette] = useState(getSessionPalette);
 
     // Drives all CSS gating: [data-mode] picks classic vs neobrutalist token sets,
     // [data-palette] (neobrutalist only) picks which bright color this session.
+    // Guarded for SSR (static export) where document is unavailable.
     const applyAttrs = (dark) => {
+        if (typeof document === 'undefined') return;
         const el = document.documentElement;
         el.setAttribute('data-mode', THEME_MODE);
         el.setAttribute('data-theme', dark ? 'dark' : 'light');
@@ -64,17 +65,26 @@ export const ThemeProvider = ({ children }) => {
         document.body.style.backgroundColor = dark ? DARK_BG : lightBgFor(palette);
     };
 
-    const [isDark, setIsDark] = useState(() => {
-        const prefersDark = mediaQueryRef.current.matches;
-        applyAttrs(prefersDark);
-        return prefersDark;
-    });
+    // Start light on the server-rendered HTML; the real preference is read and
+    // applied in the effect below once we're in the browser.
+    const [isDark, setIsDark] = useState(false);
+
+    useEffect(() => {
+        if (!mediaQueryRef.current) {
+            mediaQueryRef.current = window.matchMedia('(prefers-color-scheme: dark)');
+        }
+        setIsDark(mediaQueryRef.current.matches);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     useEffect(() => {
         applyAttrs(isDark);
     }, [isDark, palette]);
 
     useEffect(() => {
+        if (!mediaQueryRef.current) {
+            mediaQueryRef.current = window.matchMedia('(prefers-color-scheme: dark)');
+        }
         const mq = mediaQueryRef.current;
         const handler = (e) => setIsDark(e.matches);
         mq.addEventListener('change', handler);

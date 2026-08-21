@@ -1,10 +1,12 @@
-import { useLocation } from 'react-router-dom';
+'use client';
+
+import { usePathname } from 'next/navigation';
 import SocialLinks from '../../components/SocialLinks';
-import { useContact } from '../../context/ContactContext';
+import { useContact } from '@/context/ContactContext';
 import './style.css';
 
 const Footer = () => {
-  const { pathname } = useLocation();
+  const pathname = usePathname();
   const { openContact } = useContact();
 
   if (pathname === '/') return null;

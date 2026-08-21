@@ -1,3 +1,5 @@
+'use client';
+
 import { insta, x_logo, medium, linkedin, github, email, substack } from "../assets/icons";
 
 const icons = [

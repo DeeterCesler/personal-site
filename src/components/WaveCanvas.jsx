@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useRef, useEffect } from 'react';
-import { useTheme } from '../context/ThemeContext';
+import { useTheme } from '@/context/ThemeContext';
 
 const makeWaves = (h) =>
   Array.from({ length: 18 }, (_, i) => ({

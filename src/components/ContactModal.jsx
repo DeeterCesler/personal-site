@@ -1,4 +1,6 @@
-import { useContact } from '../context/ContactContext';
+'use client';
+
+import { useContact } from '@/context/ContactContext';
 import { insta, x_logo, linkedin, github } from '../assets/icons';
 import './ContactModal.css';
 

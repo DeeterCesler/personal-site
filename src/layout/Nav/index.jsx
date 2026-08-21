@@ -1,8 +1,11 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate, Link } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '../../context/ThemeContext';
-import { useContact } from '../../context/ContactContext';
+import { useTheme } from '@/context/ThemeContext';
+import { useContact } from '@/context/ContactContext';
 import './style.css';
 
 const SunIcon = () => (
@@ -30,8 +33,8 @@ const MoonIcon = () => (
 
 const Nav = () => {
   const [notHome, setNotHome] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
+  const pathname = usePathname();
+  const router = useRouter();
   const { t } = useTranslation();
   const { isDark, toggleTheme, mode, cyclePalette } = useTheme();
   const { openContact } = useContact();
@@ -48,21 +51,23 @@ const Nav = () => {
 
   useEffect(() => {
     setNotHome(
-      location.pathname !== '/' &&
-      location.pathname !== '/index' &&
-      location.pathname !== '/index.html'
+      pathname !== '/' &&
+      pathname !== '/index' &&
+      pathname !== '/index.html'
     );
-  }, [location.pathname]);
+  }, [pathname]);
 
   const getFallbackUrl = () =>
-    location.pathname.startsWith('/blog/') ? '/blog' : '/';
+    pathname.startsWith('/blog/') ? '/blog' : '/';
 
   const handleBack = (e) => {
     e.preventDefault();
-    if (window.history.state?.idx > 0) {
-      navigate(-1);
+    // If we arrived here via in-app navigation there's real history to pop;
+    // otherwise (direct load / new tab) fall back to a sensible parent route.
+    if (typeof window !== 'undefined' && window.history.length > 1) {
+      router.back();
     } else {
-      navigate(getFallbackUrl(), { replace: true });
+      router.replace(getFallbackUrl());
     }
   };
 
@@ -76,7 +81,7 @@ const Nav = () => {
                 ← {t('nav.back')}
               </a>
             ) : (
-              <Link to="/" className="nav-wordmark" onClick={handleWordmarkClick}>DC</Link>
+              <Link href="/" className="nav-wordmark" onClick={handleWordmarkClick}>DC</Link>
             )}
           </div>
 

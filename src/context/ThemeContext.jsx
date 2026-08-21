@@ -69,6 +69,12 @@ export const ThemeProvider = ({ children }) => {
     // applied in the effect below once we're in the browser.
     const [isDark, setIsDark] = useState(false);
 
+    // The inline pre-paint script in app/layout.jsx has already set the correct
+    // theme attributes and body background before hydration. Skip the first
+    // applyAttrs run so we don't overwrite it with the stale isDark=false before
+    // the media query is read below (which would flash light for dark users).
+    const firstApply = useRef(true);
+
     useEffect(() => {
         if (!mediaQueryRef.current) {
             mediaQueryRef.current = window.matchMedia('(prefers-color-scheme: dark)');
@@ -78,6 +84,10 @@ export const ThemeProvider = ({ children }) => {
     }, []);
 
     useEffect(() => {
+        if (firstApply.current) {
+            firstApply.current = false;
+            return;
+        }
         applyAttrs(isDark);
     }, [isDark, palette]);
 

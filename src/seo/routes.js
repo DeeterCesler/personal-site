@@ -84,6 +84,36 @@ export const ROUTE_SEO = {
   },
 }
 
+// Routes intentionally kept out of the sitemap: the 404 and app-specific
+// privacy policies. Everything else in ROUTE_SEO is indexable content.
+export const SITEMAP_EXCLUDE = new Set([
+  '/notfound',
+  '/norse/privacy',
+])
+
+// Last-modified date per route (YYYY-MM-DD) for the sitemap. Routes missing
+// here fall back to the build date, so a newly added page still gets listed
+// even if you forget to add it here. Update when a page's content changes.
+export const LASTMOD = {
+  '/': '2026-05-23',
+  '/blog': '2026-05-23',
+  '/blog/junior': '2022-03-28',
+  '/blog/senior': '2022-03-28',
+  '/blog/security': '2022-03-28',
+  '/blog/startups-vs-big-tech': '2022-03-28',
+  '/blog/immutability': '2025-04-09',
+  '/blog/bdd': '2025-04-09',
+  '/blog/tdd': '2025-04-16',
+  '/blog/looping': '2025-04-09',
+  '/blog/bootstrap-flexbox-css-grid': '2025-04-09',
+  '/work': '2026-06-04',
+  '/dungeon': '2026-04-22',
+  '/slop': '2026-06-02',
+  '/now': '2026-06-02',
+  '/psychedelic': '2026-05-23',
+  '/privacy': '2026-05-24',
+}
+
 export function getRouteSeo(pathname) {
   return ROUTE_SEO[pathname] || {
     title: `Not Found | ${SITE}`,

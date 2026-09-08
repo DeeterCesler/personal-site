@@ -1,0 +1,109 @@
+/*
+ * Reading-progress circle for blog posts. Ported from the `circle-scroll`
+ * package's stylesheet, with two deliberate changes:
+ *   - every rule is scoped under .blog-scroller. The original shipped a bare
+ *     `svg { position: fixed }` rule and a global `.hidden`, which reached every
+ *     SVG on the page and collided with Tailwind's own `hidden` utility.
+ *   - stroke and fill read theme tokens instead of hardcoded black/white, so the
+ *     indicator stays visible in dark mode.
+ */
+
+.blog-scroller {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.blog-scroller a {
+  pointer-events: auto;
+}
+
+.blog-scroller svg {
+  position: fixed;
+  z-index: 3;
+}
+
+.blog-scroller__marks {
+  position: fixed;
+  top: 2rem;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.blog-scroller__ring svg {
+  right: 50px;
+  transform: rotate(-90deg);
+}
+
+.blog-scroller__ring circle {
+  stroke: var(--text, #000);
+  transition: stroke 5s ease-out;
+}
+
+.blog-scroller__backdrop svg {
+  right: 50px;
+  z-index: 2;
+}
+
+.blog-scroller__backdrop circle {
+  fill: var(--bg, #fff);
+  stroke: none;
+}
+
+.blog-scroller__check svg {
+  right: 80px;
+  margin-top: 50px;
+  fill: var(--text, #000);
+}
+
+.blog-scroller__x svg {
+  right: 102px;
+  margin-top: 52px;
+  fill: var(--text, #000);
+}
+
+.blog-scroller__check,
+.blog-scroller__x,
+.blog-scroller__backdrop {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 5s ease-out 1s, visibility 0s 1s;
+}
+
+.blog-scroller .is-hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+  .blog-scroller__marks {
+    top: 10px;
+    right: 10px;
+    width: auto;
+    height: auto;
+  }
+
+  .blog-scroller__ring svg,
+  .blog-scroller__backdrop svg {
+    top: 10px;
+    right: 10px;
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .blog-scroller__check svg,
+  .blog-scroller__x svg {
+    top: 20px;
+    right: 20px;
+    width: 20px !important;
+    height: 20px !important;
+    margin-top: 0;
+  }
+}

@@ -10,9 +10,6 @@ const nextConfig = {
   // static host and match the canonicals in src/seo/routes.js.
   trailingSlash: false,
   reactStrictMode: true,
-  // circle-scroll ships an untranspiled `import "./style.css"`; let Next's
-  // loaders handle it instead of Node's ESM loader during page-data collection.
-  transpilePackages: ['circle-scroll'],
 };
 
 export default nextConfig;

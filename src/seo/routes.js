@@ -74,6 +74,10 @@ export const ROUTE_SEO = {
     title: `Privacy | ${SITE}`,
     description: 'How analytics work on deetercesler.com.',
   },
+  '/harmonize/privacy': {
+    title: `Harmonize Privacy | ${SITE}`,
+    description: 'Privacy policy for the Harmonize iOS app.',
+  },
   '/norse/privacy': {
     title: `Norse Flashcards Privacy | ${SITE}`,
     description: 'Privacy policy for the Norse Flashcards iOS app.',
@@ -89,6 +93,7 @@ export const ROUTE_SEO = {
 export const SITEMAP_EXCLUDE = new Set([
   '/notfound',
   '/norse/privacy',
+  '/harmonize/privacy',
 ])
 
 // Last-modified date per route (YYYY-MM-DD) for the sitemap. Routes missing

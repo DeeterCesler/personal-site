@@ -1,6 +1,5 @@
 import '@/index.css'
 import '@/App.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { SITE, SITE_URL, DEFAULT_DESCRIPTION, DEFAULT_OG_IMAGE } from '@/seo/routes'
 import { THEME_MODE } from '@/themeMode'

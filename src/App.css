@@ -90,7 +90,7 @@ body {
     transform: scale(1.2);
   }
 
-  .check-mark-wrapper {
+  .blog-scroller__marks {
     display: none;
   }
 
@@ -116,6 +116,28 @@ body {
   box-sizing: border-box;
   animation: fadeInUp 0.7s ease-out forwards;
 }
+
+/*
+ * Carried over from bootstrap, which used to be imported after this file and so
+ * won every .container declaration above: the horizontal centering and the
+ * responsive max-widths below are what /now and /dungeon have actually been
+ * rendering with. Kept verbatim so removing bootstrap changed nothing visually.
+ * Delete this block to let the `padding: 4rem 5rem; max-width: none` rule above
+ * finally apply, which is what it was written to do.
+ */
+.container {
+  width: 100%;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px)  { .container { max-width: 540px; } }
+@media (min-width: 768px)  { .container { max-width: 720px; } }
+@media (min-width: 992px)  { .container { max-width: 960px; } }
+@media (min-width: 1200px) { .container { max-width: 1140px; } }
+@media (min-width: 1400px) { .container { max-width: 1320px; } }
 
 .hero-wrapper {
   position: fixed;

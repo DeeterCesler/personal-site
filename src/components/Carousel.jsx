@@ -255,7 +255,7 @@ const Carousel = ({ children, containerWidth }) => {
 
   if (!showNavigation) {
     return (
-      <div className="flex flex-wrap items-center justify-center gap-5 p-4">
+      <div className="flex flex-wrap items-center justify-center gap-12 p-6">
         {React.Children.map(children, child =>
           React.isValidElement(child) ? child : null
         )}
@@ -314,7 +314,7 @@ const Carousel = ({ children, containerWidth }) => {
           <button
             onClick={goToPrevious}
             style={{ top: cardsPerView === 1 ? '317px' : '50%', zIndex: 1000 }}
-            className="absolute left-4 transform -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all duration-200 hover:scale-110"
+            className="absolute left-4 transform -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-gray-800 rounded-full p-4 shadow-[0_1rem_3rem_rgba(0,0,0,0.175)] transition-all duration-200 hover:scale-110"
             aria-label="Previous card"
           >
             <svg style={{ top:5, left:5}} className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -325,7 +325,7 @@ const Carousel = ({ children, containerWidth }) => {
           <button
             onClick={goToNext}
             style={{ top: cardsPerView === 1 ? '317px' : '50%', zIndex: 1000 }}
-            className="absolute right-4 transform -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all duration-200 hover:scale-110"
+            className="absolute right-4 transform -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-gray-800 rounded-full p-4 shadow-[0_1rem_3rem_rgba(0,0,0,0.175)] transition-all duration-200 hover:scale-110"
             aria-label="Next card"
           >
             <svg style={{ top:5, left:5}} className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

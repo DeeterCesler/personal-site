@@ -122,7 +122,10 @@
 }
 
 [data-mode="neobrutalist"] .section-link-label {
-  text-shadow: 4px 4px 0 var(--heading-shadow);
+  /* Background-coloured keyline between glyph and accent; see .hero-name. */
+  text-shadow:
+    2px 2px 0 var(--bg),
+    4px 4px 0 var(--heading-shadow);
 }
 
 /* Dark: fade the shadow accent when the DC tile cycles it. */

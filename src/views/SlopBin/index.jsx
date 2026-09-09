@@ -81,6 +81,47 @@ const projects = [
     image: '/pics/chiasm.png',
     alt: 'Chiasm Builder showing Genesis flood narrative chiastic structure',
   },
+
+{
+    id: 'fitted',
+    title: 'Fitted',
+    caption: 'Career history as a living database. Build a master resume once, then tailor a draft for any job in seconds.',
+    link: 'https://usefitted.com',
+    cta: 'usefitted.com →',
+    badge: 'web app',
+    image: '/pics/fitted.png',
+    alt: 'Fitted resume tailoring interface',
+  },
+  {
+    id: 'privacy-policy-analyzer',
+    title: 'Privacy Policy Analyzer',
+    caption: "Chrome extension that surfaces a plain-English breakdown of any site's privacy policy and highlights how they use your data and any red flags that pop up.",
+    link: 'https://chromewebstore.google.com/detail/term-checker/eaieffmcnlfeeblaofmeobaplbiipkko',
+    cta: 'Chrome Web Store →',
+    link2: 'https://github.com/DeeterCesler/terms',
+    cta2: 'GitHub →',
+    badge: 'browser extension',
+    image: '/pics/privacy-analyzer-icon.webp',
+    alt: 'Privacy Policy Analyzer extension icon',
+  },
+  {
+    id: 'marco-polo-tag',
+    title: 'Mobile App: Marco Polo Tag',
+    caption: 'A real-world tag game for mobile. Players join as Hunter or Hunted and use live GPS, maps, and a compass to track each other down in real time.',
+    link: 'https://inspiring-banoffee-668346.netlify.app/',
+    cta: 'Try the prototype →',
+    badge: 'prototype',
+    image: '/pics/marco-icon.png',
+    alt: 'Marco Polo Tag app icon',
+  },
+  {
+    id: 'travel-app',
+    title: 'Travel app',
+    caption: 'An AI-powered travel app to help you plan your trips. Still early.',
+    badge: 'in progress',
+    // No screenshot yet, so this one uses the "???" placeholder front.
+    placeholder: true,
+  },
 ];
 
 const cardVariants = {

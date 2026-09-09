@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import useCardState from '../../components/Card/useCardState';
 
@@ -11,7 +11,11 @@ const randomRadius = () => {
 
 const SlopCard = ({ title, caption, link, cta = 'open →', link2, cta2 = 'open →', badge, image, alt, placeholder, style }) => {
   const { isFlipped, setIsFlipped, isHovered, setIsHovered, transform } = useCardState(6);
-  const [radius] = useState(randomRadius);
+  // Rolled after mount, not during render: Math.random() in a useState
+  // initialiser gives the server and the client different values, so the style
+  // attribute mismatched and React discarded the tree on hydration.
+  const [radius, setRadius] = useState(null);
+  useEffect(() => { setRadius(randomRadius()); }, []);
 
   const renderLink = (href, label) => {
     if (!href) return null;
@@ -24,7 +28,7 @@ const SlopCard = ({ title, caption, link, cta = 'open →', link2, cta2 = 'open 
   return (
     <div
       className={`slop-card${isFlipped ? ' flipped' : ''}${placeholder ? ' slop-placeholder' : ''}`}
-      style={{ ...style, transform, '--card-radius': radius }}
+      style={{ ...style, transform, ...(radius ? { '--card-radius': radius } : {}) }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

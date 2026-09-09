@@ -65,29 +65,32 @@ export const ThemeProvider = ({ children }) => {
         document.body.style.backgroundColor = dark ? DARK_BG : lightBgFor(palette);
     };
 
-    // Seeded from what the inline pre-paint script in app/layout.jsx already
-    // stamped on <html>, rather than starting at false and correcting in an
-    // effect. The old version guarded that stale first apply with a ref, but
-    // reactStrictMode double-invokes effects: the second invocation found the
-    // ref already spent and applied isDark=false, flashing light for dark-mode
-    // users before the media query landed. Reading the resolved value up front
-    // means there is no wrong state to skip past.
-    const [isDark, setIsDark] = useState(() => {
-        if (typeof document === 'undefined') return false;
-        return document.documentElement.getAttribute('data-theme') === 'dark';
-    });
+    // isDark starts false on the server AND on the first client render, so the
+    // markup that depends on it (the nav toggle's icon and aria-label) matches
+    // and hydration is clean. Seeding it from the DOM instead made the client's
+    // first render disagree with the server.
+    const [isDark, setIsDark] = useState(false);
+
+    // The flash this used to cause came from applyAttrs writing that stale false
+    // to the DOM before the media query was read, undoing the inline pre-paint
+    // script. So we simply don't apply anything until the real value is known.
+    // This is state rather than a ref on purpose: reactStrictMode double-invokes
+    // effects, and a ref guard was already spent on the second pass.
+    const [resolved, setResolved] = useState(false);
 
     useEffect(() => {
         if (!mediaQueryRef.current) {
             mediaQueryRef.current = window.matchMedia('(prefers-color-scheme: dark)');
         }
         setIsDark(mediaQueryRef.current.matches);
+        setResolved(true);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
+        if (!resolved) return;
         applyAttrs(isDark);
-    }, [isDark, palette]);
+    }, [isDark, palette, resolved]);
 
     useEffect(() => {
         if (!mediaQueryRef.current) {

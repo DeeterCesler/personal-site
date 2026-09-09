@@ -27,11 +27,12 @@ const projects = [
   },
   {
     id: '3',
-    image: '/pics/chca.jpg',
-    alt: 'CHCA',
-    title: 'Web copy: CHCA Website',
-    caption: 'Copywriting and website redesign for Cincinnati Hills Christian Academy.',
-    link: 'https://www.chca-oh.org',
+    image: '/pics/harmonize.png',
+    alt: 'Harmonize Trainer',
+    title: 'Harmonize Trainer',
+    caption:
+      'Mobile app that trains your ear for harmony. It plays you a note, you sing the harmony above it, and a live pitch meter scores how close you are. Built in Flutter, live on the App Store.',
+    link: 'https://apps.apple.com/us/app/harmonize-trainer/id6781284983',
   },
   {
     id: '4',

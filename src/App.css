@@ -118,26 +118,18 @@ body {
 }
 
 /*
- * Carried over from bootstrap, which used to be imported after this file and so
- * won every .container declaration above: the horizontal centering and the
- * responsive max-widths below are what /now and /dungeon have actually been
- * rendering with. Kept verbatim so removing bootstrap changed nothing visually.
- * Delete this block to let the `padding: 4rem 5rem; max-width: none` rule above
- * finally apply, which is what it was written to do.
+ * Same measure as .nav-inner (--layout-max-width + --layout-padding-x), so page
+ * content lines up with "Back" and "Contact" in the nav. This replaces the
+ * geometry carried over from bootstrap, whose wider max-width and 0.75rem
+ * padding put the page ~170px left of the nav's content column.
  */
 .container {
   width: 100%;
-  padding-right: 0.75rem;
-  padding-left: 0.75rem;
-  margin-right: auto;
-  margin-left: auto;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  padding-left: var(--layout-padding-x);
+  padding-right: var(--layout-padding-x);
 }
-
-@media (min-width: 576px)  { .container { max-width: 540px; } }
-@media (min-width: 768px)  { .container { max-width: 720px; } }
-@media (min-width: 992px)  { .container { max-width: 960px; } }
-@media (min-width: 1200px) { .container { max-width: 1140px; } }
-@media (min-width: 1400px) { .container { max-width: 1320px; } }
 
 .hero-wrapper {
   position: fixed;
@@ -576,8 +568,8 @@ body {
   border: 1px solid var(--border);
   border-radius: 18px;
   padding: clamp(1.5rem, 4vw, 3rem);
-  margin: 0 auto 2rem;
-  max-width: 45.35rem;
+  margin: 0 0 2rem;
+  max-width: none;
   color: var(--text);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
 }
@@ -592,6 +584,19 @@ body {
   font-size: 1.05rem;
   line-height: 1.75;
   color: var(--text);
+}
+
+/* The card spans the full nav-aligned column, but prose is capped at a readable
+   measure (~70 characters) so lines don't run the whole 1100px. Set in rem
+   rather than ch so headings and body copy share one edge instead of each
+   deriving a different width from their own font size. */
+.blog-text > p,
+.blog-text > ul,
+.blog-text > ol,
+.blog-text > h2,
+.blog-text > h3,
+.blog-text > blockquote {
+  max-width: 36rem;
 }
 
 .blog-text p,

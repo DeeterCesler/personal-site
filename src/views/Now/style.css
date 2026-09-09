@@ -13,13 +13,16 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    /* Full container width so the grid's right edge lines up with the nav too. */
+    max-width: none;
+    margin: 0;
 }
 
 /* Ensure cards don't get too wide on large screens */
 .main-text .card {
-    justify-self: center;
+    /* start, not center: centring inside a wider grid column pushed the first
+       card a further 36px right of the heading. */
+    justify-self: start;
     max-width: 350px;
 }
 

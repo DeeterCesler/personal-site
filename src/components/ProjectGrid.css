@@ -24,7 +24,7 @@
   transition: border-color 0.25s ease;
 }
 
-.pg-card:hover {
+.pg-card.is-active {
   border-color: var(--border-strong);
 }
 
@@ -48,7 +48,7 @@
   transition: transform 0.5s ease, filter 0.35s ease;
 }
 
-.pg-card:hover .pg-card-img {
+.pg-card.is-active .pg-card-img {
   transform: scale(1.04);
   filter: brightness(0.5);
 }
@@ -73,7 +73,7 @@
   transition: opacity 0.2s ease;
 }
 
-.pg-card:hover .pg-card-title-bar {
+.pg-card.is-active .pg-card-title-bar {
   opacity: 0;
 }
 
@@ -84,14 +84,7 @@
   left: 0;
   right: 0;
   padding: 24px 20px 20px;
-  background: rgba(6, 6, 12, 0.92);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-[data-theme="light"] .pg-card-panel {
-  background: var(--bg-glass);
+  background: var(--bg);
   border-top: 1px solid var(--border);
 }
 
@@ -110,7 +103,7 @@
 .pg-panel-caption {
   font-size: 0.82rem;
   line-height: 1.6;
-  color: var(--text-muted);
+  color: var(--text);
   margin: 0 0 14px;
 }
 
@@ -130,7 +123,14 @@
   border-color: var(--text);
 }
 
-/* ── Mobile: always show info ── */
+/*
+ * Mobile: the panel stays an absolutely positioned overlay and the card keeps
+ * its 4/3 ratio, so every card is the same height and none of them resize when
+ * the description slides up. The panel's y is driven by scroll position in
+ * ProjectGrid.jsx, so it is always mounted here and simply parked below the
+ * card until the card climbs the viewport. The image is left undimmed; dimming
+ * every card that scrolls past is noisier than dimming the one you hover.
+ */
 @media (max-width: 640px) {
   .pg-card-title-bar span {
     display: block;
@@ -139,25 +139,47 @@
     text-overflow: ellipsis;
   }
 
-  .pg-card-panel {
-    position: static;
-    transform: none !important;
-    background: var(--bg-card);
-    border-top: 1px solid var(--border);
-    border-radius: 0 0 7px 7px;
-  }
-
+  /*
+   * One fixed panel height for every card. Auto-height panels track their
+   * caption, so a long description covered 83% of its tile while a short one
+   * covered 66%, and the tiles stopped reading as a set even though the cards
+   * themselves never changed size. Fixed height plus a clamped caption keeps
+   * every tile identical; only the slide-up differs.
+   */
   .pg-card {
-    aspect-ratio: unset;
+    aspect-ratio: 1 / 1;
   }
 
-  .pg-card-img {
-    aspect-ratio: 4 / 3;
-    height: auto;
+  .pg-card-panel {
+    /* Height follows the content rather than being pinned, so a two-line
+       caption doesn't leave a band of dead space above the link. The card's
+       own height is set by its aspect-ratio and the panel is absolutely
+       positioned, so letting this vary cannot move the tile. The clamped
+       caption caps how far it can vary. */
+    max-height: 85%;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow: hidden;
   }
 
-  .pg-card:hover .pg-card-img {
-    transform: none;
-    filter: none;
+  .pg-panel-title {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .pg-panel-caption {
+    margin: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+  }
+
+  .pg-panel-link {
+    align-self: flex-start;
+    margin-top: 2px;
   }
 }

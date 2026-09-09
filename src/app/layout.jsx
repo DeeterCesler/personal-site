@@ -56,6 +56,7 @@ if(!p||PALETTES.indexOf(p)<0){p=PALETTES[Math.floor(Math.random()*PALETTES.lengt
 var el=document.documentElement;
 el.setAttribute('data-mode',MODE);
 el.setAttribute('data-theme',dark?'dark':'light');
+el.style.colorScheme=dark?'dark':'light';
 if(MODE==='neobrutalist'){el.setAttribute('data-palette',p);}else{el.removeAttribute('data-palette');}
 var bg=dark?DARK:(MODE==='neobrutalist'?BG[p]:CLASSIC);
 el.style.backgroundColor=bg;
@@ -80,9 +81,14 @@ const jsonLd = {
 }
 
 export default function RootLayout({ children }) {
+  // themeInitScript sets data-mode/data-theme/data-palette and a background
+  // colour on <html> and <body> before React hydrates, which is the whole point
+  // of it: it prevents a theme flash. That deliberately makes the server and
+  // client markup differ, so the hydration warning on these two tags is
+  // expected, and suppressed rather than left rattling in the console.
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" suppressHydrationWarning>
+      <body suppressHydrationWarning>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <script
           type="application/ld+json"

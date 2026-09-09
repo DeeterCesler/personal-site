@@ -37,6 +37,7 @@ const Blog = () => {
   return (
     <div className="blog-page">
       <WaveCanvas />
+      <div className="page-wash" />
       <div className="blog-page-content">
         <h1 className="blog-page-title">Writing</h1>
         <p className="blog-page-subtitle">
@@ -55,21 +56,20 @@ const Blog = () => {
           {articles.map((article) => (
             <a
               key={article.href}
-              className="article-card"
+              className={`article-card${article.featured ? ' is-featured' : ''}`}
               href={article.href}
               target={article.external ? "_blank" : undefined}
               rel={article.external ? "noreferrer noopener" : undefined}
             >
               <div className="article-card-left">
                 {article.badge && (
-                  <span className="article-card-badge">⭐ {article.badge}</span>
+                  <span className="article-card-badge">{article.badge}</span>
                 )}
                 <span className="article-card-title">{article.title}</span>
               </div>
-              {article.external
-                ? <span className="article-external-icon">↗</span>
-                : <span className="article-card-arrow">→</span>
-              }
+              <span className="article-card-arrow" aria-hidden="true">
+                {article.external ? '↗' : '→'}
+              </span>
             </a>
           ))}
         </div>

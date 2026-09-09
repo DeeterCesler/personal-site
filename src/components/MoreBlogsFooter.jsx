@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useEffect, useState } from 'react';
 
 const MoreBlogsFooter = ({shortRef}) => {
     const blogs = [
@@ -51,12 +51,19 @@ const MoreBlogsFooter = ({shortRef}) => {
         }
     ]
 
-    const limitedBlogs = useMemo(() =>
-        [...blogs].sort(() => Math.random() - 0.5)
-            .filter((blog) => blog.shortRef !== shortRef)
-            .slice(0, 3),
+    const candidates = blogs.filter((blog) => blog.shortRef !== shortRef);
+
+    // Server and client each rolled their own Math.random(), so the three links
+    // never matched and React threw the whole subtree away on hydration. Render
+    // a deterministic first three, then shuffle once we're safely on the client.
+    const [limitedBlogs, setLimitedBlogs] = useState(() => candidates.slice(0, 3));
+
+    useEffect(() => {
+        setLimitedBlogs(
+            [...candidates].sort(() => Math.random() - 0.5).slice(0, 3)
+        );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [shortRef]);
+    }, [shortRef]);
 
     return (
         <ul className="other">

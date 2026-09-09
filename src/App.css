@@ -90,7 +90,7 @@ body {
     transform: scale(1.2);
   }
 
-  .blog-scroller__marks {
+  .blog-scroller {
     display: none;
   }
 
@@ -572,16 +572,19 @@ body {
 }
 
 .blog-text {
-  background: var(--bg-glass);
+  background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 18px;
   padding: clamp(1.5rem, 4vw, 3rem);
   margin: 0 auto 2rem;
-  max-width: 72ch;
+  max-width: 45.35rem;
   color: var(--text);
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Match the nav's rule weight: 1px normally, 3px in neobrutalist mode. */
+[data-mode="neobrutalist"] .blog-text {
+  border-width: 3px;
 }
 
 .blog-text p,

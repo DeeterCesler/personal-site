@@ -1,6 +1,20 @@
 @import "tailwindcss";
 
 /* ── Layout ────────────────────────────────────────────── */
+/*
+ * Declared before anything else so the browser paints its very first frame in
+ * the right scheme. Without it the UA canvas is white until the stylesheet is
+ * parsed, which is the light flash you see on a dark-mode load: the theme
+ * script has already run by then, so nothing in JS can prevent it.
+ * The data-theme rules below let an explicit choice override the OS setting.
+ */
+:root {
+  color-scheme: light dark;
+}
+
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"]  { color-scheme: dark; }
+
 :root {
   --layout-max-width: 1100px;
   --layout-padding-x: 5vw;
@@ -30,7 +44,7 @@
  *   --text-faint:       rgba(26, 26, 46, 0.28);
  *   --border:           rgba(0, 0, 0, 0.08);
  *   --border-strong:    rgba(0, 0, 0, 0.22);
- *   --nav-bg:           rgba(242, 240, 232, 0.88);
+ *   --nav-bg:           #f2f0e8;
  *   --nav-border:       rgba(0, 0, 0, 0.07);
  *   --modal-bg:         #ffffff;
  *   --modal-border:     rgba(0, 0, 0, 0.1);
@@ -53,7 +67,7 @@
   --border:           rgba(0, 0, 0, 0.08);
   --border-strong:    rgba(0, 0, 0, 0.22);
 
-  --nav-bg:           rgba(242, 240, 232, 0.88);
+  --nav-bg:           #f2f0e8;
   --nav-border:       rgba(0, 0, 0, 0.07);
 
   --modal-bg:         #ffffff;
@@ -81,7 +95,7 @@
     --border:           rgba(255, 255, 255, 0.07);
     --border-strong:    rgba(255, 255, 255, 0.18);
 
-    --nav-bg:           rgba(6, 6, 12, 0.8);
+    --nav-bg:           #06060c;
     --nav-border:       rgba(255, 255, 255, 0.06);
 
     --modal-bg:         #0e0e1a;
@@ -108,7 +122,7 @@
   --border:           rgba(255, 255, 255, 0.07);
   --border-strong:    rgba(255, 255, 255, 0.18);
 
-  --nav-bg:           rgba(6, 6, 12, 0.8);
+  --nav-bg:           #06060c;
   --nav-border:       rgba(255, 255, 255, 0.06);
 
   --modal-bg:         #0e0e1a;
@@ -137,7 +151,7 @@
   --border:           rgba(0, 0, 0, 0.08);
   --border-strong:    rgba(0, 0, 0, 0.22);
 
-  --nav-bg:           rgba(242, 240, 232, 0.88);
+  --nav-bg:           #f2f0e8;
   --nav-border:       rgba(0, 0, 0, 0.07);
 
   --modal-bg:         #ffffff;
@@ -173,7 +187,7 @@
   --border-strong:    #1A1A2E;
   --heading-shadow:   #FFFFFF;
 
-  --nav-bg:           rgba(93, 232, 168, 0.9);
+  --nav-bg:           #5de8a8;
   --nav-border:       rgba(26, 26, 46, 0.9);
 
   --modal-bg:         #E0FBEF;
@@ -198,7 +212,7 @@
   --border:           rgba(26, 26, 46, 0.9);
   --border-strong:    #1A1A2E;
   --heading-shadow:   #FFFFFF;
-  --nav-bg:           rgba(93, 232, 168, 0.9);
+  --nav-bg:           #5de8a8;
   --nav-border:       rgba(26, 26, 46, 0.9);
   --modal-bg:         #E0FBEF;
   --modal-border:     rgba(26, 26, 46, 0.14);
@@ -218,7 +232,7 @@
   --border:           rgba(26, 26, 46, 0.9);
   --border-strong:    #1A1A2E;
   --heading-shadow:   #FFFFFF;
-  --nav-bg:           rgba(255, 92, 138, 0.9);
+  --nav-bg:           #ff5c8a;
   --nav-border:       rgba(26, 26, 46, 0.9);
   --modal-bg:         #FFE3EC;
   --modal-border:     rgba(26, 26, 46, 0.14);
@@ -238,7 +252,7 @@
   --border:           rgba(26, 26, 46, 0.9);
   --border-strong:    #1A1A2E;
   --heading-shadow:   #FFFFFF;
-  --nav-bg:           rgba(255, 225, 77, 0.9);
+  --nav-bg:           #ffe14d;
   --nav-border:       rgba(26, 26, 46, 0.9);
   --modal-bg:         #FFF6CC;
   --modal-border:     rgba(26, 26, 46, 0.14);
@@ -258,7 +272,7 @@
   --border:           rgba(255, 255, 255, 0.85);
   --border-strong:    #FFFFFF;
   --heading-shadow:   #1A1A2E;
-  --nav-bg:           rgba(61, 90, 254, 0.9);
+  --nav-bg:           #3d5afe;
   --nav-border:       rgba(255, 255, 255, 0.85);
   --modal-bg:         #2A45D6;
   --modal-border:     rgba(255, 255, 255, 0.18);
@@ -304,3 +318,17 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+
+/* Backdrop used only on /blog and /blog/*. It sits above the fixed WaveCanvas
+   (z-index 0, painted earlier in the DOM) and below page content, which is
+   raised to z-index 1.
+   The waves stay visible on the page itself; readability comes from the solid
+   card the text sits on instead. Other pages have no wash at all. */
+.page-wash {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+

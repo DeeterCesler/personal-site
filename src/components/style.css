@@ -18,19 +18,28 @@
     }
 }
 
+.blog-container {
+    position: relative;
+    z-index: 1;
+}
+
 .blog-container .header,
 .blog-container .author,
 .blog-container .published-date,
+.blog-container .other,
 .blog-container > h2 {
-    max-width: 72ch;
+    /* 45.35rem is the same measure as .blog-text's 72ch at body size. Stated in
+       rem rather than ch so headings and lists at other font sizes still line
+       up: ch scales with font-size, which is why the bigger "Other Blogs"
+       heading was hanging ~117px left of everything else. */
+    max-width: 45.35rem;
     margin-left: auto;
     margin-right: auto;
 }
 
-.blog-divider {
-    width: 100%;
-    max-width: 72ch;
-    height: 1px;
-    background: var(--border);
-    margin: 1rem auto;
+/* "Other Blogs" heading. */
+.blog-container > h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
 }

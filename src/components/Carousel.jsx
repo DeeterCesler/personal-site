@@ -5,6 +5,12 @@ import { motion } from 'framer-motion';
 
 const DECK_DURATION = 0.45; // seconds for the mobile deal slide
 
+// A horizontal drag counts as a swipe if it either travels far enough or is
+// flicked fast enough, so a short sharp flick works as well as a slow pull.
+const SWIPE_DISTANCE = 50;   // px
+const SWIPE_VELOCITY = 400;  // px/s
+const DRAG_SLOP = 5;         // px of movement before we treat a press as a drag
+
 const Carousel = ({ children, containerWidth }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(1);
@@ -19,6 +25,10 @@ const Carousel = ({ children, containerWidth }) => {
   const orderRef = useRef(0);        // increasing stack order so newer flights sit on top
   const flightTimers = useRef([]);
   const carouselRef = useRef(null);
+  // Set while a press turns into a drag, so the click that browsers fire after
+  // a drag doesn't also flip the card underneath the finger.
+  const draggedRef = useRef(false);
+  const swipeRef = useRef({ x: 0, y: 0, t: 0, lastX: 0, lastY: 0, active: false });
 
   useEffect(() => () => flightTimers.current.forEach(clearTimeout), []);
   // Reset the stack-order counter whenever the deck goes idle.
@@ -117,6 +127,59 @@ const Carousel = ({ children, containerWidth }) => {
 
   const goToNext = () => navigate('next');
   const goToPrevious = () => navigate('prev');
+
+  // Plain pointer events rather than a framer drag or pan. Both of those hook
+  // into the same gesture system that animates the deck, and `drag` additionally
+  // moves the container, which fought the deal animation. Reading the raw
+  // pointer positions touches no transform at all, so the deal animation stays
+  // the only thing on screen.
+  const handlePointerDown = (event) => {
+    draggedRef.current = false;
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    swipeRef.current = {
+      x: event.clientX, y: event.clientY, t: event.timeStamp,
+      lastX: event.clientX, lastY: event.clientY, active: true,
+    };
+    // Keep receiving moves even if the finger leaves this element.
+    try { event.currentTarget.setPointerCapture(event.pointerId); } catch {}
+  };
+
+  const handlePointerMove = (event) => {
+    const s = swipeRef.current;
+    if (!s.active) return;
+    s.lastX = event.clientX;
+    s.lastY = event.clientY;
+    if (Math.abs(event.clientX - s.x) > DRAG_SLOP) draggedRef.current = true;
+  };
+
+  // Shared by pointerup and pointercancel. Cancel matters: if anything upstream
+  // decides the gesture is a scroll, the browser fires cancel instead of up, and
+  // treating that as "abort" silently swallowed every real swipe on a touch
+  // device. The last move position is enough to judge the gesture either way.
+  const endSwipe = (endX, endY, endTime) => {
+    const s = swipeRef.current;
+    swipeRef.current = { ...s, active: false };
+    if (!s.active || totalCards <= 1) return;
+
+    const dx = endX - s.x;
+    const dy = endY - s.y;
+    // Ignore gestures that are mostly vertical: those are page scrolls.
+    if (Math.abs(dx) < Math.abs(dy)) return;
+
+    const dt = Math.max(endTime - s.t, 1);
+    const velocity = (dx / dt) * 1000;
+
+    if (dx < -SWIPE_DISTANCE || velocity < -SWIPE_VELOCITY) goToNext();
+    else if (dx > SWIPE_DISTANCE || velocity > SWIPE_VELOCITY) goToPrevious();
+  };
+
+  const handlePointerUp = (event) =>
+    endSwipe(event.clientX, event.clientY, event.timeStamp);
+
+  const handlePointerCancel = (event) => {
+    const s = swipeRef.current;
+    endSwipe(s.lastX, s.lastY, event.timeStamp);
+  };
 
   // Calculate card positions and visibility
   const getCardStyle = (index) => {
@@ -264,16 +327,30 @@ const Carousel = ({ children, containerWidth }) => {
   } else return (
     <div className="relative w-full">
       {/* Carousel Container */}
-      <div 
+      <motion.div
         ref={carouselRef}
         className="relative flex items-center justify-center"
+        // Swipe advances the deck; see the pointer handlers above.
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerCancel}
+        onClickCapture={(event) => {
+          if (!draggedRef.current) return;
+          event.preventDefault();
+          event.stopPropagation();
+        }}
         style={{
           height: '450px',
           width: '100%',
           maxWidth: cardsPerView === 3 ? '960px' : '100%', // Limit width for 3 cards to prevent gaps
-          transform: cardsPerView === 3 ? 'translateX(40px)' : 'none', // Move tablet layout slightly right
+        transform: cardsPerView === 3 ? 'translateX(40px)' : 'none', // Move tablet layout slightly right
           minWidth: cardsPerView === 1 ? '100%' : 'auto', // Ensure full width on mobile
-          overflow: 'hidden' // Clip the deck's fanned/flying cards so they don't extend page scroll width
+          overflow: 'hidden', // Clip the deck's fanned/flying cards so they don't extend page scroll width
+          // Claim horizontal gestures for the swipe; vertical stays page scroll.
+          // Without this the browser treats a sideways drag as a scroll attempt
+          // and cancels the pointer stream mid-gesture.
+          touchAction: 'pan-y',
         }}
       >
         {React.Children.map(children, (child, index) => {
@@ -306,7 +383,7 @@ const Carousel = ({ children, containerWidth }) => {
             </motion.div>
           );
         })}
-      </div>
+      </motion.div>
 
       {/* Navigation Arrows */}
       {showNavigation && (

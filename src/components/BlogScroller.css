@@ -1,109 +1,98 @@
 /*
- * Reading-progress circle for blog posts. Ported from the `circle-scroll`
- * package's stylesheet, with two deliberate changes:
- *   - every rule is scoped under .blog-scroller. The original shipped a bare
- *     `svg { position: fixed }` rule and a global `.hidden`, which reached every
- *     SVG on the page and collided with Tailwind's own `hidden` utility.
- *   - stroke and fill read theme tokens instead of hardcoded black/white, so the
- *     indicator stays visible in dark mode.
+ * Reading-progress dial. Everything is scoped under .blog-scroller: an earlier
+ * version of this (inherited from the circle-scroll package) shipped a bare
+ * `svg { position: fixed }` rule that reached every SVG on the page.
  */
 
 .blog-scroller {
   position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 9999;
-  pointer-events: none;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  /* Clears the 60px nav rather than colliding with its bottom border. */
+  top: 76px;
+  right: 20px;
+  z-index: 60;
+  display: block;
+  line-height: 0;
+  border-radius: 50%;
+  transition: transform 0.18s ease;
 }
 
-.blog-scroller a {
-  pointer-events: auto;
+.blog-scroller:hover {
+  transform: scale(1.06);
 }
 
-.blog-scroller svg {
-  position: fixed;
-  z-index: 3;
+.blog-scroller:disabled {
+  cursor: default;
 }
 
-.blog-scroller__marks {
-  position: fixed;
-  top: 2rem;
-  right: 0;
-  z-index: 999;
-  display: flex;
-  width: 100%;
-  justify-content: flex-end;
+.blog-scroller:disabled:hover {
+  transform: none;
 }
 
-.blog-scroller__ring svg {
-  right: 50px;
-  transform: rotate(-90deg);
+.blog-scroller__disc {
+  fill: var(--bg);
 }
 
-.blog-scroller__ring circle {
-  stroke: var(--text, #000);
-  transition: stroke 5s ease-out;
+.blog-scroller__track {
+  fill: none;
+  /* Derived from the text colour rather than a --border token: in neobrutalist
+     mode those are solid dark, which made the track indistinguishable from the
+     progress arc and the dial read as permanently full. */
+  stroke: color-mix(in srgb, var(--text) 16%, transparent);
 }
 
-.blog-scroller__backdrop svg {
-  right: 50px;
-  z-index: 2;
+.blog-scroller__bar {
+  fill: none;
+  stroke: var(--text);
 }
 
-.blog-scroller__backdrop circle {
-  fill: var(--bg, #fff);
-  stroke: none;
-}
-
-.blog-scroller__check svg {
-  right: 80px;
-  margin-top: 50px;
-  fill: var(--text, #000);
-}
-
-.blog-scroller__x svg {
-  right: 102px;
-  margin-top: 52px;
-  fill: var(--text, #000);
-}
-
-.blog-scroller__check,
-.blog-scroller__x,
-.blog-scroller__backdrop {
+.blog-scroller__arrow {
+  stroke: var(--text);
   opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transition: opacity 5s ease-out 1s, visibility 0s 1s;
+  transform-origin: center;
+  transition: opacity 0.18s ease, transform 0.18s ease;
 }
 
-.blog-scroller .is-hidden {
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none;
+.blog-scroller.is-complete .blog-scroller__arrow {
+  opacity: 0;
+  transform: translateY(4px) scale(0.8);
 }
 
-@media screen and (max-width: 768px) {
-  .blog-scroller__marks {
-    top: 10px;
-    right: 10px;
-    width: auto;
-    height: auto;
+/* The checkmark shares the ring's coordinate space, so it is centred by
+   construction. It appears promptly at the end instead of easing in over
+   several seconds, which previously left the dial looking empty. */
+.blog-scroller__check {
+  stroke: var(--text);
+  opacity: 0;
+  transform: scale(0.7);
+  transform-origin: center;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.blog-scroller.is-complete .blog-scroller__check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Once finished, the ring recedes so the checkmark is the thing you read. */
+.blog-scroller.is-complete .blog-scroller__bar {
+  stroke: var(--border-strong);
+}
+
+/* App.css hides the dial entirely below 640px, as it did before; this covers
+   the band above that, where the screen is still narrow. */
+@media (max-width: 768px) {
+  .blog-scroller {
+    top: 68px;
+    right: 12px;
+    transform: scale(0.82);
+    transform-origin: top right;
   }
 
-  .blog-scroller__ring svg,
-  .blog-scroller__backdrop svg {
-    top: 10px;
-    right: 10px;
-    width: 40px !important;
-    height: 40px !important;
-  }
-
-  .blog-scroller__check svg,
-  .blog-scroller__x svg {
-    top: 20px;
-    right: 20px;
-    width: 20px !important;
-    height: 20px !important;
-    margin-top: 0;
+  .blog-scroller:hover {
+    transform: scale(0.82);
   }
 }

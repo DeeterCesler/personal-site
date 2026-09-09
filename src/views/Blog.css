@@ -24,9 +24,8 @@
 .blog-page-subtitle {
   font-size: 1.05rem;
   line-height: 1.5;
-  color: var(--text-muted);
-  font-style: italic;
-  margin: 0 0 2.5rem;
+  color: var(--text);
+  margin: 0 0 3rem;
 }
 
 .blog-page-subtitle-link {
@@ -41,86 +40,84 @@
 }
 
 /* ── Article list ── */
+/*
+ * Twelve rows each separated by a full-width rule read as a ladder: the
+ * dividers drew more attention than the titles. Structure now comes from
+ * spacing and a hover row instead, and hierarchy from size and weight rather
+ * than from lowering opacity, which just makes text harder to read.
+ */
 .article-list {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  /* Solid card, matching .blog-text on the posts: the wave canvas keeps moving
+     on the page behind it, but never behind the text itself. */
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: clamp(0.75rem, 2.5vw, 1.5rem);
+}
+
+/* Match the nav's rule weight: 1px normally, 3px in neobrutalist mode. */
+[data-mode="neobrutalist"] .article-list {
+  border-width: 3px;
 }
 
 .article-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border);
+  gap: 20px;
+  padding: 16px 14px;
+  margin: 0 -14px;
+  border-radius: 8px;
   text-decoration: none;
   color: var(--text);
-  transition: color 0.2s ease;
-}
-
-.article-card:first-child {
-  border-top: 1px solid var(--border);
+  transition: background-color 0.18s ease;
 }
 
 .article-card:hover {
-  color: var(--text);
+  background-color: var(--bg-card);
 }
 
 .article-card-left {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
   flex: 1;
+  min-width: 0;
 }
 
 .article-card-title {
-  font-size: 1rem;
+  font-size: 1.08rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.35;
-  transition: opacity 0.2s ease;
 }
 
-.article-card:hover .article-card-title {
-  opacity: 0.7;
+.article-card.is-featured .article-card-title {
+  font-weight: 800;
 }
 
+/* A quiet micro-label. This was a dark capsule with gold text and a star, which
+   outshouted the twelve titles it sat among and knocked its own row out of
+   alignment. Small and letterspaced carries the same meaning without the noise. */
 .article-card-badge {
   align-self: flex-start;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #f5c542;
-  background: rgba(20, 18, 12, 0.8);
-  border: 1px solid rgba(245, 197, 66, 0.55);
-  border-radius: 999px;
-  padding: 4px 10px;
+  color: var(--text);
 }
 
 .article-card-arrow {
-  font-size: 0.9rem;
-  color: var(--text-faint);
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--text);
   flex-shrink: 0;
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition: transform 0.18s ease;
 }
 
 .article-card:hover .article-card-arrow {
   transform: translateX(3px);
-  color: var(--text-muted);
-}
-
-.article-external-icon {
-  font-size: 0.75rem;
-  color: var(--text-faint);
-  flex-shrink: 0;
-  transition: color 0.2s ease;
-}
-
-.article-card:hover .article-external-icon {
-  color: var(--text-muted);
 }

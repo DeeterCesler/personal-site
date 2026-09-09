@@ -65,15 +65,17 @@ export const ThemeProvider = ({ children }) => {
         document.body.style.backgroundColor = dark ? DARK_BG : lightBgFor(palette);
     };
 
-    // Start light on the server-rendered HTML; the real preference is read and
-    // applied in the effect below once we're in the browser.
-    const [isDark, setIsDark] = useState(false);
-
-    // The inline pre-paint script in app/layout.jsx has already set the correct
-    // theme attributes and body background before hydration. Skip the first
-    // applyAttrs run so we don't overwrite it with the stale isDark=false before
-    // the media query is read below (which would flash light for dark users).
-    const firstApply = useRef(true);
+    // Seeded from what the inline pre-paint script in app/layout.jsx already
+    // stamped on <html>, rather than starting at false and correcting in an
+    // effect. The old version guarded that stale first apply with a ref, but
+    // reactStrictMode double-invokes effects: the second invocation found the
+    // ref already spent and applied isDark=false, flashing light for dark-mode
+    // users before the media query landed. Reading the resolved value up front
+    // means there is no wrong state to skip past.
+    const [isDark, setIsDark] = useState(() => {
+        if (typeof document === 'undefined') return false;
+        return document.documentElement.getAttribute('data-theme') === 'dark';
+    });
 
     useEffect(() => {
         if (!mediaQueryRef.current) {
@@ -84,10 +86,6 @@ export const ThemeProvider = ({ children }) => {
     }, []);
 
     useEffect(() => {
-        if (firstApply.current) {
-            firstApply.current = false;
-            return;
-        }
         applyAttrs(isDark);
     }, [isDark, palette]);
 

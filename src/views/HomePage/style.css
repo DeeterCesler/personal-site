@@ -37,6 +37,23 @@
   padding-bottom: 6vw;
 }
 
+/* Mobile: hold the hero to most of the first screen so Selected Work starts
+   below it and the first tile only pokes into the fold, rather than filling it.
+   svh tracks the visible viewport as browser chrome hides, so the tile keeps
+   peeking by the same amount instead of jumping. */
+@media (max-width: 640px) {
+  .hero-section {
+    min-height: 70.5vh;
+    min-height: 70.5svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Just clear the fixed nav; the big top padding above would otherwise stack
+       with the min-height and dump all the slack into one void at the top. */
+    padding-top: 60px;
+  }
+}
+
 .hero-name {
   font-size: clamp(3.2rem, 9vw, 7.5rem);
   font-weight: 900;
@@ -103,4 +120,20 @@
 [data-mode="neobrutalist"] .section-eyebrow {
   font-weight: 800;
   color: var(--text);
+}
+
+/* Breathing room between the SLOP BIN row and the social icons on mobile.
+   Placed at the end of the file so it lands after the base .home-footer rule
+   above, which sets the same property at the same specificity. */
+@media (max-width: 640px) {
+  .home-footer {
+    padding-top: 72px;
+  }
+
+  /* Same breathing room above the NOW / WORK / BLOG / SLOP BIN block, between
+     it and the last project tile. Margin rather than padding so the block's
+     top border moves down with it. */
+  .section-links {
+    margin-top: 48px;
+  }
 }

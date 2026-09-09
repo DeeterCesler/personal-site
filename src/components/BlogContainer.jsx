@@ -26,7 +26,9 @@ const BlogContainer = (props) => {
         url,
         ...(datePublished ? { datePublished, dateModified: datePublished } : {}),
     }
-    return <main className="home blog-container">
+    return <>
+        <div className="page-wash" />
+        <main className="home blog-container">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -36,18 +38,18 @@ const BlogContainer = (props) => {
             <br/>
             {props.publishedDate && <span className="published-date"><i>Published: {props.publishedDate}</i></span>}
                 <div className="mini-spacer"/>
-                <BlogScroller link="/blog">
+                <BlogScroller>
                     <div className="blog-text">
                         {props.children}
                     </div>
                 </BlogScroller>
-                <div className="blog-divider" />
                 <div className="mini-spacer"/>
                 <h2>Other Blogs</h2>
                 <br/>
                 <MoreBlogsFooter shortRef={props.shortRef} />
                 <div className="mini-spacer"/>
         </main>
+    </>
 }
 
 export default BlogContainer;

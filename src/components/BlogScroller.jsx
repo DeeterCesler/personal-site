@@ -3,27 +3,21 @@
 import { useEffect, useRef, useState } from 'react';
 import './BlogScroller.css';
 
-// Reading-progress indicator for blog posts: a circle in the top-right corner
-// that fills as you scroll through the article, showing an x-mark while you're
-// partway and a checkmark once you reach the end. Clicking it goes to `link`.
+// Reading-progress dial for blog posts: a small ring in the top-right corner
+// that fills as you move through the article. While there's still article left
+// it doubles as a page-down control; at the end it turns into a checkmark and
+// becomes a plain indicator.
 //
-// This replaces the `circle-scroll` npm package, which did the same thing but
-// dragged jQuery in as a runtime dependency. The scroll math below is a faithful
-// port of that package's, so the thresholds are unchanged: nothing appears until
-// ~20% read, the stroke fills from there, and the checkmark lands at 100%.
+// Geometry is derived rather than hand-placed. The old version positioned the
+// ring, the checkmark and a backing circle as three separately fixed elements
+// nudged with magic pixel offsets, so they never quite lined up, and faded them
+// with a 5s transition, which read as the indicator being blank on arrival.
+const SIZE = 44;
+const STROKE = 2.5;
+const RADIUS = (SIZE - STROKE) / 2;
+const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
-const DASH_LENGTH = 200; // stroke-dasharray, in % of the circle's path length
-const CIRCLE_FILL = 40; // offset slack that keeps a filled circle from over-rotating
-
-// Maps reading progress (0-100) onto the stroke-dashoffset the circle renders at.
-// At zero progress the circle sits fully unfilled; past that it tracks scroll at
-// double rate, so the visible fill spans roughly the 20%-100% range of the article.
-const dashOffsetFor = (progress) => {
-  if (progress <= 0) return DASH_LENGTH;
-  return Math.max(-CIRCLE_FILL, DASH_LENGTH - progress * 2) + CIRCLE_FILL;
-};
-
-export default function BlogScroller({ link, children }) {
+export default function BlogScroller({ children }) {
   const contentRef = useRef(null);
   const frameRef = useRef(0);
   const [progress, setProgress] = useState(0);
@@ -36,14 +30,20 @@ export default function BlogScroller({ link, children }) {
       const rect = el.getBoundingClientRect();
       if (rect.height === 0) return;
 
-      // How far the viewport's bottom edge has travelled into the content,
-      // as a percentage of the content's own height.
-      const scrolled = window.innerHeight - rect.top;
-      setProgress(Math.min(Math.max((scrolled / rect.height) * 100, 0), 100));
+      // Fraction of the article actually scrolled through. Measuring where the
+      // viewport's bottom edge falls inside the content instead reaches 100%
+      // roughly a screenful before the end, so the ring closed while there was
+      // still plenty left to read.
+      const scrollable = rect.height - window.innerHeight;
+      if (scrollable <= 0) {
+        setProgress(rect.bottom <= window.innerHeight ? 1 : 0);
+        return;
+      }
+      setProgress(Math.min(Math.max(-rect.top / scrollable, 0), 1));
     };
 
-    // Coalesce scroll/resize bursts into one measurement per animation frame;
-    // the layout reads above are the expensive part of the handler.
+    // Coalesce scroll/resize bursts into one measurement per frame; the layout
+    // read above is the expensive part.
     const schedule = () => {
       cancelAnimationFrame(frameRef.current);
       frameRef.current = requestAnimationFrame(measure);
@@ -60,50 +60,75 @@ export default function BlogScroller({ link, children }) {
     };
   }, []);
 
-  const dashOffset = dashOffsetFor(progress);
-  const started = dashOffset < DASH_LENGTH;
-  const complete = dashOffset <= CIRCLE_FILL;
+  const complete = progress >= 0.999;
+  const centre = SIZE / 2;
+
+  // Mid-article the dial pages down by half a screen. At the end it is purely
+  // an indicator and does nothing, so it is disabled rather than left as a
+  // control that silently no-ops under the cursor.
+  const handleClick = () => {
+    window.scrollBy({ top: window.innerHeight / 2, behavior: 'smooth' });
+  };
 
   return (
     <div className="body-content" ref={contentRef}>
-      <div className="blog-scroller">
-        <a href={link} aria-label="Back to all posts">
-          <div className="blog-scroller__marks">
-            <div className="blog-scroller__ring">
-              <svg viewBox="0 0 100 100" height="150px" xmlns="http://www.w3.org/2000/svg">
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="25"
-                  fill="none"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeDasharray={`${DASH_LENGTH}%`}
-                  strokeDashoffset={`${dashOffset}%`}
-                />
-              </svg>
-            </div>
+      <button
+        type="button"
+        className={`blog-scroller${complete ? ' is-complete' : ''}`}
+        onClick={handleClick}
+        disabled={complete}
+        aria-label={
+          complete
+            ? 'Article finished'
+            : `Scroll down (${Math.round(progress * 100)}% read)`
+        }
+      >
+        <svg width={SIZE} height={SIZE} viewBox={`0 0 ${SIZE} ${SIZE}`} aria-hidden="true">
+          {/* Solid disc so the article never shows through the dial */}
+          <circle className="blog-scroller__disc" cx={centre} cy={centre} r={RADIUS} />
 
-            <div className={`blog-scroller__check ${complete ? '' : 'is-hidden'}`}>
-              <svg width="82px" height="82px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="m61.5 23.3-8.013-8.013-25.71 25.71-9.26-9.26-8.013 8.013 17.42 17.44z" />
-              </svg>
-            </div>
+          <circle
+            className="blog-scroller__track"
+            cx={centre}
+            cy={centre}
+            r={RADIUS}
+            strokeWidth={STROKE}
+          />
 
-            <div className={`blog-scroller__x ${started && !complete ? '' : 'is-hidden'}`}>
-              <svg width="40px" height="40px" viewBox="0 0 460.775 460.775" xmlns="http://www.w3.org/2000/svg">
-                <path d="M285.08,230.397L456.218,59.27c6.076-6.077,6.076-15.911,0-21.986L423.511,4.565c-2.913-2.911-6.866-4.55-10.992-4.55  c-4.127,0-8.08,1.639-10.993,4.55l-171.138,171.14L59.25,4.565c-2.913-2.911-6.866-4.55-10.993-4.55  c-4.126,0-8.08,1.639-10.992,4.55L4.558,37.284c-6.077,6.075-6.077,15.909,0,21.986l171.138,171.128L4.575,401.505  c-6.074,6.077-6.074,15.911,0,21.986l32.709,32.719c2.911,2.911,6.865,4.55,10.992,4.55c4.127,0,8.08-1.639,10.994-4.55  l171.117-171.12l171.118,171.12c2.913,2.911,6.866,4.55,10.993,4.55c4.128,0,8.081-1.639,10.992-4.55l32.709-32.719  c6.074-6.075,6.074-15.909,0-21.986L285.08,230.397z" />
-              </svg>
-            </div>
+          <circle
+            className="blog-scroller__bar"
+            cx={centre}
+            cy={centre}
+            r={RADIUS}
+            strokeWidth={STROKE}
+            strokeLinecap="round"
+            strokeDasharray={CIRCUMFERENCE}
+            strokeDashoffset={CIRCUMFERENCE * (1 - progress)}
+            transform={`rotate(-90 ${centre} ${centre})`}
+          />
 
-            <div className={`blog-scroller__backdrop ${started ? '' : 'is-hidden'}`}>
-              <svg viewBox="0 0 100 100" height="150px" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="29" strokeWidth="2" />
-              </svg>
-            </div>
-          </div>
-        </a>
-      </div>
+          {/* Both glyphs are drawn in the ring's own coordinate space, so they
+              are centred by construction rather than by offset nudging. The
+              arrow reads as "keep going" while there's article left; it swaps
+              for the check at the end. */}
+          <path
+            className="blog-scroller__arrow"
+            d="M22 15 v13 M16.8 22.8 L22 28 l5.2 -5.2"
+            fill="none"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            className="blog-scroller__check"
+            d="M14.5 22.5 l5 5 L30 17"
+            fill="none"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
       {children}
     </div>
   );

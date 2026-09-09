@@ -2,10 +2,11 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/context/ThemeContext';
 import { useContact } from '@/context/ContactContext';
+import { ROUTE_SEO } from '@/seo/routes';
 import './style.css';
 
 const SunIcon = () => (
@@ -34,7 +35,6 @@ const MoonIcon = () => (
 const Nav = () => {
   const [notHome, setNotHome] = useState(false);
   const pathname = usePathname();
-  const router = useRouter();
   const { t } = useTranslation();
   const { isDark, toggleTheme, mode, cyclePalette } = useTheme();
   const { openContact } = useContact();
@@ -57,18 +57,14 @@ const Nav = () => {
     );
   }, [pathname]);
 
-  const getFallbackUrl = () =>
-    pathname.startsWith('/blog/') ? '/blog' : '/';
-
-  const handleBack = (e) => {
-    e.preventDefault();
-    // If we arrived here via in-app navigation there's real history to pop;
-    // otherwise (direct load / new tab) fall back to a sensible parent route.
-    if (typeof window !== 'undefined' && window.history.length > 1) {
-      router.back();
-    } else {
-      router.replace(getFallbackUrl());
-    }
+  // Always one level up the path, never window.history: popping history sent
+  // you back to wherever you happened to come from, which is not "up".
+  // Parents that aren't real routes (e.g. /harmonize above /harmonize/privacy)
+  // fall through to home rather than to a 404.
+  const parentOf = (path) => {
+    const trimmed = path.replace(/\/+$/, '');
+    const parent = trimmed.slice(0, trimmed.lastIndexOf('/'));
+    return parent && parent in ROUTE_SEO ? parent : '/';
   };
 
   return (
@@ -77,9 +73,9 @@ const Nav = () => {
         <div className="nav-inner">
           <div className="nav-left">
             {notHome ? (
-              <a href={getFallbackUrl()} onClick={handleBack} className="nav-back">
+              <Link href={parentOf(pathname)} className="nav-back">
                 ← {t('nav.back')}
-              </a>
+              </Link>
             ) : (
               <Link href="/" className="nav-wordmark" onClick={handleWordmarkClick}>DC</Link>
             )}

@@ -109,7 +109,7 @@
      against the letterforms, which goes muddy on the light palettes. */
   text-shadow:
     2px 2px 0 var(--bg),
-    5px 5px 0 var(--heading-shadow);
+    7px 7px 0 var(--heading-shadow);
 }
 
 /* Dark: fade the shadow accent when the DC tile cycles it. */

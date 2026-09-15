@@ -39,8 +39,9 @@ export default function AnimatedFavicon() {
 
     draw()
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    // Keeps running in background tabs so the icon animates in the tab strip;
+    // browsers throttle hidden-tab timers, but 1s is already at that floor.
     const timer = reduceMotion ? null : setInterval(() => {
-      if (document.hidden) return
       // Step backwards so stripes travel down-right.
       offset = (offset - 1 + BAND * COLORS.length) % (BAND * COLORS.length)
       draw()

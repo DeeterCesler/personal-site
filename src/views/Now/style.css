@@ -9,39 +9,45 @@
     height: 100%;
 }
 
-/* Responsive grid for cards */
-.main-text {
+/* Three cards per row, shrinking to fit. No gap: each card is 105% of its
+   column, so neighbours overlap by 5% of a card width. 333px * 1.05 = the
+   350px card cap. */
+.now .main-text {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(3, minmax(0, 333px));
+    column-gap: 0;
+    row-gap: 2rem;
     width: 100%;
     /* Full container width so the grid's right edge lines up with the nav too. */
     max-width: none;
     margin: 0;
 }
 
-/* Ensure cards don't get too wide on large screens */
-.main-text .card {
+.now .main-text .card {
     /* start, not center: centring inside a wider grid column pushed the first
        card a further 36px right of the heading. */
     justify-self: start;
+    /* !important beats Card's inline 300px width; min-width overrides its
+       250px floor so three always fit. */
+    width: 105% !important;
     max-width: 350px;
+    min-width: 0;
+}
+
+/* Lift the hovered card above the neighbour it overlaps. */
+.now .main-text .card:hover {
+    z-index: 1;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .main-text {
+    .now .main-text {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
     
-    .main-text .card {
+    .now .main-text .card {
+        width: 100% !important;
         max-width: 100%;
-    }
-}
-
-@media (min-width: 1200px) {
-    .main-text {
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     }
 }

@@ -9,6 +9,7 @@ import Nav from '@/layout/Nav'
 import Footer from '@/layout/Footer'
 import ContactModal from '@/components/ContactModal'
 import ErrorBoundary from '@/components/ErrorBoundary'
+import AnimatedFavicon from '@/components/AnimatedFavicon'
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -97,6 +98,7 @@ export default function RootLayout({ children }) {
         <Providers>
           <div className="App">
             <Analytics />
+            <AnimatedFavicon />
             <Nav />
             <ContactModal />
             <ErrorBoundary>{children}</ErrorBoundary>

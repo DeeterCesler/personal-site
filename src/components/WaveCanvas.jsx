@@ -12,6 +12,17 @@ const makeWaves = (h) =>
     phase: Math.random() * Math.PI * 2,
     opacity: 0.02 + Math.random() * 0.045,
     lw: 0.5 + Math.random() * 0.9,
+    // Slow modulation so each line changes shape instead of just sliding.
+    breatheSpeed: 0.002 + Math.random() * 0.004,
+    breathePhase: Math.random() * Math.PI * 2,
+    // Secondary wave travelling the opposite way; interference with the
+    // primary wave makes the crests grow, shrink and wander over time.
+    frequency2: 0.0015 + Math.random() * 0.003,
+    speed2: -(0.002 + Math.random() * 0.005),
+    phase2: Math.random() * Math.PI * 2,
+    mix: 0.3 + Math.random() * 0.4,
+    driftSpeed: 0.001 + Math.random() * 0.002,
+    driftPhase: Math.random() * Math.PI * 2,
   }));
 
 const WaveCanvas = () => {
@@ -49,11 +60,13 @@ const WaveCanvas = () => {
         ctx.beginPath();
         ctx.strokeStyle = `rgba(${waveRgb},${w.opacity * opacityScale})`;
         ctx.lineWidth = w.lw;
+        const t = frameRef.current;
+        const amp = w.amplitude * (0.6 + 0.4 * Math.sin(t * w.breatheSpeed + w.breathePhase));
+        const baseY = w.y + Math.sin(t * w.driftSpeed + w.driftPhase) * 12;
         for (let x = 0; x <= canvas.width + 4; x += 4) {
-          const y =
-            w.y +
-            Math.sin(x * w.frequency + frameRef.current * w.speed + w.phase) *
-              w.amplitude;
+          const primary = Math.sin(x * w.frequency + t * w.speed + w.phase);
+          const secondary = Math.sin(x * w.frequency2 + t * w.speed2 + w.phase2);
+          const y = baseY + (primary * (1 - w.mix) + secondary * w.mix) * amp;
           x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
         }
         ctx.stroke();
@@ -72,6 +85,7 @@ const WaveCanvas = () => {
   }, []);
 
   return (
+    <>
     <canvas
       ref={canvasRef}
       style={{
@@ -84,6 +98,9 @@ const WaveCanvas = () => {
         pointerEvents: 'none',
       }}
     />
+    {/* Dark-mode vignette behind page content; styled in index.css. */}
+    <div className="wave-backdrop" />
+    </>
   );
 };
 

@@ -319,6 +319,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+/* Soft dark vignette rendered by WaveCanvas on every page that uses it.
+   Fixed at z-index 1, above the canvas; page content must sit at z-index 1+
+   later in the DOM (or 2) to stay on top of it. */
+.wave-backdrop {
+  display: none;
+}
+
+[data-theme="dark"] .wave-backdrop {
+  display: block;
+  position: fixed;
+  top: -20vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  height: 140vh;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
 /* Backdrop used only on /blog and /blog/*. It sits above the fixed WaveCanvas
    (z-index 0, painted earlier in the DOM) and below page content, which is
    raised to z-index 1.

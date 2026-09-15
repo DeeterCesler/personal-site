@@ -12,25 +12,6 @@
   padding: 0 var(--layout-padding-x) 80px;
 }
 
-.home-backdrop {
-  display: none;
-}
-
-[data-theme="dark"] .home-backdrop {
-  display: block;
-  position: fixed;
-  top: -20vh;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80vw;
-  height: 140vh;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.55);
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
-}
-
 /* ── Hero ── */
 .hero-section {
   padding-top: calc(60px + 10vw);

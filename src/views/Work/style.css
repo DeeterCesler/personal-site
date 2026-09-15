@@ -5,6 +5,8 @@
 }
 
 .shadow-background-work {
+    position: relative;
+    z-index: 2;
     min-height: 100vh;
     height: 100%;
 }

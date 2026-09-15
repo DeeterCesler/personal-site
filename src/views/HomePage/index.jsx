@@ -51,7 +51,6 @@ const HomePage = () => {
     <div className="home-page">
       <WaveCanvas />
 
-      <div className="home-backdrop" />
       <div className="home-content">
         {/* Hero */}
         <section className="hero-section">

@@ -1,4 +1,4 @@
-import { SITE, SITE_URL, DEFAULT_OG_IMAGE, getRouteSeo } from './routes'
+import { SITE, SITE_URL, DEFAULT_OG_IMAGE, getRouteSeo, ogImagePath } from './routes'
 
 // Builds a Next.js Metadata object for a given route from the ROUTE_SEO map.
 // This replaces the old client-side react-helmet <Seo> component: the same tags
@@ -7,8 +7,9 @@ export function buildMetadata(pathname, overrides = {}) {
   const base = getRouteSeo(pathname)
   const title = overrides.title || base.title
   const description = overrides.description || base.description
-  const image = overrides.image || DEFAULT_OG_IMAGE
   const type = overrides.type || 'website'
+  // Articles use their generated card from src/app/og/[file]/route.js.
+  const image = overrides.image || (type === 'article' ? ogImagePath(pathname) : DEFAULT_OG_IMAGE)
   const canonical = pathname === '/' ? '/' : pathname
 
   return {

@@ -4,7 +4,7 @@ import React from 'react';
 import BlogScroller from './BlogScroller';
 import './style.css'
 import MoreBlogsFooter from './MoreBlogsFooter';
-import { SITE, SITE_URL, DEFAULT_OG_IMAGE } from '../seo/routes';
+import { SITE, SITE_URL, DEFAULT_OG_IMAGE, LASTMOD } from '../seo/routes';
 
 const toIsoDate = (input) => {
     if (!input) return undefined
@@ -15,6 +15,10 @@ const toIsoDate = (input) => {
 const BlogContainer = (props) => {
     const url = props.shortRef ? `${SITE_URL}/blog/${props.shortRef}` : SITE_URL
     const datePublished = toIsoDate(props.publishedDate)
+    // LASTMOD tracks real edits for the sitemap; never report a modified date
+    // earlier than the publish date. ISO YYYY-MM-DD strings compare correctly.
+    const lastmod = props.shortRef && LASTMOD[`/blog/${props.shortRef}`]
+    const dateModified = lastmod && datePublished && lastmod > datePublished ? lastmod : datePublished
     const articleSchema = {
         '@context': 'https://schema.org',
         '@type': 'Article',
@@ -24,7 +28,7 @@ const BlogContainer = (props) => {
         image: DEFAULT_OG_IMAGE,
         mainEntityOfPage: { '@type': 'WebPage', '@id': url },
         url,
-        ...(datePublished ? { datePublished, dateModified: datePublished } : {}),
+        ...(datePublished ? { datePublished, dateModified } : {}),
     }
     return <>
         <div className="page-wash" />

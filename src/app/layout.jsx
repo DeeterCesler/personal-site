@@ -14,7 +14,7 @@ import AnimatedFavicon from '@/components/AnimatedFavicon'
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE} | product engineer, software engineer, copywriter, guerrilla marketer`,
+    default: `${SITE} | Product Engineer & Copywriter`,
     template: '%s',
   },
   description: DEFAULT_DESCRIPTION,

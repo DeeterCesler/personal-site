@@ -3,7 +3,7 @@ export const SITE_URL = 'https://www.deetercesler.com'
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-card.png`
 export const DEFAULT_DESCRIPTION = 'Personal site of Deeter Cesler, product engineer, copywriter, and guerrilla marketer. Selected work, side projects, and writing on shipping software.'
 
-const HOME_TITLE = `${SITE} | product engineer, software engineer, copywriter, guerrilla marketer`
+const HOME_TITLE = `${SITE} | Product Engineer & Copywriter`
 
 export const ROUTE_SEO = {
   '/': {
@@ -102,10 +102,10 @@ export const SITEMAP_EXCLUDE = new Set([
 export const LASTMOD = {
   '/': '2026-05-23',
   '/blog': '2026-05-23',
-  '/blog/junior': '2022-03-28',
-  '/blog/senior': '2022-03-28',
-  '/blog/security': '2022-03-28',
-  '/blog/startups-vs-big-tech': '2022-03-28',
+  '/blog/junior': '2022-08-17',
+  '/blog/senior': '2022-10-06',
+  '/blog/security': '2022-08-31',
+  '/blog/startups-vs-big-tech': '2022-04-02',
   '/blog/immutability': '2025-04-09',
   '/blog/bdd': '2025-04-09',
   '/blog/tdd': '2025-04-16',
@@ -124,4 +124,11 @@ export function getRouteSeo(pathname) {
     title: `Not Found | ${SITE}`,
     description: 'The page you are looking for does not exist.',
   }
+}
+
+// Blog post routes; each gets a generated share card at /og/<slug>.png.
+export const BLOG_POSTS = Object.keys(ROUTE_SEO).filter((p) => p.startsWith('/blog/'))
+
+export function ogImagePath(pathname) {
+  return `/og/${pathname.split('/').pop()}.png`
 }

@@ -35,7 +35,7 @@ const MoreBlogsFooter = ({shortRef}) => {
             href: "/blog/bdd"
         },
         {
-            shortRef: "testing",
+            shortRef: "tdd",
             title: "Use TDD for Faster Development",
             href: "/blog/tdd"
         },
@@ -45,7 +45,7 @@ const MoreBlogsFooter = ({shortRef}) => {
             href: "/blog/looping"
         },
         {
-            shortRef: "layout-management",
+            shortRef: "bootstrap-flexbox-css-grid",
             title: "Managing Frontend Layouts: Bootstrap vs Flexbox vs CSS Grid",
             href: "/blog/bootstrap-flexbox-css-grid"
         }

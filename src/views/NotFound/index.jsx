@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "@/i18n";
 import WaveCanvas from "../../components/WaveCanvas";
 import "./style.css";
 

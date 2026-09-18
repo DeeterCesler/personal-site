@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useTranslation, Trans } from 'react-i18next';
+import { useTranslation, Trans } from '@/i18n';
 import WaveCanvas from '../../components/WaveCanvas';
 import ProjectGrid from '../../components/ProjectGrid';
 import SectionLinks from '../../components/SectionLinks';

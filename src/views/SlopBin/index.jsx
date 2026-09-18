@@ -114,14 +114,6 @@ const projects = [
     image: '/pics/marco-icon.webp',
     alt: 'Marco Polo Tag app icon',
   },
-  {
-    id: 'travel-app',
-    title: 'Travel app',
-    caption: 'An AI-powered travel app to help you plan your trips. Still early.',
-    badge: 'in progress',
-    // No screenshot yet, so this one uses the "???" placeholder front.
-    placeholder: true,
-  },
 ];
 
 const cardVariants = {

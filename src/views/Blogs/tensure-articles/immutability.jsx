@@ -1,5 +1,3 @@
-'use client';
-
 import React from "react";
 import Codeblock from "../../../components/Codeblock";
 import BlogContainer from "../../../components/BlogContainer";

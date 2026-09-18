@@ -1,5 +1,3 @@
-'use client';
-
 import React from "react";
 import BlogContainer from "../../../components/BlogContainer";
 import WaveCanvas from "../../../components/WaveCanvas";

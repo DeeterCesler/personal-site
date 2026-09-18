@@ -5,7 +5,7 @@ import { useColor } from '@/context/ColorContext';
 import useCardState from './useCardState';
 import './style.css';
 
-const Card = ({ image = "/pics/code.jpg", alt, style, title, subtitle, caption, link, cta = "See more", link2, cta2 = "See more", isLogo }) => {
+const Card = ({ image = "/pics/code.webp", alt, style, title, subtitle, caption, link, cta = "See more", link2, cta2 = "See more", isLogo }) => {
     const { isFlipped, setIsFlipped, isHovered, setIsHovered, transform } = useCardState(2);
     const cardRef = useRef(null);
     const [color, setColor] = useState(null);

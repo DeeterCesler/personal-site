@@ -9,7 +9,7 @@ import './style.css'
 const projects = [
     {
         id: "10",
-        image: "/pics/logos/range-usa.png",
+        image: "/pics/logos/range-usa.webp",
         alt: "Range USA logo",
         // Client logo: must be sized to fit fully within the card width.
         isLogo: true,
@@ -20,7 +20,7 @@ const projects = [
     },
     {
         id: "9",
-        image: "/pics/harmonize.png",
+        image: "/pics/harmonize.webp",
         alt: "Harmonize Trainer",
         title: "Harmonize Trainer",
         subtitle: "iOS App",

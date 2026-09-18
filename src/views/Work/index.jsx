@@ -79,7 +79,7 @@ const Tech = () => {
     const techCards = [
         {
             id: "8",
-            image: "/pics/harmonize.png",
+            image: "/pics/harmonize.webp",
             alt: "Harmonize Trainer",
             title: "iOS App: Harmonize Trainer",
             caption: "A vocal harmony trainer. It plays you a note, you sing the harmony, and a live pitch meter gives you real-time feedback. Available on the App Store.",
@@ -90,7 +90,7 @@ const Tech = () => {
         },
         {
             id: "9",
-            image: "/pics/bonnie-brae.jpg",
+            image: "/pics/bonnie-brae.webp",
             alt: "Bonnie Brae Collies",
             title: "Website: Bonnie Brae Collies",
             caption: "Designed and built the website for Bonnie Brae Collies, a collie breeding program and boutique dog boarding service in Sedalia, Colorado.",
@@ -98,7 +98,7 @@ const Tech = () => {
         },
         {
             id: "3",
-            image: "/pics/prayer-app-icon-zoomed.png",
+            image: "/pics/prayer-app-icon-zoomed.webp",
             alt: "prayer",
             title: "iOS App: Prayer Groups",
             caption: "A simple app to help you pray with your friends in groups. Available on the App Store.",
@@ -106,7 +106,7 @@ const Tech = () => {
         },
         {
             id: "6",
-            image: "/pics/narratize.png",
+            image: "/pics/narratize.webp",
             alt: "Narratize",
             title: "Web Application: Narratize",
             caption: "Completed contract: supported Narratize.com, a platform for internal collaboration, documentation, and knowledge sharing."
@@ -121,7 +121,7 @@ const Tech = () => {
         },
         {
             id: "1",
-            image: "/pics/norse.jpg",
+            image: "/pics/norse.webp",
             alt: "Norse Flashcards",
             title: "iOS App: Norse Flashcards",
             caption: "Learn the old Norse runic alphabet for free. It's available on the App Store and is totally open-sourced.",
@@ -130,7 +130,7 @@ const Tech = () => {
         // Hidden (not deleted): Restore Britain Vote Modeler electoral map
         // {
         //     id: "70",
-        //     image: "/pics/restore-britain.png",
+        //     image: "/pics/restore-britain.webp",
         //     alt: "How Many Votes to Restore Britain",
         //     title: "Web App: Restore Britain Vote Modeler",
         //     caption: "An interactive electoral modeling tool built on 2024 UK General Election data, letting you simulate vote transfers and see what it would take to flip any constituency.",
@@ -157,7 +157,7 @@ const Tech = () => {
     const copywritingCards = [
         {
             id: "7",
-            image: "/pics/chca.jpg",
+            image: "/pics/chca.webp",
             alt: "CHCA Copywriting",
             title: "Web copy: CHCA Website",
             caption: "Working with Canned Spinach, I wrote the web copy for Cincinnati Hills Christian Academy website redesign.",
@@ -173,7 +173,7 @@ const Tech = () => {
         },
         {
             id: "8",
-            image: "/pics/tonys.png",
+            image: "/pics/tonys.webp",
             alt: "Tony's Family Italian Restaurante",
             title: "Web copy: Tony's Family Italian Restaurante",
             caption: "I wrote the web copy for Tony's Family Italian Restaurante, a family-owned Italian spot in Montgomery, Ohio.",

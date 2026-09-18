@@ -37,3 +37,19 @@ code-quality.md
 
 # Local tools
 gif-maker/
+
+# Original heavy images, superseded by .webp versions (kept on disk, not shipped)
+public/pics/bonnie-brae.jpg
+public/pics/chca.jpg
+public/pics/chiasm.png
+public/pics/code.jpg
+public/pics/color-qr.png
+public/pics/fitted.png
+public/pics/harmonize.png
+public/pics/logos/range-usa.png
+public/pics/marco-icon.png
+public/pics/narratize.png
+public/pics/norse.jpg
+public/pics/prayer-app-icon-zoomed.png
+public/pics/restore-britain.png
+public/pics/tonys.png

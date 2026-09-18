@@ -33,7 +33,7 @@ const projects = [
       'Custom 4-color protocol fits 2x more data per cell than black-and-white QR',
     ],
     badge: 'experiment',
-    image: '/pics/color-qr.png',
+    image: '/pics/color-qr.webp',
     alt: 'ColorCode multi-color QR generator',
   },
   {
@@ -60,7 +60,7 @@ const projects = [
     caption: 'Wrap any number and it counts up to it on page load. Configurable duration. npm i quick-count',
     link: 'https://www.npmjs.com/package/quick-count/',
     badge: 'npm package',
-    image: '/pics/code.jpg',
+    image: '/pics/code.webp',
     alt: 'Quick Counter',
   },
   {
@@ -69,7 +69,7 @@ const projects = [
     caption: "Kaprekar's constant is a fun (but useless) piece of math. Free, open-source Rust crate.",
     link: 'https://crates.io/crates/kaprekar',
     badge: 'rust crate',
-    image: '/pics/code.jpg',
+    image: '/pics/code.webp',
     alt: 'Kaprekar Rust crate',
   },
   {
@@ -78,7 +78,7 @@ const projects = [
     caption: 'Interactive tool for building and visualizing chiastic structures in biblical texts: color-coded, indented, and shareable.',
     link: 'https://splendid-selkie-d0f26a.netlify.app/',
     badge: 'web tool',
-    image: '/pics/chiasm.png',
+    image: '/pics/chiasm.webp',
     alt: 'Chiasm Builder showing Genesis flood narrative chiastic structure',
   },
 
@@ -89,7 +89,7 @@ const projects = [
     link: 'https://usefitted.com',
     cta: 'usefitted.com →',
     badge: 'web app',
-    image: '/pics/fitted.png',
+    image: '/pics/fitted.webp',
     alt: 'Fitted resume tailoring interface',
   },
   {
@@ -111,7 +111,7 @@ const projects = [
     link: 'https://inspiring-banoffee-668346.netlify.app/',
     cta: 'Try the prototype →',
     badge: 'prototype',
-    image: '/pics/marco-icon.png',
+    image: '/pics/marco-icon.webp',
     alt: 'Marco Polo Tag app icon',
   },
   {

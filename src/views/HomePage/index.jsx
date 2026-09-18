@@ -19,7 +19,7 @@ const projects = [
   },
   {
     id: '2',
-    image: '/pics/prayer-app-icon-zoomed.png',
+    image: '/pics/prayer-app-icon-zoomed.webp',
     alt: 'Prayer Groups',
     title: 'iOS App: Prayer Groups',
     caption: 'A simple app to help you pray with your friends in groups. Available on the App Store.',
@@ -27,7 +27,7 @@ const projects = [
   },
   {
     id: '3',
-    image: '/pics/harmonize.png',
+    image: '/pics/harmonize.webp',
     alt: 'Harmonize Trainer',
     title: 'Harmonize Trainer',
     caption:

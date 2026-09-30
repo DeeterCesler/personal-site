@@ -2,11 +2,11 @@ import React from 'react';
 import BlogContainer from "../../components/BlogContainer";
 import WaveCanvas from "../../components/WaveCanvas";
 
-const EgolessDevelopment = () => {
+const DeathOfTheDeveloperEgo = () => {
     return(
         <>
             <WaveCanvas />
-            <BlogContainer title="Egoless Development" publishedDate="September 30, 2026" shortRef="egoless-development">
+            <BlogContainer title="Death of the Developer Ego" publishedDate="September 30, 2026" shortRef="death-of-the-developer-ego">
                 <p>"AI can program better than most developers."</p>
                 <p><b>As far as I know, AI can program better than <i>any</i> developer.</b></p>
                 <p>I would love to be wrong about this, because I want to meet the impressive individual who is the <a href="https://www.poetryfoundation.org/poems/42897/john-henry" target="_blank" rel="noreferrer noopener">John Henry</a> of our time.</p>
@@ -39,4 +39,4 @@ const EgolessDevelopment = () => {
     )
 }
 
-export default EgolessDevelopment;
+export default DeathOfTheDeveloperEgo;

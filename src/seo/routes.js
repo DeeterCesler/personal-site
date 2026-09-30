@@ -14,8 +14,8 @@ export const ROUTE_SEO = {
     title: `Writing | ${SITE}`,
     description: 'Essays and notes on software, shipping, and side projects by Deeter Cesler.',
   },
-  '/blog/egoless-development': {
-    title: `Egoless Development | ${SITE}`,
+  '/blog/death-of-the-developer-ego': {
+    title: `Death of the Developer Ego | ${SITE}`,
     description: 'AI writes better code than any developer. What is left for developers is business judgment, taste, and stacking skills outside the code silo.',
   },
   '/blog/junior': {
@@ -106,7 +106,7 @@ export const SITEMAP_EXCLUDE = new Set([
 export const LASTMOD = {
   '/': '2026-05-23',
   '/blog': '2026-09-30',
-  '/blog/egoless-development': '2026-09-30',
+  '/blog/death-of-the-developer-ego': '2026-09-30',
   '/blog/junior': '2022-08-17',
   '/blog/senior': '2022-10-06',
   '/blog/security': '2022-08-31',

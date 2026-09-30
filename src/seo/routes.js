@@ -14,6 +14,10 @@ export const ROUTE_SEO = {
     title: `Writing | ${SITE}`,
     description: 'Essays and notes on software, shipping, and side projects by Deeter Cesler.',
   },
+  '/blog/egoless-development': {
+    title: `Egoless Development | ${SITE}`,
+    description: 'AI writes better code than any developer. What is left for developers is business judgment, taste, and stacking skills outside the code silo.',
+  },
   '/blog/junior': {
     title: `6 Ways to De-Junior Your Code | ${SITE}`,
     description: 'Six small habits that quietly separate junior code from senior code.',
@@ -101,7 +105,8 @@ export const SITEMAP_EXCLUDE = new Set([
 // even if you forget to add it here. Update when a page's content changes.
 export const LASTMOD = {
   '/': '2026-05-23',
-  '/blog': '2026-05-23',
+  '/blog': '2026-09-30',
+  '/blog/egoless-development': '2026-09-30',
   '/blog/junior': '2022-08-17',
   '/blog/senior': '2022-10-06',
   '/blog/security': '2022-08-31',

@@ -5,6 +5,7 @@ import WaveCanvas from "../components/WaveCanvas";
 import "./Blog.css";
 
 const articles = [
+  { title: "Egoless Development", href: "/blog/egoless-development" },
   { title: "3 Ways a Senior Thinks", href: "/blog/senior" },
   { title: "8 Security Principles EVERY Software Dev Should Know", href: "/blog/security" },
   {

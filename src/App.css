@@ -619,6 +619,16 @@ body {
   margin: 0 0 1.4rem 0;
 }
 
+.blog-text > .blog-image {
+  display: block;
+  max-width: 36rem;
+  width: 100%;
+  height: auto;
+  margin: 0 0 1.4rem 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
 .blog-text p:last-child,
 .blog-text > ul:last-child {
   margin-bottom: 0;

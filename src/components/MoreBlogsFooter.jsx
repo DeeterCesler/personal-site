@@ -5,6 +5,11 @@ import { useEffect, useState } from 'react';
 const MoreBlogsFooter = ({shortRef}) => {
     const blogs = [
         {
+            shortRef: "egoless-development",
+            title: "Egoless Development",
+            href: "/blog/egoless-development"
+        },
+        {
             shortRef: "security",
             title: "8 Security Principles EVERY Software Dev Should Know",
             href: "/blog/security"

@@ -20,8 +20,7 @@ const svg = `
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect width="1200" height="630" fill="url(#glow)"/>
   <text x="80" y="240" font-family="Helvetica, Arial, sans-serif" font-size="96" font-weight="700" fill="#ffffff">Deeter Cesler</text>
-  <text x="80" y="320" font-family="Helvetica, Arial, sans-serif" font-size="40" font-weight="400" fill="#c9cdd6">product engineer, copywriter,</text>
-  <text x="80" y="372" font-family="Helvetica, Arial, sans-serif" font-size="40" font-weight="400" fill="#c9cdd6">guerrilla marketer</text>
+  <text x="80" y="320" font-family="Helvetica, Arial, sans-serif" font-size="40" font-weight="400" fill="#c9cdd6">product engineer, copywriter</text>
   <text x="80" y="560" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="500" fill="#ff5a4e">deetercesler.com</text>
 </svg>
 `

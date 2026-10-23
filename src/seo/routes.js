@@ -1,7 +1,9 @@
 export const SITE = 'Deeter Cesler'
 export const SITE_URL = 'https://www.deetercesler.com'
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-card.png`
-export const DEFAULT_DESCRIPTION = 'Personal site of Deeter Cesler, product engineer, copywriter, and guerrilla marketer. Selected work, side projects, and writing on shipping software.'
+// Animated version of og-card.png, rendered from scripts/og-video.html.
+export const DEFAULT_OG_VIDEO = { url: `${SITE_URL}/og-video.mp4`, type: 'video/mp4', width: 1200, height: 630 }
+export const DEFAULT_DESCRIPTION = 'Personal site of Deeter Cesler, product engineer and copywriter. Selected work, side projects, and writing on shipping software.'
 
 const HOME_TITLE = `${SITE} | Product Engineer & Copywriter`
 

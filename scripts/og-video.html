@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Source for public/og-video.mp4: neobrutalist name plate over fat outlined bands
+       in the site palette that sweep in one after another, then sweep off. Rendered
+       frame by frame via window.renderAt(seconds); one loop is LOOP seconds. -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 1200px; height: 630px; overflow: hidden; background: #3D5AFE; }
+    canvas, svg { position: absolute; inset: 0; }
+  </style>
+</head>
+<body>
+  <canvas id="bands" width="1200" height="630"></canvas>
+  <svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif">
+    <!-- Name plate: white card, thick black stroke, hard offset shadow (site's neobrutalist look) -->
+    <rect x="86" y="186" width="640" height="236" rx="18" fill="#000"/>
+    <rect x="72" y="172" width="640" height="236" rx="18" fill="#fff" stroke="#000" stroke-width="6"/>
+    <text x="112" y="278" font-size="84" font-weight="800" fill="#000" letter-spacing="-2">Deeter Cesler</text>
+    <text x="112" y="350" font-size="38" font-weight="600" fill="#3D5AFE">product engineer, copywriter</text>
+    <!-- URL tag -->
+    <rect x="80" y="510" width="300" height="62" rx="31" fill="#000"/>
+    <text x="230" y="551" font-size="28" font-weight="700" fill="#fff" text-anchor="middle">deetercesler.com</text>
+  </svg>
+  <script>
+    const LOOP = 6;          // seconds per loop
+    const WIPE = 1.0;        // seconds for one band to sweep in or out
+    const STAGGER = 0.16;    // delay between neighbouring bands
+    const IN_AT = 0.15, OUT_AT = 3.7;
+    // Site palette (ThemeContext PALETTE_BG) plus the orange from the old banner.
+    const COLORS = ['#FF5C8A', '#FF8A1F', '#FFE14D', '#5DE8A8'];
+    const WIDTH = 120;       // band thickness
+    const OUTLINE = 6;       // black stroke around each band
+
+    // Bands run bottom-left to top-right, fully off-canvas at both ends.
+    const A = { x: -260, y: 1060 }, B = { x: 1460, y: -120 };
+    const len = Math.hypot(B.x - A.x, B.y - A.y);
+    const dir = { x: (B.x - A.x) / len, y: (B.y - A.y) / len };
+    const normal = { x: dir.y, y: -dir.x };
+
+    const easeOut = (p) => 1 - Math.pow(1 - p, 3);
+    const easeIn = (p) => p * p * p;
+    const clamp01 = (p) => Math.min(1, Math.max(0, p));
+
+    const canvas = document.getElementById('bands');
+    const ctx = canvas.getContext('2d');
+
+    const segment = (ox, oy, from, to) => {
+      ctx.beginPath();
+      ctx.moveTo(ox + dir.x * len * from, oy + dir.y * len * from);
+      ctx.lineTo(ox + dir.x * len * to, oy + dir.y * len * to);
+      ctx.stroke();
+    };
+
+    window.renderAt = (seconds) => {
+      const t = seconds % LOOP;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.lineCap = 'round';
+      COLORS.forEach((color, i) => {
+        // Head sweeps in from A to B, then the tail follows it out the same way.
+        const head = easeOut(clamp01((t - IN_AT - i * STAGGER) / WIPE));
+        const tail = easeIn(clamp01((t - OUT_AT - i * STAGGER) / WIPE));
+        if (head <= tail) return;
+        // Bands sit side by side, centred on the A-B line; band 0 is furthest up-left.
+        const off = (1.5 - i) * WIDTH + 140;
+        const ox = A.x + normal.x * off, oy = A.y + normal.y * off;
+        ctx.lineWidth = WIDTH + OUTLINE * 2;
+        ctx.strokeStyle = '#000';
+        segment(ox, oy, tail, head);
+        ctx.lineWidth = WIDTH;
+        ctx.strokeStyle = color;
+        segment(ox, oy, tail, head);
+      });
+    };
+    window.renderAt(2);
+  </script>
+</body>
+</html>

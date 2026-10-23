@@ -1,7 +1,7 @@
 import '@/index.css'
 import '@/App.css'
 
-import { SITE, SITE_URL, DEFAULT_DESCRIPTION, DEFAULT_OG_IMAGE } from '@/seo/routes'
+import { SITE, SITE_URL, DEFAULT_DESCRIPTION, DEFAULT_OG_IMAGE, DEFAULT_OG_VIDEO } from '@/seo/routes'
 import { THEME_MODE } from '@/themeMode'
 import Providers from './Providers'
 import Analytics from './Analytics'
@@ -29,6 +29,7 @@ export const metadata = {
     type: 'website',
     siteName: SITE,
     images: [DEFAULT_OG_IMAGE],
+    videos: [DEFAULT_OG_VIDEO],
   },
   twitter: {
     card: 'summary_large_image',

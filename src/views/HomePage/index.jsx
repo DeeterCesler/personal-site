@@ -3,6 +3,7 @@
 import React from 'react';
 import { useTranslation, Trans } from '@/i18n';
 import WaveCanvas from '../../components/WaveCanvas';
+import HeroBands from '../../components/HeroBands';
 import ProjectGrid from '../../components/ProjectGrid';
 import SectionLinks from '../../components/SectionLinks';
 import SocialLinks from '../../components/SocialLinks';
@@ -50,12 +51,15 @@ const HomePage = () => {
   return (
     <div className="home-page">
       <WaveCanvas />
+      <HeroBands />
 
       <div className="home-content">
         {/* Hero */}
         <section className="hero-section">
-          <h1 className="hero-name">{t('homepage.title')}</h1>
-          <p className="hero-sub"><Trans i18nKey="homepage.subtitle" components={{ bold: <strong /> }} /></p>
+          <div className="hero-plate">
+            <h1 className="hero-name">{t('homepage.title')}</h1>
+            <p className="hero-sub"><Trans i18nKey="homepage.subtitle" components={{ bold: <strong /> }} /></p>
+          </div>
         </section>
 
         {/* Work */}

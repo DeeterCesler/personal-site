@@ -1,0 +1,52 @@
+/* Sits between the fixed WaveCanvas (z 0) and .home-content (z 2), covering
+   the hero so the bands run from the left edge of the page out the top. */
+.hero-bands {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: min(100vh, 760px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-band,
+.hero-band-outline {
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 1 2;
+  stroke-dashoffset: 1;
+  animation: hero-band-sweep 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(0.25s + var(--i) * 0.14s);
+}
+
+.hero-band-outline {
+  stroke: #000;
+}
+
+/* A band the same color as this session's page background would vanish, so it
+   swaps to cobalt (the one palette color not already in the bands). */
+[data-mode="neobrutalist"][data-theme="light"][data-palette="pink"] .hero-band[data-color="pink"],
+[data-mode="neobrutalist"][data-theme="light"][data-palette="yellow"] .hero-band[data-color="yellow"],
+[data-mode="neobrutalist"][data-theme="light"][data-palette="mint"] .hero-band[data-color="mint"] {
+  stroke: #3D5AFE;
+}
+
+@keyframes hero-band-sweep {
+  to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-band,
+  .hero-band-outline {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Phones: the hero is held to 70.5svh, so end the bands with it. */
+@media (max-width: 640px) {
+  .hero-bands {
+    height: 70.5svh;
+  }
+}

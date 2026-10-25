@@ -103,6 +103,62 @@
   color: var(--text);
 }
 
+/* Neobrutalist name plate, same as the OG video: white card, ink stroke, hard
+   shadow. Ink is fixed rather than var(--border-strong) because the cobalt
+   palette's strong border is white, which would vanish on the white card. */
+[data-mode="neobrutalist"] .hero-plate {
+  width: fit-content;
+  max-width: 100%;
+  padding: 28px 40px 32px;
+  background: #FFFFFF;
+  border: 3px solid #1A1A2E;
+  border-radius: 14px;
+  box-shadow: 8px 8px 0 #1A1A2E;
+}
+
+[data-mode="neobrutalist"] .hero-plate .hero-name {
+  color: #1A1A2E;
+  text-shadow: none;
+  margin-bottom: 0.9rem;
+}
+
+[data-mode="neobrutalist"] .hero-plate .hero-sub {
+  color: #1A1A2E;
+  font-weight: 500;
+}
+
+/* The bold phrase gets a flat highlighter block from the band palette. */
+[data-mode="neobrutalist"] .hero-plate .hero-sub strong {
+  font-weight: 800;
+  color: #1A1A2E;
+  background: #FFE14D;
+  padding: 1px 6px;
+  border-radius: 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Dark: the plate goes dark with white strokes; the highlight stays yellow. */
+[data-mode="neobrutalist"][data-theme="dark"] .hero-plate {
+  background: var(--bg-secondary);
+  border-color: var(--border-strong);
+  box-shadow: 8px 8px 0 var(--border-strong);
+}
+
+[data-mode="neobrutalist"][data-theme="dark"] .hero-plate .hero-name {
+  color: var(--text);
+}
+
+[data-mode="neobrutalist"][data-theme="dark"] .hero-plate .hero-sub {
+  color: var(--text);
+}
+
+@media (max-width: 640px) {
+  [data-mode="neobrutalist"] .hero-plate {
+    padding: 20px 22px 24px;
+  }
+}
+
 [data-mode="neobrutalist"] .section-eyebrow {
   font-weight: 800;
   color: var(--text);

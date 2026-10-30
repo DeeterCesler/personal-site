@@ -88,6 +88,10 @@ export const ROUTE_SEO = {
     title: `Norse Flashcards Privacy | ${SITE}`,
     description: 'Privacy policy for the Norse Flashcards iOS app.',
   },
+  '/artweek/privacy': {
+    title: `Miami Art Week Guide Privacy | ${SITE}`,
+    description: 'Privacy policy for the Miami Art Week Guide iOS app.',
+  },
   '/notfound': {
     title: `Not Found | ${SITE}`,
     description: 'The page you are looking for does not exist.',
@@ -100,6 +104,7 @@ export const SITEMAP_EXCLUDE = new Set([
   '/notfound',
   '/norse/privacy',
   '/harmonize/privacy',
+  '/artweek/privacy',
 ])
 
 // Last-modified date per route (YYYY-MM-DD) for the sitemap. Routes missing

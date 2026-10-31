@@ -111,7 +111,7 @@ export const SITEMAP_EXCLUDE = new Set([
 // here fall back to the build date, so a newly added page still gets listed
 // even if you forget to add it here. Update when a page's content changes.
 export const LASTMOD = {
-  '/': '2026-05-23',
+  '/': '2026-10-25',
   '/blog': '2026-09-30',
   '/blog/death-of-the-developer-ego': '2026-09-30',
   '/blog/junior': '2022-08-17',
@@ -123,10 +123,10 @@ export const LASTMOD = {
   '/blog/tdd': '2025-04-16',
   '/blog/looping': '2025-04-09',
   '/blog/bootstrap-flexbox-css-grid': '2025-04-09',
-  '/work': '2026-06-04',
-  '/dungeon': '2026-04-22',
-  '/slop': '2026-06-02',
-  '/now': '2026-09-09',
+  '/work': '2026-10-31',
+  '/dungeon': '2026-09-25',
+  '/slop': '2026-09-18',
+  '/now': '2026-10-31',
   '/psychedelic': '2026-05-23',
   '/privacy': '2026-05-24',
 }

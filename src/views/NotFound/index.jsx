@@ -13,7 +13,7 @@ const NotFound = () => {
         <div className="not-found-page">
             <WaveCanvas />
             <div className="not-found-content">
-                <h1 className="header">{t('notFound.title')}</h1>
+                <h1 className="header page-header">{t('notFound.title')}</h1>
                 <h3>{t('notFound.subtitle')}</h3>
                 <p>{t('notFound.description')}</p>
                 <p>{t('notFound.description2')}</p>

@@ -8,28 +8,13 @@ import './style.css'
 
 const projects = [
     {
-        id: "10",
-        image: "/pics/logos/range-usa.webp",
-        alt: "Range USA logo",
-        // Client logo: must be sized to fit fully within the card width.
-        isLogo: true,
-        title: "Range USA",
-        subtitle: "Contract",
+        id: "11",
+        image: "/pics/artweek.webp",
+        alt: "Miami Art Week Guide app, Today screen",
+        title: "Miami Art Week Guide",
+        subtitle: "iOS App (in testing)",
         caption:
-            "Helping launch a proprietary ecommerce platform for the largest indoor shooting range in the US.",
-    },
-    {
-        id: "9",
-        image: "/pics/harmonize.webp",
-        alt: "Harmonize Trainer",
-        title: "Harmonize Trainer",
-        subtitle: "iOS App",
-        caption:
-            "Mobile app that trains your ear for harmony. It plays you a note, you sing the harmony above it, and a live pitch meter gives you real-time feedback on how close you are. Built in Flutter, now live on the App Store.",
-        link: "https://apps.apple.com/us/app/harmonize-trainer/id6781284983",
-        cta: "App Store",
-        link2: "https://harmonizetrainer.com",
-        cta2: "harmonizetrainer.com",
+            "Independent guide to the art fairs and events of Miami Art Week, with a venue map, distances, and event reminders. Currently in testing.",
     },
     {
         id: "7",
@@ -80,9 +65,9 @@ const Now = () => {
             <WaveCanvas />
             <div className="shadow-background-now">
                     <div className="container now">
-                        <h1 className="header">NOW</h1>
+                        <h1 className="header page-header">NOW</h1>
                         <div className="mini-spacer"/>
-                        <p><i>Updated September 14, 2026</i></p>
+                        <p><i>Updated October 31, 2026</i></p>
                         <div className="mini-spacer"/>
                         <div className="mini-spacer"/>
                     {isMobile ? (

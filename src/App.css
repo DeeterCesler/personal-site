@@ -411,6 +411,18 @@ body {
   color: var(--text);
 }
 
+/* Page titles only: blog article titles also use .header and stay plain. */
+[data-mode="neobrutalist"] .page-header {
+  /* Background-coloured keyline between glyph and accent; see .hero-name. */
+  text-shadow:
+    2px 2px 0 var(--bg),
+    6px 6px 0 var(--heading-shadow);
+}
+
+[data-mode="neobrutalist"][data-theme="dark"] .page-header {
+  transition: text-shadow 0.25s ease;
+}
+
 @media only screen and (min-width: 640px) {
   .headline {
     font-size: 2.7em;
